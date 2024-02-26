@@ -1,0 +1,204 @@
+With 1000 epochs of training:
+
+1/1 [==============================] - 0s 61ms/step
+Predicted sparsity level for MDP 0: [[0.5914718]], actual sparsity level: 0.52, Squared error: 0.00510821957141161
+1/1 [==============================] - 0s 24ms/step
+Predicted sparsity level for MDP 1: [[0.7909436]], actual sparsity level: 0.85, Squared error: 0.003487658454105258
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 2: [[0.48843944]], actual sparsity level: 0.33, Squared error: 0.025103053078055382
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 3: [[0.47856507]], actual sparsity level: 0.75, Squared error: 0.07367692142724991
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 4: [[0.7941439]], actual sparsity level: 0.53, Squared error: 0.06977201998233795
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 5: [[0.53794074]], actual sparsity level: 0.66, Squared error: 0.014898469671607018
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 6: [[0.32732397]], actual sparsity level: 0.19, Squared error: 0.01885787397623062
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 7: [[0.4993768]], actual sparsity level: 0.88, Squared error: 0.14487402141094208
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 8: [[0.8233313]], actual sparsity level: 0.56, Squared error: 0.06934337317943573
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 9: [[0.24373436]], actual sparsity level: 0.29, Squared error: 0.00214050873182714
+1/1 [==============================] - 0s 32ms/step
+Predicted sparsity level for MDP 10: [[0.44304585]], actual sparsity level: 0.9, Squared error: 0.2088070660829544
+1/1 [==============================] - 0s 35ms/step
+Predicted sparsity level for MDP 11: [[0.48913777]], actual sparsity level: 0.55, Squared error: 0.0037042126059532166
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 12: [[0.7562109]], actual sparsity level: 0.14, Squared error: 0.3797159194946289
+1/1 [==============================] - 0s 33ms/step
+Predicted sparsity level for MDP 13: [[0.69564927]], actual sparsity level: 0.92, Squared error: 0.050333257764577866
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 14: [[0.6573936]], actual sparsity level: 0.79, Squared error: 0.01758446916937828
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 15: [[0.35189268]], actual sparsity level: 0.07, Squared error: 0.07946348935365677
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 16: [[0.22197793]], actual sparsity level: 0.26, Squared error: 0.001445676782168448
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 17: [[0.4348629]], actual sparsity level: 0.34, Squared error: 0.008998971432447433
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 18: [[0.38419706]], actual sparsity level: 0.17, Squared error: 0.04588037729263306
+1/1 [==============================] - 0s 25ms/step
+Predicted sparsity level for MDP 19: [[0.94335896]], actual sparsity level: 0.86, Squared error: 0.006948713678866625
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 20: [[0.59947884]], actual sparsity level: 0.38, Squared error: 0.048170965164899826
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 21: [[0.53838545]], actual sparsity level: 0.87, Squared error: 0.10996821522712708
+1/1 [==============================] - 0s 45ms/step
+Predicted sparsity level for MDP 22: [[0.5411903]], actual sparsity level: 0.62, Squared error: 0.006210965570062399
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 23: [[0.41527626]], actual sparsity level: 0.01, Squared error: 0.16424885392189026
+1/1 [==============================] - 0s 25ms/step
+Predicted sparsity level for MDP 24: [[0.52347314]], actual sparsity level: 0.08, Squared error: 0.19666844606399536
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 25: [[0.7315968]], actual sparsity level: 0.95, Squared error: 0.0476999394595623
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 26: [[0.60108674]], actual sparsity level: 0.63, Squared error: 0.0008359765633940697
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 27: [[0.9624966]], actual sparsity level: 0.91, Squared error: 0.0027558880392462015
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 28: [[0.3987481]], actual sparsity level: 0.48, Squared error: 0.006601869594305754
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 29: [[0.32711503]], actual sparsity level: 0.32, Squared error: 5.0623741117306054e-05
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 30: [[0.76145506]], actual sparsity level: 0.81, Squared error: 0.0023566114250570536
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 31: [[0.77199006]], actual sparsity level: 0.94, Squared error: 0.028227338567376137
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 32: [[0.3379138]], actual sparsity level: 0.21, Squared error: 0.016361944377422333
+1/1 [==============================] - 0s 25ms/step
+Predicted sparsity level for MDP 33: [[0.52617246]], actual sparsity level: 0.59, Squared error: 0.00407395139336586
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 34: [[0.5832213]], actual sparsity level: 0.82, Squared error: 0.05606414005160332
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 35: [[0.86837566]], actual sparsity level: 0.78, Squared error: 0.007810262031853199
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 36: [[0.66737807]], actual sparsity level: 0.58, Squared error: 0.007634929846972227
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 37: [[0.28553417]], actual sparsity level: 0.65, Squared error: 0.13283532857894897
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 38: [[0.39317456]], actual sparsity level: 0.35, Squared error: 0.0018640430644154549
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 39: [[0.6173139]], actual sparsity level: 0.22, Squared error: 0.15785835683345795
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 40: [[0.42920232]], actual sparsity level: 0.43, Squared error: 6.363076749948959e-07
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 41: [[0.34863633]], actual sparsity level: 0.2, Squared error: 0.022092757746577263
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 42: [[0.41622788]], actual sparsity level: 0.36, Squared error: 0.0031615726184099913
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 43: [[0.70833826]], actual sparsity level: 0.83, Squared error: 0.014801574870944023
+1/1 [==============================] - 0s 32ms/step
+Predicted sparsity level for MDP 44: [[0.30742016]], actual sparsity level: 0.15, Squared error: 0.024781106039881706
+1/1 [==============================] - 0s 33ms/step
+Predicted sparsity level for MDP 45: [[0.40077814]], actual sparsity level: 0.23, Squared error: 0.029165172949433327
+1/1 [==============================] - 0s 26ms/step
+Predicted sparsity level for MDP 46: [[0.31633785]], actual sparsity level: 0.42, Squared error: 0.010745838284492493
+1/1 [==============================] - 0s 25ms/step
+Predicted sparsity level for MDP 47: [[0.44634682]], actual sparsity level: 0.03, Squared error: 0.1733446717262268
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 48: [[0.39452755]], actual sparsity level: 0.31, Squared error: 0.007144907023757696
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 49: [[0.5048516]], actual sparsity level: 0.06, Squared error: 0.1978929191827774
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 50: [[0.38660586]], actual sparsity level: 0.16, Squared error: 0.05135021731257439
+1/1 [==============================] - 0s 25ms/step
+Predicted sparsity level for MDP 51: [[0.94335896]], actual sparsity level: 0.98, Squared error: 0.0013425673823803663
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 52: [[0.75044]], actual sparsity level: 0.93, Squared error: 0.03224179521203041
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 53: [[0.457188]], actual sparsity level: 0.68, Squared error: 0.049645185470581055
+1/1 [==============================] - 0s 26ms/step
+Predicted sparsity level for MDP 54: [[0.546435]], actual sparsity level: 0.7, Squared error: 0.023582205176353455
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 55: [[0.33020228]], actual sparsity level: 0.11, Squared error: 0.0484890453517437
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 56: [[0.48863524]], actual sparsity level: 0.41, Squared error: 0.006183501798659563
+1/1 [==============================] - 0s 32ms/step
+Predicted sparsity level for MDP 57: [[0.42783052]], actual sparsity level: 0.09, Squared error: 0.1141294538974762
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 58: [[0.7033924]], actual sparsity level: 0.76, Squared error: 0.0032044209074229
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 59: [[0.2978057]], actual sparsity level: 0.71, Squared error: 0.16990412771701813
+1/1 [==============================] - 0s 26ms/step
+Predicted sparsity level for MDP 60: [[0.5022541]], actual sparsity level: 0.49, Squared error: 0.00015016342513263226
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 61: [[0.37452763]], actual sparsity level: 0.4, Squared error: 0.0006488417857326567
+1/1 [==============================] - 0s 26ms/step
+Predicted sparsity level for MDP 62: [[0.52813375]], actual sparsity level: 0.61, Squared error: 0.00670208502560854
+1/1 [==============================] - 0s 26ms/step
+Predicted sparsity level for MDP 63: [[0.3759278]], actual sparsity level: 0.46, Squared error: 0.007068135309964418
+1/1 [==============================] - 0s 26ms/step
+Predicted sparsity level for MDP 64: [[0.8998078]], actual sparsity level: 0.72, Squared error: 0.03233083710074425
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 65: [[0.5344831]], actual sparsity level: 0.54, Squared error: 3.0436696761171333e-05
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 66: [[0.6167555]], actual sparsity level: 0.64, Squared error: 0.0005403067916631699
+1/1 [==============================] - 0s 33ms/step
+Predicted sparsity level for MDP 67: [[0.8030476]], actual sparsity level: 0.74, Squared error: 0.003974998369812965
+1/1 [==============================] - 0s 32ms/step
+Predicted sparsity level for MDP 68: [[0.32955718]], actual sparsity level: 0.1, Squared error: 0.05269649997353554
+1/1 [==============================] - 0s 32ms/step
+Predicted sparsity level for MDP 69: [[0.2668286]], actual sparsity level: 0.25, Squared error: 0.00028320166165940464
+1/1 [==============================] - 0s 26ms/step
+Predicted sparsity level for MDP 70: [[0.7998354]], actual sparsity level: 0.89, Squared error: 0.008129655383527279
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 71: [[0.71463025]], actual sparsity level: 0.77, Squared error: 0.0030658075120300055
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 72: [[0.4218221]], actual sparsity level: 0.12, Squared error: 0.09109658002853394
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 73: [[0.5739709]], actual sparsity level: 0.37, Squared error: 0.04160413146018982
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 74: [[0.34019452]], actual sparsity level: 0.18, Squared error: 0.02566228248178959
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 75: [[0.50344795]], actual sparsity level: 0.44, Squared error: 0.0040256427600979805
+1/1 [==============================] - 0s 25ms/step
+Predicted sparsity level for MDP 76: [[0.9624966]], actual sparsity level: 0.8, Squared error: 0.026405133306980133
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 77: [[0.47021472]], actual sparsity level: 0.69, Squared error: 0.04830556735396385
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 78: [[0.45877898]], actual sparsity level: 0.13, Squared error: 0.10809561610221863
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 79: [[0.9624966]], actual sparsity level: 0.97, Squared error: 5.630176019622013e-05
+1/1 [==============================] - 0s 33ms/step
+Predicted sparsity level for MDP 80: [[0.37367758]], actual sparsity level: 0.27, Squared error: 0.010749038308858871
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 81: [[0.54542077]], actual sparsity level: 0.6, Squared error: 0.0029788953252136707
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 82: [[0.37290692]], actual sparsity level: 0.04, Squared error: 0.11082702875137329
+1/1 [==============================] - 0s 33ms/step
+Predicted sparsity level for MDP 83: [[-0.07466182]], actual sparsity level: 0.39, Squared error: 0.21591059863567352
+1/1 [==============================] - 0s 33ms/step
+Predicted sparsity level for MDP 84: [[0.40760058]], actual sparsity level: 0.28, Squared error: 0.016281908378005028
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 85: [[0.47113812]], actual sparsity level: 0.5, Squared error: 0.0008330081473104656
+1/1 [==============================] - 0s 28ms/step
+Predicted sparsity level for MDP 86: [[0.7539277]], actual sparsity level: 0.73, Squared error: 0.0005725342780351639
+1/1 [==============================] - 0s 29ms/step
+Predicted sparsity level for MDP 87: [[0.77199006]], actual sparsity level: 0.99, Squared error: 0.04752833768725395
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 88: [[0.55186534]], actual sparsity level: 0.45, Squared error: 0.010376549325883389
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 89: [[0.28494674]], actual sparsity level: 0.47, Squared error: 0.034244708716869354
+1/1 [==============================] - 0s 27ms/step
+Predicted sparsity level for MDP 90: [[0.5249729]], actual sparsity level: 0.3, Squared error: 0.050612807273864746
+1/1 [==============================] - 0s 32ms/step
+Predicted sparsity level for MDP 91: [[0.3477575]], actual sparsity level: 0.24, Squared error: 0.011611677706241608
+1/1 [==============================] - 0s 36ms/step
+Predicted sparsity level for MDP 92: [[0.30244714]], actual sparsity level: 0.84, Squared error: 0.28896304965019226
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 93: [[0.611248]], actual sparsity level: 0.0, Squared error: 0.37362414598464966
+1/1 [==============================] - 0s 30ms/step
+Predicted sparsity level for MDP 94: [[0.21555035]], actual sparsity level: 0.02, Squared error: 0.038239941000938416
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 95: [[0.50258887]], actual sparsity level: 0.57, Squared error: 0.004544259514659643
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 96: [[0.2572164]], actual sparsity level: 0.05, Squared error: 0.042938634753227234
+1/1 [==============================] - 0s 32ms/step
+Predicted sparsity level for MDP 97: [[0.8030476]], actual sparsity level: 0.96, Squared error: 0.024634050205349922
+1/1 [==============================] - 0s 31ms/step
+Predicted sparsity level for MDP 98: [[0.55138993]], actual sparsity level: 0.51, Squared error: 0.001713127363473177
+1/1 [==============================] - 0s 53ms/step
+Predicted sparsity level for MDP 99: [[0.68121797]], actual sparsity level: 0.67, Squared error: 0.00012584244541358203
+Mean squared error: 0.04959828967375586
+Expected squared error: when x, y ~ U[0, 1], E[(x-y)^2] = 1/6 = 0.166...
