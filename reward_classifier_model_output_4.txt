@@ -1,0 +1,404 @@
+When input layer is randomized (as a control)
+
+Epoch 1/100
+3/3 [==============================] - 2s 149ms/step - loss: 0.5440 - mae: 0.6127 - val_loss: 0.1011 - val_mae: 0.2670
+Epoch 2/100
+3/3 [==============================] - 0s 41ms/step - loss: 0.2507 - mae: 0.3936 - val_loss: 0.2433 - val_mae: 0.4090
+Epoch 3/100
+3/3 [==============================] - 0s 40ms/step - loss: 0.2921 - mae: 0.4325 - val_loss: 0.0876 - val_mae: 0.2482
+Epoch 4/100
+3/3 [==============================] - 0s 40ms/step - loss: 0.1660 - mae: 0.3241 - val_loss: 0.0968 - val_mae: 0.2543
+Epoch 5/100
+3/3 [==============================] - 0s 42ms/step - loss: 0.1587 - mae: 0.3246 - val_loss: 0.0959 - val_mae: 0.2566
+Epoch 6/100
+3/3 [==============================] - 0s 44ms/step - loss: 0.1307 - mae: 0.2886 - val_loss: 0.1162 - val_mae: 0.2978
+Epoch 7/100
+3/3 [==============================] - 0s 46ms/step - loss: 0.1404 - mae: 0.3014 - val_loss: 0.1227 - val_mae: 0.3087
+Epoch 8/100
+3/3 [==============================] - 0s 43ms/step - loss: 0.1129 - mae: 0.2785 - val_loss: 0.0981 - val_mae: 0.2664
+Epoch 9/100
+3/3 [==============================] - 0s 83ms/step - loss: 0.0890 - mae: 0.2589 - val_loss: 0.1000 - val_mae: 0.2542
+Epoch 10/100
+3/3 [==============================] - 0s 34ms/step - loss: 0.1402 - mae: 0.3072 - val_loss: 0.0976 - val_mae: 0.2609
+Epoch 11/100
+3/3 [==============================] - 0s 48ms/step - loss: 0.0869 - mae: 0.2382 - val_loss: 0.1073 - val_mae: 0.2896
+Epoch 12/100
+3/3 [==============================] - 0s 52ms/step - loss: 0.1199 - mae: 0.2740 - val_loss: 0.1130 - val_mae: 0.2981
+Epoch 13/100
+3/3 [==============================] - 0s 52ms/step - loss: 0.0829 - mae: 0.2346 - val_loss: 0.0962 - val_mae: 0.2615
+Epoch 14/100
+3/3 [==============================] - 0s 46ms/step - loss: 0.0869 - mae: 0.2425 - val_loss: 0.0943 - val_mae: 0.2536
+Epoch 15/100
+3/3 [==============================] - 0s 39ms/step - loss: 0.0990 - mae: 0.2694 - val_loss: 0.0953 - val_mae: 0.2592
+Epoch 16/100
+3/3 [==============================] - 0s 32ms/step - loss: 0.1026 - mae: 0.2667 - val_loss: 0.1009 - val_mae: 0.2728
+Epoch 17/100
+3/3 [==============================] - 0s 38ms/step - loss: 0.0712 - mae: 0.2162 - val_loss: 0.0994 - val_mae: 0.2722
+Epoch 18/100
+3/3 [==============================] - 0s 39ms/step - loss: 0.0802 - mae: 0.2257 - val_loss: 0.0950 - val_mae: 0.2660
+Epoch 19/100
+3/3 [==============================] - 0s 44ms/step - loss: 0.0619 - mae: 0.1925 - val_loss: 0.0935 - val_mae: 0.2627
+Epoch 20/100
+3/3 [==============================] - 0s 44ms/step - loss: 0.0793 - mae: 0.2225 - val_loss: 0.0938 - val_mae: 0.2626
+Epoch 21/100
+3/3 [==============================] - 0s 46ms/step - loss: 0.0717 - mae: 0.2102 - val_loss: 0.0946 - val_mae: 0.2643
+Epoch 22/100
+3/3 [==============================] - 0s 42ms/step - loss: 0.0678 - mae: 0.2135 - val_loss: 0.0957 - val_mae: 0.2648
+Epoch 23/100
+3/3 [==============================] - 0s 38ms/step - loss: 0.0771 - mae: 0.2230 - val_loss: 0.0986 - val_mae: 0.2694
+Epoch 24/100
+3/3 [==============================] - 0s 36ms/step - loss: 0.0640 - mae: 0.2094 - val_loss: 0.1002 - val_mae: 0.2720
+Epoch 25/100
+3/3 [==============================] - 0s 33ms/step - loss: 0.0724 - mae: 0.2224 - val_loss: 0.0980 - val_mae: 0.2670
+Epoch 26/100
+3/3 [==============================] - 0s 34ms/step - loss: 0.0555 - mae: 0.1970 - val_loss: 0.0979 - val_mae: 0.2670
+Epoch 27/100
+3/3 [==============================] - 0s 40ms/step - loss: 0.0578 - mae: 0.1916 - val_loss: 0.0973 - val_mae: 0.2644
+Epoch 28/100
+3/3 [==============================] - 0s 43ms/step - loss: 0.0619 - mae: 0.1973 - val_loss: 0.0953 - val_mae: 0.2581
+Epoch 29/100
+3/3 [==============================] - 0s 43ms/step - loss: 0.0434 - mae: 0.1600 - val_loss: 0.0932 - val_mae: 0.2510
+Epoch 30/100
+3/3 [==============================] - 0s 52ms/step - loss: 0.0428 - mae: 0.1676 - val_loss: 0.0954 - val_mae: 0.2489
+Epoch 31/100
+3/3 [==============================] - 0s 42ms/step - loss: 0.0392 - mae: 0.1587 - val_loss: 0.0995 - val_mae: 0.2539
+Epoch 32/100
+3/3 [==============================] - 0s 36ms/step - loss: 0.0391 - mae: 0.1600 - val_loss: 0.0990 - val_mae: 0.2517
+Epoch 33/100
+3/3 [==============================] - 0s 32ms/step - loss: 0.0510 - mae: 0.1808 - val_loss: 0.1077 - val_mae: 0.2852
+Epoch 34/100
+3/3 [==============================] - 0s 31ms/step - loss: 0.0472 - mae: 0.1726 - val_loss: 0.0971 - val_mae: 0.2639
+Epoch 35/100
+3/3 [==============================] - 0s 46ms/step - loss: 0.0392 - mae: 0.1496 - val_loss: 0.0928 - val_mae: 0.2429
+Epoch 36/100
+3/3 [==============================] - 0s 48ms/step - loss: 0.0467 - mae: 0.1751 - val_loss: 0.0939 - val_mae: 0.2477
+Epoch 37/100
+3/3 [==============================] - 0s 30ms/step - loss: 0.0447 - mae: 0.1612 - val_loss: 0.0942 - val_mae: 0.2508
+Epoch 38/100
+3/3 [==============================] - 0s 32ms/step - loss: 0.0351 - mae: 0.1446 - val_loss: 0.0959 - val_mae: 0.2544
+Epoch 39/100
+3/3 [==============================] - 0s 30ms/step - loss: 0.0311 - mae: 0.1364 - val_loss: 0.0987 - val_mae: 0.2605
+Epoch 40/100
+3/3 [==============================] - 0s 36ms/step - loss: 0.0319 - mae: 0.1433 - val_loss: 0.1018 - val_mae: 0.2670
+Epoch 41/100
+3/3 [==============================] - 0s 50ms/step - loss: 0.0319 - mae: 0.1306 - val_loss: 0.1005 - val_mae: 0.2668
+Epoch 42/100
+3/3 [==============================] - 0s 45ms/step - loss: 0.0351 - mae: 0.1450 - val_loss: 0.0993 - val_mae: 0.2648
+Epoch 43/100
+3/3 [==============================] - 0s 40ms/step - loss: 0.0277 - mae: 0.1334 - val_loss: 0.0994 - val_mae: 0.2616
+Epoch 44/100
+3/3 [==============================] - 0s 40ms/step - loss: 0.0177 - mae: 0.1032 - val_loss: 0.0987 - val_mae: 0.2557
+Epoch 45/100
+3/3 [==============================] - 0s 43ms/step - loss: 0.0347 - mae: 0.1475 - val_loss: 0.0965 - val_mae: 0.2526
+Epoch 46/100
+3/3 [==============================] - 0s 54ms/step - loss: 0.0238 - mae: 0.1183 - val_loss: 0.0929 - val_mae: 0.2486
+Epoch 47/100
+3/3 [==============================] - 0s 67ms/step - loss: 0.0301 - mae: 0.1334 - val_loss: 0.0915 - val_mae: 0.2477
+Epoch 48/100
+3/3 [==============================] - 0s 65ms/step - loss: 0.0218 - mae: 0.1178 - val_loss: 0.0902 - val_mae: 0.2474
+Epoch 49/100
+3/3 [==============================] - 0s 69ms/step - loss: 0.0259 - mae: 0.1205 - val_loss: 0.0882 - val_mae: 0.2416
+Epoch 50/100
+3/3 [==============================] - 0s 65ms/step - loss: 0.0322 - mae: 0.1386 - val_loss: 0.0858 - val_mae: 0.2360
+Epoch 51/100
+3/3 [==============================] - 0s 67ms/step - loss: 0.0306 - mae: 0.1324 - val_loss: 0.0990 - val_mae: 0.2655
+Epoch 52/100
+3/3 [==============================] - 0s 68ms/step - loss: 0.0365 - mae: 0.1467 - val_loss: 0.0954 - val_mae: 0.2497
+Epoch 53/100
+3/3 [==============================] - 0s 67ms/step - loss: 0.0198 - mae: 0.1109 - val_loss: 0.1004 - val_mae: 0.2543
+Epoch 54/100
+3/3 [==============================] - 0s 69ms/step - loss: 0.0253 - mae: 0.1295 - val_loss: 0.1010 - val_mae: 0.2586
+Epoch 55/100
+3/3 [==============================] - 0s 66ms/step - loss: 0.0237 - mae: 0.1171 - val_loss: 0.0967 - val_mae: 0.2542
+Epoch 56/100
+3/3 [==============================] - 0s 68ms/step - loss: 0.0229 - mae: 0.1196 - val_loss: 0.0921 - val_mae: 0.2534
+Epoch 57/100
+3/3 [==============================] - 0s 49ms/step - loss: 0.0212 - mae: 0.1127 - val_loss: 0.0865 - val_mae: 0.2463
+Epoch 58/100
+3/3 [==============================] - 0s 66ms/step - loss: 0.0215 - mae: 0.1148 - val_loss: 0.0847 - val_mae: 0.2444
+Epoch 59/100
+3/3 [==============================] - 0s 110ms/step - loss: 0.0203 - mae: 0.1123 - val_loss: 0.0877 - val_mae: 0.2471
+Epoch 60/100
+3/3 [==============================] - 0s 53ms/step - loss: 0.0205 - mae: 0.1152 - val_loss: 0.1009 - val_mae: 0.2681
+Epoch 61/100
+3/3 [==============================] - 0s 56ms/step - loss: 0.0271 - mae: 0.1282 - val_loss: 0.0972 - val_mae: 0.2574
+Epoch 62/100
+3/3 [==============================] - 0s 64ms/step - loss: 0.0195 - mae: 0.1115 - val_loss: 0.1001 - val_mae: 0.2618
+Epoch 63/100
+3/3 [==============================] - 0s 71ms/step - loss: 0.0213 - mae: 0.1132 - val_loss: 0.1030 - val_mae: 0.2638
+Epoch 64/100
+3/3 [==============================] - 0s 71ms/step - loss: 0.0213 - mae: 0.1059 - val_loss: 0.1009 - val_mae: 0.2632
+Epoch 65/100
+3/3 [==============================] - 0s 72ms/step - loss: 0.0192 - mae: 0.1115 - val_loss: 0.0924 - val_mae: 0.2475
+Epoch 66/100
+3/3 [==============================] - 0s 71ms/step - loss: 0.0255 - mae: 0.1169 - val_loss: 0.0873 - val_mae: 0.2441
+Epoch 67/100
+3/3 [==============================] - 0s 71ms/step - loss: 0.0211 - mae: 0.1116 - val_loss: 0.0884 - val_mae: 0.2564
+Epoch 68/100
+3/3 [==============================] - 0s 66ms/step - loss: 0.0195 - mae: 0.1111 - val_loss: 0.0798 - val_mae: 0.2353
+Epoch 69/100
+3/3 [==============================] - 0s 65ms/step - loss: 0.0187 - mae: 0.1054 - val_loss: 0.0774 - val_mae: 0.2247
+Epoch 70/100
+3/3 [==============================] - 0s 60ms/step - loss: 0.0291 - mae: 0.1327 - val_loss: 0.0790 - val_mae: 0.2330
+Epoch 71/100
+3/3 [==============================] - 0s 66ms/step - loss: 0.0156 - mae: 0.1015 - val_loss: 0.0852 - val_mae: 0.2467
+Epoch 72/100
+3/3 [==============================] - 0s 86ms/step - loss: 0.0241 - mae: 0.1197 - val_loss: 0.0814 - val_mae: 0.2386
+Epoch 73/100
+3/3 [==============================] - 0s 66ms/step - loss: 0.0265 - mae: 0.1222 - val_loss: 0.0807 - val_mae: 0.2358
+Epoch 74/100
+3/3 [==============================] - 0s 76ms/step - loss: 0.0250 - mae: 0.1293 - val_loss: 0.0875 - val_mae: 0.2499
+Epoch 75/100
+3/3 [==============================] - 0s 70ms/step - loss: 0.0172 - mae: 0.1019 - val_loss: 0.0896 - val_mae: 0.2454
+Epoch 76/100
+3/3 [==============================] - 0s 75ms/step - loss: 0.0176 - mae: 0.1038 - val_loss: 0.0912 - val_mae: 0.2496
+Epoch 77/100
+3/3 [==============================] - 0s 74ms/step - loss: 0.0259 - mae: 0.1334 - val_loss: 0.0904 - val_mae: 0.2518
+Epoch 78/100
+3/3 [==============================] - 0s 72ms/step - loss: 0.0129 - mae: 0.0883 - val_loss: 0.0884 - val_mae: 0.2495
+Epoch 79/100
+3/3 [==============================] - 0s 73ms/step - loss: 0.0176 - mae: 0.1035 - val_loss: 0.0883 - val_mae: 0.2440
+Epoch 80/100
+3/3 [==============================] - 0s 72ms/step - loss: 0.0158 - mae: 0.0964 - val_loss: 0.0884 - val_mae: 0.2430
+Epoch 81/100
+3/3 [==============================] - 0s 119ms/step - loss: 0.0226 - mae: 0.1118 - val_loss: 0.0882 - val_mae: 0.2432
+Epoch 82/100
+3/3 [==============================] - 0s 51ms/step - loss: 0.0173 - mae: 0.0983 - val_loss: 0.0913 - val_mae: 0.2523
+Epoch 83/100
+3/3 [==============================] - 0s 71ms/step - loss: 0.0159 - mae: 0.0972 - val_loss: 0.0948 - val_mae: 0.2599
+Epoch 84/100
+3/3 [==============================] - 0s 70ms/step - loss: 0.0284 - mae: 0.1193 - val_loss: 0.0888 - val_mae: 0.2439
+Epoch 85/100
+3/3 [==============================] - 0s 78ms/step - loss: 0.0182 - mae: 0.1092 - val_loss: 0.0841 - val_mae: 0.2347
+Epoch 86/100
+3/3 [==============================] - 0s 76ms/step - loss: 0.0185 - mae: 0.1049 - val_loss: 0.0843 - val_mae: 0.2415
+Epoch 87/100
+3/3 [==============================] - 0s 75ms/step - loss: 0.0218 - mae: 0.1116 - val_loss: 0.0849 - val_mae: 0.2425
+Epoch 88/100
+3/3 [==============================] - 0s 78ms/step - loss: 0.0197 - mae: 0.1074 - val_loss: 0.0902 - val_mae: 0.2521
+Epoch 89/100
+3/3 [==============================] - 0s 63ms/step - loss: 0.0156 - mae: 0.0946 - val_loss: 0.0924 - val_mae: 0.2533
+Epoch 90/100
+3/3 [==============================] - 0s 68ms/step - loss: 0.0236 - mae: 0.1158 - val_loss: 0.0945 - val_mae: 0.2562
+Epoch 91/100
+3/3 [==============================] - 0s 72ms/step - loss: 0.0157 - mae: 0.1013 - val_loss: 0.0960 - val_mae: 0.2601
+Epoch 92/100
+3/3 [==============================] - 0s 79ms/step - loss: 0.0155 - mae: 0.0944 - val_loss: 0.0949 - val_mae: 0.2591
+Epoch 93/100
+3/3 [==============================] - 0s 93ms/step - loss: 0.0186 - mae: 0.0992 - val_loss: 0.0926 - val_mae: 0.2550
+Epoch 94/100
+3/3 [==============================] - 0s 71ms/step - loss: 0.0131 - mae: 0.0883 - val_loss: 0.0904 - val_mae: 0.2485
+Epoch 95/100
+3/3 [==============================] - 0s 66ms/step - loss: 0.0166 - mae: 0.0984 - val_loss: 0.0880 - val_mae: 0.2423
+Epoch 96/100
+3/3 [==============================] - 0s 60ms/step - loss: 0.0185 - mae: 0.1024 - val_loss: 0.0909 - val_mae: 0.2501
+Epoch 97/100
+3/3 [==============================] - 0s 61ms/step - loss: 0.0130 - mae: 0.0884 - val_loss: 0.0864 - val_mae: 0.2429
+Epoch 98/100
+3/3 [==============================] - 0s 59ms/step - loss: 0.0156 - mae: 0.1027 - val_loss: 0.0919 - val_mae: 0.2556
+Epoch 99/100
+3/3 [==============================] - 0s 62ms/step - loss: 0.0230 - mae: 0.1105 - val_loss: 0.0950 - val_mae: 0.2610
+Epoch 100/100
+3/3 [==============================] - 0s 58ms/step - loss: 0.0141 - mae: 0.0968 - val_loss: 0.0914 - val_mae: 0.2493
+1/1 [==============================] - 0s 185ms/step
+Predicted sparsity level for MDP 0: [[0.62991]], actual sparsity level: 0.02, Squared error: 0.37199023365974426
+1/1 [==============================] - 0s 48ms/step
+Predicted sparsity level for MDP 1: [[0.4982655]], actual sparsity level: 0.96, Squared error: 0.213198721408844
+1/1 [==============================] - 0s 90ms/step
+Predicted sparsity level for MDP 2: [[0.6605615]], actual sparsity level: 0.62, Squared error: 0.0016452351119369268
+1/1 [==============================] - 0s 70ms/step
+Predicted sparsity level for MDP 3: [[0.36456108]], actual sparsity level: 0.18, Squared error: 0.034062791615724564
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 4: [[0.34338278]], actual sparsity level: 0.12, Squared error: 0.049899861216545105
+1/1 [==============================] - 0s 71ms/step
+Predicted sparsity level for MDP 5: [[0.50263053]], actual sparsity level: 0.85, Squared error: 0.12066556513309479
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 6: [[0.3951618]], actual sparsity level: 0.23, Squared error: 0.027278421446681023
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 7: [[0.7163034]], actual sparsity level: 0.32, Squared error: 0.15705639123916626
+1/1 [==============================] - 0s 66ms/step
+Predicted sparsity level for MDP 8: [[0.5678057]], actual sparsity level: 0.66, Squared error: 0.008499792777001858
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 9: [[0.24465947]], actual sparsity level: 0.75, Squared error: 0.25536903738975525
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 10: [[0.60281134]], actual sparsity level: 0.3, Squared error: 0.09169469773769379
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 11: [[0.45882952]], actual sparsity level: 0.07, Squared error: 0.15118840336799622
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 12: [[0.40783924]], actual sparsity level: 0.1, Squared error: 0.09476500004529953
+1/1 [==============================] - 0s 79ms/step
+Predicted sparsity level for MDP 13: [[0.753629]], actual sparsity level: 0.44, Squared error: 0.09836316853761673
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 14: [[0.44441903]], actual sparsity level: 0.91, Squared error: 0.21676567196846008
+1/1 [==============================] - 0s 71ms/step
+Predicted sparsity level for MDP 15: [[0.512634]], actual sparsity level: 0.73, Squared error: 0.0472479946911335
+1/1 [==============================] - 0s 80ms/step
+Predicted sparsity level for MDP 16: [[0.3069662]], actual sparsity level: 0.17, Squared error: 0.01875973492860794
+1/1 [==============================] - 0s 68ms/step
+Predicted sparsity level for MDP 17: [[0.7953461]], actual sparsity level: 0.5, Squared error: 0.08722930401563644
+1/1 [==============================] - 0s 72ms/step
+Predicted sparsity level for MDP 18: [[0.579509]], actual sparsity level: 0.0, Squared error: 0.3358307182788849
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 19: [[0.46236122]], actual sparsity level: 0.15, Squared error: 0.0975695252418518
+1/1 [==============================] - 0s 70ms/step
+Predicted sparsity level for MDP 20: [[0.348289]], actual sparsity level: 0.35, Squared error: 2.9274565349624027e-06
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 21: [[0.6139477]], actual sparsity level: 0.84, Squared error: 0.051099635660648346
+1/1 [==============================] - 0s 82ms/step
+Predicted sparsity level for MDP 22: [[0.5304166]], actual sparsity level: 0.95, Squared error: 0.17605021595954895
+1/1 [==============================] - 0s 171ms/step
+Predicted sparsity level for MDP 23: [[0.44442976]], actual sparsity level: 0.98, Squared error: 0.28683552145957947
+1/1 [==============================] - 0s 80ms/step
+Predicted sparsity level for MDP 24: [[0.63268715]], actual sparsity level: 0.55, Squared error: 0.006837163120508194
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 25: [[0.83391]], actual sparsity level: 0.05, Squared error: 0.6145148277282715
+1/1 [==============================] - 0s 78ms/step
+Predicted sparsity level for MDP 26: [[0.3052904]], actual sparsity level: 0.88, Squared error: 0.33029112219810486
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 27: [[0.5515959]], actual sparsity level: 0.74, Squared error: 0.035496097058057785
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 28: [[0.3570971]], actual sparsity level: 0.19, Squared error: 0.027921438217163086
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 29: [[0.60852385]], actual sparsity level: 0.26, Squared error: 0.12146887928247452
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 30: [[0.3255968]], actual sparsity level: 0.63, Squared error: 0.0926612988114357
+1/1 [==============================] - 0s 77ms/step
+Predicted sparsity level for MDP 31: [[0.5567062]], actual sparsity level: 0.47, Squared error: 0.007517963647842407
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 32: [[0.5028257]], actual sparsity level: 0.25, Squared error: 0.06392082571983337
+1/1 [==============================] - 0s 84ms/step
+Predicted sparsity level for MDP 33: [[0.56205696]], actual sparsity level: 0.64, Squared error: 0.006075115408748388
+1/1 [==============================] - 0s 90ms/step
+Predicted sparsity level for MDP 34: [[0.2328187]], actual sparsity level: 0.72, Squared error: 0.2373456507921219
+1/1 [==============================] - 0s 79ms/step
+Predicted sparsity level for MDP 35: [[0.43327898]], actual sparsity level: 0.14, Squared error: 0.08601256459951401
+1/1 [==============================] - 0s 71ms/step
+Predicted sparsity level for MDP 36: [[0.57464373]], actual sparsity level: 0.37, Squared error: 0.04187905415892601
+1/1 [==============================] - 0s 79ms/step
+Predicted sparsity level for MDP 37: [[0.56683236]], actual sparsity level: 0.77, Squared error: 0.04127708077430725
+1/1 [==============================] - 0s 86ms/step
+Predicted sparsity level for MDP 38: [[0.26345506]], actual sparsity level: 0.89, Squared error: 0.39255857467651367
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 39: [[0.30877048]], actual sparsity level: 0.28, Squared error: 0.0008277402957901359
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 40: [[0.4699704]], actual sparsity level: 0.39, Squared error: 0.00639526778832078
+1/1 [==============================] - 0s 51ms/step
+Predicted sparsity level for MDP 41: [[0.5640047]], actual sparsity level: 0.27, Squared error: 0.08643876761198044
+1/1 [==============================] - 0s 77ms/step
+Predicted sparsity level for MDP 42: [[0.45528865]], actual sparsity level: 0.61, Squared error: 0.023935606703162193
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 43: [[0.53749615]], actual sparsity level: 0.48, Squared error: 0.0033058084081858397
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 44: [[0.385356]], actual sparsity level: 0.06, Squared error: 0.1058565303683281
+1/1 [==============================] - 0s 79ms/step
+Predicted sparsity level for MDP 45: [[0.31415248]], actual sparsity level: 0.87, Squared error: 0.3089664578437805
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 46: [[0.51038206]], actual sparsity level: 0.34, Squared error: 0.02903004363179207
+1/1 [==============================] - 0s 103ms/step
+Predicted sparsity level for MDP 47: [[0.61121017]], actual sparsity level: 0.22, Squared error: 0.1530454009771347
+1/1 [==============================] - 0s 87ms/step
+Predicted sparsity level for MDP 48: [[0.48776954]], actual sparsity level: 0.45, Squared error: 0.00142653938382864
+1/1 [==============================] - 0s 86ms/step
+Predicted sparsity level for MDP 49: [[0.37414896]], actual sparsity level: 0.53, Squared error: 0.024289535358548164
+1/1 [==============================] - 0s 79ms/step
+Predicted sparsity level for MDP 50: [[0.82819736]], actual sparsity level: 0.33, Squared error: 0.24820059537887573
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 51: [[0.579459]], actual sparsity level: 0.01, Squared error: 0.32428357005119324
+1/1 [==============================] - 0s 86ms/step
+Predicted sparsity level for MDP 52: [[0.4297343]], actual sparsity level: 0.82, Squared error: 0.15230731666088104
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 53: [[0.45686787]], actual sparsity level: 0.93, Squared error: 0.22385402023792267
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 54: [[0.37008417]], actual sparsity level: 0.54, Squared error: 0.02887139841914177
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 55: [[0.5201933]], actual sparsity level: 0.6, Squared error: 0.0063691167160868645
+1/1 [==============================] - 0s 79ms/step
+Predicted sparsity level for MDP 56: [[0.6847929]], actual sparsity level: 0.24, Squared error: 0.19784069061279297
+1/1 [==============================] - 0s 80ms/step
+Predicted sparsity level for MDP 57: [[0.79262733]], actual sparsity level: 0.4, Squared error: 0.15415622293949127
+1/1 [==============================] - 0s 71ms/step
+Predicted sparsity level for MDP 58: [[0.5960442]], actual sparsity level: 0.16, Squared error: 0.19013452529907227
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 59: [[0.31645566]], actual sparsity level: 0.21, Squared error: 0.011332808993756771
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 60: [[0.4985792]], actual sparsity level: 0.58, Squared error: 0.006629343144595623
+1/1 [==============================] - 0s 72ms/step
+Predicted sparsity level for MDP 61: [[0.36494]], actual sparsity level: 0.09, Squared error: 0.07559199631214142
+1/1 [==============================] - 0s 39ms/step
+Predicted sparsity level for MDP 62: [[0.7565779]], actual sparsity level: 0.57, Squared error: 0.034811317920684814
+1/1 [==============================] - 0s 89ms/step
+Predicted sparsity level for MDP 63: [[0.44092292]], actual sparsity level: 0.69, Squared error: 0.062039393931627274
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 64: [[0.3585497]], actual sparsity level: 0.97, Squared error: 0.37387147545814514
+1/1 [==============================] - 0s 80ms/step
+Predicted sparsity level for MDP 65: [[0.73330647]], actual sparsity level: 0.67, Squared error: 0.004007706884294748
+1/1 [==============================] - 0s 78ms/step
+Predicted sparsity level for MDP 66: [[0.21848375]], actual sparsity level: 0.71, Squared error: 0.24158820509910583
+1/1 [==============================] - 0s 70ms/step
+Predicted sparsity level for MDP 67: [[0.5247827]], actual sparsity level: 0.52, Squared error: 2.2874566639075056e-05
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 68: [[0.3319767]], actual sparsity level: 0.42, Squared error: 0.00774809718132019
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 69: [[0.2764467]], actual sparsity level: 0.7, Squared error: 0.17939738929271698
+1/1 [==============================] - 0s 59ms/step
+Predicted sparsity level for MDP 70: [[0.49875546]], actual sparsity level: 0.83, Squared error: 0.10972293466329575
+1/1 [==============================] - 0s 69ms/step
+Predicted sparsity level for MDP 71: [[0.60891235]], actual sparsity level: 0.29, Squared error: 0.10170508921146393
+1/1 [==============================] - 0s 88ms/step
+Predicted sparsity level for MDP 72: [[0.8123061]], actual sparsity level: 0.38, Squared error: 0.18688857555389404
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 73: [[0.43646562]], actual sparsity level: 0.13, Squared error: 0.09392117708921432
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 74: [[0.4101107]], actual sparsity level: 0.43, Squared error: 0.00039558406569994986
+1/1 [==============================] - 0s 70ms/step
+Predicted sparsity level for MDP 75: [[0.6690839]], actual sparsity level: 0.78, Squared error: 0.012302376329898834
+1/1 [==============================] - 0s 80ms/step
+Predicted sparsity level for MDP 76: [[0.48809665]], actual sparsity level: 0.68, Squared error: 0.03682689741253853
+1/1 [==============================] - 0s 72ms/step
+Predicted sparsity level for MDP 77: [[0.5365786]], actual sparsity level: 0.41, Squared error: 0.01602214202284813
+1/1 [==============================] - 0s 90ms/step
+Predicted sparsity level for MDP 78: [[0.70247924]], actual sparsity level: 0.92, Squared error: 0.047315288335084915
+1/1 [==============================] - 0s 91ms/step
+Predicted sparsity level for MDP 79: [[0.46733308]], actual sparsity level: 0.99, Squared error: 0.2731807231903076
+1/1 [==============================] - 0s 86ms/step
+Predicted sparsity level for MDP 80: [[0.72106737]], actual sparsity level: 0.2, Squared error: 0.2715112268924713
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 81: [[0.36737448]], actual sparsity level: 0.86, Squared error: 0.2426799237728119
+1/1 [==============================] - 0s 105ms/step
+Predicted sparsity level for MDP 82: [[0.49129403]], actual sparsity level: 0.8, Squared error: 0.0952993854880333
+1/1 [==============================] - 0s 71ms/step
+Predicted sparsity level for MDP 83: [[0.42679095]], actual sparsity level: 0.36, Squared error: 0.004461029544472694
+1/1 [==============================] - 0s 78ms/step
+Predicted sparsity level for MDP 84: [[0.08554554]], actual sparsity level: 0.76, Squared error: 0.45488882064819336
+1/1 [==============================] - 0s 51ms/step
+Predicted sparsity level for MDP 85: [[0.41512817]], actual sparsity level: 0.04, Squared error: 0.1407211571931839
+1/1 [==============================] - 0s 54ms/step
+Predicted sparsity level for MDP 86: [[0.5415153]], actual sparsity level: 0.11, Squared error: 0.1862054318189621
+1/1 [==============================] - 0s 76ms/step
+Predicted sparsity level for MDP 87: [[0.25145227]], actual sparsity level: 0.03, Squared error: 0.049041107296943665
+1/1 [==============================] - 0s 78ms/step
+Predicted sparsity level for MDP 88: [[0.47368795]], actual sparsity level: 0.59, Squared error: 0.013528487645089626
+1/1 [==============================] - 0s 93ms/step
+Predicted sparsity level for MDP 89: [[0.2955979]], actual sparsity level: 0.79, Squared error: 0.2444334477186203
+1/1 [==============================] - 0s 90ms/step
+Predicted sparsity level for MDP 90: [[0.61471653]], actual sparsity level: 0.81, Squared error: 0.03813563287258148
+1/1 [==============================] - 0s 78ms/step
+Predicted sparsity level for MDP 91: [[0.5689455]], actual sparsity level: 0.49, Squared error: 0.006232394836843014
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 92: [[0.37731105]], actual sparsity level: 0.51, Squared error: 0.017606355249881744
+1/1 [==============================] - 0s 80ms/step
+Predicted sparsity level for MDP 93: [[0.68702567]], actual sparsity level: 0.56, Squared error: 0.01613551937043667
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 94: [[0.45324337]], actual sparsity level: 0.08, Squared error: 0.13931062817573547
+1/1 [==============================] - 0s 75ms/step
+Predicted sparsity level for MDP 95: [[0.7642715]], actual sparsity level: 0.94, Squared error: 0.030880505219101906
+1/1 [==============================] - 0s 73ms/step
+Predicted sparsity level for MDP 96: [[0.5466393]], actual sparsity level: 0.46, Squared error: 0.007506371010094881
+1/1 [==============================] - 0s 74ms/step
+Predicted sparsity level for MDP 97: [[0.45356232]], actual sparsity level: 0.9, Squared error: 0.19930657744407654
+1/1 [==============================] - 0s 89ms/step
+Predicted sparsity level for MDP 98: [[0.5580674]], actual sparsity level: 0.31, Squared error: 0.061537425965070724
+1/1 [==============================] - 0s 94ms/step
+Predicted sparsity level for MDP 99: [[0.48070395]], actual sparsity level: 0.65, Squared error: 0.028661144897341728
+Mean squared error: 0.1149178535094734
+Expected squared error: when x, y ~ U[0, 1], E[(x-y)^2] = 1/12 = 0.0833...
