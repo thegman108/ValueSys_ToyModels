@@ -1,0 +1,60 @@
+When reward defined over transitions (with shape (A, S, S)), 10^5 data points, (S, A) = (10, 4)
+
+Only optimal policy passed in
+Epoch 1/100
+2500/2500 [==============================] - 27s 9ms/step - loss: 0.0832 - mae: 0.2476 - val_loss: 0.0768 - val_mae: 0.2407
+Epoch 2/100
+2500/2500 [==============================] - 19s 8ms/step - loss: 0.0781 - mae: 0.2407 - val_loss: 0.0768 - val_mae: 0.2397
+Epoch 3/100
+2500/2500 [==============================] - 14s 6ms/step - loss: 0.0771 - mae: 0.2391 - val_loss: 0.0768 - val_mae: 0.2379
+Epoch 4/100
+2500/2500 [==============================] - 13s 5ms/step - loss: 0.0766 - mae: 0.2383 - val_loss: 0.0765 - val_mae: 0.2385
+Epoch 5/100
+2500/2500 [==============================] - 12s 5ms/step - loss: 0.0762 - mae: 0.2378 - val_loss: 0.0767 - val_mae: 0.2403
+Epoch 6/100
+2500/2500 [==============================] - 14s 5ms/step - loss: 0.0763 - mae: 0.2378 - val_loss: 0.0767 - val_mae: 0.2409
+Epoch 7/100
+2500/2500 [==============================] - 15s 6ms/step - loss: 0.0763 - mae: 0.2378 - val_loss: 0.0764 - val_mae: 0.2388
+Epoch 8/100
+2500/2500 [==============================] - 14s 5ms/step - loss: 0.0762 - mae: 0.2376 - val_loss: 0.0766 - val_mae: 0.2394
+Epoch 9/100
+2500/2500 [==============================] - 15s 6ms/step - loss: 0.0761 - mae: 0.2374 - val_loss: 0.0762 - val_mae: 0.2381
+Epoch 10/100
+2500/2500 [==============================] - 14s 5ms/step - loss: 0.0760 - mae: 0.2374 - val_loss: 0.0766 - val_mae: 0.2402
+Epoch 11/100
+2500/2500 [==============================] - 14s 5ms/step - loss: 0.0761 - mae: 0.2374 - val_loss: 0.0765 - val_mae: 0.2382
+Epoch 12/100
+2500/2500 [==============================] - 14s 6ms/step - loss: 0.0761 - mae: 0.2372 - val_loss: 0.0761 - val_mae: 0.2379
+Epoch 13/100
+2500/2500 [==============================] - 20s 8ms/step - loss: 0.0759 - mae: 0.2369 - val_loss: 0.0761 - val_mae: 0.2373
+Epoch 14/100
+2500/2500 [==============================] - 20s 8ms/step - loss: 0.0759 - mae: 0.2370 - val_loss: 0.0767 - val_mae: 0.2410
+Epoch 15/100
+2500/2500 [==============================] - 16s 6ms/step - loss: 0.0760 - mae: 0.2371 - val_loss: 0.0766 - val_mae: 0.2407
+Mean squared error: 0.07612750121718719, sample size: 1000
+Expected squared error: when x, y ~ U[0, 1], E[(x-y)^2] = 1/12 = 0.0833...
+
+Linear Regression
+Mean squared error: 0.07935751006037296
+Expected squared error: when x, y ~ U[0, 1], E[(x-y)^2] = 1/12 = 0.0833...
+Mean absolute error: 0.2450860745036738
+
+
+When all features passed in
+Epoch 1/100
+2500/2500 [==============================] - 19s 6ms/step - loss: 0.0815 - mae: 0.2453 - val_loss: 0.0782 - val_mae: 0.2436
+Epoch 2/100
+2500/2500 [==============================] - 16s 6ms/step - loss: 0.0783 - mae: 0.2415 - val_loss: 0.0772 - val_mae: 0.2411
+Epoch 3/100
+2500/2500 [==============================] - 15s 6ms/step - loss: 0.0775 - mae: 0.2403 - val_loss: 0.0794 - val_mae: 0.2455
+Epoch 4/100
+2500/2500 [==============================] - 14s 6ms/step - loss: 0.0771 - mae: 0.2395 - val_loss: 0.0776 - val_mae: 0.2392
+Epoch 5/100
+2500/2500 [==============================] - 14s 6ms/step - loss: 0.0769 - mae: 0.2394 - val_loss: 0.0777 - val_mae: 0.2421
+Mean squared error: 0.0782953013071, sample size: 1000
+Expected squared error: when x, y ~ U[0, 1], E[(x-y)^2] = 1/12 = 0.0833...
+
+Linear Regression
+Mean squared error: 0.0783458402881269
+Expected squared error: when x, y ~ U[0, 1], E[(x-y)^2] = 1/12 = 0.0833...
+Mean absolute error: 0.24266147317553713
