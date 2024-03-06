@@ -1,0 +1,72 @@
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 1000: 0.09371180087327957
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 1000: 0.09146794253082274, 0.2669223046875
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 10000: 0.08359464257955551
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 10000: 0.0833858502318457, 0.25080793749999997
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 100000: 0.08333457261323929
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 100000: 0.08305501349487752, 0.24915917619921873
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 1000: 0.09832251071929932
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 1000: 0.17186699407470704, 0.34079499999999996
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 10000: 0.09385699778795242
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 10000: 0.08944895859643068, 0.254555390625
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 100000: 0.08356982469558716
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 100000: 0.08347383734873394, 0.24981407776171874
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = Dense, num_training_samples = 1000: 0.0955672413110733
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = Dense, num_training_samples = 1000: 0.13809882730712889, 0.305011875
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = Dense, num_training_samples = 10000: 0.08512832224369049
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = Dense, num_training_samples = 10000: 0.08958399641642288, 0.25725720830078125
+NN loss for coherence = variance, only_pos_rewards = False, P_generator = Dense, num_training_samples = 100000: 0.08337536454200745
+Regression model loss for variance = variance, only_pos_rewards = False, P_generator = Dense, num_training_samples = 100000: 0.08378303754395088, 0.25025641651367186
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 1000: 0.11375373601913452
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 1000: 0.09252651823516846, 0.2608850390625
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 10000: 0.0836712196469307
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 10000: 0.08443225469486816, 0.2521952484375
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 100000: 0.08333991467952728
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 100000: 0.08309490330581115, 0.24996905528906255
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 1000: 0.10238754749298096
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 1000: 0.15819313802612306, 0.317292265625
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 10000: 0.09598668664693832
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 10000: 0.08843613106703126, 0.25468776875
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 100000: 0.08378766477108002
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 100000: 0.0836629230062165, 0.2505011350625
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = Dense, num_training_samples = 1000: 0.09663588553667068
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = Dense, num_training_samples = 1000: 0.1571708692276764, 0.32683357421875003
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = Dense, num_training_samples = 10000: 0.08385069668292999
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = Dense, num_training_samples = 10000: 0.08527970986668916, 0.24980338242187503
+NN loss for coherence = variance, only_pos_rewards = True, P_generator = Dense, num_training_samples = 100000: 0.08344600349664688
+Regression model loss for variance = variance, only_pos_rewards = True, P_generator = Dense, num_training_samples = 100000: 0.08410354343670526, 0.25096635644140625
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 1000: 0.04019073769450188
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 1000: 0.031984461397399896, 0.1369848046875
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 10000: 0.036261241883039474
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 10000: 0.03443789238511322, 0.14512724023437498
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 100000: 0.03900279477238655
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = fixed_P_generator, num_training_samples = 100000: 0.03438483960413071, 0.14602647144531253
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 1000: 0.05207120627164841
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 1000: 0.0699460104649067, 0.2053046875
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 10000: 0.0422290600836277
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 10000: 0.03587713934419128, 0.14960019140625
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 100000: 0.035516854375600815
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = sparse_P_generator, num_training_samples = 100000: 0.034941491023388026, 0.14801166399218751
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = Dense, num_training_samples = 1000: 0.08538614958524704
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = Dense, num_training_samples = 1000: 0.14992516432455452, 0.3119484289550781
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = Dense, num_training_samples = 10000: 0.07944615185260773
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = Dense, num_training_samples = 10000: 0.08026686209413941, 0.24280995859374999
+NN loss for coherence = sparsity, only_pos_rewards = False, P_generator = Dense, num_training_samples = 100000: 0.07680698484182358
+Regression model loss for variance = sparsity, only_pos_rewards = False, P_generator = Dense, num_training_samples = 100000: 0.07950195107468087, 0.24404144371484376
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 1000: 0.053974393755197525
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 1000: 0.05828228885513782, 0.19432233398437496
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 10000: 0.045754045248031616
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 10000: 0.04940878411679444, 0.18182207187500002
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 100000: 0.04574628919363022
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = fixed_P_generator, num_training_samples = 100000: 0.047166387495205575, 0.17679080380273438
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 1000: 0.06549149751663208
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 1000: 0.09819709055350781, 0.2541938037109375
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 10000: 0.052024584263563156
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 10000: 0.04908615693191895, 0.17988784624023438
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 100000: 0.04779501631855965
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = sparse_P_generator, num_training_samples = 100000: 0.04844652137052167, 0.17935681088671876
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = Dense, num_training_samples = 1000: 0.08740534633398056
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = Dense, num_training_samples = 1000: 0.15378965021687507, 0.328089375
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = Dense, num_training_samples = 10000: 0.08355750143527985
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = Dense, num_training_samples = 10000: 0.08637581110998872, 0.253019943359375
+NN loss for coherence = sparsity, only_pos_rewards = True, P_generator = Dense, num_training_samples = 100000: 0.08002922683954239
+Regression model loss for variance = sparsity, only_pos_rewards = True, P_generator = Dense, num_training_samples = 100000: 0.08186916961709191, 0.24803265609765626
