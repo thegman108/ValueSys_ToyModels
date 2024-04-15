@@ -252,7 +252,7 @@ def generate_data(dataset1, dataset2):
         return train_data, test_data, num_node_features
 
 def train_classifier(model, criterion, optimizer, train_data, test_data, epochs = 40, patience = 3, 
-                     epochs_without_improvement = 0, best_loss = float('inf')):
+                     epochs_without_improvement = 0, best_loss = float('inf'), verbose = True):
     for epoch in range(epochs):
         avg_train_loss = 0
         for datapt in train_data:
@@ -279,7 +279,8 @@ def train_classifier(model, criterion, optimizer, train_data, test_data, epochs 
                 avg_test_loss += loss.item()
         avg_test_loss /= len(test_data)
         
-        print(f'Epoch {epoch+1}: Average Train Loss: {avg_train_loss}, Average Test Loss: {avg_test_loss}')
+        if verbose:
+            print(f'Epoch {epoch+1}: Average Train Loss: {avg_train_loss}, Average Test Loss: {avg_test_loss}')
         
         # Early Stopping
         if avg_test_loss < best_loss:
@@ -287,7 +288,7 @@ def train_classifier(model, criterion, optimizer, train_data, test_data, epochs 
             epochs_without_improvement = 0
         else:
             epochs_without_improvement += 1
-            if epochs_without_improvement >= patience:
+            if verbose and epochs_without_improvement >= patience:
                 print(f'Early stopping at epoch {epoch+1}')
                 break
         

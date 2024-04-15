@@ -17,6 +17,7 @@ NEAR_ZERO = 1e-9
 NUM_EPS_TRAIN_R = 1000
 NUM_TRAIN_R_FUNCS = 50
 NUM_REWARD_CALLS = 0
+NUM_CLASSIFIER_TRIES = 20
 env = gym.make(env_name)
 def deterministic_random(*args, lb = -1, ub = 1, sparsity = 0.0, continuous = False):
     """
@@ -356,10 +357,19 @@ if __name__ == '__main__':
     print(dataset1[0].x.shape)
 
     train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
-    model = GraphLevelGCN(num_node_features)
-    criterion = torch.nn.BCELoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
-    train_classifier(model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5)
+    models, test_losses = [], []
+    for _ in range(NUM_CLASSIFIER_TRIES):
+        model = GraphLevelGCN(num_node_features)
+        criterion = torch.nn.BCELoss()
+        optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
+        metrics = train_classifier(
+            model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5,
+            verbose = False
+        )
+        models.append(model)
+        test_losses.append(metrics['test_loss'])
+    print(f"GCN classifier test losses: {test_losses}")
+    model = models[np.argmin(test_losses)]
 
     print(torch.transpose(dataset1[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies
     print(torch.transpose(dataset2[0].x, 0, -1)[0:10, 0:10])
@@ -422,22 +432,23 @@ if __name__ == '__main__':
     # themselves, i.e. there exists a value function consistent with the policy, and pass them
     # through the classifier
 
-    coherent_policy = greedy_policy(taxi_model.q_table).detach()
-    incoherent_policy = greedy_policy(taxi_model.q_table).detach()
-    for _ in range(100):
-        env.reset()
-        i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
-        env.step(coherent_policy[i].item())
-        j = env.unwrapped.s
-        if coherent_policy[i][0] % 2 == 0:
-            incoherent_policy[j][0] = coherent_policy[i][0] + 1
-        else:
-            incoherent_policy[j][0] = coherent_policy[i][0] - 1 # if 0, then 1; if 1, then 0
-        # point is to put incoherent_policy in a loop
+    for i in range(10):
+        coherent_policy = greedy_policy(taxi_model.q_table).detach()
+        incoherent_policy = greedy_policy(taxi_model.q_table).detach()
+        for _ in range(100):
+            env.reset()
+            i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
+            env.step(coherent_policy[i].item())
+            j = env.unwrapped.s
+            if coherent_policy[i][0] % 2 == 0:
+                incoherent_policy[j][0] = coherent_policy[i][0] + 1
+            else:
+                incoherent_policy[j][0] = coherent_policy[i][0] - 1 # if 0, then 1; if 1, then 0
+            # point is to put incoherent_policy in a loop
 
-    print((coherent_policy != incoherent_policy).nonzero().shape[0])
-    print(model.forward(Data(x = coherent_policy.detach(), edge_index = edge_index)))
-    print(model.forward(Data(x = incoherent_policy.detach(), edge_index = edge_index)))
+        print((coherent_policy != incoherent_policy).nonzero().shape[0])
+        print(model.forward(Data(x = coherent_policy.detach(), edge_index = edge_index)))
+        print(model.forward(Data(x = incoherent_policy.detach(), edge_index = edge_index)))
 
     class PolicyAgent:
         def __init__(self, policy, epsilon = 0.1):
