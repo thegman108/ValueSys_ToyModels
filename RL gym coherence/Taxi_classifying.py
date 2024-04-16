@@ -368,10 +368,10 @@ if __name__ == '__main__':
             model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5,
             verbose = False
         )
-        test_losses.append(metrics['test_loss'])
         if metrics['test_loss'] < threshold:
+            test_losses.append(metrics['test_loss'])
             models.append(model)
-    print(f"GCN classifier test losses: {test_losses}")
+    print(f"Successful GCN classifier test losses: {test_losses}")
     # Choose the model with the lowest test loss
     model = models[np.argmin(test_losses)]
     print(f"Number of successful models: {len(models)}")
