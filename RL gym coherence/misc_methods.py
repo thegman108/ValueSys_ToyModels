@@ -288,8 +288,9 @@ def train_classifier(model, criterion, optimizer, train_data, test_data, epochs 
             epochs_without_improvement = 0
         else:
             epochs_without_improvement += 1
-            if verbose and epochs_without_improvement >= patience:
-                print(f'Early stopping at epoch {epoch+1}')
+            if epochs_without_improvement >= patience:
+                if verbose:
+                    print(f'Early stopping at epoch {epoch+1}')
                 break
         
     metrics = {'train_loss': avg_train_loss, 'test_loss': avg_test_loss}

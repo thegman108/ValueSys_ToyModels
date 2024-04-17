@@ -10,6 +10,7 @@ import torch
 from tqdm import tqdm
 import torch.nn as nn
 import matplotlib.pyplot as plt
+import os
 
 
 # Now classifying q-table agents
@@ -282,36 +283,6 @@ def simulate_episode_from_root(env, root_node):
 
 
 if __name__ == '__main__':
-    UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
-    URS_r_funcs = [lambda *args: deterministic_random(args) for _ in range(NUM_TRAIN_R_FUNCS)]
-    URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
-                            reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
-    # print("Halfway there!")
-    USS_r_funcs = [lambda *args: deterministic_random(args, sparsity=0.99) for _ in range(NUM_TRAIN_R_FUNCS)]
-    # USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
-    #                             reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
-    UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
-
-    # The Q-Table is already one-hot encoded, so we don't need to convert it to a Data object
-    from torch_geometric.data import Data
-    for agent in UPS_agents:
-        for row in agent.q_table:
-            for i in range(len(row)):
-                row[i] = np.random.uniform(-1, 1) # set each value to a random number between -1 and 1
-    # dataset1 = [qtable_to_feat(torch.tensor(agent.q_table, dtype=torch.float32), 1) for agent in USS_agents]
-    # dataset2 = [qtable_to_feat(torch.tensor(agent.q_table, dtype=torch.float32), 0) for agent in URS_agents] # URS = 1, UPS = 0
-    # train_data, test_data, num_node_features = generate_fcnn_data(dataset1, dataset2)
-    # print(num_node_features)
-    # model = FCNNBinary(num_node_features)
-    # criterion = torch.nn.BCELoss()  
-    # optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)
-    # train_fcnn_classifier(model, criterion, optimizer, train_data, test_data)
-    # UQS_agents = [generate_UQS_qagent(agent.q_table, 0.9, env, episodes = NUM_EPS_TRAIN_R) for agent in UPS_agents]
-
-    UUS_agents = [train_qtable(
-        env_name = env_name, episodes = NUM_EPS_TRAIN_R, 
-        reward_function = lambda *args: det_rand_terminal(*args)
-    ) for _ in tqdm(range(NUM_TRAIN_R_FUNCS))]
     ### Turn the state and action space of Taxi-v3 into a graph
 
     from collections import defaultdict
@@ -344,42 +315,94 @@ if __name__ == '__main__':
                         # edge_attr[(current_state, next_state)].append(reward)
                         taxi_env.reset()
 
-
     # Convert edges and edge attributes to tensors
     edge_index = []
     for src, dsts in edges.items():
         for dst in dsts:
             edge_index.append([src, dst])
     edge_index = torch.tensor(edge_index).t().contiguous()
-    dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in UUS_agents]
-    dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
-    # dataset2 = [Data(x = random_policy(agent.q_table.shape[0]), edge_index = edge_index, y = 0) for agent in UPS_agents]
-    # ^ random_policy = UPS sampling
-    # print(dataset1[0].x.shape)
 
-    train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
-    models, test_losses = [], []
-    threshold = 0.2
-    for _ in tqdm(range(NUM_CLASSIFIER_TRIES)):
-        model = GraphLevelGCN(num_node_features)
-        criterion = torch.nn.BCELoss()
-        optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
-        metrics = train_classifier(
-            model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5,
-            verbose = False
-        )
-        if metrics['test_loss'] < threshold:
-            test_losses.append(metrics['test_loss'])
+    # Change directory to the current file's directory
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    # Check if the directory exists, if not create it
+    if not os.path.exists('models'):
+        os.makedirs('models')
+    model_path = "models/Taxi_GCN_0.pt"
+    num_node_features = 1 # 1 if policy, 6 if q-table
+    if os.path.exists(model_path): # if classifiers have already been trained
+        i = 0
+        models = []
+        while os.path.exists(f"models/Taxi_GCN_{i}.pt"):
+            model = GraphLevelGCN(num_node_features)
+            model.load_state_dict(torch.load(f"models/Taxi_GCN_{i}.pt"))
             models.append(model)
-    print(f"Successful GCN classifier test losses: {test_losses}")
-    # Choose the model with the lowest test loss
-    model = models[np.argmin(test_losses)]
-    print(f"Number of successful models: {len(models)}")
+            i += 1
+        print(f"Loaded {len(models)} models")
+    else:
+        UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
+        URS_r_funcs = [lambda *args: deterministic_random(args) for _ in range(NUM_TRAIN_R_FUNCS)]
+        URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
+                                reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
+        # print("Halfway there!")
+        USS_r_funcs = [lambda *args: deterministic_random(args, sparsity=0.99) for _ in range(NUM_TRAIN_R_FUNCS)]
+        # USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
+        #                             reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
+        UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
 
-    print(torch.transpose(dataset1[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies
-    print(torch.transpose(dataset2[0].x, 0, -1)[0:10, 0:10])
-    print(f"Sample dataset1 classification: {model.forward(dataset1[0])}")
-    print(f"Sample dataset2 classification: {model.forward(dataset2[0])}")
+        # The Q-Table is already one-hot encoded, so we don't need to convert it to a Data object
+        from torch_geometric.data import Data
+        for agent in UPS_agents:
+            for row in agent.q_table:
+                for i in range(len(row)):
+                    row[i] = np.random.uniform(-1, 1) # set each value to a random number between -1 and 1
+        # dataset1 = [qtable_to_feat(torch.tensor(agent.q_table, dtype=torch.float32), 1) for agent in USS_agents]
+        # dataset2 = [qtable_to_feat(torch.tensor(agent.q_table, dtype=torch.float32), 0) for agent in URS_agents] # URS = 1, UPS = 0
+        # train_data, test_data, num_node_features = generate_fcnn_data(dataset1, dataset2)
+        # print(num_node_features)
+        # model = FCNNBinary(num_node_features)
+        # criterion = torch.nn.BCELoss()  
+        # optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)
+        # train_fcnn_classifier(model, criterion, optimizer, train_data, test_data)
+        # UQS_agents = [generate_UQS_qagent(agent.q_table, 0.9, env, episodes = NUM_EPS_TRAIN_R) for agent in UPS_agents]
+
+        UUS_agents = [train_qtable(
+            env_name = env_name, episodes = NUM_EPS_TRAIN_R, 
+            reward_function = lambda *args: det_rand_terminal(*args)
+        ) for _ in tqdm(range(NUM_TRAIN_R_FUNCS))]
+        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in UUS_agents]
+        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
+        # dataset2 = [Data(x = random_policy(agent.q_table.shape[0]), edge_index = edge_index, y = 0) for agent in UPS_agents]
+        # ^ random_policy = UPS sampling
+        # print(dataset1[0].x.shape)
+
+        train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
+        models, test_losses = [], []
+        threshold = 0.2
+        for _ in tqdm(range(NUM_CLASSIFIER_TRIES)):
+            model = GraphLevelGCN(num_node_features)
+            criterion = torch.nn.BCELoss()
+            optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
+            metrics = train_classifier(
+                model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5,
+                verbose = False
+            )
+            if metrics['test_loss'] < threshold:
+                test_losses.append(metrics['test_loss'])
+                models.append(model)
+        print(f"Successful GCN classifier test losses: {test_losses}")
+        # Choose the model with the lowest test loss
+        model = models[np.argmin(test_losses)]
+        print(f"Number of successful models: {len(models)}")
+        for i in range(len(models)):
+            torch.save(models[i].state_dict(), f"models/Taxi_GCN_{i}.pt")
+        
+        print(torch.transpose(dataset1[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies
+        print(torch.transpose(dataset2[0].x, 0, -1)[0:10, 0:10])
+        print(f"Sample dataset1 classification: {model.forward(dataset1[0])}")
+        print(f"Sample dataset2 classification: {model.forward(dataset2[0])}")
+    
+    # Caveat: when models are loaded, model is the last model in the list, 
+    # not the model with the lowest test loss
 
     taxi_classifier_ratings = []
     for i in tqdm(list(range(len(models))) * 5):
@@ -496,7 +519,35 @@ if __name__ == '__main__':
 
     # Plot classifier test losses
     plt.figure()
-    plt.plot(test_losses)
+    plt.boxplot([test_losses], labels = ["GCN"])
     plt.title("Classifier Test Losses")
     plt.ylabel("Test Loss")
+    plt.show()
+
+
+    train_qtable_data = np.zeros((2, 10 * len(models)))
+    for j in tqdm(range(len(models) * 10)):
+        """
+        powerful_models = [greedy_policy(train_qtable(env_name = env_name, episodes = i).q_table) 
+                        for i in [1000, 3000, 10000]]
+        # print([model.forward(data) for data in powerful_models])
+        train_qtable_data[:, j] = np.array(
+            [models[j % len(models)].forward(Data(x = data, edge_index = edge_index)).item() 
+             for data in powerful_models]
+        )
+        """
+        episodes = int(np.random.lognormal(3, 1)) * 3 # median is about e^3 = 20
+        test_taxi_model = greedy_policy(train_qtable(env_name = env_name, episodes = episodes).q_table)
+        train_qtable_data[0, j] = episodes
+        train_qtable_data[1, j] = models[j % len(models)].forward(
+            Data(x = test_taxi_model, edge_index = edge_index)
+        ).item()
+    
+    plt.figure()
+    # plt.boxplot(train_qtable_data.T, labels = ['1000 episodes', '3000 episodes', '10000 episodes'])
+    plt.scatter(train_qtable_data[0], train_qtable_data[1])
+    plt.ylim(-0.1, 1.1)
+    plt.title("Classifier Ratings for Q-Table Agents")
+    plt.ylabel("Classifier Output")
+    plt.xlabel("Episodes")
     plt.show()
