@@ -275,6 +275,7 @@ def train_classifier(model, criterion, optimizer, train_data, test_data, epochs 
             model.eval()
             with torch.no_grad():
                 out = model.forward(datapt)
+                # TODO: should probably be accuracy instead of loss
                 loss = criterion(out, torch.tensor([[datapt.y]]))
                 avg_test_loss += loss.item()
         avg_test_loss /= len(test_data)

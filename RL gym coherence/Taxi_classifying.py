@@ -547,7 +547,7 @@ if __name__ == '__main__':
     # plt.boxplot(train_qtable_data.T, labels = ['1000 episodes', '3000 episodes', '10000 episodes'])
     plt.scatter(train_qtable_data[0], train_qtable_data[1])
     plt.ylim(-0.1, 1.1)
-    plt.title("Classifier Ratings for Q-Table Agents")
+    plt.title("Classifier Ratings for Taxi Agents")
     plt.ylabel("Classifier Output")
     plt.xlabel("Episodes")
     plt.show()
