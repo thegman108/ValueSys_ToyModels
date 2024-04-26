@@ -99,9 +99,12 @@ def render_env(env, agent):
         env.render()
         state = next_state
 
-def train_qtable(env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilon_final=0.01, 
-              epsilon_decay=500, reward_function = None, verbose = False, return_reward = False, 
-              print_every=50, **kwargs):
+def train_qtable(
+        env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilon_final=0.01, 
+        epsilon_decay=500, reward_function = None, verbose = False, return_reward = False, 
+        print_every=50, intermediate_method_train = None, int_method_train_every = 1, 
+        pretrained_agent = None, **kwargs
+    ):
     """
     Train a Q-table agent on the specified environment."""
     global NUM_NON_ZERO_REWARDS
@@ -111,7 +114,7 @@ def train_qtable(env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilo
     else:
         state_dim = env.observation_space.shape[0]
     action_dim = env.action_space.n
-    agent = QTableAgent(state_dim, action_dim, **kwargs)
+    agent = pretrained_agent if pretrained_agent else QTableAgent(state_dim, action_dim, **kwargs)
 
     rewards = np.zeros(episodes)
     epsilon_by_frame = lambda frame_idx: epsilon_final + (epsilon_start - epsilon_final) * np.exp(-1. * frame_idx / epsilon_decay)
@@ -132,6 +135,8 @@ def train_qtable(env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilo
                 break
 
         rewards[episode] = episode_reward
+        if intermediate_method_train and episode % int_method_train_every == 0:
+            intermediate_method_train(agent, episode)
         if verbose and episode % print_every == print_every - 1:
             print(f"Episode: {episode+1}, Average total reward: {np.average(rewards[episode - print_every + 1 : episode])}, Epsilon: {epsilon:.2f}")
         
@@ -166,7 +171,8 @@ def test_dqn(env, agent, episodes=10, reward_function=None, verbose = False):
     average_value /= episodes
     print(f"Average reward: {average_value}")
     
-def test_qtable(env, agent, episodes=10, reward_function=None, verbose = False):
+def test_qtable(env, agent, episodes=10, reward_function=None, verbose = False, 
+                return_value = False):
     """
     Test a Q-table agent on the specified environment.
     (This is basically test_dqn but without the one-hot encoding.)
@@ -189,6 +195,8 @@ def test_qtable(env, agent, episodes=10, reward_function=None, verbose = False):
         average_value += episode_reward
     average_value /= episodes
     print(f"Average reward: {average_value}")
+    if return_value:
+        return average_value
 
 def nn_to_data(model: nn.Module) -> Data:
     edges = []
@@ -240,19 +248,21 @@ def nn_to_data(model: nn.Module) -> Data:
     return Data(x=x, edge_index=edge_index)
 
 def generate_data(dataset1, dataset2):
-        indices = np.random.permutation(len(dataset1) + len(dataset2))
-        data = [dataset1[i] if i < len(dataset1) else dataset2[i - len(dataset1)] for i in indices]
-        for i in range(len(data)):
-            data[i].y = 1.0 if indices[i] < len(dataset1) else 0.0 # Binary labels for each node; 1 = URS, 0 = UPS
-            # Hence roughly speaking, 1 = more coherent, 0 = less coherent
+    indices = np.random.permutation(len(dataset1) + len(dataset2))
+    data = [dataset1[i] if i < len(dataset1) else dataset2[i - len(dataset1)] for i in indices]
+    for i in range(len(data)):
+        data[i].y = 1.0 if indices[i] < len(dataset1) else 0.0 # Binary labels for each node; 1 = URS, 0 = UPS
+        # Hence roughly speaking, 1 = more coherent, 0 = less coherent
 
-        train_data_ratio = 0.8
-        train_data, test_data = data[:int(train_data_ratio * len(data))], data[int(train_data_ratio * len(data)):]
-        num_node_features = data[0].x.shape[1] # Number of features for each node
-        return train_data, test_data, num_node_features
+    train_data_ratio = 0.8
+    train_data, test_data = data[:int(train_data_ratio * len(data))], data[int(train_data_ratio * len(data)):]
+    num_node_features = data[0].x.shape[1] # Number of features for each node
+    return train_data, test_data, num_node_features
 
-def train_classifier(model, criterion, optimizer, train_data, test_data, epochs = 40, patience = 3, 
-                     epochs_without_improvement = 0, best_loss = float('inf'), verbose = True):
+def train_classifier(
+        model, criterion, optimizer, train_data, test_data, epochs = 40, patience = 3, 
+        epochs_without_improvement = 0, best_loss = float('inf'), verbose = True
+    ):
     for epoch in range(epochs):
         avg_train_loss = 0
         for datapt in train_data:

@@ -1,3 +1,4 @@
+# %%
 import gym
 import random
 import numpy as np
@@ -283,8 +284,8 @@ def simulate_episode_from_root(env, root_node):
 
 # %%
 if __name__ == '__main__':
+    # %%
     ### Turn the state and action space of Taxi-v3 into a graph
-
     from collections import defaultdict
     taxi_env = gym.make("Taxi-v3")
     taxi_env.reset()
@@ -327,69 +328,68 @@ if __name__ == '__main__':
     # Check if the directory exists, if not create it
     if not os.path.exists('models'):
         os.makedirs('models')
-    model_path = "models/Taxi_GCN_0.pt"
+    model_path = "models/Taxi_GCN_sparsity_0.pt"
     num_node_features = 1 # 1 if policy, 6 if q-table
+
     MAKE_NEW_MODELS = True
     if os.path.exists(model_path) and not MAKE_NEW_MODELS: # if classifiers have already been trained
         i = 0
         models = []
-        while os.path.exists(f"models/Taxi_GCN_{i}.pt"):
+        while os.path.exists(f"models/Taxi_GCN_sparsity_{i}.pt"):
             model = GraphLevelGCN(num_node_features)
-            model.load_state_dict(torch.load(f"models/Taxi_GCN_{i}.pt"))
+            model.load_state_dict(torch.load(f"models/Taxi_GCN_sparsity_{i}.pt"))
             models.append(model)
             i += 1
         print(f"Loaded {len(models)} models")
     else:
-        UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
-        URS_r_funcs = [lambda *args: deterministic_random(args) for _ in range(NUM_TRAIN_R_FUNCS)]
-        URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
-                                reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
-        # print("Halfway there!")
-        USS_r_funcs = [lambda *args: deterministic_random(args, sparsity=0.99) for _ in range(NUM_TRAIN_R_FUNCS)]
-        # USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
-        #                             reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
-        UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
-
-        # The Q-Table is already one-hot encoded, so we don't need to convert it to a Data object
-        from torch_geometric.data import Data
-        for agent in UPS_agents:
-            for row in agent.q_table:
-                for i in range(len(row)):
-                    row[i] = np.random.uniform(-1, 1) # set each value to a random number between -1 and 1
-        # dataset1 = [qtable_to_feat(torch.tensor(agent.q_table, dtype=torch.float32), 1) for agent in USS_agents]
-        # dataset2 = [qtable_to_feat(torch.tensor(agent.q_table, dtype=torch.float32), 0) for agent in URS_agents] # URS = 1, UPS = 0
-        # train_data, test_data, num_node_features = generate_fcnn_data(dataset1, dataset2)
-        # print(num_node_features)
-        # model = FCNNBinary(num_node_features)
-        # criterion = torch.nn.BCELoss()  
-        # optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)
-        # train_fcnn_classifier(model, criterion, optimizer, train_data, test_data)
-        # UQS_agents = [generate_UQS_qagent(agent.q_table, 0.9, env, episodes = NUM_EPS_TRAIN_R) for agent in UPS_agents]
-
+        # Generate the dataset
+        base = 10
+        # NUM_TRAIN_R_FUNCS = 1
+        # NUM_EPS_TRAIN_R = 1
+        sparsities = 1 - np.logspace(-3, 0, 2 * NUM_TRAIN_R_FUNCS, base = base) 
+        # asymptotically close to 1; 10^-3 to 10^0
+        np.random.shuffle(sparsities)
+        r_funcs = [lambda *args: deterministic_random(args, sparsity=s) for s in sparsities]
+        USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
+                                    reward_function = r_func) for r_func in tqdm(r_funcs)]
+        
+        labels = np.log10(1 - sparsities, dtype=np.float32) / float(np.log10(base)) / 3 + 1
+        train_test_split = int(0.8 * len(sparsities))
         # %%
-        UUS_agents = [train_qtable(
-            env_name = env_name, episodes = NUM_EPS_TRAIN_R, 
-            reward_function = lambda *args: det_rand_terminal(*args)
-        ) for _ in tqdm(range(NUM_TRAIN_R_FUNCS))]
-        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in UUS_agents]
-        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
-        # dataset2 = [Data(x = random_policy(agent.q_table.shape[0]), edge_index = edge_index, y = 0) for agent in UPS_agents]
-        # ^ random_policy = UPS sampling
-        # print(dataset1[0].x.shape)
+        train_data = [
+            Data(x = greedy_policy(USS_agents[i].q_table), edge_index = edge_index, y = labels[i]) 
+            for i in range(train_test_split) 
+            # labeled with the sparsity of the r_func the policy was trained on
+        ]
+        test_data = [
+            Data(x = greedy_policy(USS_agents[i].q_table), edge_index = edge_index, y = labels[i]) 
+            for i in range(train_test_split, len(sparsities)) 
+            # labeled with the sparsity of the r_func the policy was trained on
+        ]
+        num_node_features = 1
         # %%
-
-        train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
+        train_data = [
+            Data(x = prep_qtable(USS_agents[i].q_table), edge_index = edge_index, y = labels[i])
+            for i in range(train_test_split) 
+            # labeled with the sparsity of the r_func the policy was trained on
+        ]
+        test_data = [
+            Data(x = prep_qtable(USS_agents[i].q_table), edge_index = edge_index, y = labels[i])
+            for i in range(train_test_split, len(sparsities)) 
+            # labeled with the sparsity of the r_func the policy was trained on
+        ]
+        num_node_features = env.action_space.n
         models, test_losses = [], []
-        threshold = 0.2
+        THRESHOLD = 0.01
         for _ in tqdm(range(NUM_CLASSIFIER_TRIES)):
             model = GraphLevelGCN(num_node_features)
-            criterion = torch.nn.BCELoss()
-            optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
+            criterion = torch.nn.MSELoss()
+            optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
             metrics = train_classifier(
                 model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5,
-                verbose = False
+                verbose = True
             )
-            if metrics['test_loss'] < threshold:
+            if metrics['test_loss'] < THRESHOLD:
                 test_losses.append(metrics['test_loss'])
                 models.append(model)
         print(f"Successful GCN classifier test losses: {test_losses}")
@@ -397,164 +397,42 @@ if __name__ == '__main__':
         model = models[np.argmin(test_losses)]
         print(f"Number of successful models: {len(models)}")
         for i in range(len(models)):
-            torch.save(models[i].state_dict(), f"models/Taxi_GCN_{i}.pt")
+            torch.save(models[i].state_dict(), f"models/Taxi_GCN_sparsity_{i}.pt")
         
-        print(torch.transpose(dataset1[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies
-        print(torch.transpose(dataset2[0].x, 0, -1)[0:10, 0:10])
-        print(f"Sample dataset1 classification: {model.forward(dataset1[0])}")
-        print(f"Sample dataset2 classification: {model.forward(dataset2[0])}")
+        print(torch.transpose(test_data[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies        print(f"Sample dataset1 classification: {model.forward(dataset1[0])}")
+        print(f"Sample test classification: {model.forward(test_data[0])}")
     
     # Caveat: when models are loaded, model is the last model in the list, 
     # not the model with the lowest test loss
 
     # %%
-    taxi_classifier_ratings = []
-    for i in tqdm(list(range(len(models))) * 5):
-        taxi_model = train_qtable(env_name = "Taxi-v3", episodes = 20000, verbose = False, print_every = 2000, 
-                                return_reward = False)
-        taxi_data = Data(x = greedy_policy(taxi_model.q_table).detach(), edge_index = edge_index)
+    interval = 100
+    total_taxi_eps = 20000
+    taxi_classifier_ratings = np.zeros((len(models) * 5, interval))
+    for i in tqdm(list(range(len(models) * 5))):
+        taxi_model = None
+        for j in range(interval):
+            taxi_model = train_qtable(
+                env_name = "Taxi-v3", episodes = int(total_taxi_eps / interval), verbose = False, 
+                # print_every = total_taxi_eps / 10, 
+                return_reward = False, pretrained_agent = taxi_model
+            )
+            taxi_data = Data(x = greedy_policy(taxi_model.q_table).detach(), edge_index = edge_index)
 
-        taxi_classifier_ratings.append(models[i].forward(taxi_data).item())
+            out = models[i % len(models)].forward(taxi_data).item()
+            # Recover original sparsity: 1 - base ** (3 * (out - 1))
+            taxi_classifier_ratings[i][j] = out
         # test_qtable(gym.make("Taxi-v3"), taxi_model, episodes = 1000)
         # Generate tabular policy from MCTS and feed through classifier
 
     # %%
-    # Assume taxi_model.q_table is your pre-trained Q-table
-    # It should be a dictionary where keys are states and values are arrays of Q-values for each action
-
-    def extract_policy(root_node, env):
-        policy = np.random.randint(0, env.action_space.n, env.observation_space.n)
-        # default action is random in case the state is not in the tree
-        node_queue = [root_node]
-        
-        num_not_random = 0
-        while node_queue:
-            num_not_random += 1
-            current_node = node_queue.pop(0)
-            if current_node.is_fully_expanded(env):
-                best_action = current_node.best_child().action
-                policy[current_node.state] = best_action
-                node_queue.extend(current_node.children)
-            else:
-                # If the node isn't fully expanded, we take the best action tried so far
-                # This is rare in fully run MCTS but can happen if the tree isn't deep enough
-                if current_node.children:
-                    best_action = max(current_node.children, key=lambda x: x.visits).action
-                    policy[current_node.state] = best_action
-                    node_queue.extend(current_node.children)
-
-        return policy, num_not_random
-
-    mcts_classifier_ratings = []
-    average_rewards = []
-    for i in tqdm(list(range(len(models))) * 5):
-        # Example usage
-        env_name = "Taxi-v3"
-        env = gym.make(env_name)
-        initial_state = env.reset()
-        root_node = Node(initial_state, q_values=taxi_model.q_table)
-        mcts(root_node, env, iterations=1000)
-
-        # Test the policy derived from the MCTS root node
-        env = gym.make('Taxi-v3')
-        average_reward = np.mean([simulate_episode_from_root(env, root_node) for _ in range(100)])
-        # print(f"Average Reward from the MCTS policy: {average_reward}")
-        average_rewards.append(average_reward)
-        # test_qtable(env, taxi_model, episodes = 100)
-        mcts_policy, num_not_random = extract_policy(root_node, env)
-        mcts_classifier_ratings.append(
-            models[i].forward(
-                Data(x = torch.tensor(mcts_policy.reshape(-1, 1).astype(np.float32)), edge_index = edge_index)
-            ).item()
-        )
-
-    # %%
-    ### A la Wentworth's definition of coherence, we create policies that do and do not "contradict"
-    # themselves, i.e. there exists a value function consistent with the policy, and pass them
-    # through the classifier
-
-    c_diffs, c_ratings, ic_ratings = [], [], []
-    for index in tqdm(list(range(len(models))) * 5):
-        coherent_policy = greedy_policy(taxi_model.q_table).detach()
-        incoherent_policy = greedy_policy(taxi_model.q_table).detach()
-        for _ in range(100):
-            env.reset()
-            i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
-            env.step(coherent_policy[i].item())
-            j = env.unwrapped.s
-            if coherent_policy[i][0] % 2 == 0:
-                incoherent_policy[j][0] = coherent_policy[i][0] + 1
-            else:
-                incoherent_policy[j][0] = coherent_policy[i][0] - 1 # if 0, then 1; if 1, then 0
-            # point is to put incoherent_policy in a loop
-
-        # oops, i is already taken as a variable name here
-        c_diffs.append((coherent_policy != incoherent_policy).nonzero().shape[0])
-        c_ratings.append(models[index].forward(Data(x = coherent_policy.detach(), edge_index = edge_index)).item())
-        ic_ratings.append(models[index].forward(Data(x = incoherent_policy.detach(), edge_index = edge_index)).item())
-    
-    print(f"Coherent vs incoherent policy scorings: ")
-    print(c_diffs)
-    print(c_ratings)
-    print(ic_ratings)
-
-    class PolicyAgent:
-        def __init__(self, policy, epsilon = 0.1):
-            self.policy, self.epsilon = policy, epsilon
-        def act(self, state, epsilon):
-            if random.random() > epsilon:
-                action = self.policy[state]
-            else:
-                action = random.randrange(self.action_dim)
-            return action
-        
-    c_agent, ic_agent = PolicyAgent(np.array(coherent_policy.T[0])), PolicyAgent(np.array(incoherent_policy.T[0]))
-    test_qtable(env, c_agent, episodes = 1000)
-    test_qtable(env, ic_agent, episodes = 1000)
-
-    # %%
-    # Plot the classifier ratings
     plt.figure()
-    plt.boxplot(
-        [taxi_classifier_ratings, mcts_classifier_ratings, c_ratings, ic_ratings],
-        labels = ["Taxi Q-tables", "MCTS", "Coherent", "Incoherent"]
-    )
-    plt.title("Classifier Ratings for Different Policies")
-    plt.ylabel("Classifier Output")
-    plt.ylim(-0.1, 1.1)
-    plt.show()
-
-    # Plot classifier test losses
-    plt.figure()
-    plt.boxplot([test_losses], labels = ["GCN"])
-    plt.title("Classifier Test Losses")
-    plt.ylabel("Test Loss")
-    plt.show()
-
-
-    train_qtable_data = np.zeros((2, 10 * len(models)))
-    for j in tqdm(range(len(models) * 10)):
-        """
-        powerful_models = [greedy_policy(train_qtable(env_name = env_name, episodes = i).q_table) 
-                        for i in [1000, 3000, 10000]]
-        # print([model.forward(data) for data in powerful_models])
-        train_qtable_data[:, j] = np.array(
-            [models[j % len(models)].forward(Data(x = data, edge_index = edge_index)).item() 
-             for data in powerful_models]
-        )
-        """
-        episodes = int(np.random.lognormal(3, 1)) * 3 # median is about e^3 = 20
-        test_taxi_model = greedy_policy(train_qtable(env_name = env_name, episodes = episodes).q_table)
-        train_qtable_data[0, j] = episodes
-        train_qtable_data[1, j] = models[j % len(models)].forward(
-            Data(x = test_taxi_model, edge_index = edge_index)
-        ).item()
-    
-    plt.figure()
-    # plt.boxplot(train_qtable_data.T, labels = ['1000 episodes', '3000 episodes', '10000 episodes'])
-    plt.scatter(train_qtable_data[0], train_qtable_data[1])
-    plt.ylim(-0.1, 1.1)
-    plt.title("Classifier Ratings for Taxi Agents")
-    plt.ylabel("Classifier Output")
+    x_axis = np.arange(0, total_taxi_eps, total_taxi_eps / interval)
+    for i in range(len(models) * 5):
+        plt.scatter(x_axis, taxi_classifier_ratings[i])
+    # print(x_axis, taxi_classifier_ratings)
     plt.xlabel("Episodes")
+    plt.ylabel("Classifier output")
+    plt.title("GCN classification of Taxi NNs")
+    # plt.legend()
     plt.show()
