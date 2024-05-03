@@ -415,7 +415,7 @@ if __name__ == '__main__':
             taxi_model = train_qtable(
                 env_name = "Taxi-v3", episodes = int(total_taxi_eps / interval), verbose = False, 
                 # print_every = total_taxi_eps / 10, 
-                return_reward = False, pretrained_agent = taxi_model
+                return_reward = False, pretrained_agent = taxi_model, epsilon_decay = 500 / interval
             )
             taxi_data = Data(x = greedy_policy(taxi_model.q_table).detach(), edge_index = edge_index)
 
@@ -436,3 +436,43 @@ if __name__ == '__main__':
     plt.title("GCN classification of Taxi NNs")
     # plt.legend()
     plt.show()
+
+    # %%
+    interval = 100
+    total_taxi_eps = 40000
+    taxi_model = None
+    avg_diffs = []
+    verbose = False
+    for j in (range(interval) if verbose else tqdm(range(interval))):
+        taxi_model = train_qtable(
+            env_name = "Taxi-v3", episodes = int(total_taxi_eps / interval), verbose = verbose, 
+            print_every = int(total_taxi_eps / interval), epsilon_decay = 500 / interval, 
+            return_reward = False, pretrained_agent = taxi_model
+        )   
+        diffs = np.zeros(taxi_model.q_table.shape)
+        gamma = 0.99
+        for s in range(env.observation_space.n):
+            for a in range(env.action_space.n):
+                env.reset()
+                env.unwrapped.s = s
+                ns = env.step(a)[0]
+                #print(ns)
+                diffs[s, a] = abs(taxi_model.q_table[s, a] - gamma * np.max(taxi_model.q_table[ns]))
+                # calculate the difference between the Q-value and the expected value of the next state
+        avg_diff = np.mean(diffs)
+        avg_diffs.append(avg_diff.item())
+    
+    plt.figure()
+    plt.plot(np.arange(0, total_taxi_eps, total_taxi_eps / interval), avg_diffs)
+    plt.xlabel("Episodes")
+    plt.ylabel("Avg diff between Q-values and Bellman equation")
+    plt.title("Q-value convergence of Taxi Q-tables")
+    plt.show()
+# %%
+    taxi_model_2 = train_qtable(env_name = "Taxi-v3", episodes = 20000, verbose = True, print_every = 2000)
+# %%
+    test_qtable(gym.make("Taxi-v3"), taxi_model_2, episodes = 5000)
+    test_qtable(gym.make("Taxi-v3"), taxi_model, episodes = 5000)
+
+    # %%
+    

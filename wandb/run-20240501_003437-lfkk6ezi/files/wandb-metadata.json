@@ -1,0 +1,44 @@
+{
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.9.13",
+    "heartbeatAt": "2024-05-01T07:34:38.630572",
+    "startedAt": "2024-05-01T07:34:37.458771",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/thegman108/ValueSys_ToyModels.git",
+        "commit": "9207fb962c74e4810d3991413bcdb52c6ed86063"
+    },
+    "email": "dylanx26@berkeley.edu",
+    "root": "C:/Users/dylan/OneDrive/Documents/Astra Experiments",
+    "host": "LAPTOP-BQKDQ53F",
+    "username": "dylan",
+    "executable": "C:\\Users\\dylan\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1803.0,
+        "min": 0.0,
+        "max": 2304.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1803.0,
+            "min": 0.0,
+            "max": 2304.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 475.69237899780273,
+            "used": 306.6874122619629
+        }
+    },
+    "memory": {
+        "total": 15.707355499267578
+    }
+}
