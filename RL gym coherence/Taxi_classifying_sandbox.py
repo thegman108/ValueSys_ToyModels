@@ -282,6 +282,7 @@ def simulate_episode_from_root(env, root_node):
 
     return total_reward
 
+from functools import partial
 # %%
 if __name__ == '__main__':
     # %%
@@ -378,11 +379,12 @@ if __name__ == '__main__':
             for i in range(train_test_split, len(sparsities)) 
             # labeled with the sparsity of the r_func the policy was trained on
         ]
+        # %%
         num_node_features = env.action_space.n
         models, test_losses = [], []
         THRESHOLD = 0.01
         for _ in tqdm(range(NUM_CLASSIFIER_TRIES)):
-            model = GraphLevelGCN(num_node_features)
+            model = GraphLevelGCN(num_node_features, binary=False)
             criterion = torch.nn.MSELoss()
             optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
             metrics = train_classifier(
@@ -397,7 +399,7 @@ if __name__ == '__main__':
         model = models[np.argmin(test_losses)]
         print(f"Number of successful models: {len(models)}")
         for i in range(len(models)):
-            torch.save(models[i].state_dict(), f"models/Taxi_GCN_sparsity_{i}.pt")
+            torch.save(models[i].state_dict(), f"models/Taxi_GCN_sparsity_regr_{i}.pt")
         
         print(torch.transpose(test_data[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies        print(f"Sample dataset1 classification: {model.forward(dataset1[0])}")
         print(f"Sample test classification: {model.forward(test_data[0])}")
@@ -475,4 +477,40 @@ if __name__ == '__main__':
     test_qtable(gym.make("Taxi-v3"), taxi_model, episodes = 5000)
 
     # %%
+    # Linear probe on the policies
+    # Assuming that the policies are linearly separable
+
+    linear_probe = nn.Linear(3000, 1)
+    criterion = nn.MSELoss()
+    optimizer = torch.optim.Adam(linear_probe.parameters(), lr=1e-3)
+    num_epochs = 300
+    avg_losses = []
+    for epoch in range(num_epochs):
+        for data in train_data:
+            optimizer.zero_grad()
+            out = linear_probe(data.x.flatten())
+            # print(out)
+            loss = criterion(out, torch.tensor([data.y]))
+            loss.backward()
+            optimizer.step()
+        losses = []
+        for data in test_data:
+            out = linear_probe(data.x.flatten())
+            loss = criterion(out, torch.tensor([data.y]))
+            losses.append(loss.item())
+        avg_loss = np.mean(losses)
+        print(f"Epoch {epoch+1}: Average loss: {avg_loss}")
+        avg_losses.append(avg_loss)
+
+        # Patience
+        # if epoch > 0 and avg_loss > max(avg_losses[-5:]):
+        #     break
     
+    plt.figure()
+    plt.plot(avg_losses)
+    plt.xlabel("Epochs")
+    plt.ylabel("L1 Loss")
+    plt.title("Linear probe training")
+    plt.show()
+    
+# %%

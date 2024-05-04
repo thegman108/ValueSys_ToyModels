@@ -1,14 +1,16 @@
+# %%
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch_geometric.nn import global_mean_pool, GCNConv, GATConv
 
 class GraphLevelGCN(torch.nn.Module):
-    def __init__(self, num_node_features):
+    def __init__(self, num_node_features, binary=True):
         super(GraphLevelGCN, self).__init__()
         self.conv1 = GCNConv(num_node_features, 16)
         self.conv2 = GCNConv(16, 16)
         self.linear = torch.nn.Linear(16, 1)
+        self.binary = binary
 
     def forward(self, data):
         x, edge_index, batch = data.x, data.edge_index, data.batch
@@ -23,7 +25,7 @@ class GraphLevelGCN(torch.nn.Module):
         
         # Make a binary classification prediction
         x = self.linear(x)
-        return torch.sigmoid(x)
+        return torch.sigmoid(x) if self.binary else x
 
 class GATGraphLevelBinary(torch.nn.Module):
     def __init__(self, num_node_features):
@@ -46,3 +48,4 @@ class GATGraphLevelBinary(torch.nn.Module):
         x = global_mean_pool(x, batch)  # Aggregate node features to graph-level
         x = self.linear(x)
         return torch.sigmoid(x)  # Sigmoid activation function for binary classification
+# %%

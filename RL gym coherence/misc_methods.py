@@ -101,7 +101,7 @@ def render_env(env, agent):
 
 def train_qtable(
         env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilon_final=0.01, 
-        epsilon_decay=500, reward_function = None, verbose = False, return_reward = False, 
+        epsilon_decay=None, reward_function = None, verbose = False, return_reward = False, 
         print_every=50, intermediate_method_train = None, int_method_train_every = 1, 
         pretrained_agent = None, **kwargs
     ):
@@ -115,6 +115,7 @@ def train_qtable(
         state_dim = env.observation_space.shape[0]
     action_dim = env.action_space.n
     agent = pretrained_agent if pretrained_agent else QTableAgent(state_dim, action_dim, **kwargs)
+    epsilon_decay = epsilon_decay if epsilon_decay else int(episodes / 2)
 
     rewards = np.zeros(episodes)
     epsilon_by_frame = lambda frame_idx: epsilon_final + (epsilon_start - epsilon_final) * np.exp(-1. * frame_idx / epsilon_decay)

@@ -1,3 +1,4 @@
+# %%
 import gym
 import random
 import numpy as np
@@ -344,10 +345,10 @@ if __name__ == '__main__':
         URS_r_funcs = [lambda *args: deterministic_random(args) for _ in range(NUM_TRAIN_R_FUNCS)]
         URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
                                 reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
-        # print("Halfway there!")
+        print("Halfway there!")
         USS_r_funcs = [lambda *args: deterministic_random(args, sparsity=0.99) for _ in range(NUM_TRAIN_R_FUNCS)]
-        # USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
-        #                             reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
+        USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
+                                    reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
         UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
 
         # The Q-Table is already one-hot encoded, so we don't need to convert it to a Data object
@@ -371,23 +372,22 @@ if __name__ == '__main__':
             env_name = env_name, episodes = NUM_EPS_TRAIN_R, 
             reward_function = lambda *args: det_rand_terminal(*args)
         ) for _ in tqdm(range(NUM_TRAIN_R_FUNCS))]
-        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in UUS_agents]
-        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
         # dataset2 = [Data(x = random_policy(agent.q_table.shape[0]), edge_index = edge_index, y = 0) for agent in UPS_agents]
         # ^ random_policy = UPS sampling
         # print(dataset1[0].x.shape)
         # %%
-
+        dataset1 = [Data(x = prep_qtable(agent.q_table), edge_index = edge_index, y = 1) for agent in USS_agents]
+        dataset2 = [Data(x = prep_qtable(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
         train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
         models, test_losses = [], []
         threshold = 0.2
         for _ in tqdm(range(NUM_CLASSIFIER_TRIES)):
             model = GraphLevelGCN(num_node_features)
             criterion = torch.nn.BCELoss()
-            optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
+            optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=5e-4)
             metrics = train_classifier(
                 model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5,
-                verbose = False
+                verbose = True
             )
             if metrics['test_loss'] < threshold:
                 test_losses.append(metrics['test_loss'])
@@ -397,7 +397,7 @@ if __name__ == '__main__':
         model = models[np.argmin(test_losses)]
         print(f"Number of successful models: {len(models)}")
         for i in range(len(models)):
-            torch.save(models[i].state_dict(), f"models/Taxi_GCN_{i}.pt")
+            torch.save(models[i].state_dict(), f"models/Taxi_GCN_USS_URS_{i}.pt")
         
         print(torch.transpose(dataset1[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies
         print(torch.transpose(dataset2[0].x, 0, -1)[0:10, 0:10])
@@ -558,3 +558,48 @@ if __name__ == '__main__':
     plt.ylabel("Classifier Output")
     plt.xlabel("Episodes")
     plt.show()
+
+    # %%
+    # Testing linear (BCE) probes on q-tables
+    class BinLogClassifier(nn.Module):
+        def __init__(self, input_size):
+            super(BinLogClassifier, self).__init__()
+            self.linear = nn.Linear(input_size, 1)
+
+        def forward(self, x):
+            y_pred = torch.sigmoid(self.linear(x))
+            return y_pred
+    linear_probe = BinLogClassifier(3000)
+    criterion = nn.BCELoss()
+    test_criterion = lambda x, y: 1 if abs(x.item() - y.item()) < 0.5 else 0
+    # Test accuracy
+    optimizer = torch.optim.Adam(linear_probe.parameters(), lr=0.01)
+    epochs = 40
+    patience = 5
+    test_losses = []
+    for epoch in range(epochs):
+        for j in range(len(train_data)):
+            optimizer.zero_grad()
+            out = linear_probe(train_data[j].x.reshape(1, -1))
+            loss = criterion(out, torch.tensor([[train_data[j].y]]))
+            loss.backward()
+            optimizer.step()
+        
+        avg_test_loss = 0
+        for j in range(len(test_data)):
+            with torch.no_grad():
+                out = linear_probe(test_data[j].x.reshape(1, -1))
+                print(out.item(), test_data[j].y)
+                loss = test_criterion(out, torch.tensor([[test_data[j].y]]))
+                avg_test_loss += loss
+        avg_test_loss /= len(test_data)
+        print(f"Epoch {epoch + 1}: Average Test Accuracy: {avg_test_loss}")
+        test_losses.append(avg_test_loss)
+    
+    plt.figure()
+    plt.plot(test_losses)
+    plt.title("Linear Probe Test Accuracy")
+    plt.xlabel("Epoch")
+    plt.ylabel("Test Accuracy")
+    plt.show()
+    
