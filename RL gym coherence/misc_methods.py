@@ -53,7 +53,7 @@ def train_dqn(env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilon_f
     rewards = np.zeros(episodes) 
     is_state_discrete = hasattr(env.observation_space, 'n')
     for episode in range(episodes):
-        state = env.reset() # Reset the environment, reward
+        state = env.reset()[0] # Reset the environment, reward
         if is_state_discrete and state_dim == env.observation_space.n:
             state = one_hot_state(state, env)
         episode_reward = 0
@@ -61,7 +61,8 @@ def train_dqn(env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilon_f
             epsilon = epsilon_by_frame(episode)
             # One-hot encode the state
             action = agent.act(state, epsilon)
-            next_state, reward, done, _ = env.step(action)
+            next_state, reward, term, trunc = env.step(action)[:4]
+            done = term or trunc
             if is_state_discrete and state_dim == env.observation_space.n:
                 next_state = one_hot_state(next_state, env)
 
@@ -90,12 +91,13 @@ def train_dqn(env_name="CartPole-v1", episodes=500, epsilon_start=1.0, epsilon_f
 
 # Optional: Function to render the environment with the current policy
 def render_env(env, agent):
-    state = env.reset()
+    state = env.reset()[0]
     done = False
     while not done:
         action = agent.act(state, 0)  # Using 0 epsilon for greedy action selection
         # print(env.step(action))
-        next_state, reward, done, _ = env.step(action)
+        next_state, reward, term, trunc = env.step(action)[:4]
+        done = term or trunc
         env.render()
         state = next_state
 
@@ -120,12 +122,14 @@ def train_qtable(
     rewards = np.zeros(episodes)
     epsilon_by_frame = lambda frame_idx: epsilon_final + (epsilon_start - epsilon_final) * np.exp(-1. * frame_idx / epsilon_decay)
     for episode in range(episodes):
-        state = env.reset()
+        state = env.reset()[0]
         episode_reward = 0
         while True:
             epsilon = epsilon_by_frame(episode)
             action = agent.act(state, epsilon)
-            next_state, reward, done, _ = env.step(action)
+            next_state, reward, term, trunc = env.step(action)[:4]
+            done = term or trunc
+            # print(next_state, reward, done)
             if reward_function:
                 reward = reward_function(done, state, action, next_state)
 
@@ -152,14 +156,15 @@ def test_dqn(env, agent, episodes=10, reward_function=None, verbose = False):
     for episode in range(episodes):
         # if episode == 0:
         #     render_env(env, agent)
-        state = env.reset()
+        state = env.reset()[0]
         if len(env.observation_space.shape) == 0:
             state = one_hot_state(state, env)
         episode_reward = 0
         done = False
         while not done:
             action = agent.act(state, 0)  # Using 0 epsilon for greedy action selection
-            next_state, reward, done, _ = env.step(action)
+            next_state, reward, term, trunc = env.step(action)[:4]
+            done = term or trunc
             if len(env.observation_space.shape) == 0:
                 next_state = one_hot_state(next_state, env)
             if reward_function:
@@ -181,12 +186,13 @@ def test_qtable(env, agent, episodes=10, reward_function=None, verbose = False,
     print(f"Maximum reward: {env.spec.reward_threshold}")
     average_value = 0
     for episode in range(episodes):
-        state = env.reset()
+        state = env.reset()[0]
         episode_reward = 0
         done = False
         while not done:
             action = agent.act(state, 0)  # Using 0 epsilon for greedy action selection
-            next_state, reward, done, _ = env.step(action)
+            next_state, reward, term, trunc = env.step(action)[:4]
+            done = term or trunc
             if reward_function:
                 reward = reward_function(done, state, action, next_state)
             episode_reward += reward

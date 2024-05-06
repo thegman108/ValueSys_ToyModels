@@ -213,7 +213,7 @@ def expansion(node, env):
     for action in range(env.action_space.n):
         if action not in tried_actions:
             env.env.s = node.state  # Set environment to current node's state
-            next_state, _, _, _ = env.step(action)
+            next_state = env.step(action)[0]
             new_node = Node(next_state, parent=node, action=action, q_values=node.q_values)
             node.add_child(new_node)
             return new_node
@@ -227,7 +227,8 @@ def simulation(node, env, max_steps=100):
     while steps < max_steps:
         action = rollout_policy(current_state, node.q_values, env)
         env.env.s = current_state
-        next_state, reward, done, _ = env.step(action)
+        next_state, reward, term, trunc = env.step(action)[:4]
+        done = term or trunc
         total_reward += reward
         current_state = next_state
         steps += 1
@@ -269,7 +270,8 @@ def simulate_episode_from_root(env, root_node):
             # No more information in the tree; choose random action
             action = env.action_space.sample()
         
-        next_state, reward, done, _ = env.step(action)  # Execute the chosen action
+        next_state, reward, term, trunc = env.step(action)[:4]  # Execute the chosen action
+        done = term or trunc
         total_reward += reward
         
         # Move to the next node in the tree, if it exists
@@ -310,7 +312,7 @@ if __name__ == '__main__':
                         # Set the environment to the current state
                         taxi_env.unwrapped.s = current_state
                         # Take action and observe the next state and reward
-                        next_state, reward, done, _ = taxi_env.step(action)
+                        next_state, reward, done = taxi_env.step(action)[:3]
                         # Add edge from current state to next state
                         edges[current_state].append(next_state)
                         # Optionally, use rewards as edge attributes

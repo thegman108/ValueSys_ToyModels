@@ -213,7 +213,7 @@ def expansion(node, env):
     for action in range(env.action_space.n):
         if action not in tried_actions:
             env.env.s = node.state  # Set environment to current node's state
-            next_state, _, _, _ = env.step(action)
+            next_state = env.step(action)[0]
             new_node = Node(next_state, parent=node, action=action, q_values=node.q_values)
             node.add_child(new_node)
             return new_node
@@ -227,7 +227,8 @@ def simulation(node, env, max_steps=100):
     while steps < max_steps:
         action = rollout_policy(current_state, node.q_values, env)
         env.env.s = current_state
-        next_state, reward, done, _ = env.step(action)
+        next_state, reward, term, trunc = env.step(action)[:4]
+        done = term or trunc
         total_reward += reward
         current_state = next_state
         steps += 1
@@ -269,7 +270,9 @@ def simulate_episode_from_root(env, root_node):
             # No more information in the tree; choose random action
             action = env.action_space.sample()
         
-        next_state, reward, done, _ = env.step(action)  # Execute the chosen action
+        next_state, reward, term, trunc = env.step(action)[:4]  
+        # Execute the chosen action
+        done = term or trunc
         total_reward += reward
         
         # Move to the next node in the tree, if it exists
@@ -309,7 +312,7 @@ if __name__ == '__main__':
                         # Set the environment to the current state
                         taxi_env.unwrapped.s = current_state
                         # Take action and observe the next state and reward
-                        next_state, reward, done, _ = taxi_env.step(action)
+                        next_state, reward, done = taxi_env.step(action)[:3]
                         # Add edge from current state to next state
                         edges[current_state].append(next_state)
                         # Optionally, use rewards as edge attributes
@@ -328,15 +331,15 @@ if __name__ == '__main__':
     # Check if the directory exists, if not create it
     if not os.path.exists('models'):
         os.makedirs('models')
-    model_path = "models/Taxi_GCN_0.pt"
+    model_path = "models/Taxi_GCN_UUS_URS_"
     num_node_features = 1 # 1 if policy, 6 if q-table
     MAKE_NEW_MODELS = True
-    if os.path.exists(model_path) and not MAKE_NEW_MODELS: # if classifiers have already been trained
+    if os.path.exists(model_path + "0.pt") and not MAKE_NEW_MODELS: # if classifiers have already been trained
         i = 0
         models = []
-        while os.path.exists(f"models/Taxi_GCN_{i}.pt"):
+        while os.path.exists(model_path + f"{i}.pt"):
             model = GraphLevelGCN(num_node_features)
-            model.load_state_dict(torch.load(f"models/Taxi_GCN_{i}.pt"))
+            model.load_state_dict(torch.load(model_path + f"{i}.pt"))
             models.append(model)
             i += 1
         print(f"Loaded {len(models)} models")
@@ -376,28 +379,30 @@ if __name__ == '__main__':
         # ^ random_policy = UPS sampling
         # print(dataset1[0].x.shape)
         # %%
-        dataset1 = [Data(x = prep_qtable(agent.q_table), edge_index = edge_index, y = 1) for agent in USS_agents]
-        dataset2 = [Data(x = prep_qtable(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
+        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in UUS_agents]
+        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
         train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
         models, test_losses = [], []
         threshold = 0.2
+        NUM_CLASSIFIER_TRIES = 40
         for _ in tqdm(range(NUM_CLASSIFIER_TRIES)):
             model = GraphLevelGCN(num_node_features)
             criterion = torch.nn.BCELoss()
             optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=5e-4)
             metrics = train_classifier(
                 model, criterion, optimizer, train_data, test_data, epochs = 80, patience = 5,
-                verbose = True
+                verbose = False
             )
             if metrics['test_loss'] < threshold:
                 test_losses.append(metrics['test_loss'])
                 models.append(model)
+            print(metrics['test_loss'])
         print(f"Successful GCN classifier test losses: {test_losses}")
         # Choose the model with the lowest test loss
         model = models[np.argmin(test_losses)]
         print(f"Number of successful models: {len(models)}")
         for i in range(len(models)):
-            torch.save(models[i].state_dict(), f"models/Taxi_GCN_USS_URS_{i}.pt")
+            torch.save(models[i].state_dict(), model_path + f"{i}.pt")
         
         print(torch.transpose(dataset1[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies
         print(torch.transpose(dataset2[0].x, 0, -1)[0:10, 0:10])
@@ -409,7 +414,8 @@ if __name__ == '__main__':
 
     # %%
     taxi_classifier_ratings = []
-    for i in tqdm(list(range(len(models))) * 5):
+    taxi_models = []
+    for i in tqdm(list(range(len(models))) * 1):
         taxi_model = train_qtable(env_name = "Taxi-v3", episodes = 20000, verbose = False, print_every = 2000, 
                                 return_reward = False)
         taxi_data = Data(x = greedy_policy(taxi_model.q_table).detach(), edge_index = edge_index)
@@ -417,6 +423,7 @@ if __name__ == '__main__':
         taxi_classifier_ratings.append(models[i].forward(taxi_data).item())
         # test_qtable(gym.make("Taxi-v3"), taxi_model, episodes = 1000)
         # Generate tabular policy from MCTS and feed through classifier
+        taxi_models.append(taxi_model)
 
     # %%
     # Assume taxi_model.q_table is your pre-trained Q-table
@@ -447,12 +454,12 @@ if __name__ == '__main__':
 
     mcts_classifier_ratings = []
     average_rewards = []
-    for i in tqdm(list(range(len(models))) * 5):
+    for i in tqdm(list(range(len(models))) * 1):
         # Example usage
         env_name = "Taxi-v3"
         env = gym.make(env_name)
-        initial_state = env.reset()
-        root_node = Node(initial_state, q_values=taxi_model.q_table)
+        initial_state = env.reset()[0]
+        root_node = Node(initial_state, q_values=taxi_models[i].q_table)
         mcts(root_node, env, iterations=1000)
 
         # Test the policy derived from the MCTS root node
@@ -474,9 +481,9 @@ if __name__ == '__main__':
     # through the classifier
 
     c_diffs, c_ratings, ic_ratings = [], [], []
-    for index in tqdm(list(range(len(models))) * 5):
-        coherent_policy = greedy_policy(taxi_model.q_table).detach()
-        incoherent_policy = greedy_policy(taxi_model.q_table).detach()
+    for index in tqdm(list(range(len(models))) * 1):
+        coherent_policy = greedy_policy(taxi_models[index].q_table).detach()
+        incoherent_policy = greedy_policy(taxi_models[index].q_table).detach()
         for _ in range(100):
             env.reset()
             i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
@@ -513,6 +520,13 @@ if __name__ == '__main__':
     test_qtable(env, ic_agent, episodes = 1000)
 
     # %%
+    # Shapiro Wilkes test for classifier ratings
+    from scipy.stats import shapiro, wilcoxon
+    print(shapiro(taxi_classifier_ratings))
+    print(shapiro(mcts_classifier_ratings))
+    print(shapiro(ic_ratings))
+
+    # %%
     # Plot the classifier ratings
     plt.figure()
     plt.boxplot(
@@ -531,7 +545,7 @@ if __name__ == '__main__':
     plt.ylabel("Test Loss")
     plt.show()
 
-
+    # %%
     train_qtable_data = np.zeros((2, 10 * len(models)))
     for j in tqdm(range(len(models) * 10)):
         """
