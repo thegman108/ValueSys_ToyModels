@@ -1,3 +1,4 @@
 datasets
 transformers[torch]
 wandb
+sentencepiece=0.2.0
