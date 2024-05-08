@@ -53,21 +53,38 @@ def train(rank, world_size, num_epochs, token):
 
 
     def encode(examples):
-        texts = [q + " \\\\n " + a for q, a in zip(examples['question'], examples['answer'])]
-        return tokenizer(texts, truncation=True, padding='max_length', max_length=128,return_tensors='pt')
-    
+        texts = [q + " \\n " + a for q, a in zip(examples['question'], examples['answer'])]
+        encoded_inputs = tokenizer(texts, truncation=True, padding='max_length', max_length=128)
+        return {
+            'input_ids': encoded_inputs['input_ids'],
+            'attention_mask': encoded_inputs['attention_mask']
+        }
+        
     def custom_collate(batch):
-        batch = {k: torch.tensor(v) for k, v in default_collate(batch).items() if isinstance(v[0], list)}
+        input_ids = [item['input_ids'] for item in batch]
+        attention_mask = [item['attention_mask'] for item in batch]
+        labels = [item['input_ids'] for item in batch]  # Use 'input_ids' as labels
+
+        input_ids = torch.tensor(input_ids)
+        attention_mask = torch.tensor(attention_mask)
+        labels = torch.tensor(labels)
+
+        batch = {
+            'input_ids': input_ids,
+            'attention_mask': attention_mask,
+            'labels': labels
+        }
+
         return batch
 
     train_dataset = train_dataset.map(encode, batched=True)
     test_dataset = test_dataset.map(encode, batched=True)
 
     train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset, num_replicas=world_size, rank=rank)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=4, sampler=train_sampler, collate_fn=custom_collate)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=1, sampler=train_sampler, collate_fn=custom_collate)
 
     test_sampler = torch.utils.data.distributed.DistributedSampler(test_dataset, num_replicas=world_size, rank=rank)
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=4, sampler=test_sampler, collate_fn=custom_collate)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, sampler=test_sampler, collate_fn=custom_collate)
 
     optimizer = AdamW(model.parameters(), lr=5e-5)
     num_training_steps = len(train_dataloader) * num_epochs
@@ -77,6 +94,9 @@ def train(rank, world_size, num_epochs, token):
         train_sampler.set_epoch(epoch)
         model.train()
         for batch in train_dataloader:
+            print("batch keys",batch.keys())
+            if 'input_ids' not in batch:
+                raise ValueError("Batch does not contain 'input_ids'")
             outputs = model(input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], labels=batch['input_ids'])
             loss = outputs.loss
             loss.backward()
