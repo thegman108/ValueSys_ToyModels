@@ -131,7 +131,9 @@ def train_qtable(
             done = term or trunc
             # print(next_state, reward, done)
             if reward_function:
-                reward = reward_function(done, state, action, next_state)
+                # state-based rewards?
+                # reward = reward_function(done, state, action, next_state)
+                reward = reward_function(done, state)
 
             agent.update(state, action, reward, next_state, done)
             state = next_state
@@ -194,7 +196,7 @@ def test_qtable(env, agent, episodes=10, reward_function=None, verbose = False,
             next_state, reward, term, trunc = env.step(action)[:4]
             done = term or trunc
             if reward_function:
-                reward = reward_function(done, state, action, next_state)
+                reward = reward_function(done, state)
             episode_reward += reward
             state = next_state
         if verbose:
