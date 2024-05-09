@@ -84,6 +84,7 @@ def custom_collate(batch):
 def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
     setup(rank, world_size)
     torch.cuda.set_device(rank)
+    logger.info(f"Process {rank}: CUDA device set.")
     
     #initialize item in train
     scaler = GradScaler()
@@ -131,14 +132,13 @@ def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=num_training_steps)
 
     for epoch in range(num_epochs):
+        logger.info(f"Process {rank}: Starting epoch {epoch}.")
         logger.info(f"Top of epoch: GPU {rank} Utilization: {torch.cuda.memory_allocated(rank)} bytes allocated")
 
         train_sampler.set_epoch(epoch)
         model.train()
         for step, batch in enumerate(train_dataloader):
-            print("batch keys",batch.keys())
-            if 'input_ids' not in batch:
-                raise ValueError("Batch does not contain 'input_ids'")
+            logger.info(f"Inside enumerate dataloader: Process {rank}: Processing batch {step} of epoch {epoch}.")
             
             #adding this in to reduce memory
             with autocast():
@@ -165,32 +165,35 @@ def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
 
 
 
-        #what does thie line of code do?
-        logger.info(f"Process {rank} reached barrier before starting epoch {epoch}")
+       
+        logger.info(f"Process {rank}: Reached barrier at the end of epoch {epoch}.")
         dist.barrier()
-        logger.info(f"Process {rank} passed barrier after starting epoch {epoch}")
+        
 
         if rank == 0:
-            print(f"Epoch {epoch}, Training Loss: {loss.item()}")
+            logger.info(f"Process {rank}: Epoch {epoch} complete. Training Loss: {loss.item()}")
 
             model.eval()
+            logger.info(f"Model eval has been set up")
             total_loss = 0
             with torch.no_grad():
+                logger.info(f"Process {rank}: Epoch {epoch}: inside the model eval mode ")
                 for batch in test_dataloader:
                     #adding in autocast here as well
                     with autocast():
+                        logger.info(f"Process {rank}: Epoch {epoch}: inside the auto-cast mode ")
                         outputs = model(input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], labels=batch['input_ids'])
                         total_loss += outputs.loss.item()
-
-            print(f"Epoch {epoch}, Evaluation Loss: {total_loss / len(test_dataloader)}")
-
+                        
+            logger.info(f"Done with model eval")
+            logger.info(f"Process {rank}: Evaluation loss for epoch {epoch}: {total_loss / len(test_dataloader)}")
             unwrapped_model = model.module
             unwrapped_model.save_pretrained(f"llama2_7b_finetuned_gsm8k_epoch_{epoch}")
+            logger.info(f"Saved Epoch {epoch}")
         
-        logger.info(f"Bottom of epoch GPU {rank} Utilization: {torch.cuda.memory_allocated(rank)} bytes allocated")
-
-
+    logger.info(f"Right before cleanup")
     cleanup()
+    logger.info(f"Process {rank}: Cleanup completed.")
     
     
     
@@ -204,8 +207,10 @@ def main():
     gradient_accumulation_steps = 128
     
     token= "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"
+    
     mp.spawn(train, args=(world_size, num_epochs, token, gradient_accumulation_steps), nprocs=world_size, join=True)
     
+    print("main complete")
     #ok instad of the above I'm going to use the distributed training built into pytorch
 
     
