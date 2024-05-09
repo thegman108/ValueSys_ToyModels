@@ -58,10 +58,10 @@ def train(rank, world_size, epochs,token):
     model = DDP(model, device_ids=[rank])
     
     tokenizer.pad_token = tokenizer.eos_token
-    gradient_accumulation_steps = 600
+    gradient_accumulation_steps = 300
 
     # Correct dataset configuration and preprocessing
-    data = load_dataset("gsm8k", "main", split='train[:100]')
+    data = load_dataset("gsm8k", "main", split='train[:500]')
     data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data.set_format(type='torch', columns=['input_ids', 'attention_mask'])
     
