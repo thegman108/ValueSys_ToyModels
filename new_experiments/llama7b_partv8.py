@@ -95,10 +95,10 @@ def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
     test_dataset = test_dataset.map(encode, batched=True)
 
     train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset, num_replicas=world_size, rank=rank)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=1, sampler=train_sampler, collate_fn=custom_collate,num_workers=1,prefetch_factor=2)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=1, sampler=train_sampler, collate_fn=custom_collate,num_workers=2,prefetch_factor=2)
 
     test_sampler = torch.utils.data.distributed.DistributedSampler(test_dataset, num_replicas=world_size, rank=rank)
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, sampler=test_sampler, collate_fn=custom_collate,num_workers=1,prefetch_factor=2)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, sampler=test_sampler, collate_fn=custom_collate,num_workers=2,prefetch_factor=2)
 
     optimizer = AdamW(model.parameters(), lr=5e-5)
     num_training_steps = len(train_dataloader) * num_epochs
@@ -127,7 +127,7 @@ def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
                 torch.cuda.empty_cache()
 
         #what does thie line of code do?
-        dist.barrier()
+        #dist.barrier()
 
         if rank == 0:
             print(f"Epoch {epoch}, Training Loss: {loss.item()}")
@@ -156,10 +156,20 @@ def main():
     world_size = torch.cuda.device_count()
     print("Number of GPUs",world_size)
     num_epochs = 3
-    gradient_accumulation_steps = 64
+    #double this.
+    gradient_accumulation_steps = 128
     
     token= "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"
-    mp.spawn(train, args=(world_size, num_epochs, token, gradient_accumulation_steps), nprocs=world_size, join=True)
+    #mp.spawn(train, args=(world_size, num_epochs, token, gradient_accumulation_steps), nprocs=world_size, join=True)
+    
+    #ok instad of the above I'm going to use the distributed training built into pytorch
+    torch.distributed.launch(
+        train,
+        args=(world_size, num_epochs, token, gradient_accumulation_steps),
+        nprocs=world_size,
+        join=True
+    )
+    
 
 if __name__ == '__main__':
     main()
