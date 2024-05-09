@@ -13,6 +13,11 @@ from datasets import load_dataset
 #adding in  for reduced memory
 from torch.cuda.amp import GradScaler, autocast
 
+import torch
+import logging
+
+logging.basicConfig(level=logging.INFO)
+
 
 # Set the HF_HOME environment variable
 os.environ['HF_HOME'] = '/workspace/.cache/huggingface'
@@ -24,6 +29,27 @@ os.environ['TRANSFORMERS_CACHE'] = '/workspace/.cache/huggingface/models'
 print(os.environ['HF_HOME'])
 print(os.environ['HF_DATASETS_CACHE'])
 print(os.environ['TRANSFORMERS_CACHE'])
+
+class FlushHandler(logging.StreamHandler):
+    def emit(self, record):
+        super().emit(record)
+        self.flush()
+
+
+
+# Modify the setup_logger function to use FlushHandler
+def setup_logger():
+    logger = logging.getLogger('TrainingLogger')
+    logger.setLevel(logging.DEBUG)
+    ch = FlushHandler()
+    ch.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
+    return logger
+
+# Now you can create a logger instance in your main code
+logger = setup_logger()
 
 
 
@@ -105,6 +131,8 @@ def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=num_training_steps)
 
     for epoch in range(num_epochs):
+        logger.info(f"Top of epoch: GPU {rank} Utilization: {torch.cuda.memory_allocated(rank)} bytes allocated")
+
         train_sampler.set_epoch(epoch)
         model.train()
         for step, batch in enumerate(train_dataloader):
@@ -114,20 +142,33 @@ def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
             
             #adding this in to reduce memory
             with autocast():
-                outputs = model(input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], labels=batch['input_ids'])
+                try:
+                    outputs = model(input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], labels=batch['input_ids'])
+                except Exception as e:
+                    logger.error(f"Error in processing at step {step} by process {rank}: {str(e)}")
+                
                 #dividing by the gradient accumulation in order to reduce memory footprint
                 loss = outputs.loss / gradient_accumulation_steps
             
             if (step + 1) % gradient_accumulation_steps ==0:
+                logger.info(f"Process {rank} starting gradient reduction at step {step+1}")
                 scaler.scale(loss).backward()
                 scaler.step(optimizer)
                 scaler.update()
                 scheduler.step()
                 optimizer.zero_grad()
                 torch.cuda.empty_cache()
+                logger.info(f"Process {rank} completed gradient reduction at step {step+1}")
+            
+            logger.info(f"In batch: Process {rank} starting epoch {epoch}, batch {batch}")
+            logger.info(f"In batch: Process {rank} received {len(batch)} samples")
+
+
 
         #what does thie line of code do?
-        #dist.barrier()
+        logger.info(f"Process {rank} reached barrier before starting epoch {epoch}")
+        dist.barrier()
+        logger.info(f"Process {rank} passed barrier after starting epoch {epoch}")
 
         if rank == 0:
             print(f"Epoch {epoch}, Training Loss: {loss.item()}")
@@ -145,6 +186,9 @@ def train(rank, world_size, num_epochs, token, gradient_accumulation_steps=4):
 
             unwrapped_model = model.module
             unwrapped_model.save_pretrained(f"llama2_7b_finetuned_gsm8k_epoch_{epoch}")
+        
+        logger.info(f"Bottom of epoch GPU {rank} Utilization: {torch.cuda.memory_allocated(rank)} bytes allocated")
+
 
     cleanup()
     
@@ -160,15 +204,10 @@ def main():
     gradient_accumulation_steps = 128
     
     token= "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"
-    #mp.spawn(train, args=(world_size, num_epochs, token, gradient_accumulation_steps), nprocs=world_size, join=True)
+    mp.spawn(train, args=(world_size, num_epochs, token, gradient_accumulation_steps), nprocs=world_size, join=True)
     
     #ok instad of the above I'm going to use the distributed training built into pytorch
-    torch.distributed.launch(
-        train,
-        args=(world_size, num_epochs, token, gradient_accumulation_steps),
-        nprocs=world_size,
-        join=True
-    )
+
     
 
 if __name__ == '__main__':
