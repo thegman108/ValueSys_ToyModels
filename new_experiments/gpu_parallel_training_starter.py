@@ -1,7 +1,5 @@
 import os
 
-import os
-
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:64'  # You can adjust the size based on your observations
 
 
@@ -13,11 +11,15 @@ from datasets import load_dataset
 from torch.utils.data.distributed import DistributedSampler
 from torch.cuda.amp import GradScaler, autocast
 import torch.optim as optim
+import wandb
 
 # Setup environment
 os.environ['HF_HOME'] = '/workspace/.cache/huggingface'
 os.environ['TRANSFORMERS_CACHE'] = '/workspace/.cache/huggingface/models'
 os.environ['HF_DATASETS_CACHE'] = '/workspace/.cache/huggingface/datasets'
+
+# Log in to wandb
+wandb.login()
 
 # Logger setup
 def setup_logger():
@@ -52,6 +54,14 @@ def train(rank, world_size, epochs,token):
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=token)    
     model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=token)
     
+    #bring in content for wandb
+    if rank == 0:  # Initialize only once
+        wandb.init(project="coherence", entity="jprivera44", config={
+            "epochs": epochs,
+            "batch_size": 1,
+            "learning_rate": 5e-5,
+        })
+    
     #Now that we have the llama7b we need to make sure that its on the gpu.
     model.to(rank)
     
@@ -72,6 +82,8 @@ def train(rank, world_size, epochs,token):
     # Use PyTorch's AdamW
     optimizer = optim.AdamW(model.parameters(), lr=5e-5)
     scaler = GradScaler()
+    
+    global_step = 0
 
     for epoch in range(epochs):
         model.train()
@@ -81,16 +93,24 @@ def train(rank, world_size, epochs,token):
             with autocast():
                 outputs = model(**inputs, labels=inputs['input_ids'])
                 loss = outputs.loss / gradient_accumulation_steps
-                
+            
+            if rank == 0:
+                wandb.log({"loss": loss.item(), "global_step": global_step})
+
+            
             if (step + 1) % gradient_accumulation_steps ==0:    
                 scaler.scale(loss).backward()
                 scaler.step(optimizer)
                 scaler.update()
                 optimizer.zero_grad()
-            
+            global_step+=1
+    
         dist.barrier()
         if rank == 0:
             print(f"Epoch {epoch} complete.")
+            
+    if rank ==0:
+        wandb.finish()
 
     cleanup()
 
