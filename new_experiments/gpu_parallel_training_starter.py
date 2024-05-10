@@ -34,6 +34,37 @@ def setup_logger():
 
 logger = setup_logger()
 
+
+
+
+def evaluate(model, dataloader, rank):
+    """
+    Evaluate the model on the validation dataset.
+
+    Parameters:
+    - model: The model to evaluate.
+    - dataloader: DataLoader for the validation data.
+    - rank: The rank of the current process in distributed training.
+
+    Returns:
+    - average_loss: The average loss over the validation dataset.
+    """
+    model.eval()  # Set the model to evaluation mode
+    total_loss = 0
+    total_batches = 0
+
+    with torch.no_grad():  # No need to track gradients
+        for batch in dataloader:
+            inputs = {k: v.to(rank) for k, v in batch.items()}
+            with autocast():
+                outputs = model(**inputs, labels=inputs['input_ids'])
+                loss = outputs.loss
+                total_loss += loss.item()
+                total_batches += 1
+
+    average_loss = total_loss / total_batches if total_batches > 0 else 0
+    return average_loss
+
 # Initialize process
 def setup(rank, world_size):
     os.environ['MASTER_ADDR'] = 'localhost'
@@ -70,6 +101,7 @@ def train(rank, world_size, epochs,token):
     tokenizer.pad_token = tokenizer.eos_token
     gradient_accumulation_steps = 300
 
+    ##############TRAIN###############
     # Correct dataset configuration and preprocessing
     data = load_dataset("gsm8k", "main", split='train[:500]')
     data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
@@ -78,16 +110,32 @@ def train(rank, world_size, epochs,token):
     
     sampler = DistributedSampler(data, num_replicas=world_size, rank=rank)
     dataloader = torch.utils.data.DataLoader(data, batch_size=1, sampler=sampler)
+    ##############TRAIN###############
+    
+    ##############VALIDATION###############
+    data_v = load_dataset("gsm8k", "main", split='test[:500]')
+    data_v = data_v.map(lambda e: preprocess_data(tokenizer, e), batched=True)
+    data_v.set_format(type='torch', columns=['input_ids', 'attention_mask'])
+    
+    
+    sampler_v = DistributedSampler(data_v, num_replicas=world_size, rank=rank)
+    dataloader_v = torch.utils.data.DataLoader(data_v, batch_size=1, sampler=sampler_v)
+    ##############VALIDATION###############
+    
+    
 
     # Use PyTorch's AdamW
     optimizer = optim.AdamW(model.parameters(), lr=5e-5)
     scaler = GradScaler()
     
     global_step = 0
+    #fairly certain that I need to place the model in training mode
+    model.train()
 
     for epoch in range(epochs):
         model.train()
-        #for batch in dataloader:
+        
+        #enumerating throught he training data
         for step, batch in enumerate(dataloader):
             inputs = {k: v.to(rank) for k, v in batch.items()}
             with autocast():
@@ -104,10 +152,17 @@ def train(rank, world_size, epochs,token):
                 scaler.update()
                 optimizer.zero_grad()
             global_step+=1
+            
+        #now I need to check on the model for the sake of eval with eval dataset
+        ########################EVAL##############################
+        ########################EVAL##############################
+        # Validation phase
+        val_loss = evaluate(model, dataloader_v, rank)
     
         dist.barrier()
         if rank == 0:
-            print(f"Epoch {epoch} complete.")
+            wandb.log({"val_loss": val_loss, "epoch": epoch})
+            print(f"Epoch {epoch} complete with validation loss: {val_loss}.")
             
     if rank ==0:
         wandb.finish()
