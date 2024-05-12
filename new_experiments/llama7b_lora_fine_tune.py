@@ -31,6 +31,32 @@ os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:64'
 wandb.login()
 
 
+# Function to generate an answer for a single question
+def generate_answer(model, tokenizer, question, device):
+    # Tokenize the question
+    inputs = tokenizer(question, return_tensors="pt", padding=True, truncation=True, max_length=300)
+    input_ids = inputs['input_ids'].to(device)
+    attention_mask = inputs['attention_mask'].to(device)
+    model = model.to(device)
+    
+    # Generate an answer using the model
+    with torch.no_grad():
+        outputs = model.generate(input_ids, attention_mask=attention_mask, max_length=300)
+    
+    # Decode the generated tokens to a string
+    answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    print("  ")
+    print("question", question)
+    print("  ")
+    print("  ")
+    print("answer", answer)
+    print("  ")
+    print("  ")
+    
+    return answer
+
+
+
 def preprocess_data(tokenizer, examples):
     # Tokenize the question to create the model input
     model_inputs = tokenizer(examples['question'], truncation=True, padding='max_length', max_length=64)
@@ -42,6 +68,8 @@ def preprocess_data(tokenizer, examples):
     
     model_inputs['labels'] = labels['input_ids']
     return model_inputs
+
+
 
 
 
@@ -63,27 +91,31 @@ def train(epochs,token, log_interval=10):
         "learning_rate": 5e-5,
     })
     
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     
-        ##############TRAIN###############
+    ##############TRAIN###############
     # Correct dataset configuration and preprocessing
     data = load_dataset("gsm8k", "main", split='train[:500]')
-    data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
-    data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
-    #stop
-    
-    #sampler = DistributedSampler(data, num_replicas=world_size, rank=rank)
-    #dataloader = torch.utils.data.DataLoader(data, batch_size=1, sampler=sampler)
+    #data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
+    #data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############TRAIN###############
     
     ##############VALIDATION###############
-    data_v = load_dataset("gsm8k", "main", split='test[:500]')
-    data_v = data_v.map(lambda e: preprocess_data(tokenizer, e), batched=True)
-    data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
-    
-    
-    #sampler_v = DistributedSampler(data_v, num_replicas=world_size, rank=rank)
-    #dataloader_v = torch.utils.data.DataLoader(data_v, batch_size=1, sampler=sampler_v)
+    data_v_string = load_dataset("gsm8k", "main", split='test[:500]')
+    #data_v = data_v_string.map(lambda e: preprocess_data(tokenizer, e), batched=True)
+    #data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############VALIDATION###############
+    
+    
+    #call the function 
+    question = data_v_string['question'][0]
+    question2 = data_v_string['question'][1]
+    #print("Question being sent",question)
+    generate_answer(model, tokenizer, question, device)
+    
+    generate_answer(model, tokenizer, question2, device)
+    
+    stop
     
     # Training Params
     train_params = TrainingArguments(
@@ -208,8 +240,8 @@ def train(epochs,token, log_interval=10):
     train_loader = DataLoader(data, batch_size=train_params.per_device_train_batch_size, shuffle=True)
     eval_loader = DataLoader(data_v, batch_size=train_params.per_device_train_batch_size)
     
-    #hoping this is going to work
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+
+    
     model = model.to(device)
 
     for epoch_num in range(epochs):
