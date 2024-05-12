@@ -45,7 +45,7 @@ def preprocess_data(tokenizer, examples):
 
 
 
-def train(epochs,token):
+def train(epochs,token, log_interval=10):
     
     #i guess I should just force this to the cached local
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=token, )
@@ -64,15 +64,10 @@ def train(epochs,token):
     })
     
     
-    
-    
         ##############TRAIN###############
     # Correct dataset configuration and preprocessing
     data = load_dataset("gsm8k", "main", split='train[:500]')
-    print(data,"data")
-    print("data",data[0])
     data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
-    print('data', data)
     data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     #stop
     
@@ -83,7 +78,7 @@ def train(epochs,token):
     ##############VALIDATION###############
     data_v = load_dataset("gsm8k", "main", split='test[:500]')
     data_v = data_v.map(lambda e: preprocess_data(tokenizer, e), batched=True)
-    data_v.set_format(type='torch', columns=['input_ids', 'attention_mask'])
+    data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     
     
     #sampler_v = DistributedSampler(data_v, num_replicas=world_size, rank=rank)
@@ -129,19 +124,50 @@ def train(epochs,token):
     
     optimizer = AdamW(model.parameters(), lr=5e-5)
     
+    def log_step_metrics(current_loss, epoch_num, step, total_steps):
+        print(f"Epoch {epoch_num}, Step {step}: Current Average Loss: {current_loss}")
+        wandb.log({
+            "step_average_loss": current_loss,
+            "total_steps": total_steps
+        })
+    
     #Ok new version.
     def custom_loss(model_output, labels):
         loss_fct = torch.nn.CrossEntropyLoss()  # Assuming a classification task
         loss = loss_fct(model_output.logits.view(-1, model_output.logits.size(-1)), labels.view(-1))
         return loss
+    
+    
+    def evaluate(model, eval_loader, device):
+        model.eval()  # Set the model to evaluation mode
+        total_loss = 0
+        total_steps = 0
+        
+        with torch.no_grad():  # Turn off gradients for evaluation
+            for batch in eval_loader:
+                inputs = batch['input_ids'].to(device)
+                masks = batch['attention_mask'].to(device)
+                labels = batch['labels'].to(device)
+                
+                with autocast():
+                    outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+                    loss = custom_loss(outputs, labels)
+                
+                total_loss += loss.item()
+                total_steps += 1
+        
+        avg_loss = total_loss / total_steps
+        return avg_loss
+
 
     scaler = GradScaler()
     
-    def train_epoch(model, data_loader, optimizer, device, epoch_num):
+    def train_epoch(model, data_loader, optimizer, device, epoch_num, log_interval=10):
         model.train()
         total_loss = 0
+        steps = 0
         
-        for batch in data_loader:
+        for batch_index, batch in enumerate(data_loader):
             inputs = batch['input_ids'].to(device)
             masks = batch['attention_mask'].to(device)
             labels = batch['labels'].to(device)  # Ensure labels are part of the batch
@@ -156,6 +182,21 @@ def train(epochs,token):
             scaler.update()
             
             total_loss += loss.item()  # Accumulate the total loss for the epoch
+            steps +=1
+            
+            # Log the loss at the specified interval
+            if (batch_index + 1) % log_interval == 0:
+                current_loss = total_loss / steps
+                log_step_metrics(current_loss, epoch_num, batch_index + 1, epoch_num * len(data_loader) + batch_index)
+                
+                
+                validation_loss = evaluate(model, eval_loader, device)
+                print(f"Validation Loss after Epoch {epoch_num}: {validation_loss}")
+                wandb.log({
+                    "validation_loss": validation_loss,
+                    "epoch": epoch_num
+                })
+
         
         avg_loss = total_loss / len(data_loader)
         print(f"Average Training Loss for Epoch {epoch_num}: {avg_loss}")
@@ -174,17 +215,16 @@ def train(epochs,token):
     for epoch_num in range(epochs):
         
         #call the training loop
-        train_epoch(model, train_loader,optimizer, device, epoch_num)
+        train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
     
         
     
-    
-
 
 def main():
     world_size = torch.cuda.device_count()
     epoch_count = 3
     token = "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"
+    log_interval = 10
     
     train(epochs=epoch_count,token=token)
     
