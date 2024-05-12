@@ -11,6 +11,13 @@ import torch.optim as optim
 import wandb
 from peft import LoraConfig
 from trl import SFTTrainer
+from torch.utils.data import DataLoader
+
+#import the bits and bites optimizer again
+import bitsandbytes as bnb
+
+#import adamw
+from transformers import AdamW
 
 
 
@@ -25,9 +32,16 @@ wandb.login()
 
 
 def preprocess_data(tokenizer, examples):
-    # Assume questions and answers are lists within the examples dict
-    texts = [q + " \\n " + a for q, a in zip(examples['question'], examples['answer'])]
-    return tokenizer(texts, truncation=True, padding='max_length', max_length=64, return_tensors="pt")
+    # Tokenize the question to create the model input
+    model_inputs = tokenizer(examples['question'], truncation=True, padding='max_length', max_length=64)
+    
+    # Tokenize the answer to create the labels
+    # The labels should be the input_ids from the tokenized answer
+    with tokenizer.as_target_tokenizer():
+        labels = tokenizer(examples['answer'], truncation=True, padding='max_length', max_length=64)
+    
+    model_inputs['labels'] = labels['input_ids']
+    return model_inputs
 
 
 
@@ -55,9 +69,12 @@ def train(epochs,token):
         ##############TRAIN###############
     # Correct dataset configuration and preprocessing
     data = load_dataset("gsm8k", "main", split='train[:500]')
+    print(data,"data")
+    print("data",data[0])
     data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
-    data.set_format(type='torch', columns=['input_ids', 'attention_mask'])
-    
+    print('data', data)
+    data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
+    #stop
     
     #sampler = DistributedSampler(data, num_replicas=world_size, rank=rank)
     #dataloader = torch.utils.data.DataLoader(data, batch_size=1, sampler=sampler)
@@ -108,18 +125,60 @@ def train(epochs,token):
     model = get_peft_model(model, peft_parameters)
     model.print_trainable_parameters()
 
-    # Trainer with LoRA configuration
-    fine_tuning = SFTTrainer(
-        model=model,
-        train_dataset=data,
-        eval_dataset=data_v,
-        peft_config=peft_parameters,
-        dataset_text_field="text",
-        tokenizer=tokenizer,
-        args=train_params
-    )
+    #set up the optimizer
     
-    fine_tuning.train()
+    optimizer = AdamW(model.parameters(), lr=5e-5)
+    
+    #Ok new version.
+    def custom_loss(model_output, labels):
+        loss_fct = torch.nn.CrossEntropyLoss()  # Assuming a classification task
+        loss = loss_fct(model_output.logits.view(-1, model_output.logits.size(-1)), labels.view(-1))
+        return loss
+
+    scaler = GradScaler()
+    
+    def train_epoch(model, data_loader, optimizer, device, epoch_num):
+        model.train()
+        total_loss = 0
+        
+        for batch in data_loader:
+            inputs = batch['input_ids'].to(device)
+            masks = batch['attention_mask'].to(device)
+            labels = batch['labels'].to(device)  # Ensure labels are part of the batch
+
+            optimizer.zero_grad()
+            with autocast():  # Mixed precision
+                outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+                loss = custom_loss(outputs, labels)
+
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
+            
+            total_loss += loss.item()  # Accumulate the total loss for the epoch
+        
+        avg_loss = total_loss / len(data_loader)
+        print(f"Average Training Loss for Epoch {epoch_num}: {avg_loss}")
+        wandb.log({"average_train_loss": avg_loss, "epoch": epoch_num})
+    
+   
+    
+    
+    train_loader = DataLoader(data, batch_size=train_params.per_device_train_batch_size, shuffle=True)
+    eval_loader = DataLoader(data_v, batch_size=train_params.per_device_train_batch_size)
+    
+    #hoping this is going to work
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    model = model.to(device)
+
+    for epoch_num in range(epochs):
+        
+        #call the training loop
+        train_epoch(model, train_loader,optimizer, device, epoch_num)
+    
+        
+    
+    
 
 
 def main():
