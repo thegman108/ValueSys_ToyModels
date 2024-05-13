@@ -1,5 +1,6 @@
 import os
 import torch
+import re
 from peft import get_peft_model
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
@@ -30,6 +31,12 @@ os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:64'
 # Log in to wandb
 wandb.login()
 
+#including a function to then rip out the correct answers
+def extract_steps_and_final_answer(answer):
+    # Extract calculations and the final answer from the structured answer string
+    steps = re.findall(r"<<(.*?)>>", answer)
+    final_answer = answer.split('####')[-1].strip()
+    return steps, final_answer
 
 # Function to generate an answer for a single question
 def generate_answer(model, tokenizer, question, device):
@@ -45,13 +52,8 @@ def generate_answer(model, tokenizer, question, device):
     
     # Decode the generated tokens to a string
     answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    print("  ")
-    print("question", question)
-    print("  ")
-    print("  ")
-    print("answer", answer)
-    print("  ")
-    print("  ")
+    print(f"Question: {question} END Question")
+    print(f"Answer: {answer} END Answer")
     
     return answer
 
@@ -59,6 +61,13 @@ def generate_answer(model, tokenizer, question, device):
 
 def preprocess_data(tokenizer, examples):
     # Tokenize the question to create the model input
+    sentence_to_append = "Please place all of your calculations within the <<Calculations here>>, for example<<48/2=24>>. Inlcude the finsl answer after ####, such as ####NumberAnswer"
+    
+    #for each row within the examples['question] dataset to each row append sentence to append
+    examples['question'] = [x + sentence_to_append for x in examples['question']]
+    
+    
+    
     model_inputs = tokenizer(examples['question'], truncation=True, padding='max_length', max_length=64)
     
     # Tokenize the answer to create the labels
@@ -68,8 +77,6 @@ def preprocess_data(tokenizer, examples):
     
     model_inputs['labels'] = labels['input_ids']
     return model_inputs
-
-
 
 
 
@@ -96,26 +103,25 @@ def train(epochs,token, log_interval=10):
     ##############TRAIN###############
     # Correct dataset configuration and preprocessing
     data = load_dataset("gsm8k", "main", split='train[:500]')
-    #data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
-    #data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
+    data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
+    data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############TRAIN###############
     
     ##############VALIDATION###############
     data_v_string = load_dataset("gsm8k", "main", split='test[:500]')
-    #data_v = data_v_string.map(lambda e: preprocess_data(tokenizer, e), batched=True)
-    #data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
+    data_v = data_v_string.map(lambda e: preprocess_data(tokenizer, e), batched=True)
+    data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############VALIDATION###############
     
     
     #call the function 
-    question = data_v_string['question'][0]
-    question2 = data_v_string['question'][1]
+    #question = data_v_string['question'][0]
+    #question2 = data_v_string['question'][1]
     #print("Question being sent",question)
-    generate_answer(model, tokenizer, question, device)
+    #generate_answer(model, tokenizer, question, device)
+    #generate_answer(model, tokenizer, question2, device)
     
-    generate_answer(model, tokenizer, question2, device)
     
-    stop
     
     # Training Params
     train_params = TrainingArguments(
@@ -162,6 +168,55 @@ def train(epochs,token, log_interval=10):
             "step_average_loss": current_loss,
             "total_steps": total_steps
         })
+        
+    def dense_loss(tokenizer, model_output, labels):
+        loss_fct = torch.nn.CrossEntropyLoss()  # Standard classification loss
+
+        #answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        print("model output, loss",model_output[0])
+        print("model output, logits",model_output[1])
+        print("labels",labels[0])
+        print(" ")
+        print(" ")
+
+        # Decode the outputs and labels
+        #decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1).tolist(), skip_special_tokens=True)
+        #don't like how this might work as selecting the first answer.
+        decoded_labels = tokenizer.decode(labels[0], skip_special_tokens=True)
+        print("decoded labels", decoded_labels)
+        #print shape of decoded labels
+        
+        
+        true_steps, true_final = extract_steps_and_final_answer(decoded_labels)
+        
+        #print eh true steps and the true final
+        print("True Steps",true_steps)
+
+        # Extract steps and final answers
+        model_steps, model_final = extract_steps_and_final_answer(decoded_outputs)
+        
+        
+        #print the model steps and the model final
+
+        # Calculate rewards for steps
+        step_rewards = sum(1 for model_step, true_step in zip(model_steps, true_steps) if model_step == true_step)
+        # Bonus for correct final answer
+        final_reward = 1 if model_final == true_final else 0
+
+        # Normalize the rewards (example normalization, adjust as needed)
+        total_rewards = step_rewards + final_reward
+        max_possible_rewards = len(true_steps) + 1  # Each step + final answer
+        normalized_reward = total_rewards / max_possible_rewards
+
+        # Convert reward to a loss (simple inversion for demonstration)
+        loss = 1 - normalized_reward  # Assuming the reward is scaled between 0 and 1
+
+        stop
+
+        return loss
+
+    
+    
     
     #Ok new version.
     def custom_loss(model_output, labels):
@@ -207,7 +262,8 @@ def train(epochs,token, log_interval=10):
             optimizer.zero_grad()
             with autocast():  # Mixed precision
                 outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
-                loss = custom_loss(outputs, labels)
+                #loss = custom_loss(outputs, labels)
+                loss = dense_loss(tokenizer, outputs, labels)
 
             scaler.scale(loss).backward()
             scaler.step(optimizer)
