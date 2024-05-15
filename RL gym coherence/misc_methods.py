@@ -119,6 +119,9 @@ def train_qtable(
     agent = pretrained_agent if pretrained_agent else QTableAgent(state_dim, action_dim, **kwargs)
     epsilon_decay = epsilon_decay if epsilon_decay else int(episodes / 2)
 
+    # print(reward_function(True, 10), reward_function(True, 10), reward_function(False, 10))
+    # sample output: 0.8770157283445918 0.8770157283445918 0.9430019473730538
+    # sample output (det_rand_terminal): -0.18942340676023695 -0.18942340676023695 -5.079285537916523e-10
     rewards = np.zeros(episodes)
     epsilon_by_frame = lambda frame_idx: epsilon_final + (epsilon_start - epsilon_final) * np.exp(-1. * frame_idx / epsilon_decay)
     for episode in range(episodes):
@@ -133,7 +136,7 @@ def train_qtable(
             if reward_function:
                 # state-based rewards?
                 # reward = reward_function(done, state, action, next_state)
-                reward = reward_function(done, state)
+                reward = reward_function(done, next_state)
 
             agent.update(state, action, reward, next_state, done)
             state = next_state
@@ -196,7 +199,7 @@ def test_qtable(env, agent, episodes=10, reward_function=None, verbose = False,
             next_state, reward, term, trunc = env.step(action)[:4]
             done = term or trunc
             if reward_function:
-                reward = reward_function(done, state)
+                reward = reward_function(done, next_state)
             episode_reward += reward
             state = next_state
         if verbose:

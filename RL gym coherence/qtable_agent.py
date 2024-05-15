@@ -17,7 +17,9 @@ class QTableAgent:
     
     def act(self, state, epsilon):
         if random.random() > epsilon:
-            action = np.argmax(self.q_table[state])
+            # action = np.argmax(self.q_table[state])
+            # return action randomly in case of ties
+            action = np.random.choice(np.flatnonzero(self.q_table[state] == self.q_table[state].max()))
         else:
             action = random.randrange(self.action_dim)
         return action
