@@ -210,22 +210,33 @@ def train(epochs,token, log_interval=10):
     ###############
     #SPARSE
     ###############
-    def extract_final_tokens(decoded_text, percentage=10):
-        tokens = decoded_text.split()
-        num_tokens = max(1, len(tokens) * percentage // 100)
-        final_tokens = tokens[-num_tokens:]
-        return final_tokens
+    def extract_final_indices(logits, percentage=10):
+        # Assumes logits is [batch_size, seq_len, num_classes]
+        seq_len = logits.shape[1]
+        num_tokens = max(1, int(seq_len * percentage / 100))
+        # Extract indices for the last 'num_tokens' tokens
+        return torch.arange(seq_len - num_tokens, seq_len, device=logits.device)
 
-    def sparse_reward(decoded_output, decoded_label, match_threshold=0.6):
-        output_final_tokens = extract_final_tokens(decoded_output, percentage=10)
-        label_final_tokens = extract_final_tokens(decoded_label, percentage=10)
-        
-        overlap_count = len(set(output_final_tokens) & set(label_final_tokens))
-        total_tokens = len(label_final_tokens)
-        
+    def sparse_reward(model_output, labels, tokenizer, match_threshold=0.6):
+        # Assuming model_output.logits and labels are already tensors
+        # Get indices of final tokens based on percentage
+        output_indices = extract_final_indices(model_output.logits, percentage=10)
+        label_indices = extract_final_indices(labels, percentage=10)
+
+        # Decode tokens for the final indices only
+        decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1)[0, output_indices].tolist(), skip_special_tokens=True).split()
+        decoded_labels = tokenizer.decode(labels[0, label_indices].tolist(), skip_special_tokens=True).split()
+
+        # Compute overlap using sets (non-differentiable part)
+        overlap_count = len(set(decoded_outputs) & set(decoded_labels))
+        total_tokens = len(decoded_labels)
+
+        # Calculate match percentage
         match_percentage = overlap_count / total_tokens if total_tokens > 0 else 0
-        
-        reward = 1 if match_percentage >= match_threshold else 0
+
+        # Generate a reward tensor based on the match percentage
+        reward = torch.tensor(1.0 if match_percentage >= match_threshold else 0.0, dtype=torch.float32, device=model_output.logits.device)
+
         return reward
 
     def sparse_loss(model_output, labels, tokenizer):
@@ -233,12 +244,17 @@ def train(epochs,token, log_interval=10):
         decoded_outputs = tokenizer.decode(predicted_token_indices[0].tolist(), skip_special_tokens=True)
         decoded_labels = tokenizer.decode(labels[0].tolist(), skip_special_tokens=True)
 
+        # Ensure this returns a tensor with requires_grad if necessary
         reward = sparse_reward(decoded_outputs, decoded_labels)
-        
-        loss = 1 - reward
-        #removing the float32 type.
-        #
-        loss = torch.tensor(loss,dtype=torch.float32,  device=device, requires_grad=True)
+
+        # Make sure reward is a tensor with requires_grad=True
+        if not isinstance(reward, torch.Tensor):
+            reward = torch.tensor(reward, dtype=torch.float32, device=model_output.logits.device)
+
+        loss = 1.0 - reward
+
+        # Ensure that 'loss' is a torch.Tensor. If 'reward' is already a tensor, this is automatically handled.
+        # There's no need to create a new tensor; it would detach 'loss' from the graph.
         return loss
     
     ###############
@@ -296,7 +312,18 @@ def train(epochs,token, log_interval=10):
                 #the way in which I have a human readable output.
                 #outputs = model.generate(input_ids, attention_mask=attention_mask, max_length=300)
                 #loss = custom_loss(outputs, labels)
-                loss = sparse_loss(outputs, labels, tokenizer)
+                loss_sparse = sparse_loss(outputs, labels, tokenizer)
+                loss_custom = custom_loss(outputs,labels)
+                
+                # Check if the loss values are tensors and of the same type
+                assert isinstance(loss_custom, torch.Tensor), "Custom loss is not a tensor."
+                assert isinstance(loss_sparse, torch.Tensor), "Sparse loss is not a tensor."
+                assert loss_custom.dtype == loss_sparse.dtype, "Loss values are not of the same type."
+                
+                print(f"Custom Loss Value: {loss_custom.item()}")
+                print(f"Sparse Loss Value: {loss_sparse.item()}")
+                print("Both loss values are of the correct type and comparable.")
+                loss = loss_custom
                 
 
             scaler.scale(loss).backward()
