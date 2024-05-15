@@ -78,7 +78,7 @@ def preprocess_data(tokenizer, examples):
 
 
 
-def train(epochs,token, log_interval=10):
+def train(epochs,token, log_interval=10,training_type=None):
     
     #i guess I should just force this to the cached local
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=token, )
@@ -92,21 +92,22 @@ def train(epochs,token, log_interval=10):
     #if rank == 0:  # Initialize only once
     wandb.init(project="coherence", entity="jprivera44", config={
         "epochs": epochs,
-        "batch_size": 1,
-        "learning_rate": 5e-5,
+        "batch_size": 9,
+        "learning_rate": 20e-1,
+        "experiment_type":training_type
     })
     
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     
     ##############TRAIN###############
     # Correct dataset configuration and preprocessing
-    data = load_dataset("gsm8k", "main", split='train[:500]')
+    data = load_dataset("gsm8k", "main", split='train[:100]')
     data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############TRAIN###############
     
     ##############VALIDATION###############
-    data_v_string = load_dataset("gsm8k", "main", split='test[:500]')
+    data_v_string = load_dataset("gsm8k", "main", split='test[:100]')
     data_v = data_v_string.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############VALIDATION###############
@@ -170,107 +171,34 @@ def train(epochs,token, log_interval=10):
         })
         
     
-    
-    def dense_loss(model_output, labels, tokenizer):
-        loss_fct = torch.nn.CrossEntropyLoss()  # Standard classification loss
 
+    def extract_last_n_tokens(tensor, n):
+        return tensor[:, -n:]
 
-        # Decode the outputs and labels
-        decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1)[-1], skip_special_tokens=True)
+    def sparse_loss(model_output, labels, number_logits = 10):
+        n = number_logits
+        # Extract the last n logits and labels
+        logits = extract_last_n_tokens(model_output.logits, n)
+        labels = extract_last_n_tokens(labels, n)
         
-        #don't like how this might work as selecting the first answer.
-        decoded_labels = tokenizer.decode(labels[0], skip_special_tokens=True)
+        # Flatten the tensors for cross-entropy loss calculation
+        logits = logits.view(-n, logits.size(-1))
+        labels = labels.view(-n)
         
-        true_steps, true_final = extract_steps_and_final_answer(decoded_labels)
-
-
-        # Extract steps and final answers
-        model_steps, model_final = extract_steps_and_final_answer(decoded_outputs)
-
-        
-        
-        #print the model steps and the model final
-
-        # Calculate rewards for steps
-        step_rewards = sum(1 for model_step, true_step in zip(model_steps, true_steps) if model_step == true_step)
-        # Bonus for correct final answer
-        final_reward = 1 if model_final == true_final else 0
-
-        # Normalize the rewards (example normalization, adjust as needed)
-        total_rewards = step_rewards + final_reward
-        max_possible_rewards = len(true_steps) + 1  # Each step + final answer
-        normalized_reward = total_rewards / max_possible_rewards
-
-        # Convert reward to a loss (simple inversion for demonstration)
-        loss = 1 - normalized_reward  # Assuming the reward is scaled between 0 and 1
-
+        # Calculate the sparse loss using cross-entropy
+        loss_fct = torch.nn.CrossEntropyLoss()
+        loss = loss_fct(logits, labels)
         return loss
-
-
-    ###############
-    #SPARSE
-    ###############
-    def extract_final_indices(logits, percentage=10):
-        # Assumes logits is [batch_size, seq_len, num_classes]
-        seq_len = logits.shape[1]
-        num_tokens = max(1, int(seq_len * percentage / 100))
-        # Extract indices for the last 'num_tokens' tokens
-        return torch.arange(seq_len - num_tokens, seq_len, device=logits.device)
-
-    def sparse_reward(model_output, labels, tokenizer, match_threshold=0.6):
-        # Assuming model_output.logits and labels are already tensors
-        # Get indices of final tokens based on percentage
-        output_indices = extract_final_indices(model_output.logits, percentage=10)
-        label_indices = extract_final_indices(labels, percentage=10)
-
-        # Decode tokens for the final indices only
-        decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1)[0, output_indices].tolist(), skip_special_tokens=True).split()
-        decoded_labels = tokenizer.decode(labels[0, label_indices].tolist(), skip_special_tokens=True).split()
-
-        # Compute overlap using sets (non-differentiable part)
-        overlap_count = len(set(decoded_outputs) & set(decoded_labels))
-        total_tokens = len(decoded_labels)
-
-        # Calculate match percentage
-        match_percentage = overlap_count / total_tokens if total_tokens > 0 else 0
-
-        # Generate a reward tensor based on the match percentage
-        reward = torch.tensor(1.0 if match_percentage >= match_threshold else 0.0, dtype=torch.float32, device=model_output.logits.device)
-
-        return reward
-
-    def sparse_loss(model_output, labels, tokenizer):
-        predicted_token_indices = model_output.logits.argmax(dim=-1)
-        decoded_outputs = tokenizer.decode(predicted_token_indices[0].tolist(), skip_special_tokens=True)
-        decoded_labels = tokenizer.decode(labels[0].tolist(), skip_special_tokens=True)
-
-        # Ensure this returns a tensor with requires_grad if necessary
-        reward = sparse_reward(decoded_outputs, decoded_labels)
-
-        # Make sure reward is a tensor with requires_grad=True
-        if not isinstance(reward, torch.Tensor):
-            reward = torch.tensor(reward, dtype=torch.float32, device=model_output.logits.device)
-
-        loss = 1.0 - reward
-
-        # Ensure that 'loss' is a torch.Tensor. If 'reward' is already a tensor, this is automatically handled.
-        # There's no need to create a new tensor; it would detach 'loss' from the graph.
-        return loss
-    
-    ###############
-    #SPARSE
-    ###############
-
-    
+        
     
     #Ok new version.
-    def custom_loss(model_output, labels,tokenizer=None):
+    def dense_loss(model_output, labels,n = None):
         loss_fct = torch.nn.CrossEntropyLoss()  # Assuming a classification task
         loss = loss_fct(model_output.logits.view(-1, model_output.logits.size(-1)), labels.view(-1))
         return loss
     
     
-    def evaluate(model, eval_loader, device):
+    def evaluate(model, eval_loader, device,training_type, number_logits = 1):
         model.eval()  # Set the model to evaluation mode
         total_loss = 0
         total_steps = 0
@@ -283,7 +211,11 @@ def train(epochs,token, log_interval=10):
                 
                 with autocast():
                     outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
-                    loss = sparse_loss(outputs, labels)
+                    
+                    if training_type == "sparse":
+                        loss = sparse_loss(outputs, labels,number_logits=1)
+                    if training_type == "dense":
+                        loss = dense_loss(model_output=outputs, labels=labels)
                 
                 total_loss += loss.item()
                 total_steps += 1
@@ -294,7 +226,7 @@ def train(epochs,token, log_interval=10):
 
     scaler = GradScaler()
     
-    def train_epoch(model, data_loader, optimizer, device, epoch_num, log_interval=10):
+    def train_epoch(model, data_loader, optimizer, device, epoch_num, log_interval=10,training_type=None):
         model.train()
         total_loss = 0
         steps = 0
@@ -309,21 +241,12 @@ def train(epochs,token, log_interval=10):
                 
                 #the old  way in which I was generating the model outputs
                 outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
-                #the way in which I have a human readable output.
-                #outputs = model.generate(input_ids, attention_mask=attention_mask, max_length=300)
-                #loss = custom_loss(outputs, labels)
-                loss_sparse = sparse_loss(outputs, labels, tokenizer)
-                loss_custom = custom_loss(outputs,labels)
                 
-                # Check if the loss values are tensors and of the same type
-                assert isinstance(loss_custom, torch.Tensor), "Custom loss is not a tensor."
-                assert isinstance(loss_sparse, torch.Tensor), "Sparse loss is not a tensor."
-                assert loss_custom.dtype == loss_sparse.dtype, "Loss values are not of the same type."
+                if training_type =="sparse":
+                    loss = sparse_loss(outputs,labels, number_logits = 1)
                 
-                print(f"Custom Loss Value: {loss_custom.item()}")
-                print(f"Sparse Loss Value: {loss_sparse.item()}")
-                print("Both loss values are of the correct type and comparable.")
-                loss = loss_custom
+                if training_type == "dense":
+                    loss = dense_loss(outputs,labels)
                 
 
             scaler.scale(loss).backward()
@@ -339,7 +262,7 @@ def train(epochs,token, log_interval=10):
                 log_step_metrics(current_loss, epoch_num, batch_index + 1, epoch_num * len(data_loader) + batch_index)
                 
                 
-                validation_loss = evaluate(model, eval_loader, device)
+                validation_loss = evaluate(model, eval_loader, device,training_type)
                 print(f"Validation Loss after Epoch {epoch_num}: {validation_loss}")
                 wandb.log({
                     "validation_loss": validation_loss,
@@ -364,18 +287,19 @@ def train(epochs,token, log_interval=10):
     for epoch_num in range(epochs):
         
         #call the training loop
-        train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+        train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type)
     
         
     
 
 def main():
     world_size = torch.cuda.device_count()
-    epoch_count = 3
+    epoch_count = 5
     token = "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"
     log_interval = 10
+    training_type = "dense"
     
-    train(epochs=epoch_count,token=token)
+    train(epochs=epoch_count,token=token,training_type=training_type)
     
     
    
