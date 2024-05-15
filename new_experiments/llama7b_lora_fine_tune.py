@@ -65,9 +65,7 @@ def preprocess_data(tokenizer, examples):
     
     #for each row within the examples['question] dataset to each row append sentence to append
     examples['question'] = [x + sentence_to_append for x in examples['question']]
-    
-    
-    
+
     model_inputs = tokenizer(examples['question'], truncation=True, padding='max_length', max_length=64)
     
     # Tokenize the answer to create the labels
@@ -115,11 +113,13 @@ def train(epochs,token, log_interval=10):
     
     
     #call the function 
-    #question = data_v_string['question'][0]
-    #question2 = data_v_string['question'][1]
-    #print("Question being sent",question)
-    #generate_answer(model, tokenizer, question, device)
-    #generate_answer(model, tokenizer, question2, device)
+    question = data_v_string['question'][0]
+    question2 = data_v_string['question'][1]
+    question3 = data_v_string['question'][2]
+    print("Question being sent",question)
+    generate_answer(model, tokenizer, question, device)
+    generate_answer(model, tokenizer, question2, device)
+    generate_answer(model, tokenizer, question3, device)
     
     
     
@@ -169,31 +169,43 @@ def train(epochs,token, log_interval=10):
             "total_steps": total_steps
         })
         
+    
+    
     def dense_loss(tokenizer, model_output, labels):
         loss_fct = torch.nn.CrossEntropyLoss()  # Standard classification loss
 
         #answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
         print("model output, loss",model_output[0])
-        print("model output, logits",model_output[1])
+        print(" ")
+        print("model output, logits",model_output.logits.argmax(dim=-1)[-1])
+        print(" ")
         print("labels",labels[0])
         print(" ")
         print(" ")
 
         # Decode the outputs and labels
-        #decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1).tolist(), skip_special_tokens=True)
+        decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1)[-1], skip_special_tokens=True)
+        
+        #printing out the decoded outputs
+        print("decode", decoded_outputs)
+        
         #don't like how this might work as selecting the first answer.
         decoded_labels = tokenizer.decode(labels[0], skip_special_tokens=True)
-        print("decoded labels", decoded_labels)
-        #print shape of decoded labels
+        
         
         
         true_steps, true_final = extract_steps_and_final_answer(decoded_labels)
         
         #print eh true steps and the true final
         print("True Steps",true_steps)
+        print("True Final",true_final)
 
         # Extract steps and final answers
         model_steps, model_final = extract_steps_and_final_answer(decoded_outputs)
+        
+        print("Model steps", model_steps)
+        print("model final", model_final)
+        
         
         
         #print the model steps and the model final
@@ -210,8 +222,6 @@ def train(epochs,token, log_interval=10):
 
         # Convert reward to a loss (simple inversion for demonstration)
         loss = 1 - normalized_reward  # Assuming the reward is scaled between 0 and 1
-
-        stop
 
         return loss
 
@@ -261,7 +271,11 @@ def train(epochs,token, log_interval=10):
 
             optimizer.zero_grad()
             with autocast():  # Mixed precision
+                
+                #the old  way in which I was generating the model outputs
                 outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+                #the way in which I have a human readable output.
+                #outputs = model.generate(input_ids, attention_mask=attention_mask, max_length=300)
                 #loss = custom_loss(outputs, labels)
                 loss = dense_loss(tokenizer, outputs, labels)
 
