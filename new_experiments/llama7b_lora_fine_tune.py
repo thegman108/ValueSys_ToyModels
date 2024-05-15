@@ -171,41 +171,22 @@ def train(epochs,token, log_interval=10):
         
     
     
-    def dense_loss(tokenizer, model_output, labels):
+    def dense_loss(model_output, labels, tokenizer):
         loss_fct = torch.nn.CrossEntropyLoss()  # Standard classification loss
 
-        #answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        print("model output, loss",model_output[0])
-        print(" ")
-        print("model output, logits",model_output.logits.argmax(dim=-1)[-1])
-        print(" ")
-        print("labels",labels[0])
-        print(" ")
-        print(" ")
 
         # Decode the outputs and labels
         decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1)[-1], skip_special_tokens=True)
         
-        #printing out the decoded outputs
-        print("decode", decoded_outputs)
-        
         #don't like how this might work as selecting the first answer.
         decoded_labels = tokenizer.decode(labels[0], skip_special_tokens=True)
         
-        
-        
         true_steps, true_final = extract_steps_and_final_answer(decoded_labels)
-        
-        #print eh true steps and the true final
-        print("True Steps",true_steps)
-        print("True Final",true_final)
+
 
         # Extract steps and final answers
         model_steps, model_final = extract_steps_and_final_answer(decoded_outputs)
-        
-        print("Model steps", model_steps)
-        print("model final", model_final)
-        
+
         
         
         #print the model steps and the model final
@@ -225,11 +206,49 @@ def train(epochs,token, log_interval=10):
 
         return loss
 
+
+    ###############
+    #SPARSE
+    ###############
+    def extract_final_tokens(decoded_text, percentage=10):
+        tokens = decoded_text.split()
+        num_tokens = max(1, len(tokens) * percentage // 100)
+        final_tokens = tokens[-num_tokens:]
+        return final_tokens
+
+    def sparse_reward(decoded_output, decoded_label, match_threshold=0.6):
+        output_final_tokens = extract_final_tokens(decoded_output, percentage=10)
+        label_final_tokens = extract_final_tokens(decoded_label, percentage=10)
+        
+        overlap_count = len(set(output_final_tokens) & set(label_final_tokens))
+        total_tokens = len(label_final_tokens)
+        
+        match_percentage = overlap_count / total_tokens if total_tokens > 0 else 0
+        
+        reward = 1 if match_percentage >= match_threshold else 0
+        return reward
+
+    def sparse_loss(model_output, labels, tokenizer):
+        predicted_token_indices = model_output.logits.argmax(dim=-1)
+        decoded_outputs = tokenizer.decode(predicted_token_indices[0].tolist(), skip_special_tokens=True)
+        decoded_labels = tokenizer.decode(labels[0].tolist(), skip_special_tokens=True)
+
+        reward = sparse_reward(decoded_outputs, decoded_labels)
+        
+        loss = 1 - reward
+        #removing the float32 type.
+        #
+        loss = torch.tensor(loss,dtype=torch.float32,  device=device, requires_grad=True)
+        return loss
     
+    ###############
+    #SPARSE
+    ###############
+
     
     
     #Ok new version.
-    def custom_loss(model_output, labels):
+    def custom_loss(model_output, labels,tokenizer=None):
         loss_fct = torch.nn.CrossEntropyLoss()  # Assuming a classification task
         loss = loss_fct(model_output.logits.view(-1, model_output.logits.size(-1)), labels.view(-1))
         return loss
@@ -248,7 +267,7 @@ def train(epochs,token, log_interval=10):
                 
                 with autocast():
                     outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
-                    loss = custom_loss(outputs, labels)
+                    loss = sparse_loss(outputs, labels)
                 
                 total_loss += loss.item()
                 total_steps += 1
@@ -277,7 +296,8 @@ def train(epochs,token, log_interval=10):
                 #the way in which I have a human readable output.
                 #outputs = model.generate(input_ids, attention_mask=attention_mask, max_length=300)
                 #loss = custom_loss(outputs, labels)
-                loss = dense_loss(tokenizer, outputs, labels)
+                loss = sparse_loss(outputs, labels, tokenizer)
+                
 
             scaler.scale(loss).backward()
             scaler.step(optimizer)
