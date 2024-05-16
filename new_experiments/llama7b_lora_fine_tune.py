@@ -101,13 +101,13 @@ def train(epochs,token, log_interval=10,training_type=None):
     
     ##############TRAIN###############
     # Correct dataset configuration and preprocessing
-    data = load_dataset("gsm8k", "main", split='train[:100]')
+    data = load_dataset("gsm8k", "main", split='train')
     data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############TRAIN###############
     
     ##############VALIDATION###############
-    data_v_string = load_dataset("gsm8k", "main", split='test[:100]')
+    data_v_string = load_dataset("gsm8k", "main", split='test')
     data_v = data_v_string.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############VALIDATION###############
@@ -226,7 +226,7 @@ def train(epochs,token, log_interval=10,training_type=None):
 
     scaler = GradScaler()
     
-    def train_epoch(model, data_loader, optimizer, device, epoch_num, log_interval=10,training_type=None):
+    def train_epoch(model, data_loader, optimizer, device, epoch_num, log_interval=10,training_type=None, total_epochs=0):
         model.train()
         total_loss = 0
         steps = 0
@@ -268,12 +268,40 @@ def train(epochs,token, log_interval=10,training_type=None):
                     "validation_loss": validation_loss,
                     "epoch": epoch_num
                 })
+                
+            if (batch_index + 1) % 500 == 0:
+                    
+                question = data_v_string['question'][-1]
+                question2 = data_v_string['question'][-2]
+                
+                print("Question being sent",question)
+                generate_answer(model, tokenizer, question, device)
+                print("2nd Question being sent",question)
+                generate_answer(model, tokenizer, question2, device)
 
         
         avg_loss = total_loss / len(data_loader)
         print(f"Average Training Loss for Epoch {epoch_num}: {avg_loss}")
         wandb.log({"average_train_loss": avg_loss, "epoch": epoch_num})
-    
+        
+         # Save model checkpoint locally
+        if epoch_num == total_epochs - 1:  # Save only the final model
+            model_path = f'{training_type}_model_checkpoint.pth'
+            torch.save(model.state_dict(), model_path)
+            wandb.save(model_path)  # This uploads the model checkpoint to wandb
+            print(f"Model saved to {model_path}")
+            
+        # Remove any previous model checkpoints if necessary to reduce memory consumption
+        if epoch_num > 0:
+            previous_model_path = f'{training_type}_model_checkpoint_epoch_{epoch_num-1}.pth'
+            if os.path.exists(previous_model_path):
+                os.remove(previous_model_path)
+                print(f"Removed {previous_model_path}")
+
+        # Optionally save model checkpoints with epoch number
+        checkpoint_path = f'{training_type}_model_checkpoint_epoch_{epoch_num}.pth'
+        torch.save(model.state_dict(), checkpoint_path)
+        
    
     
     
@@ -287,7 +315,7 @@ def train(epochs,token, log_interval=10,training_type=None):
     for epoch_num in range(epochs):
         
         #call the training loop
-        train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type)
+        train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
     
         
     
@@ -297,7 +325,7 @@ def main():
     epoch_count = 5
     token = "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"
     log_interval = 10
-    training_type = "dense"
+    training_type = "sparse"
     
     train(epochs=epoch_count,token=token,training_type=training_type)
     
