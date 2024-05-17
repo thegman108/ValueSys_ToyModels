@@ -406,7 +406,7 @@ if __name__ == '__main__':
         os.makedirs('models')
     model_path = "models/Taxi_GCN_USS_URS_"
     num_node_features = 1 # 1 if policy, 6 if q-table
-    MAKE_NEW_MODELS = False
+    MAKE_NEW_MODELS = True
     if os.path.exists(model_path + "0.pt") and not MAKE_NEW_MODELS: # if classifiers have already been trained
         i = 0
         models = []
@@ -425,13 +425,17 @@ if __name__ == '__main__':
         UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
         URS_rand = np.random.randint(10000, size = NUM_TRAIN_R_FUNCS)
         URS_r_funcs = [seed_deterministic_random(str(seed)) for seed in URS_rand]
-        URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
-                                reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
+        # URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
+        #                         reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
         print("Halfway there!")
         USS_rand = np.random.randint(10000, size = NUM_TRAIN_R_FUNCS)
         USS_r_funcs = [seed_deterministic_random(str(seed), sparsity = 0.99) for seed in USS_rand]
-        USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
-                                    reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
+        # USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
+        #                             reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
+        with open('URS_storage.pickle', 'rb') as handle:
+            URS_agents = pickle.load(handle)
+        with open('USS_storage.pickle', 'rb') as handle:
+            USS_agents = pickle.load(handle)
 
         # The Q-Table is already one-hot encoded, so we don't need to convert it to a Data object
         from torch_geometric.data import Data
@@ -470,8 +474,8 @@ if __name__ == '__main__':
 
         # %%
         # To prevent overfitting to Q-learning inductive biases, we put some of the policies through MCTS
-        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in USS_agents]
-        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents] # URS = 1, UPS = 0
+        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in URS_agents]
+        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in UPS_agents] # URS = 1, UPS = 0
         for i in tqdm(range(len(dataset1))):
             agents = USS_agents if i < len(dataset1) / 2 else URS_agents
             dataset = dataset1 if i < len(dataset1) / 2 else dataset2
@@ -498,15 +502,19 @@ if __name__ == '__main__':
         train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
         models, test_losses = [], []
         threshold = 0.6
+        epochs = 80
         NUM_CLASSIFIER_TRIES = 40
-        for _ in tqdm(range(NUM_CLASSIFIER_TRIES)):
+        train_losses_detail, test_losses_detail = np.zeros((NUM_CLASSIFIER_TRIES, epochs)), np.zeros((NUM_CLASSIFIER_TRIES, epochs))
+        for k in tqdm(range(NUM_CLASSIFIER_TRIES)):
             model = GraphLevelGCN(num_node_features)
             criterion = torch.nn.BCELoss()
             optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
-            metrics = train_classifier(
-                model, criterion, optimizer, train_data, test_data, epochs = 100, patience = 5,
-                verbose = False
+            metrics, train_losses_epoch, test_losses_epoch = train_classifier(
+                model, criterion, optimizer, train_data, test_data, epochs = epochs, patience = 5,
+                verbose = True, return_epoch_losses = True
             )
+            train_losses_detail[k, :len(train_losses_epoch)] = train_losses_epoch
+            test_losses_detail[k, :len(test_losses_epoch)] = test_losses_epoch
             if metrics['test_loss'] < threshold:
                 test_losses.append(metrics['test_loss'])
                 models.append(model)
@@ -536,6 +544,7 @@ if __name__ == '__main__':
     for i in tqdm(list(range(len(models))) * 1):
         # taxi_model = train_qtable(env_name = "Taxi-v3", episodes = taxi_episodes, verbose = False, print_every = 2000, 
         #                         return_reward = False)
+        taxi_model = taxi_models[i]
         taxi_data = Data(x = greedy_policy(taxi_model.q_table).detach(), edge_index = edge_index)
         #taxi_data = Data(x = prep_qtable(taxi_model.q_table).detach(), edge_index = edge_index)
 
@@ -567,7 +576,7 @@ if __name__ == '__main__':
         # Test the policy derived from the MCTS root node
         env = gym.make('Taxi-v3')
         average_reward = np.mean([simulate_episode_from_root(env, root_node) for _ in range(100)])
-        print(f"Average Reward from the MCTS policy: {average_reward}")
+        # print(f"Average Reward from the MCTS policy: {average_reward}")
         average_rewards.append(average_reward)
         # test_qtable(env, taxi_model, episodes = 100)
         mcts_policy, num_not_random = extract_policy(root_node, env, baseline_policy = greedy_policy(taxi_models[i].q_table).T[0].__array__())
@@ -587,6 +596,7 @@ if __name__ == '__main__':
     for index in tqdm(list(range(len(models))) * 1):
         coherent_policy = greedy_policy(taxi_models[index].q_table).detach()
         incoherent_policy = coherent_policy.clone()
+        """
         for _ in range(300):
             env.reset()
             i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
@@ -598,6 +608,10 @@ if __name__ == '__main__':
             else:
                 incoherent_policy[j][0] = coherent_policy[i][0] - 1 # if 0, then 1; if 1, then 0
             # point is to put incoherent_policy in a loop
+        """
+        for i in np.random.randint(500, size = 300):
+            if incoherent_policy[i][0] >= 4:
+                incoherent_policy[i][0] = np.random.randint(4)
 
         # oops, i is already taken as a variable name here
         c_diffs.append((coherent_policy != incoherent_policy).nonzero().shape[0])
@@ -777,4 +791,21 @@ if __name__ == '__main__':
     )
     y_pred = regr.predict([d.x.T[0].__array__() for d in test_data])
     print(mean_squared_error([d.y for d in test_data], y_pred))
+# %%
+    plt.figure()
+    for loss in train_losses_detail:
+        plt.plot(loss, color='b')
+
+    # Plot test losses without label
+    for loss in test_losses_detail:
+        plt.plot(loss, color='r')
+    # Create custom legend handles
+    train_handle = plt.Line2D([], [], color='b', label='Train Loss')
+    test_handle = plt.Line2D([], [], color='r', label='Test Loss')
+
+    plt.title("Graph Neural Network Classifier Loss")
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.legend(handles = [train_handle, test_handle])
+    plt.show()
 # %%

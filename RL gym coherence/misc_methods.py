@@ -273,8 +273,10 @@ def generate_data(dataset1, dataset2):
 
 def train_classifier(
         model, criterion, optimizer, train_data, test_data, epochs = 40, patience = 3, 
-        epochs_without_improvement = 0, best_loss = float('inf'), verbose = True
+        epochs_without_improvement = 0, best_loss = float('inf'), verbose = True,
+        return_epoch_losses = False
     ):
+    train_losses, test_losses = [], []
     for epoch in range(epochs):
         avg_train_loss = 0
         for datapt in train_data:
@@ -291,6 +293,7 @@ def train_classifier(
             optimizer.step()
             avg_train_loss += loss.item()
         avg_train_loss /= len(train_data)
+        train_losses.append(avg_train_loss)
 
         avg_test_loss = 0
         for datapt in test_data:
@@ -301,6 +304,7 @@ def train_classifier(
                 loss = criterion(out, torch.tensor([[datapt.y]]))
                 avg_test_loss += loss.item()
         avg_test_loss /= len(test_data)
+        test_losses.append(avg_test_loss)
         
         if verbose:
             print(f'Epoch {epoch+1}: Average Train Loss: {avg_train_loss}, Average Test Loss: {avg_test_loss}')
@@ -317,4 +321,4 @@ def train_classifier(
                 break
         
     metrics = {'train_loss': avg_train_loss, 'test_loss': avg_test_loss}
-    return metrics
+    return metrics if not return_epoch_losses else (metrics, train_losses, test_losses)
