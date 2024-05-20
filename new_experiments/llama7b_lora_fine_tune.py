@@ -11,7 +11,8 @@ from torch.cuda.amp import GradScaler, autocast
 import torch.optim as optim
 import wandb
 from peft import LoraConfig
-from trl import SFTTrainer
+import pickle
+import glob
 from torch.utils.data import DataLoader
 
 #import the bits and bites optimizer again
@@ -226,10 +227,24 @@ def train(epochs,token, log_interval=10,training_type=None):
 
     scaler = GradScaler()
     
+    def get_lora_gradients(model):
+        lora_grads = []
+        for name, param in model.named_parameters():
+            if param.requires_grad and "lora" in name:  # Adjust this condition based on how LoRA parameters are named
+                if param.grad is not None:
+                    lora_grads.append(param.grad.norm().item())
+        return lora_grads
+    
+    def save_gradients(gradient_storage, training_type, epoch_num):
+        with open(f'gradients_{training_type}_epoch_{epoch_num}.pkl', 'wb') as f:
+            pickle.dump(gradient_storage, f)
+    
+    
     def train_epoch(model, data_loader, optimizer, device, epoch_num, log_interval=10,training_type=None, total_epochs=0):
         model.train()
         total_loss = 0
         steps = 0
+        gradient_storage = []
         
         for batch_index, batch in enumerate(data_loader):
             inputs = batch['input_ids'].to(device)
@@ -250,6 +265,9 @@ def train(epochs,token, log_interval=10,training_type=None):
                 
 
             scaler.scale(loss).backward()
+            lora_grads = get_lora_gradients(model)
+            gradient_storage.append(lora_grads)
+            
             scaler.step(optimizer)
             scaler.update()
             
@@ -284,27 +302,26 @@ def train(epochs,token, log_interval=10,training_type=None):
         print(f"Average Training Loss for Epoch {epoch_num}: {avg_loss}")
         wandb.log({"average_train_loss": avg_loss, "epoch": epoch_num})
         
-         # Save model checkpoint locally
-        if epoch_num == total_epochs - 1:  # Save only the final model
-            model_path = f'{training_type}_model_checkpoint.pth'
-            torch.save(model.state_dict(), model_path)
-            wandb.save(model_path)  # This uploads the model checkpoint to wandb
-            print(f"Model saved to {model_path}")
-            
-        # Remove any previous model checkpoints if necessary to reduce memory consumption
-        if epoch_num > 0:
-            previous_model_path = f'{training_type}_model_checkpoint_epoch_{epoch_num-1}.pth'
-            if os.path.exists(previous_model_path):
-                os.remove(previous_model_path)
-                print(f"Removed {previous_model_path}")
+                # This function cleans up old checkpoints, keeping only the most recent 'keep' number of files
+        def cleanup_checkpoints(directory, keep=3):
+            checkpoints = sorted(glob.glob(os.path.join(directory, f'{training_type}_model_checkpoint_epoch_*.pth')), key=os.path.getmtime)
+            for chk in checkpoints[:-keep]:
+                os.remove(chk)
+                print(f"Deleted old checkpoint: {chk}")
 
-        # Optionally save model checkpoints with epoch number
-        checkpoint_path = f'{training_type}_model_checkpoint_epoch_{epoch_num}.pth'
-        torch.save(model.state_dict(), checkpoint_path)
+        # Adjust your epoch-end actions within the training loop
+        if epoch_num > 0:
+            checkpoint_path = f'{training_type}_model_checkpoint_epoch_{epoch_num}.pth'
+            torch.save(model.state_dict(), checkpoint_path)
+            print(f"Checkpoint saved: {checkpoint_path}")
+            cleanup_checkpoints('./', keep=1)  # Keep the last 3 checkpoints, adjust 'keep' as necessary
+            
+        
+        save_gradients(gradient_storage, training_type, epoch_num)
+        return gradient_storage
+
         
    
-    
-    
     train_loader = DataLoader(data, batch_size=train_params.per_device_train_batch_size, shuffle=True)
     eval_loader = DataLoader(data_v, batch_size=train_params.per_device_train_batch_size)
     
@@ -315,17 +332,18 @@ def train(epochs,token, log_interval=10,training_type=None):
     for epoch_num in range(epochs):
         
         #call the training loop
-        train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+        gradients = train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
     
-        
+    with open(f'gradients_{training_type}.pkl', 'wb') as f:
+            pickle.dump(gradients, f)
     
 
 def main():
     world_size = torch.cuda.device_count()
-    epoch_count = 5
+    epoch_count = 20
     token = "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"
     log_interval = 10
-    training_type = "sparse"
+    training_type = "dense"
     
     train(epochs=epoch_count,token=token,training_type=training_type)
     
@@ -333,5 +351,4 @@ def main():
    
 if __name__ == '__main__':
     main()
-
 
