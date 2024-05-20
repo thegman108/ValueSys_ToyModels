@@ -1,0 +1,18 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+decoded labels Mr. Montero is traveling a total distance of 600 miles + 600 miles = <<600+600=1200>>1200 miles.
+There are 1200 miles / 400 miles = <<120
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 317, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 312, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 301, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 261, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 183, in dense_loss
+    print("shape of decoded labels",decoded_labels.shape)
+AttributeError: 'str' object has no attribute 'shape'

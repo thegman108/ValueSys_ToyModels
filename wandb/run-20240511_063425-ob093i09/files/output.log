@@ -1,0 +1,121 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 45%|███████████████████████████████████████████████████████████▍                                                                         | 50/112 [05:33<03:27,  3.35s/it]
+ 45%|███████████████████████████████████████████████████████████▍                                                                         | 50/112 [05:33<03:27,  3.35s/it]/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:581: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-663f12c3-4064abf1420316f673931b23;8755a768-068f-4cc3-aa2c-c1514e5f4291)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌               | 99/112 [11:05<01:02,  4.82s/it]
+ 89%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊              | 100/112 [11:08<00:53,  4.48s/it]/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:581: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-663f140f-38f2552e54bad350028f8232;4f546a03-ec20-4f16-a69f-6e2c6a02e68a)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 112/112 [11:53<00:00,  6.37s/it]
+{'train_runtime': 715.6021, 'train_samples_per_second': 1.397, 'train_steps_per_second': 0.157, 'train_loss': 8.9094420841762, 'epoch': 1.0}

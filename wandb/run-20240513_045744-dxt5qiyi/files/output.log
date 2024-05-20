@@ -1,0 +1,72 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+model output, loss tensor(13.9438, device='cuda:0', grad_fn=<NllLossBackward0>)
+model output, logits tensor([[[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -5.1211,  -4.0195,   2.0000,  ...,  -3.1543,  -3.7461,  -4.4023],
+         [ -7.3711,  -9.3906,   0.9844,  ...,  -5.2773,  -3.4668,  -4.4258],
+         ...,
+         [ -3.4395,  -7.9180,   3.3184,  ...,  -4.2422,  -4.9648,  -2.0449],
+         [ -4.1016,  -8.1406,   2.9277,  ...,  -2.8984,  -3.0059,  -0.4336],
+         [ -1.9258,  -6.2188,   3.6914,  ...,   0.2563,  -3.1094,  -0.4597]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -3.1230,  -2.4453,   2.0820,  ...,  -3.3027,  -2.7812,  -1.1982],
+         [ -5.6680,  -9.2734,   0.9683,  ...,  -3.8398,  -4.4102,  -3.7012],
+         ...,
+         [ -5.7500,  -7.8555,   3.6621,  ...,  -4.6406,  -3.7891,  -2.6602],
+         [  0.6533,   1.5898,   8.5469,  ...,   0.3726,   0.5024,   0.0757],
+         [ -3.6934,  -9.5078,   2.5410,  ...,  -0.4651,  -2.7109,  -1.3564]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -2.3711,   7.4023,   9.1172,  ...,   4.3477,  -0.2705,   3.3027],
+         [-10.8594,  -8.1797,  -1.7344,  ...,  -7.7656,  -8.7188,  -6.8086],
+         ...,
+         [ -2.2402,  -1.5820,   7.3750,  ...,  -0.2537,  -0.8330,  -1.0781],
+         [ -2.8672,  -3.4023,  10.2891,  ...,  -1.1846,  -2.0586,  -0.1345],
+         [ -2.2930,  -2.0566,   9.2188,  ...,  -3.0312,  -2.5312,   0.2374]],
+        ...,
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -7.8320, -10.4922,  -0.2683,  ...,  -5.7500,  -4.4062,  -5.1016],
+         [ -7.7422,  -7.4141,  -0.1282,  ...,  -4.0469,  -4.6016,  -6.7930],
+         ...,
+         [ -2.4102,  -5.4258,   6.0742,  ...,  -2.0879,  -1.2266,   0.4773],
+         [ -2.0762,  -5.8633,   4.4766,  ...,  -4.0430,  -2.7500,  -1.0547],
+         [ -2.0605,  -6.4531,   4.3086,  ...,  -3.5293,  -2.6133,  -1.8193]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -2.1289,   1.0088,   4.4102,  ...,  -1.4150,  -1.7676,  -0.6172],
+         [ -4.5742,  -3.1465,   1.7793,  ...,  -2.9922,  -2.8477,  -3.0430],
+         ...,
+         [ -0.9043,   3.6406,  11.1797,  ...,   0.6450,  -2.3145,  -1.5381],
+         [ -1.5879,  -1.2451,  10.2500,  ...,  -0.2307,  -1.3535,  -1.0176],
+         [ -2.7324,  -1.5195,   9.6562,  ...,  -1.7480,  -1.5879,  -0.6113]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -4.7891,  -6.9805,   1.4316,  ...,  -2.2266,  -3.7930,  -4.3320],
+         [ -8.3281,  -7.5352,   0.5977,  ...,  -1.5801,  -6.0234,  -7.3672],
+         ...,
+         [ -2.2051,  -4.5742,  14.2969,  ...,  -1.0605,   0.9805,   2.8672],
+         [ -3.8770,  -4.9492,   4.6914,  ...,  -1.1045,  -3.1348,  -2.2559],
+         [ -1.8867,  -3.4004,   6.6680,  ...,   1.1748,  -2.0020,  -0.5723]]],
+       device='cuda:0', grad_fn=<ToCopyBackward0>)
+labels tensor([    1,   315,   744, 29890, 30010, 29879,   270,   328, 12624, 29871,
+        29906,   921, 29871, 29941,   353,  3532, 29906, 29930, 29941, 29922,
+        29953,  6778, 29953,   534, 17718, 29889,    13, 29950,   275,   270,
+          328, 12624, 29871, 29953,   448, 29871, 29906,   353,  3532, 29953,
+        29899, 29906, 29922, 29946,  6778, 29946,   901,   534, 17718,  1135,
+          315,   744, 29890, 29889,    13,  4136, 29871, 29946,     2,     2,
+            2,     2,     2,     2], device='cuda:0')
+decoded labels Caleb’s dad caught 2 x 3 = <<2*3=6>>6 trouts.
+His dad caught 6 - 2 = <<6-2=4>>4 more trouts than Caleb.
+#### 4
+True Steps ['2*3=6', '6-2=4']
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 322, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 317, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 306, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 266, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 196, in dense_loss
+    model_steps, model_final = extract_steps_and_final_answer(decoded_outputs)
+NameError: name 'decoded_outputs' is not defined

@@ -1,0 +1,44 @@
+
+Downloading readme: 100%|████████████████████████████████████████████████████████████████| 7.94k/7.94k [00:00<00:00, 2.37MB/s]
+Downloading data: 100%|██████████████████████████████████████████████████████████████████| 2.31M/2.31M [00:01<00:00, 1.60MB/s]
+Downloading data: 100%|████████████████████████████████████████████████████████████████████| 419k/419k [00:00<00:00, 2.67MB/s]
+Generating train split: 100%|██████████████████████████████████████████████████| 7473/7473 [00:00<00:00, 493863.48 examples/s]
+Generating test split: 100%|███████████████████████████████████████████████████| 1319/1319 [00:00<00:00, 246712.76 examples/s]
+Map:   0%|                                                                                     | 0/500 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3921: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|█████████████████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 8264.54 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 9316.33 examples/s]
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+Epoch 0, Step 10: Current Average Loss: 13.915809631347656
+Validation Loss after Epoch 0: 13.637649195534843
+Epoch 0, Step 20: Current Average Loss: 13.668099880218506
+Validation Loss after Epoch 0: 12.418740493910652
+Epoch 0, Step 30: Current Average Loss: 13.047564093271891
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 267, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 262, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 251, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 226, in train_epoch
+    validation_loss = evaluate(model, eval_loader, device)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 186, in evaluate
+    outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/peft/peft_model.py", line 1129, in forward
+    return self.base_model(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/peft/tuners/tuners_utils.py", line 161, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 1230, in forward
+    logits = self.lm_head(hidden_states)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

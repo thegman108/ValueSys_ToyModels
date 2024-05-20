@@ -1,0 +1,74 @@
+Map:   0%|                                                                                                                                                                    | 0/500 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3921: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 5943.79 examples/s]
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 324, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 319, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 308, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 268, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 183, in dense_loss
+    decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1).tolist(), skip_special_tokens=True)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py", line 3811, in decode
+    return self._decode(
+  File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_fast.py", line 625, in _decode
+    text = self._tokenizer.decode(token_ids, skip_special_tokens=skip_special_tokens)
+TypeError: argument 'ids': 'list' object cannot be interpreted as an integer
+model output, loss tensor(13.7416, device='cuda:0', grad_fn=<NllLossBackward0>)
+model output, logits tensor([[[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -3.2285,  -1.6016,   2.6309,  ...,  -2.0742,  -2.7305,  -0.8682],
+         [ -5.5234,  -5.5273,   1.8145,  ...,  -2.5156,  -3.9863,  -5.5039],
+         ...,
+         [ -4.6211,  -4.9570,   7.8281,  ...,   1.4365,  -0.9312,  -2.4258],
+         [ -0.6392,   0.8179,  11.1094,  ...,  -2.6875,  -0.5386,  -1.2607],
+         [ -3.2969,  -6.2422,  10.1562,  ...,  -0.6709,  -2.1016,  -0.0365]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [-11.2734,  -8.5781,  -3.3203,  ...,  -5.1836,  -7.7031,  -5.9688],
+         [ -7.3203,  -7.6992,   1.9023,  ...,  -3.5898,  -4.8516,  -4.2422],
+         ...,
+         [ -0.4531,  -0.1119,  10.7344,  ...,   3.5020,  -0.2223,   0.8608],
+         [ -0.5420,  -0.6816,   8.2812,  ...,   5.3359,   0.1429,  -0.9980],
+         [ -1.9473,  -3.3145,   8.7969,  ...,   2.5879,  -0.6841,  -2.2793]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -5.1562,  -4.8125,   2.1484,  ...,  -3.6934,  -2.3945,  -3.6152],
+         [ -9.4844, -11.7969,  -1.2129,  ...,  -4.4766,  -8.2188,  -4.2891],
+         ...,
+         [ -0.9072,  -3.2051,   6.7266,  ...,  -0.1267,  -0.8130,  -1.1064],
+         [ -4.2930,  -7.1914,   7.5352,  ...,  -4.3125,  -3.2637,  -1.7207],
+         [ -0.9863,  -4.0312,  13.8438,  ...,  -1.2344,   0.8999,   3.7285]],
+        ...,
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -6.5703,  -4.6797,  -2.6172,  ...,  -4.7734,  -2.9316,  -4.5820],
+         [ -8.2344,  -8.6562,  -3.8691,  ...,  -5.2969,  -6.1250,  -5.1562],
+         ...,
+         [ -1.7686,   1.2852,   7.4570,  ...,   6.3828,  -4.1250,   0.0772],
+         [ -4.2422,  -5.3945,   8.4219,  ...,   0.2410,  -5.1523,  -0.4536],
+         [ -0.4023,  -0.6943,  10.4844,  ...,   1.0879,  -2.5195,   1.5371]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -7.4297,  -4.6758,  -2.1348,  ...,  -3.5449,  -5.9375,  -4.4062],
+         [ -0.4204,   1.9043,   4.6289,  ...,  -0.7949,  -1.0674,  -2.1875],
+         ...,
+         [ -2.2617,   1.0742,  11.8906,  ...,  -1.9023,  -1.6152,  -0.1138],
+         [ -0.3040,   0.7754,  11.4688,  ...,  -1.7236,  -0.7080,  -0.1024],
+         [ -2.7754,  -2.6699,   9.1328,  ...,  -4.8711,  -1.3066,   0.5117]],
+        [[  0.2908,   0.0457,   0.2769,  ...,   1.4541,   2.0391,   0.7798],
+         [ -3.9531,  -2.9375,   3.0059,  ...,  -0.4900,  -1.2803,  -2.5410],
+         [ -7.0117, -10.1797,  -0.1943,  ...,  -5.0977,  -4.3516,  -4.7734],
+         ...,
+         [ -1.7363,  -2.5996,  10.2734,  ...,   2.0684,   0.6216,   0.7573],
+         [ -4.0469,  -6.5273,   5.3711,  ...,  -0.7568,  -3.2656,  -1.8760],
+         [ -3.2402,  -4.7695,   7.2852,  ...,  -0.1769,  -4.0586,   0.0831]]],
+       device='cuda:0', grad_fn=<ToCopyBackward0>)
+labels tensor([    1,   450,   413,  4841, 16531, 29871, 29906, 29929,   718, 29871,
+        29896, 29955,   718, 29871, 29947,   353,  3532, 29906, 29929, 29974,
+        29896, 29955, 29974, 29947, 29922, 29945, 29946,  6778, 29945, 29946,
+         6473, 29879, 29889,    13,  3644,   896,  1320,  2666,   278,  6473,
+        29879,  1584,   368,  1546, 29871, 29906,  7875, 29892, 29871, 29945,
+        29946,   847, 29871, 29906,   353,  3532, 29945, 29946, 29914, 29906,
+        29922, 29906, 29955,  6778], device='cuda:0')

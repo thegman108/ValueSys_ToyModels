@@ -1,0 +1,24 @@
+Map:   0%|                                                                                                                                                                                                    | 0/500 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3921: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 8106.35 examples/s]
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+Epoch 0, Step 10: Current Average Loss: 14.203223037719727
+Epoch 0, Step 20: Current Average Loss: 13.752885389328004
+Epoch 0, Step 30: Current Average Loss: 13.148946062723796
+Epoch 0, Step 40: Current Average Loss: 12.555975317955017
+Epoch 0, Step 50: Current Average Loss: 11.922916240692139
+Average Training Loss for Epoch 0: 11.545610104288373
+Epoch 1, Step 10: Current Average Loss: 7.1786726951599125
+Epoch 1, Step 20: Current Average Loss: 6.755778694152832
+Epoch 1, Step 30: Current Average Loss: 6.444022973378499
+Epoch 1, Step 40: Current Average Loss: 6.221169602870941
+Epoch 1, Step 50: Current Average Loss: 6.0592965888977055
+Average Training Loss for Epoch 1: 5.967205192361559
+Epoch 2, Step 10: Current Average Loss: 5.153180170059204
+Epoch 2, Step 20: Current Average Loss: 5.200009346008301
+Epoch 2, Step 30: Current Average Loss: 5.166964403788248
+Epoch 2, Step 40: Current Average Loss: 5.114421570301056
+Epoch 2, Step 50: Current Average Loss: 5.098442459106446
+Average Training Loss for Epoch 2: 5.076832703181675

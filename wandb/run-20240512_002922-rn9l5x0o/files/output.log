@@ -1,0 +1,15 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 191, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 186, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 174, in train
+    train_epoch(model, train_loader,device,optimizer, epoch_num)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 147, in train_epoch
+    inputs = batch['input_ids'].to(device)
+TypeError: to() received an invalid combination of arguments - got (Adam8bit), but expected one of:
+ * (torch.device device, torch.dtype dtype, bool non_blocking, bool copy, *, torch.memory_format memory_format)
+ * (torch.dtype dtype, bool non_blocking, bool copy, *, torch.memory_format memory_format)
+ * (Tensor tensor, bool non_blocking, bool copy, *, torch.memory_format memory_format)

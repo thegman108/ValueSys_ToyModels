@@ -1,0 +1,38 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 326, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 321, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 310, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 270, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 218, in dense_loss
+    stop
+NameError: name 'stop' is not defined
+model output, loss tensor(14.2974, device='cuda:0', grad_fn=<NllLossBackward0>)
+model output, logits tensor([19838,   379,   263,   716, 14280,   533,    13,    13,    13,  1321,
+          263, 11456,  8693,   278, 29896, 29900, 29900, 29892,   322, 29871,
+          940, 23381,   269,   395, 29906, 29889,  1207, 29889, 29871,   940,
+          269, 10071,   963,   363,   395,   395, 29900, 29945,  3064,   278,
+         3438, 29889, 29871,  1128,   269, 10071, 29871, 29896, 29900, 29900,
+        29900,   583, 29889,  4723, 29889, 29871, 29941,  3841,   263,  4723,
+        29889, 29871,  1128,  1568], device='cuda:0')
+labels tensor([    1,   940,  5239,  1269, 15191,   363, 29871, 29953, 29930, 29906,
+        29889, 29945,  6080,  9314, 29953, 29930, 29906, 29889, 29945, 29922,
+        29896, 29945,  6778, 29896, 29945,    13,  6295,   540,  3732,   263,
+        21665,   310, 29871, 29896, 29945, 29899, 29953,  6080,  9314, 29896,
+        29945, 29899, 29953, 29922, 29929,  6778, 29929,    13,  6295,  1269,
+         2462,   540,  3732,   263, 21665,   310, 29871, 29929, 29930, 29945,
+        29900, 29900,  6080,  9314], device='cuda:0')
+True Steps ['6*2.5=15', '15-6=9']
+True Final He sold each DVD for 6*2.5=$<<6*2.5=15>>15
+So he makes a profit of 15-6=$<<15-6=9>>9
+So each day he makes a profit of 9*500=$<<
+Model steps []
+model final Unterscheidung H a new stormire
+ bu a television studio the100, and  He ticket s $2. make.  He sells them for $ $05 times the cost.  How sells 1000ies. week. 3 days a week.  How much

@@ -1,0 +1,35 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+model output, loss tensor(14.1490, device='cuda:0', grad_fn=<NllLossBackward0>)
+model output, logits tensor([19838,   349,   278,  4518,   287,   263, 20452,   297,    13,  2688,
+          278,  6416, 29892,   896,  1497,   287,  6454, 29945,  6454,  6454,
+         1219, 18577,  5779, 29889, 22040,  8024,   287, 29871,   408,  1784,
+        29889, 12828, 29889, 29871,   512,   278, 17724, 29892, 22040,  4094,
+          287, 29871, 29906, 29900,   901,  1219,   409,  5779,  1550, 22040,
+         8024,   287, 29871, 29946, 29900,   901,  1135,  1219,   409,  5779,
+         1135, 12828, 29889, 29871], device='cuda:0')
+labels tensor([    1, 22040,  8024,   287, 29871, 29906,   921, 29871, 29945, 29900,
+          353,  3532, 29906, 29930, 29945, 29900, 29922, 29896, 29900, 29900,
+         6778, 29896, 29900, 29900,  6454,  1219,   409,  5779, 29889,    13,
+         6295, 29892, 12828,   322, 22040,  8024,   287, 29871, 29945, 29900,
+          718, 29871, 29896, 29900, 29900,   353,  3532, 29945, 29900, 29974,
+        29896, 29900, 29900, 29922, 29896, 29945, 29900,  6778, 29896, 29945,
+        29900,  6454,  1219,   409], device='cuda:0')
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 326, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 321, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 310, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 270, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 185, in dense_loss
+    decoded_outputs = tokenizer.decode(model_output.logits.argmax(dim=-1).tolist(), skip_special_tokens=True)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py", line 3811, in decode
+    return self._decode(
+  File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_fast.py", line 625, in _decode
+    text = self._tokenizer.decode(token_ids, skip_special_tokens=skip_special_tokens)
+TypeError: argument 'ids': 'list' object cannot be interpreted as an integer

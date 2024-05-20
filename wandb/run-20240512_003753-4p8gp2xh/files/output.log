@@ -1,0 +1,14 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 192, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 187, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 175, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 150, in train_epoch
+    labels = batch['labels'].to(device)  # Assuming labels are part of the batch
+KeyError: 'labels'

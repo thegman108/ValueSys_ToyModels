@@ -1,0 +1,36 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+model output, loss tensor(14.2399, device='cuda:0', grad_fn=<NllLossBackward0>)
+model output, logits tensor([19838,   526,  1784, 29896,  1667,  1422,   297,   278,  3918,   411,
+         1670,   310,  6131,   526,   521, 29946,   521,  7121, 29892, 29892,
+          322, 29941,  6131, 29871, 29941,   521,  7121,  1269, 29892,   278,
+         9886,   505, 29871, 29946,   521,  7121,  1269, 29889,  1128,  1784,
+          521,  7121,   526,  3001,   526,   727,   278, 12713, 29973,    13,
+         1371,   278,   596,   596, 17203,   297,   278, 20476,  5099,   362,
+         6778,  6778,  4004,   322], device='cuda:0')
+labels tensor([    1, 28144,   310, 29871, 29941, 29906,  6131,   338, 29871, 29941,
+        29906, 16395, 29896, 29914, 29906, 29897,   353,  3532, 29941, 29906,
+        16395, 29896, 29914, 29906,  3892, 29896, 29953,  6778, 29896, 29953,
+         6131,    13, 29896, 29953,  6131,   505, 29871, 29906,   521,  7121,
+         1269,   363,   263,  3001,   310, 29871, 29896, 29953, 29930, 29906,
+          353,  3532, 29896, 29953, 29930, 29906, 29922, 29941, 29906,  6778,
+        29941, 29906,   521,  7121], device='cuda:0')
+decoded labels Half of 32 tables is 32*(1/2) = <<32*(1/2)=16>>16 tables
+16 tables have 2 chairs each for a total of 16*2 = <<16*2=32>>32 chairs
+decoded outputs Unterscheidung are many1 main different in the standard with There of tables are ch4 chairs,, and3 tables 3 chairs each, the remaining have 4 chairs each. How many chairs are total are there the hall?
+ help the your your calculations in the brackets >>ation>>>> section and
+True Steps ['32*(1/2)=16', '16*2=32']
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 326, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 321, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 310, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 270, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 218, in dense_loss
+    stop
+NameError: name 'stop' is not defined

@@ -1,0 +1,37 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Epoch 0, Step 10: Current Average Loss: 14.232075500488282
+Validation Loss after Epoch 0: 13.735139046396528
+Epoch 0, Step 20: Current Average Loss: 13.818260669708252
+Validation Loss after Epoch 0: 12.634828567504883
+Epoch 0, Step 30: Current Average Loss: 13.309796778361003
+Validation Loss after Epoch 0: 11.358878867966789
+Epoch 0, Step 40: Current Average Loss: 12.731429195404052
+Validation Loss after Epoch 0: 9.9964873450143
+Epoch 0, Step 50: Current Average Loss: 12.071649360656739
+Validation Loss after Epoch 0: 8.519239051001412
+Average Training Loss for Epoch 0: 11.646715462207794
+Epoch 1, Step 10: Current Average Loss: 7.057889604568482
+Validation Loss after Epoch 1: 6.615873575210571
+Epoch 1, Step 20: Current Average Loss: 6.713942909240723
+Validation Loss after Epoch 1: 6.062048350061689
+Epoch 1, Step 30: Current Average Loss: 6.459519894917806
+Validation Loss after Epoch 1: 5.702457904815674
+Epoch 1, Step 40: Current Average Loss: 6.25671511888504
+Validation Loss after Epoch 1: 5.482505874974387
+Epoch 1, Step 50: Current Average Loss: 6.067663202285766
+Validation Loss after Epoch 1: 5.343234990324293
+Average Training Loss for Epoch 1: 5.969730930668967
+Epoch 2, Step 10: Current Average Loss: 5.1781988620758055
+Validation Loss after Epoch 2: 5.202866852283478
+Epoch 2, Step 20: Current Average Loss: 5.161547541618347
+Validation Loss after Epoch 2: 5.144359818526676
+Epoch 2, Step 30: Current Average Loss: 5.1233508586883545
+Validation Loss after Epoch 2: 5.101155204432351
+Epoch 2, Step 40: Current Average Loss: 5.113868665695191
+Validation Loss after Epoch 2: 5.063617740358625
+Epoch 2, Step 50: Current Average Loss: 5.105125026702881
+Validation Loss after Epoch 2: 5.034925852503095
+Average Training Loss for Epoch 2: 5.076678327151707
