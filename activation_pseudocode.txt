@@ -1,0 +1,17 @@
+small_dataset = [subset of GMS8k dataset]
+activations_dense, activations_sparse = [dense_model.forward(small_dataset), sparse_model.forward(small_dataset)]
+
+from sklearn import LogisticRegression (or something similar)
+X_train, y_train, X_test, y_test = train_test_split(activations and the labels -- 1 if dense, 0 if sparse)
+model = LogisticRegression().fit(X_train, y_train)
+y_pred = model.predict(X_test)
+test_loss = mean_squared_error(y_pred, y_test)
+
+test_llama_model = train(...) # this is training the Llama-7b model using the classic loss function -- cross-entropy on each token, or whatever Huggingface uses, your choice
+
+test_goal_dir_pred = [] # The test predictions of our activation classifier on some Llama model fine-tuned on GSM8k (or another dataset if you have time) at each checkpoint 
+for llama_model in get_checkpoints():
+    new_activations = llama_model.forward(subset of small_dataset)
+    test_goal_dir_pred.append(model.predict(new_activations))
+
+graph test_goal_dir_pred with plt

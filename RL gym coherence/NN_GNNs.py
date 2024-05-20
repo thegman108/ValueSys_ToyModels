@@ -12,7 +12,7 @@ class GraphLevelGCN(torch.nn.Module):
         self.linear = torch.nn.Linear(16, 1)
         self.binary = binary
 
-    def forward(self, data):
+    def forward(self, data, binary = True):
         x, edge_index, batch = data.x, data.edge_index, data.batch
         # edge_weights = data.edge_attr
         
@@ -25,7 +25,7 @@ class GraphLevelGCN(torch.nn.Module):
         
         # Make a binary classification prediction
         x = self.linear(x)
-        return torch.sigmoid(x) if self.binary else x
+        return torch.sigmoid(x) if self.binary and binary else x
 
 class GATGraphLevelBinary(torch.nn.Module):
     def __init__(self, num_node_features):

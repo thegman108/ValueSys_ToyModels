@@ -406,7 +406,7 @@ if __name__ == '__main__':
         os.makedirs('models')
     model_path = "models/Taxi_GCN_USS_URS_"
     num_node_features = 1 # 1 if policy, 6 if q-table
-    MAKE_NEW_MODELS = True
+    MAKE_NEW_MODELS = False
     if os.path.exists(model_path + "0.pt") and not MAKE_NEW_MODELS: # if classifiers have already been trained
         i = 0
         models = []
@@ -423,6 +423,7 @@ if __name__ == '__main__':
         def seed_deterministic_random(seed, **kwargs):
             return partial(deterministic_random, seed = seed, **kwargs)
         UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
+        UPS_r_funcs = [lambda *args: 0 for _ in range(NUM_TRAIN_R_FUNCS)]
         URS_rand = np.random.randint(10000, size = NUM_TRAIN_R_FUNCS)
         URS_r_funcs = [seed_deterministic_random(str(seed)) for seed in URS_rand]
         # URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
@@ -477,9 +478,9 @@ if __name__ == '__main__':
         dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in URS_agents]
         dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in UPS_agents] # URS = 1, UPS = 0
         for i in tqdm(range(len(dataset1))):
-            agents = USS_agents if i < len(dataset1) / 2 else URS_agents
+            agents = URS_agents if i < len(dataset1) / 2 else UPS_agents
             dataset = dataset1 if i < len(dataset1) / 2 else dataset2
-            r_funcs = USS_r_funcs if i < len(dataset1) / 2 else URS_r_funcs
+            r_funcs = URS_r_funcs if i < len(dataset1) / 2 else UPS_r_funcs
             env_name = "Taxi-v3"
             env = gym.make(env_name)
             initial_state = env.reset()[0]
@@ -497,8 +498,9 @@ if __name__ == '__main__':
             dataset[i % int(len(dataset1) / 2)].x = torch.tensor(mcts_policy.reshape(-1, 1).astype(np.float32))
 
         # %%
-        # dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in URS_agents]
-        # dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in UPS_agents]
+        # Train GCN classifier
+        # dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in USS_agents]
+        # dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
         train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
         models, test_losses = [], []
         threshold = 0.6
@@ -508,7 +510,7 @@ if __name__ == '__main__':
         for k in tqdm(range(NUM_CLASSIFIER_TRIES)):
             model = GraphLevelGCN(num_node_features)
             criterion = torch.nn.BCELoss()
-            optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
+            optimizer = torch.optim.Adam(model.parameters(), lr=0.003, weight_decay=5e-4)
             metrics, train_losses_epoch, test_losses_epoch = train_classifier(
                 model, criterion, optimizer, train_data, test_data, epochs = epochs, patience = 5,
                 verbose = True, return_epoch_losses = True
@@ -596,7 +598,7 @@ if __name__ == '__main__':
     for index in tqdm(list(range(len(models))) * 1):
         coherent_policy = greedy_policy(taxi_models[index].q_table).detach()
         incoherent_policy = coherent_policy.clone()
-        """
+        
         for _ in range(300):
             env.reset()
             i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
@@ -608,10 +610,10 @@ if __name__ == '__main__':
             else:
                 incoherent_policy[j][0] = coherent_policy[i][0] - 1 # if 0, then 1; if 1, then 0
             # point is to put incoherent_policy in a loop
-        """
-        for i in np.random.randint(500, size = 300):
-            if incoherent_policy[i][0] >= 4:
-                incoherent_policy[i][0] = np.random.randint(4)
+        
+        # for i in np.random.randint(500, size = 300):
+        #     if incoherent_policy[i][0] >= 4:
+        #         incoherent_policy[i][0] = np.random.randint(4)
 
         # oops, i is already taken as a variable name here
         c_diffs.append((coherent_policy != incoherent_policy).nonzero().shape[0])
@@ -677,7 +679,7 @@ if __name__ == '__main__':
         label = "Mean ± 2 SEM"
     ) # assuming normal distribution
     plt.title("Classifier Ratings for Different Policies")
-    plt.ylabel("Classifier Output")
+    plt.ylabel("Classifier Output" if max(abs(np.max(taxi_classifier_ratings)), abs(np.min(taxi_classifier_ratings))) < 1.1 else "Logit Classifier Output")
     plt.legend()
     # plt.ylim(-0.1, 1.1)
     plt.show()
@@ -794,11 +796,13 @@ if __name__ == '__main__':
 # %%
     plt.figure()
     for loss in train_losses_detail:
-        plt.plot(loss, color='b')
+        nonzero_loss = loss[loss != 0]
+        plt.plot(nonzero_loss, color='b')
 
     # Plot test losses without label
     for loss in test_losses_detail:
-        plt.plot(loss, color='r')
+        nonzero_loss = loss[loss != 0]
+        plt.plot(nonzero_loss, color='r')
     # Create custom legend handles
     train_handle = plt.Line2D([], [], color='b', label='Train Loss')
     test_handle = plt.Line2D([], [], color='r', label='Test Loss')
