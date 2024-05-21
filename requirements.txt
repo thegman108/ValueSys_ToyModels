@@ -7,3 +7,4 @@ peft
 bitsandbytes
 matplotlib
 seaborn
+scikit-learn

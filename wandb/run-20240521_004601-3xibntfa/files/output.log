@@ -1,0 +1,62 @@
+Map:   0%|                                                                        | 0/1319 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|███████████████████████████████████████████████████████████| 1319/1319 [00:00<00:00, 8193.83 examples/s]
+Question being sent Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Question: Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market? END Question
+Answer: Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Janet has 16 ducks that lay eggs every day. If she eats 3 eggs per day and bakes 4 muffins per day with 4 eggs each, that means she uses 16 - 3 - 4 = 9 eggs per day.
+So, she has 16 - 9 = 7 eggs left to sell at the farmers' market.
+At $2 per fresh duck egg, she makes $2 x 7 = $14 per day at the farmers' market. END Answer
+Question: A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take? END Question
+Answer: A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?
+Answer:
+The robe takes 2 bolts of blue fiber, which is half of 4 = 2 bolts.
+It also takes half that amount of white fiber, which is half of 2 = 1 bolt.
+Therefore, the total number of bolts required to make the robe is 2 + 1 = 3 bolts. END Answer
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Question: Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make? END Question
+Answer: Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?
+Answer:
+Josh made a profit of $30,000 ($50,000 - $80,000).
+Explanation:
+To find the profit, we need to subtract the original cost of the house from the new value of the house after the repairs. In this case, the original cost of the house was $80,000, and the new value after the repairs was $130,000 ($80,000 x 150%). So, the profit is $30,000 ($130,000 - $80,000). END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune_evaluate.py", line 357, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune_evaluate.py", line 352, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune_evaluate.py", line 339, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune_evaluate.py", line 262, in train_epoch
+    outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/peft/peft_model.py", line 1430, in forward
+    return self.base_model(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/peft/tuners/tuners_utils.py", line 179, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 1164, in forward
+    outputs = self.model(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 968, in forward
+    layer_outputs = decoder_layer(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 727, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 216, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 86.00 MiB (GPU 0; 79.15 GiB total capacity; 52.79 GiB already allocated; 65.75 MiB free; 52.89 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

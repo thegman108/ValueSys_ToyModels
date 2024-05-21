@@ -1,0 +1,79 @@
+Map:   0%|                                                                        | 0/7473 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|██████████████████████████████████████████████████████████| 7473/7473 [00:00<00:00, 10374.15 examples/s]
+Map: 100%|██████████████████████████████████████████████████████████| 1319/1319 [00:00<00:00, 10717.96 examples/s]
+Question being sent Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Question: Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market? END Question
+Answer: Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Janet's ducks lay 16 eggs per day.
+She eats 3 for breakfast every morning.
+She bakes muffins for her friends every day with 4.
+She sells the remainder at the farmers' market daily for $2 per fresh duck egg.
+So, the number of eggs she sells at the farmers' market is:
+16 - 3 = 13
+And the total amount of money she makes from selling eggs at the farmers' market is:
+13 x $2 = $26
+Therefore, Janet makes $26 at the farmers' market every day. END Answer
+Question: A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take? END Question
+Answer: A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?
+Answer:
+The robe takes 2 bolts of blue fiber and half that much white fiber, which is equal to 1 bolt of white fiber.
+So, in total, it takes 2 + 1 = 3 bolts of fiber to make the robe. END Answer
+Question: Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make? END Question
+Answer: Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?
+Answer:
+Josh made a profit of $30,000 ($130,000 - $80,000).
+Explanation:
+To find the profit, we need to subtract the original cost of the house from the new value of the house after repairs. In this case, the original cost of the house was $80,000, and the new value after repairs was $130,000, so the profit is $30,000 ($130,000 - $80,000). END Answer
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+Epoch 0, Step 10: Current Average Loss: 13.85505952835083
+Validation Loss after Epoch 0: 13.586087921038777
+Epoch 0, Step 20: Current Average Loss: 13.43238468170166
+Validation Loss after Epoch 0: 12.556654514909601
+Epoch 0, Step 30: Current Average Loss: 12.928353532155354
+Validation Loss after Epoch 0: 11.137349654217156
+Epoch 0, Step 40: Current Average Loss: 12.287582635879517
+Validation Loss after Epoch 0: 9.52765553662566
+Epoch 0, Step 50: Current Average Loss: 11.590833902359009
+Validation Loss after Epoch 0: 7.8486134795104565
+Epoch 0, Step 60: Current Average Loss: 10.856911945343018
+Validation Loss after Epoch 0: 6.66500677705622
+Epoch 0, Step 70: Current Average Loss: 10.222098173413958
+Validation Loss after Epoch 0: 6.077177829482928
+Epoch 0, Step 80: Current Average Loss: 9.680046600103378
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 353, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 348, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 335, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 283, in train_epoch
+    validation_loss = evaluate(model, eval_loader, device,training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 214, in evaluate
+    outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/peft/peft_model.py", line 1430, in forward
+    return self.base_model(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/peft/tuners/tuners_utils.py", line 179, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 1164, in forward
+    outputs = self.model(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 968, in forward
+    layer_outputs = decoder_layer(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/llama/modeling_llama.py", line 713, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+KeyboardInterrupt

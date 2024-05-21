@@ -1,0 +1,14 @@
+Map:   0%|                                                               | 0/7473 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|██████████████████████████████████████████████████| 7473/7473 [00:00<00:00, 7961.58 examples/s]
+Map: 100%|██████████████████████████████████████████████████| 1319/1319 [00:00<00:00, 8012.94 examples/s]
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 307, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 302, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 279, in train
+    train_loader = DataLoader(data, batch_size=train_params.per_device_train_batch_size, shuffle=True)
+NameError: name 'train_params' is not defined

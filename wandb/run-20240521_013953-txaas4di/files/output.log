@@ -1,0 +1,2377 @@
+Map:   0%|                                                               | 0/1319 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|██████████████████████████████████████████████████| 1319/1319 [00:00<00:00, 3019.51 examples/s]
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Epoch 0, Step 10: Current Average Loss: 9.443231534957885
+Validation Loss after Epoch 0: 6.765389186184422
+Epoch 0, Step 20: Current Average Loss: 7.854159140586853
+Validation Loss after Epoch 0: 5.920838171122026
+Epoch 0, Step 30: Current Average Loss: 7.192924976348877
+Validation Loss after Epoch 0: 5.741091222179179
+Epoch 0, Step 40: Current Average Loss: 6.810277879238129
+Validation Loss after Epoch 0: 5.586480546159809
+Epoch 0, Step 50: Current Average Loss: 6.551393909454346
+Validation Loss after Epoch 0: 5.5278925279370785
+Epoch 0, Step 60: Current Average Loss: 6.362054888407389
+Validation Loss after Epoch 0: 5.48075058346703
+Epoch 0, Step 70: Current Average Loss: 6.2355544090271
+Validation Loss after Epoch 0: 5.465252529196188
+Epoch 0, Step 80: Current Average Loss: 6.133269447088241
+Validation Loss after Epoch 0: 5.4462852510465245
+Epoch 0, Step 90: Current Average Loss: 6.048095586564806
+Validation Loss after Epoch 0: 5.435196675410887
+Epoch 0, Step 100: Current Average Loss: 6.000226263999939
+Validation Loss after Epoch 0: 5.4276058592763885
+Epoch 0, Step 110: Current Average Loss: 5.9521372404965485
+Validation Loss after Epoch 0: 5.382267643805264
+Epoch 0, Step 120: Current Average Loss: 5.91092289686203
+Validation Loss after Epoch 0: 5.382046472458613
+Epoch 0, Step 130: Current Average Loss: 5.878198091800396
+Validation Loss after Epoch 0: 5.3676083136578
+Epoch 0, Step 140: Current Average Loss: 5.8341275453567505
+Validation Loss after Epoch 0: 5.357656582683122
+Epoch 0, Step 150: Current Average Loss: 5.805279178619385
+Validation Loss after Epoch 0: 5.345141504897552
+Epoch 0, Step 160: Current Average Loss: 5.7822887122631075
+Validation Loss after Epoch 0: 5.4143183215134805
+Epoch 0, Step 170: Current Average Loss: 5.759808590832878
+Validation Loss after Epoch 0: 5.383764782730414
+Epoch 0, Step 180: Current Average Loss: 5.739045026567247
+Validation Loss after Epoch 0: 5.364142748774315
+Epoch 0, Step 190: Current Average Loss: 5.716615599080136
+Validation Loss after Epoch 0: 5.358406803234905
+Epoch 0, Step 200: Current Average Loss: 5.699572556018829
+Validation Loss after Epoch 0: 5.319963893111871
+Epoch 0, Step 210: Current Average Loss: 5.687273404711768
+Validation Loss after Epoch 0: 5.296177782979952
+Epoch 0, Step 220: Current Average Loss: 5.66594163721258
+Validation Loss after Epoch 0: 5.29393686891413
+Epoch 0, Step 230: Current Average Loss: 5.649793960737146
+Validation Loss after Epoch 0: 5.334760072279949
+Epoch 0, Step 240: Current Average Loss: 5.636120694875717
+Validation Loss after Epoch 0: 5.296133742040517
+Epoch 0, Step 250: Current Average Loss: 5.621189449310303
+Validation Loss after Epoch 0: 5.306214270948553
+Epoch 0, Step 260: Current Average Loss: 5.612337389359108
+Validation Loss after Epoch 0: 5.279572623116629
+Epoch 0, Step 270: Current Average Loss: 5.59889099156415
+Validation Loss after Epoch 0: 5.274314101861448
+Epoch 0, Step 280: Current Average Loss: 5.588041726180485
+Validation Loss after Epoch 0: 5.270332878138743
+Epoch 0, Step 290: Current Average Loss: 5.574331495679658
+Validation Loss after Epoch 0: 5.26261618672585
+Epoch 0, Step 300: Current Average Loss: 5.564081773757935
+Validation Loss after Epoch 0: 5.253586681521669
+Epoch 0, Step 310: Current Average Loss: 5.5496536670192596
+Validation Loss after Epoch 0: 5.2449716029524
+Epoch 0, Step 320: Current Average Loss: 5.54007975012064
+Validation Loss after Epoch 0: 5.252946373556747
+Epoch 0, Step 330: Current Average Loss: 5.532069222132365
+Validation Loss after Epoch 0: 5.2351087129034966
+Epoch 0, Step 340: Current Average Loss: 5.524627145598917
+Validation Loss after Epoch 0: 5.227990572144385
+Epoch 0, Step 350: Current Average Loss: 5.5195334815979
+Validation Loss after Epoch 0: 5.235954086796767
+Epoch 0, Step 360: Current Average Loss: 5.509576222631666
+Validation Loss after Epoch 0: 5.2361073364205915
+Epoch 0, Step 370: Current Average Loss: 5.501762459729169
+Validation Loss after Epoch 0: 5.236070256654908
+Epoch 0, Step 380: Current Average Loss: 5.4936793452815005
+Validation Loss after Epoch 0: 5.223509671736736
+Epoch 0, Step 390: Current Average Loss: 5.483600900112054
+Validation Loss after Epoch 0: 5.278123949660736
+Epoch 0, Step 400: Current Average Loss: 5.480037750005722
+Validation Loss after Epoch 0: 5.265886005090207
+Epoch 0, Step 410: Current Average Loss: 5.471816616523556
+Validation Loss after Epoch 0: 5.2598723229907804
+Epoch 0, Step 420: Current Average Loss: 5.462612412089393
+Validation Loss after Epoch 0: 5.213924764775905
+Epoch 0, Step 430: Current Average Loss: 5.458836877068808
+Validation Loss after Epoch 0: 5.2106578658227205
+Epoch 0, Step 440: Current Average Loss: 5.453793152895841
+Validation Loss after Epoch 0: 5.208300275867488
+Epoch 0, Step 450: Current Average Loss: 5.447634402381049
+Validation Loss after Epoch 0: 5.206255517038358
+Epoch 0, Step 460: Current Average Loss: 5.439243862939917
+Validation Loss after Epoch 0: 5.220355955110926
+Epoch 0, Step 470: Current Average Loss: 5.436541763265082
+Validation Loss after Epoch 0: 5.215801939672353
+Epoch 0, Step 480: Current Average Loss: 5.430138845245043
+Validation Loss after Epoch 0: 5.200964486517874
+Epoch 0, Step 490: Current Average Loss: 5.423039937505917
+Validation Loss after Epoch 0: 5.201820422192009
+Epoch 0, Step 500: Current Average Loss: 5.416973839759827
+Validation Loss after Epoch 0: 5.194323066140519
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?>> END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END Answer
+Epoch 0, Step 510: Current Average Loss: 5.412994338951859
+Validation Loss after Epoch 0: 5.193710512044478
+Epoch 0, Step 520: Current Average Loss: 5.408512558386876
+Validation Loss after Epoch 0: 5.189592873969046
+Epoch 0, Step 530: Current Average Loss: 5.406497442497398
+Validation Loss after Epoch 0: 5.18961492849856
+Epoch 0, Step 540: Current Average Loss: 5.4036559193222615
+Validation Loss after Epoch 0: 5.178601446605864
+Epoch 0, Step 550: Current Average Loss: 5.3970556285164575
+Validation Loss after Epoch 0: 5.178422691059762
+Epoch 0, Step 560: Current Average Loss: 5.394657126494816
+Validation Loss after Epoch 0: 5.174863679068429
+Epoch 0, Step 570: Current Average Loss: 5.3896152705477
+Validation Loss after Epoch 0: 5.173846757330862
+Epoch 0, Step 580: Current Average Loss: 5.385147311769683
+Validation Loss after Epoch 0: 5.167481331598191
+Epoch 0, Step 590: Current Average Loss: 5.379931574352717
+Validation Loss after Epoch 0: 5.182843649468454
+Epoch 0, Step 600: Current Average Loss: 5.376245896816254
+Validation Loss after Epoch 0: 5.206827582145224
+Epoch 0, Step 610: Current Average Loss: 5.373399964316946
+Validation Loss after Epoch 0: 5.178552020974711
+Epoch 0, Step 620: Current Average Loss: 5.370209723134194
+Validation Loss after Epoch 0: 5.17295418953409
+Epoch 0, Step 630: Current Average Loss: 5.367621919087001
+Validation Loss after Epoch 0: 5.157665145640471
+Epoch 0, Step 640: Current Average Loss: 5.363521464169025
+Validation Loss after Epoch 0: 5.15548899708962
+Epoch 0, Step 650: Current Average Loss: 5.35803147829496
+Validation Loss after Epoch 0: 5.170686011411706
+Epoch 0, Step 660: Current Average Loss: 5.354749331329808
+Validation Loss after Epoch 0: 5.157717701529159
+Epoch 0, Step 670: Current Average Loss: 5.351396914382479
+Validation Loss after Epoch 0: 5.173610797544726
+Epoch 0, Step 680: Current Average Loss: 5.348500118536108
+Validation Loss after Epoch 0: 5.1545028913588755
+Epoch 0, Step 690: Current Average Loss: 5.344947065132252
+Validation Loss after Epoch 0: 5.161158285984377
+Epoch 0, Step 700: Current Average Loss: 5.342138057436262
+Validation Loss after Epoch 0: 5.151454756860019
+Epoch 0, Step 710: Current Average Loss: 5.338979815093564
+Validation Loss after Epoch 0: 5.151067279634022
+Epoch 0, Step 720: Current Average Loss: 5.333703239758809
+Validation Loss after Epoch 0: 5.146993322437313
+Epoch 0, Step 730: Current Average Loss: 5.331452585899666
+Validation Loss after Epoch 0: 5.148865861957576
+Epoch 0, Step 740: Current Average Loss: 5.327695363921088
+Validation Loss after Epoch 0: 5.210677026891384
+Epoch 0, Step 750: Current Average Loss: 5.326275896072388
+Validation Loss after Epoch 0: 5.207435646835639
+Epoch 0, Step 760: Current Average Loss: 5.324419353510204
+Validation Loss after Epoch 0: 5.142702002103637
+Epoch 0, Step 770: Current Average Loss: 5.323888199669974
+Validation Loss after Epoch 0: 5.155097555952008
+Epoch 0, Step 780: Current Average Loss: 5.321812936587212
+Validation Loss after Epoch 0: 5.143193251421662
+Epoch 0, Step 790: Current Average Loss: 5.318315713616866
+Validation Loss after Epoch 0: 5.1430782006711375
+Epoch 0, Step 800: Current Average Loss: 5.316782751679421
+Validation Loss after Epoch 0: 5.144763093416382
+Epoch 0, Step 810: Current Average Loss: 5.315426334334009
+Validation Loss after Epoch 0: 5.139816527463952
+Epoch 0, Step 820: Current Average Loss: 5.3144859133697135
+Validation Loss after Epoch 0: 5.154653847623034
+Epoch 0, Step 830: Current Average Loss: 5.312531456889876
+Validation Loss after Epoch 0: 5.126613393121836
+Average Training Loss for Epoch 0: 5.312384853867991
+Epoch 1, Step 10: Current Average Loss: 5.18544635772705
+Validation Loss after Epoch 1: 5.146128369026443
+Epoch 1, Step 20: Current Average Loss: 5.063568806648254
+Validation Loss after Epoch 1: 5.132349896593158
+Epoch 1, Step 30: Current Average Loss: 5.043613386154175
+Validation Loss after Epoch 1: 5.128116046490312
+Epoch 1, Step 40: Current Average Loss: 5.0199729084968565
+Validation Loss after Epoch 1: 5.133922648267681
+Epoch 1, Step 50: Current Average Loss: 4.985678119659424
+Validation Loss after Epoch 1: 5.136158836131194
+Epoch 1, Step 60: Current Average Loss: 4.965338826179504
+Validation Loss after Epoch 1: 5.136364459991455
+Epoch 1, Step 70: Current Average Loss: 4.960394450596401
+Validation Loss after Epoch 1: 5.139748411113713
+Epoch 1, Step 80: Current Average Loss: 4.966879713535309
+Validation Loss after Epoch 1: 5.139110523016274
+Epoch 1, Step 90: Current Average Loss: 4.962056620915731
+Validation Loss after Epoch 1: 5.129787905686567
+Epoch 1, Step 100: Current Average Loss: 4.957986936569214
+Validation Loss after Epoch 1: 5.138596865595604
+Epoch 1, Step 110: Current Average Loss: 4.948342258279974
+Validation Loss after Epoch 1: 5.137594304117216
+Epoch 1, Step 120: Current Average Loss: 4.9478289723396305
+Validation Loss after Epoch 1: 5.136956727423636
+Epoch 1, Step 130: Current Average Loss: 4.96154302083529
+Validation Loss after Epoch 1: 5.1321739177314605
+Epoch 1, Step 140: Current Average Loss: 4.962431236675807
+Validation Loss after Epoch 1: 5.133693597754654
+Epoch 1, Step 150: Current Average Loss: 4.966485166549683
+Validation Loss after Epoch 1: 5.123013450985863
+Epoch 1, Step 160: Current Average Loss: 4.963567733764648
+Validation Loss after Epoch 1: 5.137160142262776
+Epoch 1, Step 170: Current Average Loss: 4.959185636744779
+Validation Loss after Epoch 1: 5.131564957754953
+Epoch 1, Step 180: Current Average Loss: 4.961020331912571
+Validation Loss after Epoch 1: 5.12155311934802
+Epoch 1, Step 190: Current Average Loss: 4.961633549238506
+Validation Loss after Epoch 1: 5.1271350821670225
+Epoch 1, Step 200: Current Average Loss: 4.963796994686127
+Validation Loss after Epoch 1: 5.164112327861137
+Epoch 1, Step 210: Current Average Loss: 4.962316413152785
+Validation Loss after Epoch 1: 5.124047555080076
+Epoch 1, Step 220: Current Average Loss: 4.960680942101912
+Validation Loss after Epoch 1: 5.131095467781534
+Epoch 1, Step 230: Current Average Loss: 4.961943470913431
+Validation Loss after Epoch 1: 5.123835907501428
+Epoch 1, Step 240: Current Average Loss: 4.967922733227412
+Validation Loss after Epoch 1: 5.113191046682345
+Epoch 1, Step 250: Current Average Loss: 4.968263809204101
+Validation Loss after Epoch 1: 5.114806924547468
+Epoch 1, Step 260: Current Average Loss: 4.971326125585116
+Validation Loss after Epoch 1: 5.132686261417104
+Epoch 1, Step 270: Current Average Loss: 4.968401161829631
+Validation Loss after Epoch 1: 5.125903674534389
+Epoch 1, Step 280: Current Average Loss: 4.97010623216629
+Validation Loss after Epoch 1: 5.119350303598002
+Epoch 1, Step 290: Current Average Loss: 4.969573504349281
+Validation Loss after Epoch 1: 5.1269773366499924
+Epoch 1, Step 300: Current Average Loss: 4.967736700375875
+Validation Loss after Epoch 1: 5.11531214486985
+Epoch 1, Step 310: Current Average Loss: 4.970755083330216
+Validation Loss after Epoch 1: 5.1105772297398575
+Epoch 1, Step 320: Current Average Loss: 4.971258825063705
+Validation Loss after Epoch 1: 5.1071841797861115
+Epoch 1, Step 330: Current Average Loss: 4.968917405966557
+Validation Loss after Epoch 1: 5.118160406748454
+Epoch 1, Step 340: Current Average Loss: 4.968540522631477
+Validation Loss after Epoch 1: 5.100663262970594
+Epoch 1, Step 350: Current Average Loss: 4.969993855612619
+Validation Loss after Epoch 1: 5.1037190917397846
+Epoch 1, Step 360: Current Average Loss: 4.971479801336924
+Validation Loss after Epoch 1: 5.116454598044052
+Epoch 1, Step 370: Current Average Loss: 4.969405616296304
+Validation Loss after Epoch 1: 5.1190365025786315
+Epoch 1, Step 380: Current Average Loss: 4.974697997695522
+Validation Loss after Epoch 1: 5.11419525924994
+Epoch 1, Step 390: Current Average Loss: 4.973264903288621
+Validation Loss after Epoch 1: 5.111529295136329
+Epoch 1, Step 400: Current Average Loss: 4.973502842187881
+Validation Loss after Epoch 1: 5.126580669766381
+Epoch 1, Step 410: Current Average Loss: 4.975008030635554
+Validation Loss after Epoch 1: 5.127201407945075
+Epoch 1, Step 420: Current Average Loss: 4.975246102469308
+Validation Loss after Epoch 1: 5.105338612381293
+Epoch 1, Step 430: Current Average Loss: 4.973025228810865
+Validation Loss after Epoch 1: 5.102306031856407
+Epoch 1, Step 440: Current Average Loss: 4.9712290221994575
+Validation Loss after Epoch 1: 5.109312628402191
+Epoch 1, Step 450: Current Average Loss: 4.971813631057739
+Validation Loss after Epoch 1: 5.1128613348720835
+Epoch 1, Step 460: Current Average Loss: 4.97106020035951
+Validation Loss after Epoch 1: 5.100283927657977
+Epoch 1, Step 470: Current Average Loss: 4.971824111329748
+Validation Loss after Epoch 1: 5.121373475003405
+Epoch 1, Step 480: Current Average Loss: 4.969459992647171
+Validation Loss after Epoch 1: 5.115782494447669
+Epoch 1, Step 490: Current Average Loss: 4.968773034154152
+Validation Loss after Epoch 1: 5.1041483879089355
+Epoch 1, Step 500: Current Average Loss: 4.970083746910095
+Validation Loss after Epoch 1: 5.13991100285329
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?========================================================================================================================================================================================================================================================================= END Answer
+Epoch 1, Step 510: Current Average Loss: 4.970609591053981
+Validation Loss after Epoch 1: 5.123036128323094
+Epoch 1, Step 520: Current Average Loss: 4.969250900011796
+Validation Loss after Epoch 1: 5.110150830275347
+Epoch 1, Step 530: Current Average Loss: 4.967787346749936
+Validation Loss after Epoch 1: 5.106814854810027
+Epoch 1, Step 540: Current Average Loss: 4.967519220599422
+Validation Loss after Epoch 1: 5.10911209729253
+Epoch 1, Step 550: Current Average Loss: 4.969250435395674
+Validation Loss after Epoch 1: 5.105727481193283
+Epoch 1, Step 560: Current Average Loss: 4.971526382650648
+Validation Loss after Epoch 1: 5.111312100676452
+Epoch 1, Step 570: Current Average Loss: 4.970628197151318
+Validation Loss after Epoch 1: 5.105588377738486
+Epoch 1, Step 580: Current Average Loss: 4.970502870658349
+Validation Loss after Epoch 1: 5.1028474658524905
+Epoch 1, Step 590: Current Average Loss: 4.9685470023397675
+Validation Loss after Epoch 1: 5.0985883660867914
+Epoch 1, Step 600: Current Average Loss: 4.9691189750035605
+Validation Loss after Epoch 1: 5.109874725341797
+Epoch 1, Step 610: Current Average Loss: 4.968827405523081
+Validation Loss after Epoch 1: 5.105955996480929
+Epoch 1, Step 620: Current Average Loss: 4.9684914773510345
+Validation Loss after Epoch 1: 5.105195921294543
+Epoch 1, Step 630: Current Average Loss: 4.969604044111948
+Validation Loss after Epoch 1: 5.088086436394931
+Epoch 1, Step 640: Current Average Loss: 4.970623856782913
+Validation Loss after Epoch 1: 5.104902731318052
+Epoch 1, Step 650: Current Average Loss: 4.971041385210477
+Validation Loss after Epoch 1: 5.097184067680722
+Epoch 1, Step 660: Current Average Loss: 4.97284767555468
+Validation Loss after Epoch 1: 5.092710819374136
+Epoch 1, Step 670: Current Average Loss: 4.972542480212539
+Validation Loss after Epoch 1: 5.0969085985300495
+Epoch 1, Step 680: Current Average Loss: 4.972741413817686
+Validation Loss after Epoch 1: 5.090743000004568
+Epoch 1, Step 690: Current Average Loss: 4.9712889823360715
+Validation Loss after Epoch 1: 5.091455602321495
+Epoch 1, Step 700: Current Average Loss: 4.9701504107884
+Validation Loss after Epoch 1: 5.119185275771991
+Epoch 1, Step 710: Current Average Loss: 4.967930739362475
+Validation Loss after Epoch 1: 5.085271588799094
+Epoch 1, Step 720: Current Average Loss: 4.9686467289924625
+Validation Loss after Epoch 1: 5.093975290960195
+Epoch 1, Step 730: Current Average Loss: 4.968514302005507
+Validation Loss after Epoch 1: 5.085501599474018
+Epoch 1, Step 740: Current Average Loss: 4.969033462936814
+Validation Loss after Epoch 1: 5.094042531487082
+Epoch 1, Step 750: Current Average Loss: 4.968978980382284
+Validation Loss after Epoch 1: 5.0872500186063805
+Epoch 1, Step 760: Current Average Loss: 4.966557140726792
+Validation Loss after Epoch 1: 5.098278850114265
+Epoch 1, Step 770: Current Average Loss: 4.9678307161702735
+Validation Loss after Epoch 1: 5.105325968087125
+Epoch 1, Step 780: Current Average Loss: 4.968500707088372
+Validation Loss after Epoch 1: 5.087737527834315
+Epoch 1, Step 790: Current Average Loss: 4.967012559311299
+Validation Loss after Epoch 1: 5.079674363947239
+Epoch 1, Step 800: Current Average Loss: 4.9664373099803925
+Validation Loss after Epoch 1: 5.079274939841965
+Epoch 1, Step 810: Current Average Loss: 4.967151736035759
+Validation Loss after Epoch 1: 5.095670940113717
+Epoch 1, Step 820: Current Average Loss: 4.96699392214054
+Validation Loss after Epoch 1: 5.082261679123859
+Epoch 1, Step 830: Current Average Loss: 4.96853470112904
+Validation Loss after Epoch 1: 5.092053118206206
+Average Training Loss for Epoch 1: 4.968412957036538
+Checkpoint saved: dense_model_checkpoint_epoch_1.pth
+Epoch 2, Step 10: Current Average Loss: 4.824928426742554
+Validation Loss after Epoch 2: 5.093389387844371
+Epoch 2, Step 20: Current Average Loss: 4.83993239402771
+Validation Loss after Epoch 2: 5.113205630763048
+Epoch 2, Step 30: Current Average Loss: 4.813978862762451
+Validation Loss after Epoch 2: 5.10176098427805
+Epoch 2, Step 40: Current Average Loss: 4.82474455833435
+Validation Loss after Epoch 2: 5.093743126408583
+Epoch 2, Step 50: Current Average Loss: 4.809142513275146
+Validation Loss after Epoch 2: 5.1004469670406
+Epoch 2, Step 60: Current Average Loss: 4.812332669893901
+Validation Loss after Epoch 2: 5.100553454185019
+Epoch 2, Step 70: Current Average Loss: 4.785598087310791
+Validation Loss after Epoch 2: 5.101398107956867
+Epoch 2, Step 80: Current Average Loss: 4.769120901823044
+Validation Loss after Epoch 2: 5.100748895787868
+Epoch 2, Step 90: Current Average Loss: 4.7797969023386635
+Validation Loss after Epoch 2: 5.111767785078814
+Epoch 2, Step 100: Current Average Loss: 4.784785137176514
+Validation Loss after Epoch 2: 5.099004936867019
+Epoch 2, Step 110: Current Average Loss: 4.7802736499092795
+Validation Loss after Epoch 2: 5.099693038836628
+Epoch 2, Step 120: Current Average Loss: 4.780973490079244
+Validation Loss after Epoch 2: 5.10184012627115
+Epoch 2, Step 130: Current Average Loss: 4.774269525821392
+Validation Loss after Epoch 2: 5.1167328536104995
+Epoch 2, Step 140: Current Average Loss: 4.777480101585388
+Validation Loss after Epoch 2: 5.101302425877577
+Epoch 2, Step 150: Current Average Loss: 4.771606594721476
+Validation Loss after Epoch 2: 5.105144607777498
+Epoch 2, Step 160: Current Average Loss: 4.774731609225273
+Validation Loss after Epoch 2: 5.120657748916522
+Epoch 2, Step 170: Current Average Loss: 4.7746486719916845
+Validation Loss after Epoch 2: 5.1071142728636865
+Epoch 2, Step 180: Current Average Loss: 4.774141237470839
+Validation Loss after Epoch 2: 5.094087837504691
+Epoch 2, Step 190: Current Average Loss: 4.771081761309975
+Validation Loss after Epoch 2: 5.1054929876003134
+Epoch 2, Step 200: Current Average Loss: 4.768386595249176
+Validation Loss after Epoch 2: 5.111283639661309
+Epoch 2, Step 210: Current Average Loss: 4.764804553985596
+Validation Loss after Epoch 2: 5.093653935153468
+Epoch 2, Step 220: Current Average Loss: 4.763551447608254
+Validation Loss after Epoch 2: 5.092050348009382
+Epoch 2, Step 230: Current Average Loss: 4.76078285134357
+Validation Loss after Epoch 2: 5.097096774042869
+Epoch 2, Step 240: Current Average Loss: 4.760445348421732
+Validation Loss after Epoch 2: 5.102373398891111
+Epoch 2, Step 250: Current Average Loss: 4.762040050506592
+Validation Loss after Epoch 2: 5.0916403653670335
+Epoch 2, Step 260: Current Average Loss: 4.7662814378738405
+Validation Loss after Epoch 2: 5.101080453314749
+Epoch 2, Step 270: Current Average Loss: 4.767406975781476
+Validation Loss after Epoch 2: 5.111341625654778
+Epoch 2, Step 280: Current Average Loss: 4.771068172795432
+Validation Loss after Epoch 2: 5.10213549607465
+Epoch 2, Step 290: Current Average Loss: 4.775036959812559
+Validation Loss after Epoch 2: 5.099453069725815
+Epoch 2, Step 300: Current Average Loss: 4.775522306760152
+Validation Loss after Epoch 2: 5.106996795758098
+Epoch 2, Step 310: Current Average Loss: 4.776401932008805
+Validation Loss after Epoch 2: 5.130625027377589
+Epoch 2, Step 320: Current Average Loss: 4.773496226966381
+Validation Loss after Epoch 2: 5.11289424312358
+Epoch 2, Step 330: Current Average Loss: 4.774043486335061
+Validation Loss after Epoch 2: 5.096755961982572
+Epoch 2, Step 340: Current Average Loss: 4.7732051498749675
+Validation Loss after Epoch 2: 5.103140996426952
+Epoch 2, Step 350: Current Average Loss: 4.7721641118185865
+Validation Loss after Epoch 2: 5.084498129734377
+Epoch 2, Step 360: Current Average Loss: 4.771483867698246
+Validation Loss after Epoch 2: 5.095444831718393
+Epoch 2, Step 370: Current Average Loss: 4.773612523723293
+Validation Loss after Epoch 2: 5.104782467796689
+Epoch 2, Step 380: Current Average Loss: 4.772016032118547
+Validation Loss after Epoch 2: 5.083410493370627
+Epoch 2, Step 390: Current Average Loss: 4.772535001314603
+Validation Loss after Epoch 2: 5.092030518719939
+Epoch 2, Step 400: Current Average Loss: 4.770718734264374
+Validation Loss after Epoch 2: 5.102482721108157
+Epoch 2, Step 410: Current Average Loss: 4.770250612351952
+Validation Loss after Epoch 2: 5.093198445378517
+Epoch 2, Step 420: Current Average Loss: 4.770247572944278
+Validation Loss after Epoch 2: 5.099802824915672
+Epoch 2, Step 430: Current Average Loss: 4.770517792812614
+Validation Loss after Epoch 2: 5.097792563795233
+Epoch 2, Step 440: Current Average Loss: 4.770531125502153
+Validation Loss after Epoch 2: 5.095255443028042
+Epoch 2, Step 450: Current Average Loss: 4.772758869594997
+Validation Loss after Epoch 2: 5.097457674895825
+Epoch 2, Step 460: Current Average Loss: 4.773694078818611
+Validation Loss after Epoch 2: 5.115277079497876
+Epoch 2, Step 470: Current Average Loss: 4.776032054170649
+Validation Loss after Epoch 2: 5.099290007636661
+Epoch 2, Step 480: Current Average Loss: 4.7740743309259415
+Validation Loss after Epoch 2: 5.096643311636789
+Epoch 2, Step 490: Current Average Loss: 4.772710999663995
+Validation Loss after Epoch 2: 5.100269054879948
+Epoch 2, Step 500: Current Average Loss: 4.771404217720032
+Validation Loss after Epoch 2: 5.101824364694608
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = END Answer
+Epoch 2, Step 510: Current Average Loss: 4.77266978002062
+Validation Loss after Epoch 2: 5.097478603830143
+Epoch 2, Step 520: Current Average Loss: 4.772730436691871
+Validation Loss after Epoch 2: 5.092378045425934
+Epoch 2, Step 530: Current Average Loss: 4.774042486694624
+Validation Loss after Epoch 2: 5.127370000696507
+Epoch 2, Step 540: Current Average Loss: 4.775756216049194
+Validation Loss after Epoch 2: 5.092337160694356
+Epoch 2, Step 550: Current Average Loss: 4.774917260950262
+Validation Loss after Epoch 2: 5.092905265133397
+Epoch 2, Step 560: Current Average Loss: 4.774548721313477
+Validation Loss after Epoch 2: 5.120187091178635
+Epoch 2, Step 570: Current Average Loss: 4.772381253828082
+Validation Loss after Epoch 2: 5.096952370234898
+Epoch 2, Step 580: Current Average Loss: 4.772262431835306
+Validation Loss after Epoch 2: 5.107543085708099
+Epoch 2, Step 590: Current Average Loss: 4.772068950685404
+Validation Loss after Epoch 2: 5.098758051995517
+Epoch 2, Step 600: Current Average Loss: 4.771656750043233
+Validation Loss after Epoch 2: 5.0830889721306
+Epoch 2, Step 610: Current Average Loss: 4.771065166348317
+Validation Loss after Epoch 2: 5.083143046113099
+Epoch 2, Step 620: Current Average Loss: 4.769776908043892
+Validation Loss after Epoch 2: 5.088828667491471
+Epoch 2, Step 630: Current Average Loss: 4.7684652010599775
+Validation Loss after Epoch 2: 5.0863664782777125
+Epoch 2, Step 640: Current Average Loss: 4.768746580183506
+Validation Loss after Epoch 2: 5.08034120611593
+Epoch 2, Step 650: Current Average Loss: 4.769170422187218
+Validation Loss after Epoch 2: 5.095087414696103
+Epoch 2, Step 660: Current Average Loss: 4.769557383566192
+Validation Loss after Epoch 2: 5.087683573872054
+Epoch 2, Step 670: Current Average Loss: 4.769314353857467
+Validation Loss after Epoch 2: 5.089683065609056
+Epoch 2, Step 680: Current Average Loss: 4.770751327626845
+Validation Loss after Epoch 2: 5.093093090316876
+Epoch 2, Step 690: Current Average Loss: 4.770445335084114
+Validation Loss after Epoch 2: 5.106737902375306
+Epoch 2, Step 700: Current Average Loss: 4.770207554953439
+Validation Loss after Epoch 2: 5.089543167425662
+Epoch 2, Step 710: Current Average Loss: 4.771200878519408
+Validation Loss after Epoch 2: 5.08520575283336
+Epoch 2, Step 720: Current Average Loss: 4.769087103340361
+Validation Loss after Epoch 2: 5.076181074388984
+Epoch 2, Step 730: Current Average Loss: 4.770035957310298
+Validation Loss after Epoch 2: 5.090388385617003
+Epoch 2, Step 740: Current Average Loss: 4.771574993391295
+Validation Loss after Epoch 2: 5.082850796835763
+Epoch 2, Step 750: Current Average Loss: 4.7708141752878825
+Validation Loss after Epoch 2: 5.079323106882524
+Epoch 2, Step 760: Current Average Loss: 4.770080714476736
+Validation Loss after Epoch 2: 5.078285038876696
+Epoch 2, Step 770: Current Average Loss: 4.768900265012468
+Validation Loss after Epoch 2: 5.081913334982736
+Epoch 2, Step 780: Current Average Loss: 4.769108701363588
+Validation Loss after Epoch 2: 5.084531696475282
+Epoch 2, Step 790: Current Average Loss: 4.770634887791887
+Validation Loss after Epoch 2: 5.093816815590372
+Epoch 2, Step 800: Current Average Loss: 4.770435070991516
+Validation Loss after Epoch 2: 5.089515926075631
+Epoch 2, Step 810: Current Average Loss: 4.769618911507689
+Validation Loss after Epoch 2: 5.073591368538993
+Epoch 2, Step 820: Current Average Loss: 4.770009191443281
+Validation Loss after Epoch 2: 5.0704838953861575
+Epoch 2, Step 830: Current Average Loss: 4.770961786178221
+Validation Loss after Epoch 2: 5.081424645015171
+Average Training Loss for Epoch 2: 4.770695667978372
+Checkpoint saved: dense_model_checkpoint_epoch_2.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_1.pth
+Epoch 3, Step 10: Current Average Loss: 4.732050848007202
+Validation Loss after Epoch 3: 5.0808771548628
+Epoch 3, Step 20: Current Average Loss: 4.665550017356873
+Validation Loss after Epoch 3: 5.119417197039338
+Epoch 3, Step 30: Current Average Loss: 4.654213682810465
+Validation Loss after Epoch 3: 5.134160758686715
+Epoch 3, Step 40: Current Average Loss: 4.627221632003784
+Validation Loss after Epoch 3: 5.135247363525183
+Epoch 3, Step 50: Current Average Loss: 4.597086687088012
+Validation Loss after Epoch 3: 5.136484035829297
+Epoch 3, Step 60: Current Average Loss: 4.587967658042908
+Validation Loss after Epoch 3: 5.1429417992935695
+Epoch 3, Step 70: Current Average Loss: 4.586169413157871
+Validation Loss after Epoch 3: 5.1323543600484625
+Epoch 3, Step 80: Current Average Loss: 4.57424880862236
+Validation Loss after Epoch 3: 5.136335359949644
+Epoch 3, Step 90: Current Average Loss: 4.564324357774523
+Validation Loss after Epoch 3: 5.155142962527113
+Epoch 3, Step 100: Current Average Loss: 4.565086002349854
+Validation Loss after Epoch 3: 5.147572118408826
+Epoch 3, Step 110: Current Average Loss: 4.559572336890481
+Validation Loss after Epoch 3: 5.131190990915104
+Epoch 3, Step 120: Current Average Loss: 4.554940323034923
+Validation Loss after Epoch 3: 5.149828508597653
+Epoch 3, Step 130: Current Average Loss: 4.54708271760207
+Validation Loss after Epoch 3: 5.151812387972462
+Epoch 3, Step 140: Current Average Loss: 4.543973050798688
+Validation Loss after Epoch 3: 5.149138719857144
+Epoch 3, Step 150: Current Average Loss: 4.534213422139485
+Validation Loss after Epoch 3: 5.145445706892986
+Epoch 3, Step 160: Current Average Loss: 4.53634529709816
+Validation Loss after Epoch 3: 5.159560258696679
+Epoch 3, Step 170: Current Average Loss: 4.535380571028766
+Validation Loss after Epoch 3: 5.142576460935632
+Epoch 3, Step 180: Current Average Loss: 4.535159269968669
+Validation Loss after Epoch 3: 5.150943425236916
+Epoch 3, Step 190: Current Average Loss: 4.541972928298147
+Validation Loss after Epoch 3: 5.150534821205398
+Epoch 3, Step 200: Current Average Loss: 4.539664964675904
+Validation Loss after Epoch 3: 5.165593672771843
+Epoch 3, Step 210: Current Average Loss: 4.542513302394322
+Validation Loss after Epoch 3: 5.13986484696265
+Epoch 3, Step 220: Current Average Loss: 4.542318840460344
+Validation Loss after Epoch 3: 5.1407477774587615
+Epoch 3, Step 230: Current Average Loss: 4.539873197804327
+Validation Loss after Epoch 3: 5.140569297634825
+Epoch 3, Step 240: Current Average Loss: 4.540726921955744
+Validation Loss after Epoch 3: 5.143486746314432
+Epoch 3, Step 250: Current Average Loss: 4.541831800460815
+Validation Loss after Epoch 3: 5.144495620208533
+Epoch 3, Step 260: Current Average Loss: 4.541194574649517
+Validation Loss after Epoch 3: 5.159060215463444
+Epoch 3, Step 270: Current Average Loss: 4.5433082969100385
+Validation Loss after Epoch 3: 5.145866040469838
+Epoch 3, Step 280: Current Average Loss: 4.540714485304696
+Validation Loss after Epoch 3: 5.164272246717596
+Epoch 3, Step 290: Current Average Loss: 4.538369155752248
+Validation Loss after Epoch 3: 5.160885515667143
+Epoch 3, Step 300: Current Average Loss: 4.536947121620178
+Validation Loss after Epoch 3: 5.153972664657904
+Epoch 3, Step 310: Current Average Loss: 4.5380662687363165
+Validation Loss after Epoch 3: 5.142371070628264
+Epoch 3, Step 320: Current Average Loss: 4.538352543115616
+Validation Loss after Epoch 3: 5.155977722738876
+Epoch 3, Step 330: Current Average Loss: 4.534080823262532
+Validation Loss after Epoch 3: 5.164377630973349
+Epoch 3, Step 340: Current Average Loss: 4.5369502179762895
+Validation Loss after Epoch 3: 5.15038419905163
+Epoch 3, Step 350: Current Average Loss: 4.534002225058419
+Validation Loss after Epoch 3: 5.146769118146832
+Epoch 3, Step 360: Current Average Loss: 4.535836883385977
+Validation Loss after Epoch 3: 5.152488361410543
+Epoch 3, Step 370: Current Average Loss: 4.5332504800848055
+Validation Loss after Epoch 3: 5.176802602754969
+Epoch 3, Step 380: Current Average Loss: 4.534410666164599
+Validation Loss after Epoch 3: 5.142936771418772
+Epoch 3, Step 390: Current Average Loss: 4.537607564681616
+Validation Loss after Epoch 3: 5.174830501582346
+Epoch 3, Step 400: Current Average Loss: 4.538699481487274
+Validation Loss after Epoch 3: 5.138193769519832
+Epoch 3, Step 410: Current Average Loss: 4.538054706992172
+Validation Loss after Epoch 3: 5.146034873261744
+Epoch 3, Step 420: Current Average Loss: 4.538161130178542
+Validation Loss after Epoch 3: 5.163135557758565
+Epoch 3, Step 430: Current Average Loss: 4.537172303088876
+Validation Loss after Epoch 3: 5.146847290246665
+Epoch 3, Step 440: Current Average Loss: 4.535129655491222
+Validation Loss after Epoch 3: 5.140552718623155
+Epoch 3, Step 450: Current Average Loss: 4.5369232824113634
+Validation Loss after Epoch 3: 5.160783187061751
+Epoch 3, Step 460: Current Average Loss: 4.536753916740418
+Validation Loss after Epoch 3: 5.136286868530066
+Epoch 3, Step 470: Current Average Loss: 4.538845735915164
+Validation Loss after Epoch 3: 5.164634402917356
+Epoch 3, Step 480: Current Average Loss: 4.538226688901584
+Validation Loss after Epoch 3: 5.152073603909032
+Epoch 3, Step 490: Current Average Loss: 4.537311667812114
+Validation Loss after Epoch 3: 5.135132974507857
+Epoch 3, Step 500: Current Average Loss: 4.536774019241333
+Validation Loss after Epoch 3: 5.170583160556093
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?========================================================================================================================================================================================================================================================================= END Answer
+Epoch 3, Step 510: Current Average Loss: 4.537071116765341
+Validation Loss after Epoch 3: 5.148794115806113
+Epoch 3, Step 520: Current Average Loss: 4.5377907138604385
+Validation Loss after Epoch 3: 5.164738346930264
+Epoch 3, Step 530: Current Average Loss: 4.538372831524543
+Validation Loss after Epoch 3: 5.148090326867136
+Epoch 3, Step 540: Current Average Loss: 4.537863513275429
+Validation Loss after Epoch 3: 5.129479203905378
+Epoch 3, Step 550: Current Average Loss: 4.53649000081149
+Validation Loss after Epoch 3: 5.147896516890753
+Epoch 3, Step 560: Current Average Loss: 4.535780927113124
+Validation Loss after Epoch 3: 5.141015286348304
+Epoch 3, Step 570: Current Average Loss: 4.535561338223909
+Validation Loss after Epoch 3: 5.149711362358664
+Epoch 3, Step 580: Current Average Loss: 4.5358908513496665
+Validation Loss after Epoch 3: 5.1271927600004235
+Epoch 3, Step 590: Current Average Loss: 4.537583275164588
+Validation Loss after Epoch 3: 5.142860655881921
+Epoch 3, Step 600: Current Average Loss: 4.537379895846049
+Validation Loss after Epoch 3: 5.126625839544802
+Epoch 3, Step 610: Current Average Loss: 4.534635933891671
+Validation Loss after Epoch 3: 5.155229263565167
+Epoch 3, Step 620: Current Average Loss: 4.535413503646851
+Validation Loss after Epoch 3: 5.1428322856929025
+Epoch 3, Step 630: Current Average Loss: 4.5347709739019
+Validation Loss after Epoch 3: 5.163369344205273
+Epoch 3, Step 640: Current Average Loss: 4.534749588370323
+Validation Loss after Epoch 3: 5.14191875003633
+Epoch 3, Step 650: Current Average Loss: 4.535086035361656
+Validation Loss after Epoch 3: 5.155490099978285
+Epoch 3, Step 660: Current Average Loss: 4.53529517217116
+Validation Loss after Epoch 3: 5.1334856189027125
+Epoch 3, Step 670: Current Average Loss: 4.536689216699173
+Validation Loss after Epoch 3: 5.155604255442717
+Epoch 3, Step 680: Current Average Loss: 4.537714687515708
+Validation Loss after Epoch 3: 5.128430022674353
+Epoch 3, Step 690: Current Average Loss: 4.537519150194915
+Validation Loss after Epoch 3: 5.146334009105656
+Epoch 3, Step 700: Current Average Loss: 4.537869029045105
+Validation Loss after Epoch 3: 5.143057343100204
+Epoch 3, Step 710: Current Average Loss: 4.53828640454252
+Validation Loss after Epoch 3: 5.142937368276168
+Epoch 3, Step 720: Current Average Loss: 4.538815060589049
+Validation Loss after Epoch 3: 5.148058622061801
+Epoch 3, Step 730: Current Average Loss: 4.5395928160785
+Validation Loss after Epoch 3: 5.176289386489764
+Epoch 3, Step 740: Current Average Loss: 4.539526086240201
+Validation Loss after Epoch 3: 5.140712355269867
+Epoch 3, Step 750: Current Average Loss: 4.54084825706482
+Validation Loss after Epoch 3: 5.162219757936438
+Epoch 3, Step 760: Current Average Loss: 4.541890638125571
+Validation Loss after Epoch 3: 5.142243096617614
+Epoch 3, Step 770: Current Average Loss: 4.5419793314748
+Validation Loss after Epoch 3: 5.128633781355255
+Epoch 3, Step 780: Current Average Loss: 4.543106397604331
+Validation Loss after Epoch 3: 5.127600822318979
+Epoch 3, Step 790: Current Average Loss: 4.543151435369178
+Validation Loss after Epoch 3: 5.131791315922121
+Epoch 3, Step 800: Current Average Loss: 4.542727487385273
+Validation Loss after Epoch 3: 5.141306546269631
+Epoch 3, Step 810: Current Average Loss: 4.543142039393201
+Validation Loss after Epoch 3: 5.131853622644126
+Epoch 3, Step 820: Current Average Loss: 4.543234415461377
+Validation Loss after Epoch 3: 5.129726114727202
+Epoch 3, Step 830: Current Average Loss: 4.542977698739753
+Validation Loss after Epoch 3: 5.1534866605486185
+Average Training Loss for Epoch 3: 4.542667271571613
+Checkpoint saved: dense_model_checkpoint_epoch_3.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_2.pth
+Epoch 4, Step 10: Current Average Loss: 4.647206974029541
+Validation Loss after Epoch 4: 5.125817837358332
+Epoch 4, Step 20: Current Average Loss: 4.5094153642654415
+Validation Loss after Epoch 4: 5.178207566138028
+Epoch 4, Step 30: Current Average Loss: 4.435022258758545
+Validation Loss after Epoch 4: 5.20640449783429
+Epoch 4, Step 40: Current Average Loss: 4.411338067054748
+Validation Loss after Epoch 4: 5.228673766259433
+Epoch 4, Step 50: Current Average Loss: 4.411894454956054
+Validation Loss after Epoch 4: 5.222098081290317
+Epoch 4, Step 60: Current Average Loss: 4.3774894833564755
+Validation Loss after Epoch 4: 5.218390503708197
+Epoch 4, Step 70: Current Average Loss: 4.367697078841073
+Validation Loss after Epoch 4: 5.238227769631107
+Epoch 4, Step 80: Current Average Loss: 4.370374539494515
+Validation Loss after Epoch 4: 5.2216484076311795
+Epoch 4, Step 90: Current Average Loss: 4.351790992418925
+Validation Loss after Epoch 4: 5.267013575755009
+Epoch 4, Step 100: Current Average Loss: 4.34858071565628
+Validation Loss after Epoch 4: 5.246819836752755
+Epoch 4, Step 110: Current Average Loss: 4.337730741500854
+Validation Loss after Epoch 4: 5.249876103433622
+Epoch 4, Step 120: Current Average Loss: 4.327376824617386
+Validation Loss after Epoch 4: 5.278655230593519
+Epoch 4, Step 130: Current Average Loss: 4.328606611031752
+Validation Loss after Epoch 4: 5.262383902154001
+Epoch 4, Step 140: Current Average Loss: 4.325192441259111
+Validation Loss after Epoch 4: 5.23256727789535
+Epoch 4, Step 150: Current Average Loss: 4.322480479876201
+Validation Loss after Epoch 4: 5.276492089641337
+Epoch 4, Step 160: Current Average Loss: 4.326500086486339
+Validation Loss after Epoch 4: 5.257029124668667
+Epoch 4, Step 170: Current Average Loss: 4.322157691506779
+Validation Loss after Epoch 4: 5.2377656787431155
+Epoch 4, Step 180: Current Average Loss: 4.317580960856544
+Validation Loss after Epoch 4: 5.240236733235469
+Epoch 4, Step 190: Current Average Loss: 4.314980416548879
+Validation Loss after Epoch 4: 5.232820877412549
+Epoch 4, Step 200: Current Average Loss: 4.312721966505051
+Validation Loss after Epoch 4: 5.238994831941565
+Epoch 4, Step 210: Current Average Loss: 4.316803531419663
+Validation Loss after Epoch 4: 5.254108597632168
+Epoch 4, Step 220: Current Average Loss: 4.3150267752734095
+Validation Loss after Epoch 4: 5.258933336556363
+Epoch 4, Step 230: Current Average Loss: 4.311586566593336
+Validation Loss after Epoch 4: 5.255914688110352
+Epoch 4, Step 240: Current Average Loss: 4.310997015237808
+Validation Loss after Epoch 4: 5.251945956223676
+Epoch 4, Step 250: Current Average Loss: 4.30718132019043
+Validation Loss after Epoch 4: 5.255293674209491
+Epoch 4, Step 260: Current Average Loss: 4.303078807317293
+Validation Loss after Epoch 4: 5.285327392370522
+Epoch 4, Step 270: Current Average Loss: 4.301155279300831
+Validation Loss after Epoch 4: 5.246519997006371
+Epoch 4, Step 280: Current Average Loss: 4.301124400751931
+Validation Loss after Epoch 4: 5.270663764201054
+Epoch 4, Step 290: Current Average Loss: 4.300106214654857
+Validation Loss after Epoch 4: 5.23242813227128
+Epoch 4, Step 300: Current Average Loss: 4.301829706033071
+Validation Loss after Epoch 4: 5.282969027149434
+Epoch 4, Step 310: Current Average Loss: 4.300265449093234
+Validation Loss after Epoch 4: 5.259819929291602
+Epoch 4, Step 320: Current Average Loss: 4.299393599480391
+Validation Loss after Epoch 4: 5.256954050388466
+Epoch 4, Step 330: Current Average Loss: 4.298751716902761
+Validation Loss after Epoch 4: 5.258821545814981
+Epoch 4, Step 340: Current Average Loss: 4.295207600733813
+Validation Loss after Epoch 4: 5.265152344087354
+Epoch 4, Step 350: Current Average Loss: 4.29339143548693
+Validation Loss after Epoch 4: 5.2664255674193505
+Epoch 4, Step 360: Current Average Loss: 4.2957427508301205
+Validation Loss after Epoch 4: 5.262423745628928
+Epoch 4, Step 370: Current Average Loss: 4.2952959498843635
+Validation Loss after Epoch 4: 5.2436374450216485
+Epoch 4, Step 380: Current Average Loss: 4.2975078231409976
+Validation Loss after Epoch 4: 5.274292611751426
+Epoch 4, Step 390: Current Average Loss: 4.295531519254049
+Validation Loss after Epoch 4: 5.248825339232983
+Epoch 4, Step 400: Current Average Loss: 4.296306715607643
+Validation Loss after Epoch 4: 5.258121243950461
+Epoch 4, Step 410: Current Average Loss: 4.296149380032609
+Validation Loss after Epoch 4: 5.248995570098462
+Epoch 4, Step 420: Current Average Loss: 4.298553233487265
+Validation Loss after Epoch 4: 5.249074267692307
+Epoch 4, Step 430: Current Average Loss: 4.296201155352038
+Validation Loss after Epoch 4: 5.247834591638474
+Epoch 4, Step 440: Current Average Loss: 4.298086021705108
+Validation Loss after Epoch 4: 5.248537216056772
+Epoch 4, Step 450: Current Average Loss: 4.296532216601902
+Validation Loss after Epoch 4: 5.27129061692426
+Epoch 4, Step 460: Current Average Loss: 4.296109178791875
+Validation Loss after Epoch 4: 5.268704644676779
+Epoch 4, Step 470: Current Average Loss: 4.296306020148257
+Validation Loss after Epoch 4: 5.247380999480786
+Epoch 4, Step 480: Current Average Loss: 4.296760219335556
+Validation Loss after Epoch 4: 5.284670738946824
+Epoch 4, Step 490: Current Average Loss: 4.296918595567042
+Validation Loss after Epoch 4: 5.288534959157308
+Epoch 4, Step 500: Current Average Loss: 4.295056921958923
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Validation Loss after Epoch 4: 5.261829768719316
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?>>>>>> END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= <<= END Answer
+Epoch 4, Step 510: Current Average Loss: 4.294733673918481
+Validation Loss after Epoch 4: 5.234284352283089
+Epoch 4, Step 520: Current Average Loss: 4.293441722484736
+Validation Loss after Epoch 4: 5.246293184708576
+Epoch 4, Step 530: Current Average Loss: 4.2919297947073884
+Validation Loss after Epoch 4: 5.265646045710764
+Epoch 4, Step 540: Current Average Loss: 4.291821025919031
+Validation Loss after Epoch 4: 5.270074172895782
+Epoch 4, Step 550: Current Average Loss: 4.291032906879078
+Validation Loss after Epoch 4: 5.249110053185703
+Epoch 4, Step 560: Current Average Loss: 4.290929923313005
+Validation Loss after Epoch 4: 5.260926626166519
+Epoch 4, Step 570: Current Average Loss: 4.290589532099272
+Validation Loss after Epoch 4: 5.255133612626264
+Epoch 4, Step 580: Current Average Loss: 4.2893308022926595
+Validation Loss after Epoch 4: 5.2572277484296945
+Epoch 4, Step 590: Current Average Loss: 4.290974644887245
+Validation Loss after Epoch 4: 5.225946335565476
+Epoch 4, Step 600: Current Average Loss: 4.291092617114385
+Validation Loss after Epoch 4: 5.276975881485712
+Epoch 4, Step 610: Current Average Loss: 4.289657045583256
+Validation Loss after Epoch 4: 5.280399157076466
+Epoch 4, Step 620: Current Average Loss: 4.290639803486486
+Validation Loss after Epoch 4: 5.280775378350498
+Epoch 4, Step 630: Current Average Loss: 4.288957178781903
+Validation Loss after Epoch 4: 5.254316638116123
+Epoch 4, Step 640: Current Average Loss: 4.287638256326318
+Validation Loss after Epoch 4: 5.296396414438884
+Epoch 4, Step 650: Current Average Loss: 4.288767134226285
+Validation Loss after Epoch 4: 5.2503118969145275
+Epoch 4, Step 660: Current Average Loss: 4.287909565549908
+Validation Loss after Epoch 4: 5.243833279123112
+Epoch 4, Step 670: Current Average Loss: 4.289094544168728
+Validation Loss after Epoch 4: 5.263048979700828
+Epoch 4, Step 680: Current Average Loss: 4.290151276307948
+Validation Loss after Epoch 4: 5.242992216227006
+Epoch 4, Step 690: Current Average Loss: 4.28942998043005
+Validation Loss after Epoch 4: 5.258861000035085
+Epoch 4, Step 700: Current Average Loss: 4.288724968092782
+Validation Loss after Epoch 4: 5.270127513781697
+Epoch 4, Step 710: Current Average Loss: 4.289112066550993
+Validation Loss after Epoch 4: 5.255540156851009
+Epoch 4, Step 720: Current Average Loss: 4.288977727956242
+Validation Loss after Epoch 4: 5.2639117338219465
+Epoch 4, Step 730: Current Average Loss: 4.288670395171805
+Validation Loss after Epoch 4: 5.263261003559139
+Epoch 4, Step 740: Current Average Loss: 4.288343534276292
+Validation Loss after Epoch 4: 5.262548011987388
+Epoch 4, Step 750: Current Average Loss: 4.28927469031016
+Validation Loss after Epoch 4: 5.237811675688037
+Epoch 4, Step 760: Current Average Loss: 4.289593220070789
+Validation Loss after Epoch 4: 5.247941133927326
+Epoch 4, Step 770: Current Average Loss: 4.288871292634444
+Validation Loss after Epoch 4: 5.255386702868403
+Epoch 4, Step 780: Current Average Loss: 4.289843951127468
+Validation Loss after Epoch 4: 5.23869125534888
+Epoch 4, Step 790: Current Average Loss: 4.2889295131345335
+Validation Loss after Epoch 4: 5.239737364710594
+Epoch 4, Step 800: Current Average Loss: 4.290374511480332
+Validation Loss after Epoch 4: 5.263754027230399
+Epoch 4, Step 810: Current Average Loss: 4.289561644895577
+Validation Loss after Epoch 4: 5.243363276630843
+Epoch 4, Step 820: Current Average Loss: 4.288885188393476
+Validation Loss after Epoch 4: 5.240298913449657
+Epoch 4, Step 830: Current Average Loss: 4.289185989908425
+Validation Loss after Epoch 4: 5.237485382832637
+Average Training Loss for Epoch 4: 4.289646412634821
+Checkpoint saved: dense_model_checkpoint_epoch_4.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_3.pth
+Epoch 5, Step 10: Current Average Loss: 4.4845977306365965
+Validation Loss after Epoch 5: 5.215141299630509
+Epoch 5, Step 20: Current Average Loss: 4.248094832897186
+Validation Loss after Epoch 5: 5.302989898084784
+Epoch 5, Step 30: Current Average Loss: 4.200109879175822
+Validation Loss after Epoch 5: 5.393605446328922
+Epoch 5, Step 40: Current Average Loss: 4.149500691890717
+Validation Loss after Epoch 5: 5.42352328657293
+Epoch 5, Step 50: Current Average Loss: 4.125694637298584
+Validation Loss after Epoch 5: 5.439738773164295
+Epoch 5, Step 60: Current Average Loss: 4.111957736810049
+Validation Loss after Epoch 5: 5.435751655474812
+Epoch 5, Step 70: Current Average Loss: 4.09665253502982
+Validation Loss after Epoch 5: 5.379027869425664
+Epoch 5, Step 80: Current Average Loss: 4.078929758071899
+Validation Loss after Epoch 5: 5.421164029309539
+Epoch 5, Step 90: Current Average Loss: 4.074039920171102
+Validation Loss after Epoch 5: 5.413420437144584
+Epoch 5, Step 100: Current Average Loss: 4.051026256084442
+Validation Loss after Epoch 5: 5.454797589049047
+Epoch 5, Step 110: Current Average Loss: 4.044341934810985
+Validation Loss after Epoch 5: 5.460952012717319
+Epoch 5, Step 120: Current Average Loss: 4.038401099046071
+Validation Loss after Epoch 5: 5.398211732202647
+Epoch 5, Step 130: Current Average Loss: 4.0361685331051165
+Validation Loss after Epoch 5: 5.420915074899894
+Epoch 5, Step 140: Current Average Loss: 4.021683192253112
+Validation Loss after Epoch 5: 5.477813496881602
+Epoch 5, Step 150: Current Average Loss: 4.02196607430776
+Validation Loss after Epoch 5: 5.443378769621557
+Epoch 5, Step 160: Current Average Loss: 4.017414964735508
+Validation Loss after Epoch 5: 5.463883351306526
+Epoch 5, Step 170: Current Average Loss: 4.018317658760968
+Validation Loss after Epoch 5: 5.450759800112977
+Epoch 5, Step 180: Current Average Loss: 4.010859101348453
+Validation Loss after Epoch 5: 5.428228589142261
+Epoch 5, Step 190: Current Average Loss: 4.012711688091881
+Validation Loss after Epoch 5: 5.436274995609206
+Epoch 5, Step 200: Current Average Loss: 4.016146702766418
+Validation Loss after Epoch 5: 5.446114883941858
+Epoch 5, Step 210: Current Average Loss: 4.012427130199614
+Validation Loss after Epoch 5: 5.410417397816976
+Epoch 5, Step 220: Current Average Loss: 4.013800688223405
+Validation Loss after Epoch 5: 5.452873145641924
+Epoch 5, Step 230: Current Average Loss: 4.013951548286106
+Validation Loss after Epoch 5: 5.417175503815113
+Epoch 5, Step 240: Current Average Loss: 4.010208680232366
+Validation Loss after Epoch 5: 5.421909757211906
+Epoch 5, Step 250: Current Average Loss: 4.010164318084716
+Validation Loss after Epoch 5: 5.449257425710457
+Epoch 5, Step 260: Current Average Loss: 4.007687241297502
+Validation Loss after Epoch 5: 5.447256136913689
+Epoch 5, Step 270: Current Average Loss: 4.004154140860946
+Validation Loss after Epoch 5: 5.397655954166335
+Epoch 5, Step 280: Current Average Loss: 4.004461327620915
+Validation Loss after Epoch 5: 5.416115193139939
+Epoch 5, Step 290: Current Average Loss: 4.0033812851741395
+Validation Loss after Epoch 5: 5.444340352298451
+Epoch 5, Step 300: Current Average Loss: 4.001348152160644
+Validation Loss after Epoch 5: 5.422934561359639
+Epoch 5, Step 310: Current Average Loss: 4.003711862717905
+Validation Loss after Epoch 5: 5.437495124583342
+Epoch 5, Step 320: Current Average Loss: 4.004843425750733
+Validation Loss after Epoch 5: 5.415923877638214
+Epoch 5, Step 330: Current Average Loss: 4.003208669026693
+Validation Loss after Epoch 5: 5.459821071754507
+Epoch 5, Step 340: Current Average Loss: 4.000697569987353
+Validation Loss after Epoch 5: 5.433008028536427
+Epoch 5, Step 350: Current Average Loss: 4.000478377342224
+Validation Loss after Epoch 5: 5.433917736520573
+Epoch 5, Step 360: Current Average Loss: 4.001514783170488
+Validation Loss after Epoch 5: 5.441179966440006
+Epoch 5, Step 370: Current Average Loss: 4.001486264692771
+Validation Loss after Epoch 5: 5.43078376484566
+Epoch 5, Step 380: Current Average Loss: 4.00154956892917
+Validation Loss after Epoch 5: 5.409369251355022
+Epoch 5, Step 390: Current Average Loss: 4.002884004054925
+Validation Loss after Epoch 5: 5.446619348461125
+Epoch 5, Step 400: Current Average Loss: 4.00275748193264
+Validation Loss after Epoch 5: 5.406866248773069
+Epoch 5, Step 410: Current Average Loss: 4.001192142905259
+Validation Loss after Epoch 5: 5.436462755916881
+Epoch 5, Step 420: Current Average Loss: 3.999867623760587
+Validation Loss after Epoch 5: 5.469030383492814
+Epoch 5, Step 430: Current Average Loss: 4.003237932781841
+Validation Loss after Epoch 5: 5.415772888936153
+Epoch 5, Step 440: Current Average Loss: 4.003471546823328
+Validation Loss after Epoch 5: 5.431382909113047
+Epoch 5, Step 450: Current Average Loss: 4.001885958247715
+Validation Loss after Epoch 5: 5.507159463402365
+Epoch 5, Step 460: Current Average Loss: 4.000568198121113
+Validation Loss after Epoch 5: 5.438040451127655
+Epoch 5, Step 470: Current Average Loss: 3.999544058962071
+Validation Loss after Epoch 5: 5.42678487219778
+Epoch 5, Step 480: Current Average Loss: 4.000901438792547
+Validation Loss after Epoch 5: 5.432911337638388
+Epoch 5, Step 490: Current Average Loss: 3.9991090969163543
+Validation Loss after Epoch 5: 5.433221690508784
+Epoch 5, Step 500: Current Average Loss: 3.999660982608795
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Validation Loss after Epoch 5: 5.464929733146616
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?=>>=>> END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+ <<+++++++++++++++++++++++++++++++++++++++++++++++++++ END Answer
+Epoch 5, Step 510: Current Average Loss: 3.9998003758636176
+Validation Loss after Epoch 5: 5.417551588849957
+Epoch 5, Step 520: Current Average Loss: 3.997725431277202
+Validation Loss after Epoch 5: 5.461991118736008
+Epoch 5, Step 530: Current Average Loss: 3.9979622728419755
+Validation Loss after Epoch 5: 5.452021563134226
+Epoch 5, Step 540: Current Average Loss: 3.9987487717911048
+Validation Loss after Epoch 5: 5.436061732623042
+Epoch 5, Step 550: Current Average Loss: 3.9969172421368686
+Validation Loss after Epoch 5: 5.475240541964161
+Epoch 5, Step 560: Current Average Loss: 3.9967617886407036
+Validation Loss after Epoch 5: 5.458745888301304
+Epoch 5, Step 570: Current Average Loss: 3.9964535462228876
+Validation Loss after Epoch 5: 5.447131452106294
+Epoch 5, Step 580: Current Average Loss: 3.9960544080569824
+Validation Loss after Epoch 5: 5.443283265950728
+Epoch 5, Step 590: Current Average Loss: 3.995892163454476
+Validation Loss after Epoch 5: 5.484155560837311
+Epoch 5, Step 600: Current Average Loss: 3.9970366656780243
+Validation Loss after Epoch 5: 5.475527403305988
+Epoch 5, Step 610: Current Average Loss: 3.9965946561000387
+Validation Loss after Epoch 5: 5.441605743096799
+Epoch 5, Step 620: Current Average Loss: 3.9976884430454622
+Validation Loss after Epoch 5: 5.447632776636656
+Epoch 5, Step 630: Current Average Loss: 3.9968482952269295
+Validation Loss after Epoch 5: 5.46121968055258
+Epoch 5, Step 640: Current Average Loss: 3.998955040797591
+Validation Loss after Epoch 5: 5.460200750908884
+Epoch 5, Step 650: Current Average Loss: 3.9974579425958487
+Validation Loss after Epoch 5: 5.4211454748296415
+Epoch 5, Step 660: Current Average Loss: 3.9978316523812034
+Validation Loss after Epoch 5: 5.457947202280265
+Epoch 5, Step 670: Current Average Loss: 3.997145167393471
+Validation Loss after Epoch 5: 5.434283473864705
+Epoch 5, Step 680: Current Average Loss: 3.99769366664045
+Validation Loss after Epoch 5: 5.446575677313772
+Epoch 5, Step 690: Current Average Loss: 3.9993163305780164
+Validation Loss after Epoch 5: 5.411741263201447
+Epoch 5, Step 700: Current Average Loss: 3.9993733746664866
+Validation Loss after Epoch 5: 5.438953496971909
+Epoch 5, Step 710: Current Average Loss: 3.9994599825899364
+Validation Loss after Epoch 5: 5.4249510797513585
+Epoch 5, Step 720: Current Average Loss: 4.0005392382542295
+Validation Loss after Epoch 5: 5.429732828724141
+Epoch 5, Step 730: Current Average Loss: 4.001222325677741
+Validation Loss after Epoch 5: 5.4262398603011155
+Epoch 5, Step 740: Current Average Loss: 4.0009584230345645
+Validation Loss after Epoch 5: 5.44373657589867
+Epoch 5, Step 750: Current Average Loss: 4.00111439927419
+Validation Loss after Epoch 5: 5.445020185846861
+Epoch 5, Step 760: Current Average Loss: 4.000182452327326
+Validation Loss after Epoch 5: 5.420168185720638
+Epoch 5, Step 770: Current Average Loss: 4.00109185460326
+Validation Loss after Epoch 5: 5.445489095181835
+Epoch 5, Step 780: Current Average Loss: 4.001267356444628
+Validation Loss after Epoch 5: 5.448862906215953
+Epoch 5, Step 790: Current Average Loss: 4.000597647775578
+Validation Loss after Epoch 5: 5.426229882402485
+Epoch 5, Step 800: Current Average Loss: 3.999406173825264
+Validation Loss after Epoch 5: 5.431563675809069
+Epoch 5, Step 810: Current Average Loss: 3.998649137697102
+Validation Loss after Epoch 5: 5.457344386042381
+Epoch 5, Step 820: Current Average Loss: 3.999019909486538
+Validation Loss after Epoch 5: 5.429216157822382
+Epoch 5, Step 830: Current Average Loss: 4.000256965821048
+Validation Loss after Epoch 5: 5.444049390805822
+Average Training Loss for Epoch 5: 3.9999507271138914
+Checkpoint saved: dense_model_checkpoint_epoch_5.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_4.pth
+Epoch 6, Step 10: Current Average Loss: 4.560036087036133
+Validation Loss after Epoch 6: 5.353499963980954
+Epoch 6, Step 20: Current Average Loss: 4.101928865909576
+Validation Loss after Epoch 6: 5.449061747310924
+Epoch 6, Step 30: Current Average Loss: 3.9380638360977174
+Validation Loss after Epoch 6: 5.682642952925494
+Epoch 6, Step 40: Current Average Loss: 3.848244172334671
+Validation Loss after Epoch 6: 5.711789718290576
+Epoch 6, Step 50: Current Average Loss: 3.8152277946472166
+Validation Loss after Epoch 6: 5.658249932892469
+Epoch 6, Step 60: Current Average Loss: 3.784565834204356
+Validation Loss after Epoch 6: 5.683914453804898
+Epoch 6, Step 70: Current Average Loss: 3.760195745740618
+Validation Loss after Epoch 6: 5.669351379887587
+Epoch 6, Step 80: Current Average Loss: 3.7572231233119964
+Validation Loss after Epoch 6: 5.678468522571382
+Epoch 6, Step 90: Current Average Loss: 3.7448933442433674
+Validation Loss after Epoch 6: 5.685416734137503
+Epoch 6, Step 100: Current Average Loss: 3.73841429233551
+Validation Loss after Epoch 6: 5.741598443920109
+Epoch 6, Step 110: Current Average Loss: 3.7324803417379204
+Validation Loss after Epoch 6: 5.662723226612117
+Epoch 6, Step 120: Current Average Loss: 3.7264611423015594
+Validation Loss after Epoch 6: 5.6836460042162
+Epoch 6, Step 130: Current Average Loss: 3.7209683564993052
+Validation Loss after Epoch 6: 5.689349213424994
+Epoch 6, Step 140: Current Average Loss: 3.714750191143581
+Validation Loss after Epoch 6: 5.708516451777244
+Epoch 6, Step 150: Current Average Loss: 3.71579891204834
+Validation Loss after Epoch 6: 5.703550802607115
+Epoch 6, Step 160: Current Average Loss: 3.711452600359917
+Validation Loss after Epoch 6: 5.703613232593147
+Epoch 6, Step 170: Current Average Loss: 3.7114035732605877
+Validation Loss after Epoch 6: 5.6861327651406635
+Epoch 6, Step 180: Current Average Loss: 3.702498282326592
+Validation Loss after Epoch 6: 5.6699007968513335
+Epoch 6, Step 190: Current Average Loss: 3.6938894635752626
+Validation Loss after Epoch 6: 5.723463616403593
+Epoch 6, Step 200: Current Average Loss: 3.690334700345993
+Validation Loss after Epoch 6: 5.777148220814815
+Epoch 6, Step 210: Current Average Loss: 3.6804082348233176
+Validation Loss after Epoch 6: 5.7482161911166445
+Epoch 6, Step 220: Current Average Loss: 3.6782461567358538
+Validation Loss after Epoch 6: 5.713620795684607
+Epoch 6, Step 230: Current Average Loss: 3.682835470075193
+Validation Loss after Epoch 6: 5.727757285241367
+Epoch 6, Step 240: Current Average Loss: 3.6844654202461244
+Validation Loss after Epoch 6: 5.708062353588286
+Epoch 6, Step 250: Current Average Loss: 3.6842112474441526
+Validation Loss after Epoch 6: 5.714620311244005
+Epoch 6, Step 260: Current Average Loss: 3.687182236634768
+Validation Loss after Epoch 6: 5.746744438093536
+Epoch 6, Step 270: Current Average Loss: 3.684492121802436
+Validation Loss after Epoch 6: 5.7226307083960295
+Epoch 6, Step 280: Current Average Loss: 3.680395254918507
+Validation Loss after Epoch 6: 5.767503501606637
+Epoch 6, Step 290: Current Average Loss: 3.677073152311917
+Validation Loss after Epoch 6: 5.689219585081347
+Epoch 6, Step 300: Current Average Loss: 3.6770887772242227
+Validation Loss after Epoch 6: 5.734521155454675
+Epoch 6, Step 310: Current Average Loss: 3.679330522014249
+Validation Loss after Epoch 6: 5.703061836917384
+Epoch 6, Step 320: Current Average Loss: 3.6800900749862193
+Validation Loss after Epoch 6: 5.710827490099433
+Epoch 6, Step 330: Current Average Loss: 3.678524760766463
+Validation Loss after Epoch 6: 5.713072734625161
+Epoch 6, Step 340: Current Average Loss: 3.67667397330789
+Validation Loss after Epoch 6: 5.774828155024522
+Epoch 6, Step 350: Current Average Loss: 3.677573896816799
+Validation Loss after Epoch 6: 5.701881324352861
+Epoch 6, Step 360: Current Average Loss: 3.680104555024041
+Validation Loss after Epoch 6: 5.665055729094005
+Epoch 6, Step 370: Current Average Loss: 3.6796326037999747
+Validation Loss after Epoch 6: 5.7201727425971
+Epoch 6, Step 380: Current Average Loss: 3.6780237141408416
+Validation Loss after Epoch 6: 5.692829012059841
+Epoch 6, Step 390: Current Average Loss: 3.678144490413177
+Validation Loss after Epoch 6: 5.6715516265557735
+Epoch 6, Step 400: Current Average Loss: 3.6767771899700166
+Validation Loss after Epoch 6: 5.727126647015007
+Epoch 6, Step 410: Current Average Loss: 3.6767597471795432
+Validation Loss after Epoch 6: 5.731849949376112
+Epoch 6, Step 420: Current Average Loss: 3.6768482316107978
+Validation Loss after Epoch 6: 5.722387722560337
+Epoch 6, Step 430: Current Average Loss: 3.677450003180393
+Validation Loss after Epoch 6: 5.742811793372745
+Epoch 6, Step 440: Current Average Loss: 3.6779684110121296
+Validation Loss after Epoch 6: 5.711485256143168
+Epoch 6, Step 450: Current Average Loss: 3.6768171877331204
+Validation Loss after Epoch 6: 5.730920953815486
+Epoch 6, Step 460: Current Average Loss: 3.6735211761101434
+Validation Loss after Epoch 6: 5.734494420135913
+Epoch 6, Step 470: Current Average Loss: 3.672420439314335
+Validation Loss after Epoch 6: 5.695710584419925
+Epoch 6, Step 480: Current Average Loss: 3.671383246779442
+Validation Loss after Epoch 6: 5.7508471904157785
+Epoch 6, Step 490: Current Average Loss: 3.6730893441608976
+Validation Loss after Epoch 6: 5.703353907786259
+Epoch 6, Step 500: Current Average Loss: 3.6724740495681765
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Validation Loss after Epoch 6: 5.732362893162941
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?=>>=>> END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? the = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = END Answer
+Epoch 6, Step 510: Current Average Loss: 3.6711786078471764
+Validation Loss after Epoch 6: 5.729062174453216
+Epoch 6, Step 520: Current Average Loss: 3.672017828776286
+Validation Loss after Epoch 6: 5.740869366392797
+Epoch 6, Step 530: Current Average Loss: 3.6725727895520768
+Validation Loss after Epoch 6: 5.698665845961798
+Epoch 6, Step 540: Current Average Loss: 3.671252249346839
+Validation Loss after Epoch 6: 5.744781393583129
+Epoch 6, Step 550: Current Average Loss: 3.6719713484157217
+Validation Loss after Epoch 6: 5.76924331820741
+Epoch 6, Step 560: Current Average Loss: 3.6719337952988487
+Validation Loss after Epoch 6: 5.741420791262672
+Epoch 6, Step 570: Current Average Loss: 3.670528265049583
+Validation Loss after Epoch 6: 5.724552135078275
+Epoch 6, Step 580: Current Average Loss: 3.669766231651964
+Validation Loss after Epoch 6: 5.7131135479933555
+Epoch 6, Step 590: Current Average Loss: 3.6698697486166227
+Validation Loss after Epoch 6: 5.717556755558974
+Epoch 6, Step 600: Current Average Loss: 3.669638887643814
+Validation Loss after Epoch 6: 5.725413643583959
+Epoch 6, Step 610: Current Average Loss: 3.668464909616064
+Validation Loss after Epoch 6: 5.783514061752631
+Epoch 6, Step 620: Current Average Loss: 3.6680568149012904
+Validation Loss after Epoch 6: 5.7129819993259146
+Epoch 6, Step 630: Current Average Loss: 3.667910832072061
+Validation Loss after Epoch 6: 5.747891841291571
+Epoch 6, Step 640: Current Average Loss: 3.6695027500391006
+Validation Loss after Epoch 6: 5.685182675212419
+Epoch 6, Step 650: Current Average Loss: 3.6692860595996564
+Validation Loss after Epoch 6: 5.732899017074481
+Epoch 6, Step 660: Current Average Loss: 3.6683394305633774
+Validation Loss after Epoch 6: 5.7183407569418145
+Epoch 6, Step 670: Current Average Loss: 3.6694890168175767
+Validation Loss after Epoch 6: 5.712766138063807
+Epoch 6, Step 680: Current Average Loss: 3.6709260007914373
+Validation Loss after Epoch 6: 5.7217163715232795
+Epoch 6, Step 690: Current Average Loss: 3.6709320289501246
+Validation Loss after Epoch 6: 5.691412448883057
+Epoch 6, Step 700: Current Average Loss: 3.6706158774239674
+Validation Loss after Epoch 6: 5.676987459870423
+Epoch 6, Step 710: Current Average Loss: 3.6712157689349754
+Validation Loss after Epoch 6: 5.722177719583317
+Epoch 6, Step 720: Current Average Loss: 3.671377361151907
+Validation Loss after Epoch 6: 5.717433611551921
+Epoch 6, Step 730: Current Average Loss: 3.671220770600724
+Validation Loss after Epoch 6: 5.706853749800701
+Epoch 6, Step 740: Current Average Loss: 3.6713819858190178
+Validation Loss after Epoch 6: 5.7236494563874745
+Epoch 6, Step 750: Current Average Loss: 3.670723120689392
+Validation Loss after Epoch 6: 5.738696221591664
+Epoch 6, Step 760: Current Average Loss: 3.671373184731132
+Validation Loss after Epoch 6: 5.713321676059645
+Epoch 6, Step 770: Current Average Loss: 3.6718900030309505
+Validation Loss after Epoch 6: 5.710770405879637
+Epoch 6, Step 780: Current Average Loss: 3.6730445485848646
+Validation Loss after Epoch 6: 5.721927266542603
+Epoch 6, Step 790: Current Average Loss: 3.672771927073032
+Validation Loss after Epoch 6: 5.7157414137911635
+Epoch 6, Step 800: Current Average Loss: 3.6716123166680337
+Validation Loss after Epoch 6: 5.756617014099952
+Epoch 6, Step 810: Current Average Loss: 3.6711278877140563
+Validation Loss after Epoch 6: 5.740699677240281
+Epoch 6, Step 820: Current Average Loss: 3.6713612791968555
+Validation Loss after Epoch 6: 5.734897506480315
+Epoch 6, Step 830: Current Average Loss: 3.671536244829017
+Validation Loss after Epoch 6: 5.7411121381383365
+Average Training Loss for Epoch 6: 3.6711096416455025
+Checkpoint saved: dense_model_checkpoint_epoch_6.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_5.pth
+Epoch 7, Step 10: Current Average Loss: 4.452768611907959
+Validation Loss after Epoch 7: 5.470333748123273
+Epoch 7, Step 20: Current Average Loss: 3.96793737411499
+Validation Loss after Epoch 7: 5.622796117043008
+Epoch 7, Step 30: Current Average Loss: 3.7481743335723876
+Validation Loss after Epoch 7: 5.9435072366883155
+Epoch 7, Step 40: Current Average Loss: 3.5865472078323366
+Validation Loss after Epoch 7: 6.030242086267796
+Epoch 7, Step 50: Current Average Loss: 3.5225898694992064
+Validation Loss after Epoch 7: 6.083352367894179
+Epoch 7, Step 60: Current Average Loss: 3.4689248482386272
+Validation Loss after Epoch 7: 6.044133903217965
+Epoch 7, Step 70: Current Average Loss: 3.4307892731257845
+Validation Loss after Epoch 7: 6.1069242127087655
+Epoch 7, Step 80: Current Average Loss: 3.4082000613212586
+Validation Loss after Epoch 7: 6.060808230419548
+Epoch 7, Step 90: Current Average Loss: 3.396400957637363
+Validation Loss after Epoch 7: 6.103699135942524
+Epoch 7, Step 100: Current Average Loss: 3.371581885814667
+Validation Loss after Epoch 7: 6.013861620507273
+Epoch 7, Step 110: Current Average Loss: 3.3552563060413707
+Validation Loss after Epoch 7: 6.0972117793803315
+Epoch 7, Step 120: Current Average Loss: 3.3448025047779084
+Validation Loss after Epoch 7: 6.115175993264127
+Epoch 7, Step 130: Current Average Loss: 3.338490627362178
+Validation Loss after Epoch 7: 6.106250299077455
+Epoch 7, Step 140: Current Average Loss: 3.332368097986494
+Validation Loss after Epoch 7: 6.075744197482154
+Epoch 7, Step 150: Current Average Loss: 3.328271819750468
+Validation Loss after Epoch 7: 6.109421408906275
+Epoch 7, Step 160: Current Average Loss: 3.323048065602779
+Validation Loss after Epoch 7: 6.124078958212924
+Epoch 7, Step 170: Current Average Loss: 3.314837200501386
+Validation Loss after Epoch 7: 6.098370104419942
+Epoch 7, Step 180: Current Average Loss: 3.309118469556173
+Validation Loss after Epoch 7: 6.084494143116231
+Epoch 7, Step 190: Current Average Loss: 3.309328253645646
+Validation Loss after Epoch 7: 6.152726127987816
+Epoch 7, Step 200: Current Average Loss: 3.305392518043518
+Validation Loss after Epoch 7: 6.051177952565303
+Epoch 7, Step 210: Current Average Loss: 3.3053079854874383
+Validation Loss after Epoch 7: 6.08618298679793
+Epoch 7, Step 220: Current Average Loss: 3.2990982142361727
+Validation Loss after Epoch 7: 6.116424797343559
+Epoch 7, Step 230: Current Average Loss: 3.3011979300042857
+Validation Loss after Epoch 7: 6.122512282157431
+Epoch 7, Step 240: Current Average Loss: 3.303220521410306
+Validation Loss after Epoch 7: 6.103265616358543
+Epoch 7, Step 250: Current Average Loss: 3.3009025392532347
+Validation Loss after Epoch 7: 6.098421901261726
+Epoch 7, Step 260: Current Average Loss: 3.2996632539308988
+Validation Loss after Epoch 7: 6.084659167698452
+Epoch 7, Step 270: Current Average Loss: 3.300063215361701
+Validation Loss after Epoch 7: 6.163760486914187
+Epoch 7, Step 280: Current Average Loss: 3.2975724160671236
+Validation Loss after Epoch 7: 6.075608986575587
+Epoch 7, Step 290: Current Average Loss: 3.298718101402809
+Validation Loss after Epoch 7: 6.105025242786018
+Epoch 7, Step 300: Current Average Loss: 3.2997123630841574
+Validation Loss after Epoch 7: 6.097444933287951
+Epoch 7, Step 310: Current Average Loss: 3.2991681406574864
+Validation Loss after Epoch 7: 6.105358697930161
+Epoch 7, Step 320: Current Average Loss: 3.303228021413088
+Validation Loss after Epoch 7: 6.168679415774183
+Epoch 7, Step 330: Current Average Loss: 3.30012780753049
+Validation Loss after Epoch 7: 6.161095735978107
+Epoch 7, Step 340: Current Average Loss: 3.2994132532792935
+Validation Loss after Epoch 7: 6.091236503756776
+Epoch 7, Step 350: Current Average Loss: 3.297054218564715
+Validation Loss after Epoch 7: 6.086969339928659
+Epoch 7, Step 360: Current Average Loss: 3.2979075815942553
+Validation Loss after Epoch 7: 6.119010081907519
+Epoch 7, Step 370: Current Average Loss: 3.30038290345991
+Validation Loss after Epoch 7: 6.082230470618423
+Epoch 7, Step 380: Current Average Loss: 3.298646583682612
+Validation Loss after Epoch 7: 6.028261700455023
+Epoch 7, Step 390: Current Average Loss: 3.2986745229134193
+Validation Loss after Epoch 7: 6.1090970298870895
+Epoch 7, Step 400: Current Average Loss: 3.300515249967575
+Validation Loss after Epoch 7: 6.14359002210656
+Epoch 7, Step 410: Current Average Loss: 3.3018475224332113
+Validation Loss after Epoch 7: 6.028331179197143
+Epoch 7, Step 420: Current Average Loss: 3.301791413057418
+Validation Loss after Epoch 7: 6.084975495630381
+Epoch 7, Step 430: Current Average Loss: 3.3024288354918014
+Validation Loss after Epoch 7: 6.074486038311809
+Epoch 7, Step 440: Current Average Loss: 3.302521835673939
+Validation Loss after Epoch 7: 6.082230726877849
+Epoch 7, Step 450: Current Average Loss: 3.3010780133141413
+Validation Loss after Epoch 7: 6.071140610441869
+Epoch 7, Step 460: Current Average Loss: 3.298564805673516
+Validation Loss after Epoch 7: 6.192373713668512
+Epoch 7, Step 470: Current Average Loss: 3.2990385101196615
+Validation Loss after Epoch 7: 6.173547404153006
+Epoch 7, Step 480: Current Average Loss: 3.30072434147199
+Validation Loss after Epoch 7: 6.072355847780396
+Epoch 7, Step 490: Current Average Loss: 3.3010098540053074
+Validation Loss after Epoch 7: 6.082072802952358
+Epoch 7, Step 500: Current Average Loss: 3.300136487007141
+Validation Loss after Epoch 7: 6.091982604695016
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?>> << <<=>> END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? legs << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << << END Answer
+Epoch 7, Step 510: Current Average Loss: 3.3009935738993628
+Validation Loss after Epoch 7: 6.109052220169379
+Epoch 7, Step 520: Current Average Loss: 3.3005933147210342
+Validation Loss after Epoch 7: 6.140654852601136
+Epoch 7, Step 530: Current Average Loss: 3.2994031663210888
+Validation Loss after Epoch 7: 6.062915539254948
+Epoch 7, Step 540: Current Average Loss: 3.2997707932083693
+Validation Loss after Epoch 7: 6.111382779620943
+Epoch 7, Step 550: Current Average Loss: 3.301077696193348
+Validation Loss after Epoch 7: 6.0834604607147424
+Epoch 7, Step 560: Current Average Loss: 3.3003811597824098
+Validation Loss after Epoch 7: 6.1118356030003556
+Epoch 7, Step 570: Current Average Loss: 3.3009363312470286
+Validation Loss after Epoch 7: 6.134335949307396
+Epoch 7, Step 580: Current Average Loss: 3.3000973553493105
+Validation Loss after Epoch 7: 6.178390506173478
+Epoch 7, Step 590: Current Average Loss: 3.299350907034793
+Validation Loss after Epoch 7: 6.163124794862708
+Epoch 7, Step 600: Current Average Loss: 3.298348429997762
+Validation Loss after Epoch 7: 6.136101142078841
+Epoch 7, Step 610: Current Average Loss: 3.298912995369708
+Validation Loss after Epoch 7: 6.153745946430025
+Epoch 7, Step 620: Current Average Loss: 3.298930746509183
+Validation Loss after Epoch 7: 6.153260308869031
+Epoch 7, Step 630: Current Average Loss: 3.2991780004804094
+Validation Loss after Epoch 7: 6.103636903827693
+Epoch 7, Step 640: Current Average Loss: 3.300111285969615
+Validation Loss after Epoch 7: 6.128637745266869
+Epoch 7, Step 650: Current Average Loss: 3.3000671239999626
+Validation Loss after Epoch 7: 6.122026086664524
+Epoch 7, Step 660: Current Average Loss: 3.300827355457075
+Validation Loss after Epoch 7: 6.076435056673426
+Epoch 7, Step 670: Current Average Loss: 3.3014587167483658
+Validation Loss after Epoch 7: 6.114089398157029
+Epoch 7, Step 680: Current Average Loss: 3.300058658684001
+Validation Loss after Epoch 7: 6.097372337263458
+Epoch 7, Step 690: Current Average Loss: 3.2987381969673044
+Validation Loss after Epoch 7: 6.114835576946232
+Epoch 7, Step 700: Current Average Loss: 3.298603481224605
+Validation Loss after Epoch 7: 6.138384319487072
+Epoch 7, Step 710: Current Average Loss: 3.298222795002897
+Validation Loss after Epoch 7: 6.099703230825411
+Epoch 7, Step 720: Current Average Loss: 3.2987919933266108
+Validation Loss after Epoch 7: 6.103282091568928
+Epoch 7, Step 730: Current Average Loss: 3.299298456270401
+Validation Loss after Epoch 7: 6.079765154390919
+Epoch 7, Step 740: Current Average Loss: 3.2997937299109794
+Validation Loss after Epoch 7: 6.103508135088447
+Epoch 7, Step 750: Current Average Loss: 3.3014714698791505
+Validation Loss after Epoch 7: 6.086998537284177
+Epoch 7, Step 760: Current Average Loss: 3.302052135216562
+Validation Loss after Epoch 7: 6.089377721150716
+Epoch 7, Step 770: Current Average Loss: 3.304202338937041
+Validation Loss after Epoch 7: 6.075314969432597
+Epoch 7, Step 780: Current Average Loss: 3.3042167244813383
+Validation Loss after Epoch 7: 6.097697348821731
+Epoch 7, Step 790: Current Average Loss: 3.304598271997669
+Validation Loss after Epoch 7: 6.132849586253264
+Epoch 7, Step 800: Current Average Loss: 3.306377269923687
+Validation Loss after Epoch 7: 6.079798558942315
+Epoch 7, Step 810: Current Average Loss: 3.3073696972411355
+Validation Loss after Epoch 7: 6.0706442975673545
+Epoch 7, Step 820: Current Average Loss: 3.3067661596507563
+Validation Loss after Epoch 7: 6.096222446078346
+Epoch 7, Step 830: Current Average Loss: 3.306081905996943
+Validation Loss after Epoch 7: 6.168191556216908
+Average Training Loss for Epoch 7: 3.3063188752542763
+Checkpoint saved: dense_model_checkpoint_epoch_7.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_6.pth
+Epoch 8, Step 10: Current Average Loss: 4.591989994049072
+Validation Loss after Epoch 8: 5.6235660209136755
+Epoch 8, Step 20: Current Average Loss: 3.8629698753356934
+Validation Loss after Epoch 8: 5.769424094634802
+Epoch 8, Step 30: Current Average Loss: 3.572503097852071
+Validation Loss after Epoch 8: 6.3271218416642165
+Epoch 8, Step 40: Current Average Loss: 3.3970197319984434
+Validation Loss after Epoch 8: 6.555791777007434
+Epoch 8, Step 50: Current Average Loss: 3.3051309967041016
+Validation Loss after Epoch 8: 6.488008242886083
+Epoch 8, Step 60: Current Average Loss: 3.2379387974739076
+Validation Loss after Epoch 8: 6.492080944735988
+Epoch 8, Step 70: Current Average Loss: 3.1933101143155778
+Validation Loss after Epoch 8: 6.514803944801797
+Epoch 8, Step 80: Current Average Loss: 3.1530593425035476
+Validation Loss after Epoch 8: 6.491798851765743
+Epoch 8, Step 90: Current Average Loss: 3.1207979864544337
+Validation Loss after Epoch 8: 6.6158915020170665
+Epoch 8, Step 100: Current Average Loss: 3.0976784348487856
+Validation Loss after Epoch 8: 6.6740888803183624
+Epoch 8, Step 110: Current Average Loss: 3.0735398921099577
+Validation Loss after Epoch 8: 6.656647899523884
+Epoch 8, Step 120: Current Average Loss: 3.0615905304749806
+Validation Loss after Epoch 8: 6.5731449646203695
+Epoch 8, Step 130: Current Average Loss: 3.0407497020868153
+Validation Loss after Epoch 8: 6.595521106200964
+Epoch 8, Step 140: Current Average Loss: 3.022085588318961
+Validation Loss after Epoch 8: 6.579659575507755
+Epoch 8, Step 150: Current Average Loss: 3.0096543900171917
+Validation Loss after Epoch 8: 6.584062877966433
+Epoch 8, Step 160: Current Average Loss: 2.9932754948735236
+Validation Loss after Epoch 8: 6.550839226262099
+Epoch 8, Step 170: Current Average Loss: 2.986543773202335
+Validation Loss after Epoch 8: 6.66362240200951
+Epoch 8, Step 180: Current Average Loss: 2.9799685213300915
+Validation Loss after Epoch 8: 6.638927073705764
+Epoch 8, Step 190: Current Average Loss: 2.9736258958515367
+Validation Loss after Epoch 8: 6.5933658963158015
+Epoch 8, Step 200: Current Average Loss: 2.9704140400886536
+Validation Loss after Epoch 8: 6.594594296954927
+Epoch 8, Step 210: Current Average Loss: 2.9631878807431176
+Validation Loss after Epoch 8: 6.570621286119733
+Epoch 8, Step 220: Current Average Loss: 2.956134232607755
+Validation Loss after Epoch 8: 6.666457831454115
+Epoch 8, Step 230: Current Average Loss: 2.952228473580402
+Validation Loss after Epoch 8: 6.636828565273155
+Epoch 8, Step 240: Current Average Loss: 2.9486399134000143
+Validation Loss after Epoch 8: 6.632062623289977
+Epoch 8, Step 250: Current Average Loss: 2.946016477584839
+Validation Loss after Epoch 8: 6.583566299101123
+Epoch 8, Step 260: Current Average Loss: 2.9432785511016846
+Validation Loss after Epoch 8: 6.5796974597334055
+Epoch 8, Step 270: Current Average Loss: 2.940051053188465
+Validation Loss after Epoch 8: 6.6277646402112484
+Epoch 8, Step 280: Current Average Loss: 2.938136393683297
+Validation Loss after Epoch 8: 6.59074236746548
+Epoch 8, Step 290: Current Average Loss: 2.941307250384627
+Validation Loss after Epoch 8: 6.590169708745009
+Epoch 8, Step 300: Current Average Loss: 2.9387928954760234
+Validation Loss after Epoch 8: 6.570270823783615
+Epoch 8, Step 310: Current Average Loss: 2.9357108762187343
+Validation Loss after Epoch 8: 6.68589296146315
+Epoch 8, Step 320: Current Average Loss: 2.9323013707995416
+Validation Loss after Epoch 8: 6.691585920294937
+Epoch 8, Step 330: Current Average Loss: 2.930820439078591
+Validation Loss after Epoch 8: 6.6393989608401345
+Epoch 8, Step 340: Current Average Loss: 2.9319319199113285
+Validation Loss after Epoch 8: 6.60839184936212
+Epoch 8, Step 350: Current Average Loss: 2.930298630850656
+Validation Loss after Epoch 8: 6.557219826445287
+Epoch 8, Step 360: Current Average Loss: 2.92853311697642
+Validation Loss after Epoch 8: 6.584028814925628
+Epoch 8, Step 370: Current Average Loss: 2.924633345088443
+Validation Loss after Epoch 8: 6.6353395682613865
+Epoch 8, Step 380: Current Average Loss: 2.92502941646074
+Validation Loss after Epoch 8: 6.621711160049958
+Epoch 8, Step 390: Current Average Loss: 2.923179292678833
+Validation Loss after Epoch 8: 6.58845514829467
+Epoch 8, Step 400: Current Average Loss: 2.921464748978615
+Validation Loss after Epoch 8: 6.641638999082605
+Epoch 8, Step 410: Current Average Loss: 2.9205155378434715
+Validation Loss after Epoch 8: 6.66663442987974
+Epoch 8, Step 420: Current Average Loss: 2.921114022391183
+Validation Loss after Epoch 8: 6.60077478772118
+Epoch 8, Step 430: Current Average Loss: 2.9194174783174383
+Validation Loss after Epoch 8: 6.5816667712464625
+Epoch 8, Step 440: Current Average Loss: 2.919236530499025
+Validation Loss after Epoch 8: 6.6643102606948545
+Epoch 8, Step 450: Current Average Loss: 2.919532210561964
+Validation Loss after Epoch 8: 6.601463363284156
+Epoch 8, Step 460: Current Average Loss: 2.9183224128640215
+Validation Loss after Epoch 8: 6.540640204942146
+Epoch 8, Step 470: Current Average Loss: 2.9183129721499506
+Validation Loss after Epoch 8: 6.697166069835221
+Epoch 8, Step 480: Current Average Loss: 2.9188910126686096
+Validation Loss after Epoch 8: 6.625689766033977
+Epoch 8, Step 490: Current Average Loss: 2.9166778710423684
+Validation Loss after Epoch 8: 6.6424812070366475
+Epoch 8, Step 500: Current Average Loss: 2.9159032011032107
+Validation Loss after Epoch 8: 6.663216376791195
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?>> << <<3>>>>>>>>>>>> END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Answer
+Epoch 8, Step 510: Current Average Loss: 2.9143157753289914
+Validation Loss after Epoch 8: 6.609369949418671
+Epoch 8, Step 520: Current Average Loss: 2.914664207972013
+Validation Loss after Epoch 8: 6.5755902634186
+Epoch 8, Step 530: Current Average Loss: 2.914414923146086
+Validation Loss after Epoch 8: 6.638088842638496
+Epoch 8, Step 540: Current Average Loss: 2.9140083260006375
+Validation Loss after Epoch 8: 6.666198016834908
+Epoch 8, Step 550: Current Average Loss: 2.9138866784355857
+Validation Loss after Epoch 8: 6.650076979682559
+Epoch 8, Step 560: Current Average Loss: 2.9127321098531995
+Validation Loss after Epoch 8: 6.6525350752330965
+Epoch 8, Step 570: Current Average Loss: 2.913887945810954
+Validation Loss after Epoch 8: 6.636721782943829
+Epoch 8, Step 580: Current Average Loss: 2.9134915491630293
+Validation Loss after Epoch 8: 6.624954398797483
+Epoch 8, Step 590: Current Average Loss: 2.9154129189960027
+Validation Loss after Epoch 8: 6.608229835017198
+Epoch 8, Step 600: Current Average Loss: 2.9169596389929455
+Validation Loss after Epoch 8: 6.605747099636363
+Epoch 8, Step 610: Current Average Loss: 2.9164809914885974
+Validation Loss after Epoch 8: 6.629849391729653
+Epoch 8, Step 620: Current Average Loss: 2.9162894056689357
+Validation Loss after Epoch 8: 6.64112663269043
+Epoch 8, Step 630: Current Average Loss: 2.9165730514223616
+Validation Loss after Epoch 8: 6.60113981467526
+Epoch 8, Step 640: Current Average Loss: 2.9166403457522394
+Validation Loss after Epoch 8: 6.692106954094504
+Epoch 8, Step 650: Current Average Loss: 2.9156219698832584
+Validation Loss after Epoch 8: 6.633414982127494
+Epoch 8, Step 660: Current Average Loss: 2.9144542755502645
+Validation Loss after Epoch 8: 6.637496714689294
+Epoch 8, Step 670: Current Average Loss: 2.9148482383187138
+Validation Loss after Epoch 8: 6.604640889329975
+Epoch 8, Step 680: Current Average Loss: 2.913283300049165
+Validation Loss after Epoch 8: 6.634999148699702
+Epoch 8, Step 690: Current Average Loss: 2.9130809542061624
+Validation Loss after Epoch 8: 6.656411002282383
+Epoch 8, Step 700: Current Average Loss: 2.914012099334172
+Validation Loss after Epoch 8: 6.595609986052221
+Epoch 8, Step 710: Current Average Loss: 2.9134581485264737
+Validation Loss after Epoch 8: 6.565641143695027
+Epoch 8, Step 720: Current Average Loss: 2.913158624039756
+Validation Loss after Epoch 8: 6.623971815822887
+Epoch 8, Step 730: Current Average Loss: 2.9130361321854266
+Validation Loss after Epoch 8: 6.626089410716984
+Epoch 8, Step 740: Current Average Loss: 2.9132900244480853
+Validation Loss after Epoch 8: 6.5195540473574685
+Epoch 8, Step 750: Current Average Loss: 2.9129757375717165
+Validation Loss after Epoch 8: 6.627015155999839
+Epoch 8, Step 760: Current Average Loss: 2.9114792886533234
+Validation Loss after Epoch 8: 6.62828236858861
+Epoch 8, Step 770: Current Average Loss: 2.911337599196991
+Validation Loss after Epoch 8: 6.636701035661762
+Epoch 8, Step 780: Current Average Loss: 2.911557238835555
+Validation Loss after Epoch 8: 6.68992499915921
+Epoch 8, Step 790: Current Average Loss: 2.9114850593518606
+Validation Loss after Epoch 8: 6.63816838361779
+Epoch 8, Step 800: Current Average Loss: 2.9114209446310997
+Validation Loss after Epoch 8: 6.629517684988424
+Epoch 8, Step 810: Current Average Loss: 2.912443745283433
+Validation Loss after Epoch 8: 6.6519139413119985
+Epoch 8, Step 820: Current Average Loss: 2.9125986177746843
+Validation Loss after Epoch 8: 6.636426396921379
+Epoch 8, Step 830: Current Average Loss: 2.912665885040559
+Validation Loss after Epoch 8: 6.642782850330379
+Average Training Loss for Epoch 8: 2.912284217012775
+Checkpoint saved: dense_model_checkpoint_epoch_8.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_7.pth
+Epoch 9, Step 10: Current Average Loss: 4.4736940383911135
+Validation Loss after Epoch 9: 5.834305536179316
+Epoch 9, Step 20: Current Average Loss: 3.667841601371765
+Validation Loss after Epoch 9: 5.975078057269661
+Epoch 9, Step 30: Current Average Loss: 3.3328659296035767
+Validation Loss after Epoch 9: 6.831881192265724
+Epoch 9, Step 40: Current Average Loss: 3.1375552356243133
+Validation Loss after Epoch 9: 7.015213239760626
+Epoch 9, Step 50: Current Average Loss: 3.0068846845626833
+Validation Loss after Epoch 9: 6.950533234343236
+Epoch 9, Step 60: Current Average Loss: 2.9109756271044414
+Validation Loss after Epoch 9: 7.154923513633054
+Epoch 9, Step 70: Current Average Loss: 2.829793494088309
+Validation Loss after Epoch 9: 7.2101170578781435
+Epoch 9, Step 80: Current Average Loss: 2.7794356405735017
+Validation Loss after Epoch 9: 7.172274638195427
+Epoch 9, Step 90: Current Average Loss: 2.7411722713046602
+Validation Loss after Epoch 9: 7.101121947878883
+Epoch 9, Step 100: Current Average Loss: 2.714797925949097
+Validation Loss after Epoch 9: 7.257473452561567
+Epoch 9, Step 110: Current Average Loss: 2.686496383493597
+Validation Loss after Epoch 9: 7.129204033183402
+Epoch 9, Step 120: Current Average Loss: 2.661972085634867
+Validation Loss after Epoch 9: 7.159284961466887
+Epoch 9, Step 130: Current Average Loss: 2.646865936426016
+Validation Loss after Epoch 9: 7.269524541841883
+Epoch 9, Step 140: Current Average Loss: 2.637566896847316
+Validation Loss after Epoch 9: 7.1724700376290045
+Epoch 9, Step 150: Current Average Loss: 2.6282916577657063
+Validation Loss after Epoch 9: 7.136359931660348
+Epoch 9, Step 160: Current Average Loss: 2.6263701975345612
+Validation Loss after Epoch 9: 7.1556619462512785
+Epoch 9, Step 170: Current Average Loss: 2.615564256555894
+Validation Loss after Epoch 9: 7.14010899083144
+Epoch 9, Step 180: Current Average Loss: 2.6102095444997153
+Validation Loss after Epoch 9: 7.248252524810583
+Epoch 9, Step 190: Current Average Loss: 2.602190547240408
+Validation Loss after Epoch 9: 7.1730744562992435
+Epoch 9, Step 200: Current Average Loss: 2.593617490530014
+Validation Loss after Epoch 9: 7.249011688491925
+Epoch 9, Step 210: Current Average Loss: 2.588078834896996
+Validation Loss after Epoch 9: 7.107901303946567
+Epoch 9, Step 220: Current Average Loss: 2.5815878575498408
+Validation Loss after Epoch 9: 7.2455400415018305
+Epoch 9, Step 230: Current Average Loss: 2.574825089910756
+Validation Loss after Epoch 9: 7.258128428945736
+Epoch 9, Step 240: Current Average Loss: 2.572165949145953
+Validation Loss after Epoch 9: 7.311754583501491
+Epoch 9, Step 250: Current Average Loss: 2.5682333164215088
+Validation Loss after Epoch 9: 7.18815752924705
+Epoch 9, Step 260: Current Average Loss: 2.5656227176006023
+Validation Loss after Epoch 9: 7.164122886398212
+Epoch 9, Step 270: Current Average Loss: 2.564600145375287
+Validation Loss after Epoch 9: 7.185991971671176
+Epoch 9, Step 280: Current Average Loss: 2.5605595316205707
+Validation Loss after Epoch 9: 7.247598719434674
+Epoch 9, Step 290: Current Average Loss: 2.557437121457067
+Validation Loss after Epoch 9: 7.156806468963623
+Epoch 9, Step 300: Current Average Loss: 2.5510450760523478
+Validation Loss after Epoch 9: 7.206189074483858
+Epoch 9, Step 310: Current Average Loss: 2.548203488319151
+Validation Loss after Epoch 9: 7.267438453881919
+Epoch 9, Step 320: Current Average Loss: 2.5490267522633077
+Validation Loss after Epoch 9: 7.240717787320922
+Epoch 9, Step 330: Current Average Loss: 2.546736297462926
+Validation Loss after Epoch 9: 7.235959413100262
+Epoch 9, Step 340: Current Average Loss: 2.5459395443691926
+Validation Loss after Epoch 9: 7.197023070588404
+Epoch 9, Step 350: Current Average Loss: 2.5409980978284565
+Validation Loss after Epoch 9: 7.228063249263633
+Epoch 9, Step 360: Current Average Loss: 2.54012593626976
+Validation Loss after Epoch 9: 7.284952747578523
+Epoch 9, Step 370: Current Average Loss: 2.5374198958680436
+Validation Loss after Epoch 9: 7.165996084407884
+Epoch 9, Step 380: Current Average Loss: 2.535691747539922
+Validation Loss after Epoch 9: 7.270125632383386
+Epoch 9, Step 390: Current Average Loss: 2.53433831960727
+Validation Loss after Epoch 9: 7.286740539836234
+Epoch 9, Step 400: Current Average Loss: 2.5325156861543654
+Validation Loss after Epoch 9: 7.249989820986378
+Epoch 9, Step 410: Current Average Loss: 2.5319328790757716
+Validation Loss after Epoch 9: 7.255675721330707
+Epoch 9, Step 420: Current Average Loss: 2.5297720188186283
+Validation Loss after Epoch 9: 7.236225864514202
+Epoch 9, Step 430: Current Average Loss: 2.53037324506183
+Validation Loss after Epoch 9: 7.22552658262707
+Epoch 9, Step 440: Current Average Loss: 2.5277479431845924
+Validation Loss after Epoch 9: 7.229265472515911
+Epoch 9, Step 450: Current Average Loss: 2.5267865154478284
+Validation Loss after Epoch 9: 7.181445773766965
+Epoch 9, Step 460: Current Average Loss: 2.526135566441909
+Validation Loss after Epoch 9: 7.249223001960184
+Epoch 9, Step 470: Current Average Loss: 2.526368557138646
+Validation Loss after Epoch 9: 7.26284663531245
+Epoch 9, Step 480: Current Average Loss: 2.5246517260869346
+Validation Loss after Epoch 9: 7.230207446481095
+Epoch 9, Step 490: Current Average Loss: 2.5238201219208385
+Validation Loss after Epoch 9: 7.28125456725659
+Epoch 9, Step 500: Current Average Loss: 2.5223309936523437
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Validation Loss after Epoch 9: 7.2739233257008244
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? have have have have have have have have have have have have have have have have have have have have have have have have have have have have END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? << << << have << have << have << have << have << have << have << have << have << have << have <<<<<<<<<<<<############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################.####################.############.####.####.####.####.####.####.####.................... END Answer
+Epoch 9, Step 510: Current Average Loss: 2.5215987962834974
+Validation Loss after Epoch 9: 7.256920947509558
+Epoch 9, Step 520: Current Average Loss: 2.5210616992070123
+Validation Loss after Epoch 9: 7.2151412347547055
+Epoch 9, Step 530: Current Average Loss: 2.5207167683907277
+Validation Loss after Epoch 9: 7.178610483805339
+Epoch 9, Step 540: Current Average Loss: 2.5198037456583093
+Validation Loss after Epoch 9: 7.2036761329287575
+Epoch 9, Step 550: Current Average Loss: 2.5181505398316815
+Validation Loss after Epoch 9: 7.211261956870151
+Epoch 9, Step 560: Current Average Loss: 2.518294612424714
+Validation Loss after Epoch 9: 7.274387972695487
+Epoch 9, Step 570: Current Average Loss: 2.516332653949135
+Validation Loss after Epoch 9: 7.175460088820684
+Epoch 9, Step 580: Current Average Loss: 2.5169500630477377
+Validation Loss after Epoch 9: 7.171665846896009
+Epoch 9, Step 590: Current Average Loss: 2.5154084496578926
+Validation Loss after Epoch 9: 7.29054779909095
+Epoch 9, Step 600: Current Average Loss: 2.51450146317482
+Validation Loss after Epoch 9: 7.272275577597067
+Epoch 9, Step 610: Current Average Loss: 2.5134383936397366
+Validation Loss after Epoch 9: 7.334923092199832
+Epoch 9, Step 620: Current Average Loss: 2.5122749655477463
+Validation Loss after Epoch 9: 7.2403152686398045
+Epoch 9, Step 630: Current Average Loss: 2.512318584654066
+Validation Loss after Epoch 9: 7.248819730719742
+Epoch 9, Step 640: Current Average Loss: 2.5136243857443334
+Validation Loss after Epoch 9: 7.207350776309059
+Epoch 9, Step 650: Current Average Loss: 2.512688332704397
+Validation Loss after Epoch 9: 7.219145752134777
+Epoch 9, Step 660: Current Average Loss: 2.511787429722873
+Validation Loss after Epoch 9: 7.288912296295166
+Epoch 9, Step 670: Current Average Loss: 2.5125947610655825
+Validation Loss after Epoch 9: 7.270630418037881
+Epoch 9, Step 680: Current Average Loss: 2.512774211518905
+Validation Loss after Epoch 9: 7.194268450445058
+Epoch 9, Step 690: Current Average Loss: 2.51238915125529
+Validation Loss after Epoch 9: 7.261595116180628
+Epoch 9, Step 700: Current Average Loss: 2.5137814732960293
+Validation Loss after Epoch 9: 7.170274033838389
+Epoch 9, Step 710: Current Average Loss: 2.514119691580114
+Validation Loss after Epoch 9: 7.152280531772951
+Epoch 9, Step 720: Current Average Loss: 2.5140859974755183
+Validation Loss after Epoch 9: 7.164806524912517
+Epoch 9, Step 730: Current Average Loss: 2.513630716441429
+Validation Loss after Epoch 9: 7.194588667681428
+Epoch 9, Step 740: Current Average Loss: 2.513589277782956
+Validation Loss after Epoch 9: 7.248425347464425
+Epoch 9, Step 750: Current Average Loss: 2.5126579230626422
+Validation Loss after Epoch 9: 7.232595628621627
+Epoch 9, Step 760: Current Average Loss: 2.512017960611143
+Validation Loss after Epoch 9: 7.236332423022004
+Epoch 9, Step 770: Current Average Loss: 2.5102334007040246
+Validation Loss after Epoch 9: 7.308769965658382
+Epoch 9, Step 780: Current Average Loss: 2.5096820647899922
+Validation Loss after Epoch 9: 7.185392574388153
+Epoch 9, Step 790: Current Average Loss: 2.510686035095891
+Validation Loss after Epoch 9: 7.198465999291868
+Epoch 9, Step 800: Current Average Loss: 2.5107553055882454
+Validation Loss after Epoch 9: 7.261758544818074
+Epoch 9, Step 810: Current Average Loss: 2.5092028311741204
+Validation Loss after Epoch 9: 7.182508037203834
+Epoch 9, Step 820: Current Average Loss: 2.5087810940858795
+Validation Loss after Epoch 9: 7.303429353804815
+Epoch 9, Step 830: Current Average Loss: 2.509092253374766
+Validation Loss after Epoch 9: 7.189390347928417
+Average Training Loss for Epoch 9: 2.5085959305401744
+Checkpoint saved: dense_model_checkpoint_epoch_9.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_8.pth
+Epoch 10, Step 10: Current Average Loss: 4.559431838989258
+Validation Loss after Epoch 10: 6.1060981588298775
+Epoch 10, Step 20: Current Average Loss: 3.546161651611328
+Validation Loss after Epoch 10: 6.238062608809698
+Epoch 10, Step 30: Current Average Loss: 3.1147722164789835
+Validation Loss after Epoch 10: 7.261664374345014
+Epoch 10, Step 40: Current Average Loss: 2.864989200234413
+Validation Loss after Epoch 10: 7.574151314845701
+Epoch 10, Step 50: Current Average Loss: 2.697127003669739
+Validation Loss after Epoch 10: 7.65868786078732
+Epoch 10, Step 60: Current Average Loss: 2.5887554665406545
+Validation Loss after Epoch 10: 7.742502186574092
+Epoch 10, Step 70: Current Average Loss: 2.5076752713748385
+Validation Loss after Epoch 10: 7.64173394806531
+Epoch 10, Step 80: Current Average Loss: 2.44174093157053
+Validation Loss after Epoch 10: 7.734284773975814
+Epoch 10, Step 90: Current Average Loss: 2.412126178211636
+Validation Loss after Epoch 10: 7.800052662285006
+Epoch 10, Step 100: Current Average Loss: 2.3676545286178587
+Validation Loss after Epoch 10: 7.71128123147147
+Epoch 10, Step 110: Current Average Loss: 2.3341317946260625
+Validation Loss after Epoch 10: 7.850703820079362
+Epoch 10, Step 120: Current Average Loss: 2.3100286374489465
+Validation Loss after Epoch 10: 7.732317652021136
+Epoch 10, Step 130: Current Average Loss: 2.2881422803952143
+Validation Loss after Epoch 10: 7.72901422799039
+Epoch 10, Step 140: Current Average Loss: 2.266604518038886
+Validation Loss after Epoch 10: 7.780126055892633
+Epoch 10, Step 150: Current Average Loss: 2.251163922945658
+Validation Loss after Epoch 10: 7.774895376088668
+Epoch 10, Step 160: Current Average Loss: 2.2414219327270986
+Validation Loss after Epoch 10: 7.766591912224179
+Epoch 10, Step 170: Current Average Loss: 2.231516993045807
+Validation Loss after Epoch 10: 7.721436065881431
+Epoch 10, Step 180: Current Average Loss: 2.2224643250306446
+Validation Loss after Epoch 10: 7.846532652978183
+Epoch 10, Step 190: Current Average Loss: 2.2156256587881793
+Validation Loss after Epoch 10: 7.811584355879803
+Epoch 10, Step 200: Current Average Loss: 2.204014031291008
+Validation Loss after Epoch 10: 7.739290801846251
+Epoch 10, Step 210: Current Average Loss: 2.1925133211272105
+Validation Loss after Epoch 10: 7.8346527547252425
+Epoch 10, Step 220: Current Average Loss: 2.188217381997542
+Validation Loss after Epoch 10: 7.795223349616641
+Epoch 10, Step 230: Current Average Loss: 2.182968356816665
+Validation Loss after Epoch 10: 7.835558648012122
+Epoch 10, Step 240: Current Average Loss: 2.17782068947951
+Validation Loss after Epoch 10: 7.828281616678043
+Epoch 10, Step 250: Current Average Loss: 2.1713407249450682
+Validation Loss after Epoch 10: 7.764757237466825
+Epoch 10, Step 260: Current Average Loss: 2.166787579884896
+Validation Loss after Epoch 10: 7.861629966164933
+Epoch 10, Step 270: Current Average Loss: 2.163964906445256
+Validation Loss after Epoch 10: 7.8027455595885815
+Epoch 10, Step 280: Current Average Loss: 2.1620540627411433
+Validation Loss after Epoch 10: 7.769780330917462
+Epoch 10, Step 290: Current Average Loss: 2.1594285035955494
+Validation Loss after Epoch 10: 7.790201900767631
+Epoch 10, Step 300: Current Average Loss: 2.1557515156269074
+Validation Loss after Epoch 10: 7.809569890807275
+Epoch 10, Step 310: Current Average Loss: 2.154083911065132
+Validation Loss after Epoch 10: 7.738073530651274
+Epoch 10, Step 320: Current Average Loss: 2.150379202142358
+Validation Loss after Epoch 10: 7.821867686550633
+Epoch 10, Step 330: Current Average Loss: 2.147834226579377
+Validation Loss after Epoch 10: 7.7420496454044265
+Epoch 10, Step 340: Current Average Loss: 2.1459071555558373
+Validation Loss after Epoch 10: 7.7973417295079654
+Epoch 10, Step 350: Current Average Loss: 2.143388890879495
+Validation Loss after Epoch 10: 7.85809832527524
+Epoch 10, Step 360: Current Average Loss: 2.142496759030554
+Validation Loss after Epoch 10: 7.775745560522793
+Epoch 10, Step 370: Current Average Loss: 2.141671737786886
+Validation Loss after Epoch 10: 7.761260340813877
+Epoch 10, Step 380: Current Average Loss: 2.140076933409038
+Validation Loss after Epoch 10: 7.8350105934402565
+Epoch 10, Step 390: Current Average Loss: 2.1385043480457404
+Validation Loss after Epoch 10: 7.7967402464678495
+Epoch 10, Step 400: Current Average Loss: 2.1371277901530266
+Validation Loss after Epoch 10: 7.839104295587864
+Epoch 10, Step 410: Current Average Loss: 2.1359724140748746
+Validation Loss after Epoch 10: 7.772234290635505
+Epoch 10, Step 420: Current Average Loss: 2.136009120941162
+Validation Loss after Epoch 10: 7.81416163152578
+Epoch 10, Step 430: Current Average Loss: 2.1368611696154574
+Validation Loss after Epoch 10: 7.720117075913618
+Epoch 10, Step 440: Current Average Loss: 2.1341680705547335
+Validation Loss after Epoch 10: 7.948580560230074
+Epoch 10, Step 450: Current Average Loss: 2.1337432217597962
+Validation Loss after Epoch 10: 7.876539866129558
+Epoch 10, Step 460: Current Average Loss: 2.132220295460328
+Validation Loss after Epoch 10: 7.806628739752737
+Epoch 10, Step 470: Current Average Loss: 2.1309592675655447
+Validation Loss after Epoch 10: 7.8169174680904465
+Epoch 10, Step 480: Current Average Loss: 2.1304298107822737
+Validation Loss after Epoch 10: 7.9008148641002425
+Epoch 10, Step 490: Current Average Loss: 2.129358529314703
+Validation Loss after Epoch 10: 7.7925919935005865
+Epoch 10, Step 500: Current Average Loss: 2.129639992237091
+Validation Loss after Epoch 10: 7.81116855063406
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+>>######## END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?/<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<. END Answer
+Epoch 10, Step 510: Current Average Loss: 2.1308799005022236
+Validation Loss after Epoch 10: 7.772054380300093
+Epoch 10, Step 520: Current Average Loss: 2.1279747749750433
+Validation Loss after Epoch 10: 7.898339222888557
+Epoch 10, Step 530: Current Average Loss: 2.1269172816906337
+Validation Loss after Epoch 10: 7.809740371444598
+Epoch 10, Step 540: Current Average Loss: 2.1259651279007947
+Validation Loss after Epoch 10: 7.894342124056654
+Epoch 10, Step 550: Current Average Loss: 2.124334463639693
+Validation Loss after Epoch 10: 7.84560439375793
+Epoch 10, Step 560: Current Average Loss: 2.1245466428143636
+Validation Loss after Epoch 10: 7.884342566639388
+Epoch 10, Step 570: Current Average Loss: 2.1237469075018898
+Validation Loss after Epoch 10: 7.793675526469743
+Epoch 10, Step 580: Current Average Loss: 2.123419396630649
+Validation Loss after Epoch 10: 7.801246584678183
+Epoch 10, Step 590: Current Average Loss: 2.1223780581506633
+Validation Loss after Epoch 10: 7.826440084548223
+Epoch 10, Step 600: Current Average Loss: 2.1216669358809788
+Validation Loss after Epoch 10: 7.843113198572276
+Epoch 10, Step 610: Current Average Loss: 2.1213261524184803
+Validation Loss after Epoch 10: 7.833729812077114
+Epoch 10, Step 620: Current Average Loss: 2.1219447141693486
+Validation Loss after Epoch 10: 7.899260313332486
+Epoch 10, Step 630: Current Average Loss: 2.121647240055932
+Validation Loss after Epoch 10: 7.764967976784219
+Epoch 10, Step 640: Current Average Loss: 2.1210651371628044
+Validation Loss after Epoch 10: 7.799718681646853
+Epoch 10, Step 650: Current Average Loss: 2.12056243456327
+Validation Loss after Epoch 10: 7.772016479855492
+Epoch 10, Step 660: Current Average Loss: 2.1197790880997975
+Validation Loss after Epoch 10: 7.822771059412535
+Epoch 10, Step 670: Current Average Loss: 2.1195428499534947
+Validation Loss after Epoch 10: 7.8245096368854545
+Epoch 10, Step 680: Current Average Loss: 2.1197400550631915
+Validation Loss after Epoch 10: 7.819015639168875
+Epoch 10, Step 690: Current Average Loss: 2.1185981301293855
+Validation Loss after Epoch 10: 7.82405018644268
+Epoch 10, Step 700: Current Average Loss: 2.117393946307046
+Validation Loss after Epoch 10: 7.886866050512612
+Epoch 10, Step 710: Current Average Loss: 2.1167833650615853
+Validation Loss after Epoch 10: 7.922854744658178
+Epoch 10, Step 720: Current Average Loss: 2.11688384430276
+Validation Loss after Epoch 10: 7.892948400406611
+Epoch 10, Step 730: Current Average Loss: 2.116259097889678
+Validation Loss after Epoch 10: 7.9067003191733845
+Epoch 10, Step 740: Current Average Loss: 2.116452292010591
+Validation Loss after Epoch 10: 7.784722610395782
+Epoch 10, Step 750: Current Average Loss: 2.1151374877293905
+Validation Loss after Epoch 10: 7.964275470396289
+Epoch 10, Step 760: Current Average Loss: 2.1156951301976252
+Validation Loss after Epoch 10: 7.8421078571656935
+Epoch 10, Step 770: Current Average Loss: 2.1154397108338094
+Validation Loss after Epoch 10: 7.8144434098483755
+Epoch 10, Step 780: Current Average Loss: 2.114149967065224
+Validation Loss after Epoch 10: 7.856397395231286
+Epoch 10, Step 790: Current Average Loss: 2.113552761077881
+Validation Loss after Epoch 10: 7.828947910646192
+Epoch 10, Step 800: Current Average Loss: 2.112509058266878
+Validation Loss after Epoch 10: 7.880310577600181
+Epoch 10, Step 810: Current Average Loss: 2.111684732525437
+Validation Loss after Epoch 10: 7.896211137576979
+Epoch 10, Step 820: Current Average Loss: 2.1120704233646395
+Validation Loss after Epoch 10: 7.962809679459553
+Epoch 10, Step 830: Current Average Loss: 2.111903163467545
+Validation Loss after Epoch 10: 7.787801028919869
+Average Training Loss for Epoch 10: 2.1118550106936844
+Checkpoint saved: dense_model_checkpoint_epoch_10.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_9.pth
+Epoch 11, Step 10: Current Average Loss: 4.829807758331299
+Validation Loss after Epoch 11: 6.421897722750294
+Epoch 11, Step 20: Current Average Loss: 3.540319502353668
+Validation Loss after Epoch 11: 6.546022609788544
+Epoch 11, Step 30: Current Average Loss: 3.003271134694417
+Validation Loss after Epoch 11: 7.734689041059845
+Epoch 11, Step 40: Current Average Loss: 2.7037007838487623
+Validation Loss after Epoch 11: 8.002552253048437
+Epoch 11, Step 50: Current Average Loss: 2.4966708636283874
+Validation Loss after Epoch 11: 8.087032905241259
+Epoch 11, Step 60: Current Average Loss: 2.364194655418396
+Validation Loss after Epoch 11: 8.2167070836437
+Epoch 11, Step 70: Current Average Loss: 2.2637274520737782
+Validation Loss after Epoch 11: 8.159810364651841
+Epoch 11, Step 80: Current Average Loss: 2.1937652945518495
+Validation Loss after Epoch 11: 8.170118364347081
+Epoch 11, Step 90: Current Average Loss: 2.1302660942077636
+Validation Loss after Epoch 11: 8.241998049677635
+Epoch 11, Step 100: Current Average Loss: 2.0820544493198394
+Validation Loss after Epoch 11: 8.274567668940746
+Epoch 11, Step 110: Current Average Loss: 2.0459425872022456
+Validation Loss after Epoch 11: 8.274056204322244
+Epoch 11, Step 120: Current Average Loss: 2.017714774608612
+Validation Loss after Epoch 11: 8.272228607515089
+Epoch 11, Step 130: Current Average Loss: 1.992255975649907
+Validation Loss after Epoch 11: 8.258880466020026
+Epoch 11, Step 140: Current Average Loss: 1.9611800951617104
+Validation Loss after Epoch 11: 8.253408487151269
+Epoch 11, Step 150: Current Average Loss: 1.9441944193840026
+Validation Loss after Epoch 11: 8.320994007344149
+Epoch 11, Step 160: Current Average Loss: 1.9256658762693406
+Validation Loss after Epoch 11: 8.227378238626079
+Epoch 11, Step 170: Current Average Loss: 1.9146687451530906
+Validation Loss after Epoch 11: 8.300818985011302
+Epoch 11, Step 180: Current Average Loss: 1.9027252733707427
+Validation Loss after Epoch 11: 8.2826930487237
+Epoch 11, Step 190: Current Average Loss: 1.8941464537068418
+Validation Loss after Epoch 11: 8.279521958357623
+Epoch 11, Step 200: Current Average Loss: 1.8833985012769698
+Validation Loss after Epoch 11: 8.29741400439723
+Epoch 11, Step 210: Current Average Loss: 1.8693001775514513
+Validation Loss after Epoch 11: 8.291119925829829
+Epoch 11, Step 220: Current Average Loss: 1.8622362646189603
+Validation Loss after Epoch 11: 8.323185087061253
+Epoch 11, Step 230: Current Average Loss: 1.85448339348254
+Validation Loss after Epoch 11: 8.359152067275275
+Epoch 11, Step 240: Current Average Loss: 1.8494401161869367
+Validation Loss after Epoch 11: 8.297099590301514
+Epoch 11, Step 250: Current Average Loss: 1.8447793455123902
+Validation Loss after Epoch 11: 8.337424064169126
+Epoch 11, Step 260: Current Average Loss: 1.8386012719227718
+Validation Loss after Epoch 11: 8.33416813571437
+Epoch 11, Step 270: Current Average Loss: 1.8336197000962717
+Validation Loss after Epoch 11: 8.331109371315055
+Epoch 11, Step 280: Current Average Loss: 1.827395812528474
+Validation Loss after Epoch 11: 8.344034314966526
+Epoch 11, Step 290: Current Average Loss: 1.822410375496437
+Validation Loss after Epoch 11: 8.326520767341666
+Epoch 11, Step 300: Current Average Loss: 1.8183209657669068
+Validation Loss after Epoch 11: 8.339454174041748
+Epoch 11, Step 310: Current Average Loss: 1.8141765217627248
+Validation Loss after Epoch 11: 8.35102400812162
+Epoch 11, Step 320: Current Average Loss: 1.810945051535964
+Validation Loss after Epoch 11: 8.381773202597689
+Epoch 11, Step 330: Current Average Loss: 1.806940394820589
+Validation Loss after Epoch 11: 8.389885600732297
+Epoch 11, Step 340: Current Average Loss: 1.804493836444967
+Validation Loss after Epoch 11: 8.381033388124843
+Epoch 11, Step 350: Current Average Loss: 1.800665042740958
+Validation Loss after Epoch 11: 8.368318950237871
+Epoch 11, Step 360: Current Average Loss: 1.7975611441665225
+Validation Loss after Epoch 11: 8.350831703263886
+Epoch 11, Step 370: Current Average Loss: 1.7936013885446498
+Validation Loss after Epoch 11: 8.42604027637819
+Epoch 11, Step 380: Current Average Loss: 1.790187345366729
+Validation Loss after Epoch 11: 8.367337174967032
+Epoch 11, Step 390: Current Average Loss: 1.7871407499680152
+Validation Loss after Epoch 11: 8.370283859927637
+Epoch 11, Step 400: Current Average Loss: 1.7832888782024383
+Validation Loss after Epoch 11: 8.34779081214853
+Epoch 11, Step 410: Current Average Loss: 1.7810065211319341
+Validation Loss after Epoch 11: 8.409796808852631
+Epoch 11, Step 420: Current Average Loss: 1.7773512604690733
+Validation Loss after Epoch 11: 8.44316004409271
+Epoch 11, Step 430: Current Average Loss: 1.7757195977277533
+Validation Loss after Epoch 11: 8.389099088655849
+Epoch 11, Step 440: Current Average Loss: 1.7728097327730872
+Validation Loss after Epoch 11: 8.421148137981389
+Epoch 11, Step 450: Current Average Loss: 1.7711411330435012
+Validation Loss after Epoch 11: 8.345040318106307
+Epoch 11, Step 460: Current Average Loss: 1.7701395760411802
+Validation Loss after Epoch 11: 8.379371941495103
+Epoch 11, Step 470: Current Average Loss: 1.7681551471669623
+Validation Loss after Epoch 11: 8.354553122098753
+Epoch 11, Step 480: Current Average Loss: 1.7670935824513436
+Validation Loss after Epoch 11: 8.397010952437006
+Epoch 11, Step 490: Current Average Loss: 1.7649871074423498
+Validation Loss after Epoch 11: 8.426959582737513
+Epoch 11, Step 500: Current Average Loss: 1.764105959892273
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Validation Loss after Epoch 11: 8.351511154045053
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?They have>>######## END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?/<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.####################################################
+########################################################################
+########################################################################################
+################################################################################################################
+############################################################################################################################################################################################################################
+########################################################################
+################################
+########
+####
+####
+####
+####
+ END Answer
+Epoch 11, Step 510: Current Average Loss: 1.7623842760628345
+Validation Loss after Epoch 11: 8.423404359493126
+Epoch 11, Step 520: Current Average Loss: 1.7625333013442845
+Validation Loss after Epoch 11: 8.314089817254722
+Epoch 11, Step 530: Current Average Loss: 1.7606784037823946
+Validation Loss after Epoch 11: 8.387984029289816
+Epoch 11, Step 540: Current Average Loss: 1.7593445276772535
+Validation Loss after Epoch 11: 8.402260786822053
+Epoch 11, Step 550: Current Average Loss: 1.7584759493307633
+Validation Loss after Epoch 11: 8.389392401896366
+Epoch 11, Step 560: Current Average Loss: 1.7565047453556741
+Validation Loss after Epoch 11: 8.445248172396706
+Epoch 11, Step 570: Current Average Loss: 1.7554547109101948
+Validation Loss after Epoch 11: 8.372809698792542
+Epoch 11, Step 580: Current Average Loss: 1.7546315585744792
+Validation Loss after Epoch 11: 8.395101735381042
+Epoch 11, Step 590: Current Average Loss: 1.7527919282347468
+Validation Loss after Epoch 11: 8.426657608577184
+Epoch 11, Step 600: Current Average Loss: 1.7518947730461756
+Validation Loss after Epoch 11: 8.375623644614706
+Epoch 11, Step 610: Current Average Loss: 1.7497492395463536
+Validation Loss after Epoch 11: 8.337861677416328
+Epoch 11, Step 620: Current Average Loss: 1.7500501417344616
+Validation Loss after Epoch 11: 8.413990672753782
+Epoch 11, Step 630: Current Average Loss: 1.7489861897059849
+Validation Loss after Epoch 11: 8.381161813022327
+Epoch 11, Step 640: Current Average Loss: 1.7489047875627874
+Validation Loss after Epoch 11: 8.405796618688674
+Epoch 11, Step 650: Current Average Loss: 1.747427789247953
+Validation Loss after Epoch 11: 8.449883584262562
+Epoch 11, Step 660: Current Average Loss: 1.7471307301160062
+Validation Loss after Epoch 11: 8.366649043803312
+Epoch 11, Step 670: Current Average Loss: 1.7469840168952941
+Validation Loss after Epoch 11: 8.450333040587756
+Epoch 11, Step 680: Current Average Loss: 1.745652220179053
+Validation Loss after Epoch 11: 8.434150721751102
+Epoch 11, Step 690: Current Average Loss: 1.7454957854920539
+Validation Loss after Epoch 11: 8.38251611164638
+Epoch 11, Step 700: Current Average Loss: 1.7457787324701037
+Validation Loss after Epoch 11: 8.404268173944383
+Epoch 11, Step 710: Current Average Loss: 1.7455086387379068
+Validation Loss after Epoch 11: 8.395335310981388
+Epoch 11, Step 720: Current Average Loss: 1.7460317661364873
+Validation Loss after Epoch 11: 8.357734177388302
+Epoch 11, Step 730: Current Average Loss: 1.7455877052594537
+Validation Loss after Epoch 11: 8.33597435270037
+Epoch 11, Step 740: Current Average Loss: 1.7457606409047102
+Validation Loss after Epoch 11: 8.408608553360919
+Epoch 11, Step 750: Current Average Loss: 1.7458492770195007
+Validation Loss after Epoch 11: 8.36415854927634
+Epoch 11, Step 760: Current Average Loss: 1.7456176061379283
+Validation Loss after Epoch 11: 8.397615390569985
+Epoch 11, Step 770: Current Average Loss: 1.7453178678240096
+Validation Loss after Epoch 11: 8.375279861242593
+Epoch 11, Step 780: Current Average Loss: 1.7453618991069304
+Validation Loss after Epoch 11: 8.380368605762923
+Epoch 11, Step 790: Current Average Loss: 1.7460640075840528
+Validation Loss after Epoch 11: 8.371905943163398
+Epoch 11, Step 800: Current Average Loss: 1.7454832610487938
+Validation Loss after Epoch 11: 8.436452648266643
+Epoch 11, Step 810: Current Average Loss: 1.7456553208975145
+Validation Loss after Epoch 11: 8.338467614180377
+Epoch 11, Step 820: Current Average Loss: 1.7460443873231004
+Validation Loss after Epoch 11: 8.349323863074893
+Epoch 11, Step 830: Current Average Loss: 1.7456829333879862
+Validation Loss after Epoch 11: 8.408468467037695
+Average Training Loss for Epoch 11: 1.745567916676169
+Checkpoint saved: dense_model_checkpoint_epoch_11.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_10.pth
+Epoch 12, Step 10: Current Average Loss: 5.026356601715088
+Validation Loss after Epoch 12: 6.93239721635572
+Epoch 12, Step 20: Current Average Loss: 3.560217100381851
+Validation Loss after Epoch 12: 6.992596191613853
+Epoch 12, Step 30: Current Average Loss: 2.956096017360687
+Validation Loss after Epoch 12: 8.178350575116216
+Epoch 12, Step 40: Current Average Loss: 2.583175155520439
+Validation Loss after Epoch 12: 8.395528468955941
+Epoch 12, Step 50: Current Average Loss: 2.3440961909294127
+Validation Loss after Epoch 12: 8.43299708723211
+Epoch 12, Step 60: Current Average Loss: 2.196956298748652
+Validation Loss after Epoch 12: 8.585569881257557
+Epoch 12, Step 70: Current Average Loss: 2.0774483953203475
+Validation Loss after Epoch 12: 8.662900756005527
+Epoch 12, Step 80: Current Average Loss: 1.990228073298931
+Validation Loss after Epoch 12: 8.567627595395457
+Epoch 12, Step 90: Current Average Loss: 1.9159404608938428
+Validation Loss after Epoch 12: 8.60450674887417
+Epoch 12, Step 100: Current Average Loss: 1.8654625976085664
+Validation Loss after Epoch 12: 8.684532532075636
+Epoch 12, Step 110: Current Average Loss: 1.8166729038411922
+Validation Loss after Epoch 12: 8.613408831512036
+Epoch 12, Step 120: Current Average Loss: 1.7754048104087512
+Validation Loss after Epoch 12: 8.64510236143255
+Epoch 12, Step 130: Current Average Loss: 1.7446414842055393
+Validation Loss after Epoch 12: 8.68865308956224
+Epoch 12, Step 140: Current Average Loss: 1.7172528773546218
+Validation Loss after Epoch 12: 8.691442891854008
+Epoch 12, Step 150: Current Average Loss: 1.6889370357990265
+Validation Loss after Epoch 12: 8.744044141704533
+Epoch 12, Step 160: Current Average Loss: 1.6666408356279134
+Validation Loss after Epoch 12: 8.712596958186351
+Epoch 12, Step 170: Current Average Loss: 1.6523283779621125
+Validation Loss after Epoch 12: 8.66745934518827
+Epoch 12, Step 180: Current Average Loss: 1.6351147476169798
+Validation Loss after Epoch 12: 8.702754802444355
+Epoch 12, Step 190: Current Average Loss: 1.6209002184240442
+Validation Loss after Epoch 12: 8.794530534419884
+Epoch 12, Step 200: Current Average Loss: 1.6064366415143012
+Validation Loss after Epoch 12: 8.722131991872983
+Epoch 12, Step 210: Current Average Loss: 1.5945939220133283
+Validation Loss after Epoch 12: 8.714310545499632
+Epoch 12, Step 220: Current Average Loss: 1.5839010615240443
+Validation Loss after Epoch 12: 8.811502034972314
+Epoch 12, Step 230: Current Average Loss: 1.573007086308106
+Validation Loss after Epoch 12: 8.728876379882397
+Epoch 12, Step 240: Current Average Loss: 1.5634336146215597
+Validation Loss after Epoch 12: 8.804234079763193
+Epoch 12, Step 250: Current Average Loss: 1.5571517059803008
+Validation Loss after Epoch 12: 8.774722008478074
+Epoch 12, Step 260: Current Average Loss: 1.5518400565936015
+Validation Loss after Epoch 12: 8.801000517241809
+Epoch 12, Step 270: Current Average Loss: 1.5448322470541354
+Validation Loss after Epoch 12: 8.806387979157117
+Epoch 12, Step 280: Current Average Loss: 1.5379749960133007
+Validation Loss after Epoch 12: 8.796394883369913
+Epoch 12, Step 290: Current Average Loss: 1.5302359389847722
+Validation Loss after Epoch 12: 8.807981834930628
+Epoch 12, Step 300: Current Average Loss: 1.5242177027463912
+Validation Loss after Epoch 12: 8.806729868155758
+Epoch 12, Step 310: Current Average Loss: 1.5176482987019324
+Validation Loss after Epoch 12: 8.869646124288339
+Epoch 12, Step 320: Current Average Loss: 1.5099497573450207
+Validation Loss after Epoch 12: 8.872767357599168
+Epoch 12, Step 330: Current Average Loss: 1.5034606610283707
+Validation Loss after Epoch 12: 8.79858941123599
+Epoch 12, Step 340: Current Average Loss: 1.4988705917316325
+Validation Loss after Epoch 12: 8.764000808300615
+Epoch 12, Step 350: Current Average Loss: 1.4952070183413368
+Validation Loss after Epoch 12: 8.789019733870111
+Epoch 12, Step 360: Current Average Loss: 1.492796522213353
+Validation Loss after Epoch 12: 8.798181212678248
+Epoch 12, Step 370: Current Average Loss: 1.490816447702614
+Validation Loss after Epoch 12: 8.81966970729179
+Epoch 12, Step 380: Current Average Loss: 1.4870750359798732
+Validation Loss after Epoch 12: 8.835550892109774
+Epoch 12, Step 390: Current Average Loss: 1.4829844931761424
+Validation Loss after Epoch 12: 8.913798627399263
+Epoch 12, Step 400: Current Average Loss: 1.479445209056139
+Validation Loss after Epoch 12: 8.803731801558515
+Epoch 12, Step 410: Current Average Loss: 1.4776527560338741
+Validation Loss after Epoch 12: 8.838459251689262
+Epoch 12, Step 420: Current Average Loss: 1.4739693566447212
+Validation Loss after Epoch 12: 8.811099123792584
+Epoch 12, Step 430: Current Average Loss: 1.4703076303005218
+Validation Loss after Epoch 12: 8.80907560205784
+Epoch 12, Step 440: Current Average Loss: 1.4657953569834883
+Validation Loss after Epoch 12: 8.884496338513433
+Epoch 12, Step 450: Current Average Loss: 1.4632546648714277
+Validation Loss after Epoch 12: 8.827217724858498
+Epoch 12, Step 460: Current Average Loss: 1.4607324252957883
+Validation Loss after Epoch 12: 8.809022160614429
+Epoch 12, Step 470: Current Average Loss: 1.4573600451996986
+Validation Loss after Epoch 12: 8.888549152685671
+Epoch 12, Step 480: Current Average Loss: 1.4546173562606175
+Validation Loss after Epoch 12: 8.853970018373866
+Epoch 12, Step 490: Current Average Loss: 1.4512933465899254
+Validation Loss after Epoch 12: 8.867105435351936
+Epoch 12, Step 500: Current Average Loss: 1.4484482538700103
+Validation Loss after Epoch 12: 8.798470999918827
+Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Question: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? END Question
+Answer: Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have? have have have have have have have have have have have have have have have have have have have have have END Answer
+2nd Question being sent Henry and 3 of his friends order 7 pizzas for lunch. Each pizza is cut into 8 slices. If Henry and his friends want to share the pizzas equally, how many slices can each of them have?
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Question: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens? END Question
+Answer: Farmer Brown has 20 animals on his farm, all either chickens or cows. They have a total of 70 legs, all together. How many of the animals are chickens?+ <<<<<<+<<+<<+<<+<<+<<+<<+<<+<<+<<+<<+<<+<<+<<+<<+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.######################################## END Answer
+Epoch 12, Step 510: Current Average Loss: 1.4467582524991502
+Validation Loss after Epoch 12: 8.848449755688103
+Epoch 12, Step 520: Current Average Loss: 1.4444060222460673
+Validation Loss after Epoch 12: 8.833889160026498
+Epoch 12, Step 530: Current Average Loss: 1.4422687726200751
+Validation Loss after Epoch 12: 8.968141552542342
+Epoch 12, Step 540: Current Average Loss: 1.441203068141584
+Validation Loss after Epoch 12: 8.872130209085892
+Epoch 12, Step 550: Current Average Loss: 1.4411319945075296
+Validation Loss after Epoch 12: 8.84882925643402
+Epoch 12, Step 560: Current Average Loss: 1.4416952335408755
+Validation Loss after Epoch 12: 8.818237573922087
+Epoch 12, Step 570: Current Average Loss: 1.4404541231038277
+Validation Loss after Epoch 12: 8.816624427328305
+Epoch 12, Step 580: Current Average Loss: 1.4409236692149063
+Validation Loss after Epoch 12: 8.814306392150671
+Epoch 12, Step 590: Current Average Loss: 1.4397349351543491
+Validation Loss after Epoch 12: 8.785019585875427
+Epoch 12, Step 600: Current Average Loss: 1.439308802286784
+Validation Loss after Epoch 12: 8.913496753796428
+Epoch 12, Step 610: Current Average Loss: 1.4373484019373284
+Validation Loss after Epoch 12: 8.87991153626215
+Epoch 12, Step 620: Current Average Loss: 1.4360702914576378
+Validation Loss after Epoch 12: 8.86616645864889
+Epoch 12, Step 630: Current Average Loss: 1.4343421572730655
+Validation Loss after Epoch 12: 8.863893486204601
+Epoch 12, Step 640: Current Average Loss: 1.4340156679973006
+Validation Loss after Epoch 12: 8.864782547464175
+Epoch 12, Step 650: Current Average Loss: 1.4318298668127794
+Validation Loss after Epoch 12: 8.894642125992547
+Epoch 12, Step 660: Current Average Loss: 1.4308727593132944
+Validation Loss after Epoch 12: 8.925589279252655
+Epoch 12, Step 670: Current Average Loss: 1.430432497031653
+Validation Loss after Epoch 12: 8.861632914770217
+Epoch 12, Step 680: Current Average Loss: 1.429779834782376
+Validation Loss after Epoch 12: 8.912000802098488
+Epoch 12, Step 690: Current Average Loss: 1.428681520966516
+Validation Loss after Epoch 12: 8.90695942015875
+Epoch 12, Step 700: Current Average Loss: 1.4275633941377912
+Validation Loss after Epoch 12: 8.883682500748407
+Epoch 12, Step 710: Current Average Loss: 1.4276563666236233
+Validation Loss after Epoch 12: 8.91756483973289
+Epoch 12, Step 720: Current Average Loss: 1.4275393691327838
+Validation Loss after Epoch 12: 8.87218545083286
+Epoch 12, Step 730: Current Average Loss: 1.427652984775909
+Validation Loss after Epoch 12: 8.916355009792614
+Epoch 12, Step 740: Current Average Loss: 1.4268250795635018
+Validation Loss after Epoch 12: 8.9539791613209
+Epoch 12, Step 750: Current Average Loss: 1.4259596048990886
+Validation Loss after Epoch 12: 8.882073600275987
+Epoch 12, Step 760: Current Average Loss: 1.4249919830184234
+Validation Loss after Epoch 12: 8.963414711206138
+Epoch 12, Step 770: Current Average Loss: 1.4242045263191323
+Validation Loss after Epoch 12: 8.896242141723633
+Epoch 12, Step 780: Current Average Loss: 1.4235764177945944
+Validation Loss after Epoch 12: 8.93394846494506
+Epoch 12, Step 790: Current Average Loss: 1.422508243971233
+Validation Loss after Epoch 12: 8.964460074496108
+Epoch 12, Step 800: Current Average Loss: 1.421072958111763
+Validation Loss after Epoch 12: 8.937043867954591
+Epoch 12, Step 810: Current Average Loss: 1.4209058891108006
+Validation Loss after Epoch 12: 8.885142417181106
+Epoch 12, Step 820: Current Average Loss: 1.4206058909253376
+Validation Loss after Epoch 12: 8.934804183285253
+Epoch 12, Step 830: Current Average Loss: 1.4201476513621318
+Validation Loss after Epoch 12: 8.967737145975333
+Average Training Loss for Epoch 12: 1.420190129612901
+Checkpoint saved: dense_model_checkpoint_epoch_12.pth
+Deleted old checkpoint: ./dense_model_checkpoint_epoch_11.pth
+Epoch 13, Step 10: Current Average Loss: 5.419383811950683
+Validation Loss after Epoch 13: 7.417753845655999
+Epoch 13, Step 20: Current Average Loss: 3.620626485347748
+Validation Loss after Epoch 13: 7.245710989244941
+Epoch 13, Step 30: Current Average Loss: 2.9056156516075133
+Validation Loss after Epoch 13: 8.501110323432352
+Epoch 13, Step 40: Current Average Loss: 2.4763296455144883
+Validation Loss after Epoch 13: 8.79423476563019
+Epoch 13, Step 50: Current Average Loss: 2.2065305662155152
+Validation Loss after Epoch 13: 8.87585025579751
+Epoch 13, Step 60: Current Average Loss: 2.0096923798322677
+Validation Loss after Epoch 13: 9.019711857750302
+Epoch 13, Step 70: Current Average Loss: 1.8796339358602252
+Validation Loss after Epoch 13: 9.042193270053993
+Epoch 13, Step 80: Current Average Loss: 1.7762883692979812
+Validation Loss after Epoch 13: 9.097816921415783
+Epoch 13, Step 90: Current Average Loss: 1.688989649216334
+Validation Loss after Epoch 13: 9.114080179305304
+Epoch 13, Step 100: Current Average Loss: 1.6269040703773499
+Validation Loss after Epoch 13: 9.13415781332522
+Epoch 13, Step 110: Current Average Loss: 1.5744232134385543
+Validation Loss after Epoch 13: 9.15303169951147
+Epoch 13, Step 120: Current Average Loss: 1.537012267112732
+Validation Loss after Epoch 13: 9.123274913450487
+Epoch 13, Step 130: Current Average Loss: 1.5070404034394485
+Validation Loss after Epoch 13: 9.129900997187816
+Epoch 13, Step 140: Current Average Loss: 1.4769142470189502
+Validation Loss after Epoch 13: 9.119000694378704
+Epoch 13, Step 150: Current Average Loss: 1.4515830981731415
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 331, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 326, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 313, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 260, in train_epoch
+    validation_loss = evaluate(model, eval_loader, device,training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 191, in evaluate
+    outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 1302, in forward
+    transformer_outputs = self.transformer(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 1116, in forward
+    outputs = block(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 614, in forward
+    attn_outputs = self.attn(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 344, in forward
+    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 196, in _attn
+    attn_weights = torch.matmul(query, key.transpose(-1, -2))
+KeyboardInterrupt
