@@ -766,6 +766,9 @@ if __name__ == '__main__':
 
     # %%
     # Testing linear (BCE) probes on q-tables
+    dataset1 = dataset_USS
+    dataset2 = dataset_URS
+    train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
     class BinLogClassifier(nn.Module):
         def __init__(self, input_size):
             super(BinLogClassifier, self).__init__()
@@ -857,3 +860,4 @@ if __name__ == '__main__':
     plt.ylabel("Loss")
     plt.legend(handles = [train_handle, test_handle])
     plt.show()
+# %%
