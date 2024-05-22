@@ -14,6 +14,7 @@ from peft import LoraConfig
 import pickle
 import glob
 from torch.utils.data import DataLoader
+from peft import PeftModel, PeftConfig
 
 #import the bits and bites optimizer again
 import bitsandbytes as bnb
@@ -85,6 +86,19 @@ def train(epochs,token, log_interval=10,training_type=None):
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=token, )
     print('about to get model')
     model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=token, cache_dir='/workspace/.cache/huggingface/models/')
+    
+    #print current directory
+    print("Current Directory",os.getcwd())
+    #print current files
+    print("Current Files",os.listdir())
+    
+    #does the file below exisit
+    print("Does the file exist",os.path.exists("/workspace/llama7b_lora_fine_tune_test_save/adapter_config.json"))
+    
+    #Now loading in the peft model
+    #peft_model_id = '/workspace/llama7b_lora_fine_tune_test_save/'
+    #model = PeftModel.from_pretrained(model, peft_model_id, is_trainable=True)
+    
     print("model gotten")
     
     tokenizer.pad_token = tokenizer.eos_token
@@ -102,13 +116,13 @@ def train(epochs,token, log_interval=10,training_type=None):
     
     ##############TRAIN###############
     # Correct dataset configuration and preprocessing
-    data = load_dataset("gsm8k", "main", split='train')
+    data = load_dataset("gsm8k", "main", split='train[:1500]')
     data = data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############TRAIN###############
     
     ##############VALIDATION###############
-    data_v_string = load_dataset("gsm8k", "main", split='test')
+    data_v_string = load_dataset("gsm8k", "main", split='test[:500]')
     data_v = data_v_string.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############VALIDATION###############
@@ -312,9 +326,11 @@ def train(epochs,token, log_interval=10,training_type=None):
         # Adjust your epoch-end actions within the training loop
         if epoch_num > 0:
             checkpoint_path = f'{training_type}_model_checkpoint_epoch_{epoch_num}.pth'
-            torch.save(model.state_dict(), checkpoint_path)
+            
+            model.save_pretrained("./llama7b_lora_fine_tune_sparse/") 
+            #torch.save(model.state_dict(), checkpoint_path)
             print(f"Checkpoint saved: {checkpoint_path}")
-            cleanup_checkpoints('./', keep=1)  # Keep the last 3 checkpoints, adjust 'keep' as necessary
+            cleanup_checkpoints('./', keep=3)  # Keep the last 3 checkpoints, adjust 'keep' as necessary
             
         
         save_gradients(gradient_storage, training_type, epoch_num)
@@ -340,10 +356,10 @@ def train(epochs,token, log_interval=10,training_type=None):
 
 def main():
     world_size = torch.cuda.device_count()
-    epoch_count = 20
+    epoch_count = 3
     token = "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"
     log_interval = 10
-    training_type = "dense"
+    training_type = "sparse"
     
     train(epochs=epoch_count,token=token,training_type=training_type)
     
@@ -351,4 +367,3 @@ def main():
    
 if __name__ == '__main__':
     main()
-
