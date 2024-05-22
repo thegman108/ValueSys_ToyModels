@@ -407,6 +407,7 @@ if __name__ == '__main__':
     model_path = "models/Taxi_GCN_USS_URS_"
     num_node_features = 1 # 1 if policy, 6 if q-table
     MAKE_NEW_MODELS = False
+    # %%
     if os.path.exists(model_path + "0.pt") and not MAKE_NEW_MODELS: # if classifiers have already been trained
         i = 0
         models = []
@@ -426,17 +427,13 @@ if __name__ == '__main__':
         UPS_r_funcs = [lambda *args: 0 for _ in range(NUM_TRAIN_R_FUNCS)]
         URS_rand = np.random.randint(10000, size = NUM_TRAIN_R_FUNCS)
         URS_r_funcs = [seed_deterministic_random(str(seed)) for seed in URS_rand]
-        # URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
-        #                         reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
+        URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
+                                reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
         print("Halfway there!")
         USS_rand = np.random.randint(10000, size = NUM_TRAIN_R_FUNCS)
         USS_r_funcs = [seed_deterministic_random(str(seed), sparsity = 0.99) for seed in USS_rand]
-        # USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
-        #                             reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
-        with open('URS_storage.pickle', 'rb') as handle:
-            URS_agents = pickle.load(handle)
-        with open('USS_storage.pickle', 'rb') as handle:
-            USS_agents = pickle.load(handle)
+        USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
+                                    reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
 
         # The Q-Table is already one-hot encoded, so we don't need to convert it to a Data object
         from torch_geometric.data import Data
@@ -473,10 +470,11 @@ if __name__ == '__main__':
         assert UUS_r_funcs[1](0) != UUS_r_funcs[0](0)
         assert UUS_r_funcs[0](0) != UUS_r_funcs[0](1)
 
+    
         # %%
         # To prevent overfitting to Q-learning inductive biases, we put some of the policies through MCTS
-        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in URS_agents]
-        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in UPS_agents] # URS = 1, UPS = 0
+        dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in USS_agents]
+        dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents] # URS = 1, UPS = 0
         for i in tqdm(range(len(dataset1))):
             agents = URS_agents if i < len(dataset1) / 2 else UPS_agents
             dataset = dataset1 if i < len(dataset1) / 2 else dataset2
@@ -498,13 +496,58 @@ if __name__ == '__main__':
             dataset[i % int(len(dataset1) / 2)].x = torch.tensor(mcts_policy.reshape(-1, 1).astype(np.float32))
 
         # %%
+        # Read/write data
+        read_write = 'wb'
+        UPS_r_funcs = [lambda *args: 0 for _ in range(NUM_TRAIN_R_FUNCS)]
+        with open('URS_agents.pickle', read_write) as handle:
+            pickle.dump(URS_agents, handle)
+        with open('USS_agents.pickle', read_write) as handle:
+            pickle.dump(USS_agents, handle)
+        with open('UPS_agents.pickle', read_write) as handle:
+            pickle.dump(UPS_agents, handle)
+        with open('URS_r_funcs.pickle', read_write) as handle:
+            pickle.dump(URS_r_funcs, handle)
+        with open('USS_r_funcs.pickle', read_write) as handle:
+            pickle.dump(USS_r_funcs, handle)
+        # with open('UPS_r_funcs.pickle', 'wb') as handle:
+        #     pickle.dump(UPS_r_funcs, handle)
+        with open('dataset1.pickle', read_write) as handle:
+            pickle.dump(dataset1, handle)
+        with open('dataset2.pickle', read_write) as handle:
+            pickle.dump(dataset2, handle)
+
+        # %%
+        read_write = 'rb'
+        UPS_r_funcs = [lambda *args: 0 for _ in range(NUM_TRAIN_R_FUNCS)]
+        with open('URS_agents.pickle', read_write) as handle:
+            URS_agents = pickle.load(handle)
+        with open('USS_agents.pickle', read_write) as handle:
+            USS_agents = pickle.load(handle)
+        with open('UPS_agents.pickle', read_write) as handle:
+            UPS_agents = pickle.load(handle)
+        with open('URS_r_funcs.pickle', read_write) as handle:
+            URS_r_funcs = pickle.load(handle)
+        with open('USS_r_funcs.pickle', read_write) as handle:
+            USS_r_funcs = pickle.load(handle)
+        # with open('UPS_r_funcs.pickle', 'wb') as handle:
+        #     pickle.dump(UPS_r_funcs, handle)
+        with open('dataset_UPS.pickle', read_write) as handle:
+            dataset_UPS = pickle.load(handle)
+        with open('dataset_URS.pickle', read_write) as handle:
+            dataset_URS = pickle.load(handle)
+        with open('dataset_USS.pickle', read_write) as handle:
+            dataset_USS = pickle.load(handle)
+        # %%
         # Train GCN classifier
         # dataset1 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 1) for agent in USS_agents]
         # dataset2 = [Data(x = greedy_policy(agent.q_table), edge_index = edge_index, y = 0) for agent in URS_agents]
+        dataset1 = dataset_USS
+        dataset2 = dataset_URS
+        model_path = "models/Taxi_GCN_USS_URS_"
         train_data, test_data, num_node_features = generate_data(dataset1, dataset2)
         models, test_losses = [], []
         threshold = 0.6
-        epochs = 80
+        epochs = 150
         NUM_CLASSIFIER_TRIES = 40
         train_losses_detail, test_losses_detail = np.zeros((NUM_CLASSIFIER_TRIES, epochs)), np.zeros((NUM_CLASSIFIER_TRIES, epochs))
         for k in tqdm(range(NUM_CLASSIFIER_TRIES)):
@@ -525,9 +568,9 @@ if __name__ == '__main__':
         # Choose the model with the lowest test loss
         model = models[np.argmin(test_losses)]
         print(f"Number of successful models: {len(models)}")
-        # if MAKE_NEW_MODELS:
-        #     for i in range(len(models)):
-        #         torch.save(models[i].state_dict(), model_path + f"{i}.pt")
+        if MAKE_NEW_MODELS:
+            for i in range(len(models)):
+                torch.save(models[i].state_dict(), model_path + f"{i}.pt")
         
         print(torch.transpose(dataset1[0].x, 0, -1)[0:10, 0:10]) # Example greedy policies
         print(torch.transpose(dataset2[0].x, 0, -1)[0:10, 0:10])
@@ -542,8 +585,9 @@ if __name__ == '__main__':
     with open('taxi_storage.pickle', 'rb') as handle:
         taxi_models = pickle.load(handle)
     # taxi_models = []
-    taxi_episodes = 10000
-    for i in tqdm(list(range(len(models))) * 1):
+    taxi_episodes = 10
+    length = min(len(models), len(taxi_models))
+    for i in tqdm(list(range(length)) * 1):
         # taxi_model = train_qtable(env_name = "Taxi-v3", episodes = taxi_episodes, verbose = False, print_every = 2000, 
         #                         return_reward = False)
         taxi_model = taxi_models[i]
@@ -553,7 +597,7 @@ if __name__ == '__main__':
         taxi_classifier_ratings.append(models[i].forward(taxi_data).item())
         # test_qtable(gym.make("Taxi-v3"), taxi_model, episodes = 1000)
         # Generate tabular policy from MCTS and feed through classifier
-        taxi_models.append(taxi_model)
+        # taxi_models.append(taxi_model)
 
     # %%
     # Train taxi agents with denser rewards
@@ -561,13 +605,14 @@ if __name__ == '__main__':
         return
 
     # %%
+    # MCTS with the taxi agents as rollout policy
     # Assume taxi_model.q_table is your pre-trained Q-table
     # It should be a dictionary where keys are states and values are arrays of Q-values for each action
 
     mcts_classifier_ratings = []
     average_rewards = []
     mcts_policies = []
-    for i in tqdm(list(range(len(models))) * 1):
+    for i in tqdm(list(range(length)) * 1):
         # Example usage
         env_name = "Taxi-v3"
         env = gym.make(env_name)
@@ -595,25 +640,25 @@ if __name__ == '__main__':
     # through the classifier
 
     c_diffs, c_ratings, ic_ratings = [], [], []
-    for index in tqdm(list(range(len(models))) * 1):
+    for index in tqdm(list(range(length)) * 1):
         coherent_policy = greedy_policy(taxi_models[index].q_table).detach()
         incoherent_policy = coherent_policy.clone()
         
-        for _ in range(300):
-            env.reset()
-            i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
-            # print(i)
-            env.step(coherent_policy[i].item())
-            j = env.unwrapped.s
-            if coherent_policy[i][0] % 2 == 0:
-                incoherent_policy[j][0] = coherent_policy[i][0] + 1
-            else:
-                incoherent_policy[j][0] = coherent_policy[i][0] - 1 # if 0, then 1; if 1, then 0
+        # for _ in range(300):
+        #     env.reset()
+        #     i = env.unwrapped.s # +100 for moving one row, + 20 for moving one column
+        #     # print(i)
+        #     env.step(coherent_policy[i].item())
+        #     j = env.unwrapped.s
+        #     if coherent_policy[i][0] % 2 == 0:
+        #         incoherent_policy[j][0] = coherent_policy[i][0] + 1
+        #     else:
+        #         incoherent_policy[j][0] = coherent_policy[i][0] - 1 # if 0, then 1; if 1, then 0
             # point is to put incoherent_policy in a loop
         
-        # for i in np.random.randint(500, size = 300):
-        #     if incoherent_policy[i][0] >= 4:
-        #         incoherent_policy[i][0] = np.random.randint(4)
+        for i in np.argwhere(incoherent_policy >= 4)[0].__array__():
+            if np.random.random() < 0.25:
+                incoherent_policy[i][0] = np.random.randint(4)
 
         # oops, i is already taken as a variable name here
         c_diffs.append((coherent_policy != incoherent_policy).nonzero().shape[0])
@@ -812,4 +857,3 @@ if __name__ == '__main__':
     plt.ylabel("Loss")
     plt.legend(handles = [train_handle, test_handle])
     plt.show()
-# %%
