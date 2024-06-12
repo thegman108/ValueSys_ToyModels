@@ -1,0 +1,145 @@
+
+Downloading readme: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6.91k/6.91k [00:00<00:00, 5.92MB/s]
+Downloading data: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 84.2M/84.2M [00:03<00:00, 24.8MB/s]
+Generating train split: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 200035/200035 [00:00<00:00, 335493.13 examples/s]
+Map:   0%|                                                                                                                                                                            | 0/1500 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1500/1500 [00:00<00:00, 9472.53 examples/s]
+Map:   0%|                                                                                                                                                                             | 0/500 [00:00<?, ? examples/s]
+
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 8467.53 examples/s]
+Question: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number. END Question
+Answer: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Hint: The number is a product of two digits.
+Answer: The two digit number is 36.
+Explanation: When divided by 6, 36 = 6 × 6. When divided by 9, 36 = 9 × 4. When divided by 7, 36 leaves a remainder of 1, so the answer is 36. END Answer
+Question: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job? END Question
+Answer: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job?
+Gyuri works at a rate of 1/3 of the job in 5 days, so Gyuri's rate is 1/3 x 5 = 5/3 days per unit of work.
+Seungyeon works at a rate of 1/5 of the job in 2 days, so Seungyeon's rate is 1/5 x 2 = 4 days per unit of work.
+If Gyuri and Seungyeon work together, their combined rate will be the sum of their individual rates:
+5/3 + 4 = 9/3 days per unit of work
+So, if they work together, it will take 9/3 days to finish the job. END Answer
+Question: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards. END Question
+Answer: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards.
+Answer:
+The length of the rectangle is 15, and the width is 13.5.
+Explanation:
+The first card has the number 15 on it, which means the length of the rectangle is also 15.
+The second card has the value of the number on the first card multiplied by 0.9, which is 13.5. Therefore, the width of the rectangle is 13.5. END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Epoch 0, Step 10: Current Average Loss: 13.321766185760499
+Validation Loss after Epoch 0: 12.49301883152553
+Epoch 0, Step 20: Current Average Loss: 12.624763488769531
+Validation Loss after Epoch 0: 11.57666288103376
+Epoch 0, Step 30: Current Average Loss: 12.338080024719238
+Validation Loss after Epoch 0: 10.334405166762215
+Epoch 0, Step 40: Current Average Loss: 11.824941051006316
+Validation Loss after Epoch 0: 8.853643323693957
+Epoch 0, Step 50: Current Average Loss: 10.974045495986939
+Validation Loss after Epoch 0: 7.6550207648958475
+Epoch 0, Step 60: Current Average Loss: 10.444547104835511
+Validation Loss after Epoch 0: 6.839472012860434
+Epoch 0, Step 70: Current Average Loss: 9.9276720728193
+Validation Loss after Epoch 0: 6.269447428839547
+Epoch 0, Step 80: Current Average Loss: 9.498679435253143
+Validation Loss after Epoch 0: 5.904015873159681
+Epoch 0, Step 90: Current Average Loss: 9.087681844499375
+Validation Loss after Epoch 0: 5.6573264598846436
+Epoch 0, Step 100: Current Average Loss: 8.733956475257873
+Validation Loss after Epoch 0: 5.519699654408863
+Epoch 0, Step 110: Current Average Loss: 8.411837287382646
+Validation Loss after Epoch 0: 5.41304640684809
+Epoch 0, Step 120: Current Average Loss: 8.136604968706767
+Validation Loss after Epoch 0: 5.332647664206369
+Epoch 0, Step 130: Current Average Loss: 7.9176508023188665
+Validation Loss after Epoch 0: 5.267573352370944
+Epoch 0, Step 140: Current Average Loss: 7.702089715003967
+Validation Loss after Epoch 0: 5.241872208459037
+Epoch 0, Step 150: Current Average Loss: 7.5354917558034265
+Validation Loss after Epoch 0: 5.201382547616959
+Epoch 0, Step 160: Current Average Loss: 7.396863459050655
+Validation Loss after Epoch 0: 5.15940676842417
+Average Training Loss for Epoch 0: 7.30012110892884
+Epoch 1, Step 10: Current Average Loss: 5.226647424697876
+Validation Loss after Epoch 1: 5.1063158256667
+Epoch 1, Step 20: Current Average Loss: 4.986586201190948
+Validation Loss after Epoch 1: 5.085536973817008
+Epoch 1, Step 30: Current Average Loss: 4.891731301943461
+Validation Loss after Epoch 1: 5.083125280482428
+Epoch 1, Step 40: Current Average Loss: 4.994833207130432
+Validation Loss after Epoch 1: 5.072248620646341
+Epoch 1, Step 50: Current Average Loss: 4.890517420768738
+Validation Loss after Epoch 1: 5.042608435664858
+Epoch 1, Step 60: Current Average Loss: 4.903278807799022
+Validation Loss after Epoch 1: 5.0261949215616495
+Epoch 1, Step 70: Current Average Loss: 4.888377366747175
+Validation Loss after Epoch 1: 5.016300852809634
+Epoch 1, Step 80: Current Average Loss: 4.8598224222660065
+Validation Loss after Epoch 1: 4.996162325143814
+Epoch 1, Step 90: Current Average Loss: 4.8369420422448055
+Validation Loss after Epoch 1: 4.993908716099603
+Epoch 1, Step 100: Current Average Loss: 4.847556979656219
+Validation Loss after Epoch 1: 4.985910981893539
+Epoch 1, Step 110: Current Average Loss: 4.867180930484425
+Validation Loss after Epoch 1: 4.951563877718789
+Epoch 1, Step 120: Current Average Loss: 4.856873226165772
+Validation Loss after Epoch 1: 4.923791029623577
+Epoch 1, Step 130: Current Average Loss: 4.84267102938432
+Validation Loss after Epoch 1: 4.9075071939400265
+Epoch 1, Step 140: Current Average Loss: 4.8365635905947
+Validation Loss after Epoch 1: 4.892097558294024
+Epoch 1, Step 150: Current Average Loss: 4.799107894897461
+Validation Loss after Epoch 1: 4.910739936998913
+Epoch 1, Step 160: Current Average Loss: 4.776108409464359
+Validation Loss after Epoch 1: 4.86579287477902
+Average Training Loss for Epoch 1: 4.761362576912977
+Checkpoint saved: sparse_model_checkpoint_epoch_1.pth
+/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:611: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-664d8f12-5d3abe6f46e372a57cdbacd6;6dd171be-372c-4803-bb01-83a5e8ef9d1d)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+Epoch 2, Step 10: Current Average Loss: 4.383190536499024
+Validation Loss after Epoch 2: 4.837248831987381
+Epoch 2, Step 20: Current Average Loss: 4.344247329235077
+Validation Loss after Epoch 2: 4.840429748807635
+Epoch 2, Step 30: Current Average Loss: 4.486824202537536
+Validation Loss after Epoch 2: 4.9032435204301565
+Epoch 2, Step 40: Current Average Loss: 4.504547327756882
+Validation Loss after Epoch 2: 4.929628197635923
+Epoch 2, Step 50: Current Average Loss: 4.3997235774993895
+Validation Loss after Epoch 2: 4.814235755375454
+Epoch 2, Step 60: Current Average Loss: 4.360417787233988
+Validation Loss after Epoch 2: 4.8533423244953156
+Epoch 2, Step 70: Current Average Loss: 4.396332219668797
+Validation Loss after Epoch 2: 4.840618887117931
+Epoch 2, Step 80: Current Average Loss: 4.384010893106461
+Validation Loss after Epoch 2: 4.825236265148435
+Epoch 2, Step 90: Current Average Loss: 4.374540959464179
+Validation Loss after Epoch 2: 4.8241302498749326
+Epoch 2, Step 100: Current Average Loss: 4.380006003379822
+Validation Loss after Epoch 2: 4.814232685736248
+Epoch 2, Step 110: Current Average Loss: 4.382222630760887
+Validation Loss after Epoch 2: 4.818654141255787
+Epoch 2, Step 120: Current Average Loss: 4.386993716160457
+Validation Loss after Epoch 2: 4.827866950205395
+Epoch 2, Step 130: Current Average Loss: 4.368287002123319
+Validation Loss after Epoch 2: 4.819012948444912
+Epoch 2, Step 140: Current Average Loss: 4.4013869626181465
+Validation Loss after Epoch 2: 4.821131591285978
+Epoch 2, Step 150: Current Average Loss: 4.386644694010417
+Validation Loss after Epoch 2: 4.811014426606042
+Epoch 2, Step 160: Current Average Loss: 4.371628969907761
+Validation Loss after Epoch 2: 4.840033586536135
+Average Training Loss for Epoch 2: 4.374769759035396
+Checkpoint saved: sparse_model_checkpoint_epoch_2.pth
+/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:611: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-664d8f7c-632912b128192c4168a5d4ad;d99449d3-ee5a-474d-95ef-65c1a1f78240)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(

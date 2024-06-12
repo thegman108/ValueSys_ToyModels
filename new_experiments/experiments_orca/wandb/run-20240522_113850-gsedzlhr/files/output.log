@@ -1,0 +1,73 @@
+
+Question being sent There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Question: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number. END Question
+Answer: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Hint: Think of a number that is divisible by 6 and 9.
+Answer:
+The two digit number is 36.
+Explanation:
+36 is divisible by 6, 9, and when divided by 7, the remainder is 1.
+So, the answer is 36. END Answer
+Question: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job? END Question
+Answer: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job?
+Gyuri works at a rate of 1/3 of the job in 5 days, so Gyuri's rate is 1/3.
+Seungyeon works at a rate of 1/5 of the job in 2 days, so Seungyeon's rate is 1/5.
+When Gyuri and Seungyeon work together, their combined rate is the sum of their individual rates:
+Combined rate = Gyuri's rate + Seungyeon's rate
+Combined rate = 1/3 + 1/5
+Combined rate = 2/5
+So, it will take Gyuri and Seungyeon 5/2 = 2.5 days to finish the job. END Answer
+Question: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards. END Question
+Answer: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards.
+The cards are:
+Card 1: 15
+Card 2: 15 x 0.9 = 13.5
+To find the area of the rectangle, we need to multiply the length by the width. Since the length and width are the same on both cards, we can simply multiply the numbers on the cards together:
+Area = 15 x 15 = 225
+So, the area of the rectangle is 225 square units. END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py:417: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  activation_inut_ids = torch.tensor(activation_data['input_ids']).to(device)
+Epoch 0, Step 10: Current Average Loss: 12.80021276473999
+Validation Loss after Epoch 0: 12.523958597864423
+Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: If you add 12 to a number and subtract 27, you get 24. Find the number. END Question
+Answer: If you add 12 to a number and subtract 27, you get 24. Find the number.
+HINT: Think about the relationship between 12 and 27. Can you use that to help you solve the problem?
+Answer: The number is 30.
+Explanation:
+When you add 12 to a number, you get the number plus 12. For example, if you add 12 to 20, you get 32.
+When you subtract 27 from a number, you get the number minus 27. For example, if you subtract 27 from 40, you get 13.
+So, if you add 12 to a number and subtract 27, you get 24. To find the number, you can use the relationship between 12 and 27.
+12 is twice 6, and 27 is 6 times 4. So, the number you are trying to find is twice 6 plus 6 times 4, which is 30. END Answer
+2nd Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi? END Question
+Answer: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi?
+You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, that means there are 9 students shorter than Yoongi. END Answer
+Evaluating with Logistic Regression
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca
+['final_gradients_dense.pkl', 'gradients_dense_epoch_2.pkl', 'gradients_dense_epoch_1.pkl', 'final_llama7b_lora_fine_tune_dense', 'gradients_dense_epoch_0.pkl', 'classifier_v1.pkl', 'combination_activations_orca_gsm8k.ipynb', 'dense_activations_lora_orca_A1.pkl', 'sparse_activations_lora_orca_A1.pkl', 'lama2_7b_training_llms_on_activations_orca.ipynb', 'sparse_activations_lora_gsm8k_B1.pkl', 'dense_activations_lora_gsm8k_B1.pkl', 'orca_gradients', 'llama7b_lora_fine_tune_dense', 'llama7b_lora_fine_tune_sparse', 'wandb', 'llama7b_lora_fine_tune_orca.py']
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 444, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 439, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 426, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num,activation_inut_ids, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 389, in train_epoch
+    evaluate_with_logistic_regression(model,activation_input_ids,training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 306, in evaluate_with_logistic_regression
+    predicted_labels = lr_model.predict(activation_values)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/linear_model/_base.py", line 382, in predict
+    scores = self.decision_function(X)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/linear_model/_base.py", line 363, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/base.py", line 654, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/base.py", line 443, in _check_n_features
+    raise ValueError(
+ValueError: X has 262144 features, but LogisticRegression is expecting 100 features as input.

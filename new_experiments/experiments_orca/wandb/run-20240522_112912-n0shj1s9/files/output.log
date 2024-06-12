@@ -1,0 +1,41 @@
+Map:   0%|                                                                                                                                                                                                                                                    | 0/100 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 6245.89 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:00<00:00, 5637.35 examples/s]
+Map: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 3070.50 examples/s]
+Question being sent From the 0.35 kilometer (km) point to the 0.37 kilometer (km) point of a certain road, it was decided to divide it into 4 equal sections and plant street trees from beginning to end. How many kilometers (km) is the location of the street tree planted at the fourth point using a decimal number?
+Question: From the 0.35 kilometer (km) point to the 0.37 kilometer (km) point of a certain road, it was decided to divide it into 4 equal sections and plant street trees from beginning to end. How many kilometers (km) is the location of the street tree planted at the fourth point using a decimal number? END Question
+Answer: From the 0.35 kilometer (km) point to the 0.37 kilometer (km) point of a certain road, it was decided to divide it into 4 equal sections and plant street trees from beginning to end. How many kilometers (km) is the location of the street tree planted at the fourth point using a decimal number?
+Let's call the distance from the starting point to the fourth point x kilometers.
+We know that the distance from the starting point to the fourth point is 0.37 kilometers, so we can set up the equation:
+x + 0.35 = 0.37
+To solve for x, we can subtract 0.35 from both sides of the equation:
+x = 0.02
+So, the location of the street tree planted at the fourth point is 0.02 kilometers away from the starting point. END Answer
+Question: You're trying to move 48 one-metric ton (m/t) objects. How many trips would it take to move 6 trucks that can load up to 4-metric ton (m/t) at a time? END Question
+Answer: You're trying to move 48 one-metric ton (m/t) objects. How many trips would it take to move 6 trucks that can load up to 4-metric ton (m/t) at a time?
+To solve this problem, we need to divide the total weight of the objects (48 m/t) by the weight capacity of each truck (4 m/t).
+48 m/t ÷ 4 m/t = 12 trucks
+So it would take 12 trips to move 48 one-metric ton objects using 6 trucks that can load up to 4-metric ton at a time. END Answer
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py:413: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  activation_inut_ids = torch.tensor(activation_data['input_ids']).to(device)
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 440, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 435, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 422, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+TypeError: train.<locals>.train_epoch() missing 1 required positional argument: 'activation_input_ids'
+Question: 225 is the result of adding 20 to a number and multiplying it by 5 by mistake, when it was supposed to be adding 20 and dividing it by 5. How much is it if you calculate it correctly? END Question
+Answer: 225 is the result of adding 20 to a number and multiplying it by 5 by mistake, when it was supposed to be adding 20 and dividing it by 5. How much is it if you calculate it correctly?
+Answer: 45
+Explanation:
+If you add 20 to a number and multiply it by 5, you will get 45. So, the correct calculation is:
+Number + 20 = 45 (when you multiply by 5)
+Therefore, the correct answer is 45. END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622

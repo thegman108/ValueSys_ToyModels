@@ -1,0 +1,99 @@
+
+Question being sent There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Question: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number. END Question
+Answer: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Hint: Use the fact that when a number is divided by 7, the remainder is always 1 or 6.
+Answer:
+The two digit number is 12.
+Explanation:
+When 12 is divided by 6, the remainder is 0, which satisfies the condition.
+When 12 is divided by 9, the remainder is 3, which satisfies the condition.
+When 12 is divided by 7, the remainder is 1.
+Therefore, the two digit number is 12. END Answer
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py:424: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  activation_inut_ids = torch.tensor(activation_data['input_ids']).to(device)
+Question: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job? END Question
+Answer: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job?
+Gyuri takes 5 days to do 1/3 of the job, so she can do 1/3 of the job in 5 days.
+Seungyeon takes 2 days to do 1/5 of the job, so she can do 1/5 of the job in 2 days.
+If Gyuri and Seungyeon work together, they can do 1/3 + 1/5 = 1/15 of the job in 5 + 2 = 7 days.
+Therefore, it will take 7 days for Gyuri and Seungyeon to finish the job together. END Answer
+Question: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards. END Question
+Answer: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards.
+What is the area of the rectangle? END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+Epoch 0, Step 10: Current Average Loss: 12.910319614410401
+Validation Loss after Epoch 0: 12.50945656640189
+Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: If you add 12 to a number and subtract 27, you get 24. Find the number. END Question
+Answer: If you add 12 to a number and subtract 27, you get 24. Find the number.
+What is the value of x in the equation:
+x + 12 = 24
+Subtract 27 from both sides of the equation:
+x = 24 - 27
+x = -3
+So, the number is -3. END Answer
+2nd Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi? END Question
+Answer: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi?
+Let's say the height of Yoongi is x cm.
+According to the problem, there are 11 students taller than Yoongi, so their heights are greater than x cm.
+Let's call the height of one of these students y cm.
+We know that y > x, so y - x = > 11.
+Now, we can solve for x by subtracting y from both sides:
+x = y - 11
+So, there are 11 students shorter than Yoongi. END Answer
+Evaluating with Logistic Regression
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca
+['final_gradients_dense.pkl', 'gradients_dense_epoch_2.pkl', 'gradients_dense_epoch_1.pkl', 'final_llama7b_lora_fine_tune_dense', 'gradients_dense_epoch_0.pkl', 'classifier_v1.pkl', 'combination_activations_orca_gsm8k.ipynb', 'dense_activations_lora_orca_A1.pkl', 'sparse_activations_lora_orca_A1.pkl', 'lama2_7b_training_llms_on_activations_orca.ipynb', 'sparse_activations_lora_gsm8k_B1.pkl', 'dense_activations_lora_gsm8k_B1.pkl', 'orca_gradients', 'llama7b_lora_fine_tune_dense', 'llama7b_lora_fine_tune_sparse', 'wandb', 'llama7b_lora_fine_tune_orca.py']
+Predicted Labels [1. 1. 1. ... 1. 1. 1.]
+Epoch 0, Step 20: Current Average Loss: 12.610769510269165
+Validation Loss after Epoch 0: 11.510176045554024
+Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: If you add 12 to a number and subtract 27, you get 24. Find the number. END Question
+Answer: If you add 12 to a number and subtract 27, you get 24. Find the number.
+Answer:
+The number is 48.
+Explanation:
+When you add 12 to 48, you get 60. When you subtract 27 from 60, you get 33. END Answer
+2nd Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi? END Question
+Answer: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi?
+You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, then there are 9 students shorter than Yoongi. END Answer
+Evaluating with Logistic Regression
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca
+['final_gradients_dense.pkl', 'gradients_dense_epoch_2.pkl', 'gradients_dense_epoch_1.pkl', 'final_llama7b_lora_fine_tune_dense', 'gradients_dense_epoch_0.pkl', 'classifier_v1.pkl', 'combination_activations_orca_gsm8k.ipynb', 'dense_activations_lora_orca_A1.pkl', 'sparse_activations_lora_orca_A1.pkl', 'lama2_7b_training_llms_on_activations_orca.ipynb', 'sparse_activations_lora_gsm8k_B1.pkl', 'dense_activations_lora_gsm8k_B1.pkl', 'orca_gradients', 'llama7b_lora_fine_tune_dense', 'llama7b_lora_fine_tune_sparse', 'wandb', 'llama7b_lora_fine_tune_orca.py']
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 451, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 446, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 433, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num,activation_inut_ids, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 396, in train_epoch
+    evaluate_with_logistic_regression(model,activation_input_ids,training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 310, in evaluate_with_logistic_regression
+    activation_values = pca.fit_transform(activation_values_model)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/utils/_set_output.py", line 313, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/decomposition/_pca.py", line 474, in fit_transform
+    U, S, _, X, x_is_centered, xp = self._fit(X)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/decomposition/_pca.py", line 548, in _fit
+    return self._fit_truncated(X, n_components, xp)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/decomposition/_pca.py", line 763, in _fit_truncated
+    U, S, Vt = randomized_svd(
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/utils/_param_validation.py", line 186, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/utils/extmath.py", line 523, in randomized_svd
+    Q = randomized_range_finder(
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/utils/extmath.py", line 340, in randomized_range_finder
+    Q, _ = normalizer(A @ Q)
+  File "/usr/local/lib/python3.10/dist-packages/scipy/linalg/_decomp_lu.py", line 186, in lu
+    def lu(a, permute_l=False, overwrite_a=False, check_finite=True,
+KeyboardInterrupt

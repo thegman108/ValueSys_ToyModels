@@ -1,0 +1,85 @@
+
+Question being sent There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Question: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number. END Question
+Answer: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Hint: The number is between 10 and 100.
+Answer: The two digit number is 24.
+Explanation:
+When divided by 6, 24 is divisible: 24 / 6 = 4 with no remainder.
+When divided by 9, 24 is divisible: 24 / 9 = 2 with no remainder.
+When divided by 7, 24 leaves a remainder of 1: 24 / 7 = 3 remainder 1. END Answer
+Question: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job? END Question
+Answer: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job?
+Gyuri takes 5 days to do 1/3 of a job, so Gyuri can do 1/3 of the job in 5 days.
+Seungyeon takes 2 days to do 1/5 of the job, so Seungyeon can do 1/5 of the job in 2 days.
+If Gyuri and Seungyeon work together, they can do 1/3 + 1/5 = 7/15 of the job in 5 + 2 = 7 days.
+Therefore, it will take 7 days for Gyuri and Seungyeon to finish the job. END Answer
+Question: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards. END Question
+Answer: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards.
+Credits: This problem was first proposed by the MIT Mathematics Department.
+Attribution: [MIT Mathematics Department](https://math.mit.edu/problems/prob.html)
+Solution:
+Let's call the length of the rectangle $x$. Since the width of the rectangle is the same as the length, we can write $x = w$.
+From the first card, we have $15x = 15w$.
+From the second card, we have $0.9 \times 15x = 13.5w$.
+Now, we have two equations and two unknowns. Solving them simultaneously, we get:
+$x = 12$ and $w = 10$.
+So, the area of the rectangle is:
+Area = $x \times w = 12 \times 10 = 120$.
+Therefore, the area of the rectangle is $120$. END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py:413: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  activation_inut_ids = torch.tensor(activation_data['input_ids']).to(device)
+Epoch 0, Step 10: Current Average Loss: 12.99642505645752
+Validation Loss after Epoch 0: 12.514625106539045
+Epoch 0, Step 20: Current Average Loss: 12.649713945388793
+Validation Loss after Epoch 0: 11.510611278670174
+Epoch 0, Step 30: Current Average Loss: 12.112169615427653
+Validation Loss after Epoch 0: 10.30475241797311
+Epoch 0, Step 40: Current Average Loss: 11.572016763687134
+Validation Loss after Epoch 0: 9.02450772694179
+Epoch 0, Step 50: Current Average Loss: 10.982686653137208
+Validation Loss after Epoch 0: 7.924134365149906
+Epoch 0, Step 60: Current Average Loss: 10.411710906028748
+Validation Loss after Epoch 0: 7.0505553654262
+Epoch 0, Step 70: Current Average Loss: 9.895668799536569
+Validation Loss after Epoch 0: 6.515118667057583
+Epoch 0, Step 80: Current Average Loss: 9.473324626684189
+Validation Loss after Epoch 0: 6.20179283618927
+Epoch 0, Step 90: Current Average Loss: 9.10483225186666
+Validation Loss after Epoch 0: 5.979920378753117
+Epoch 0, Step 100: Current Average Loss: 8.777350120544433
+Validation Loss after Epoch 0: 5.824510736124856
+Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: If you add 12 to a number and subtract 27, you get 24. Find the number. END Question
+Answer: If you add 12 to a number and subtract 27, you get 24. Find the number.
+222 12 2 222 12
+2 number 2 number 222
+ END Answer
+2nd Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 440, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 435, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 422, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num,activation_inut_ids, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 385, in train_epoch
+    evaluate_with_logistic_regression(model,activation_input_ids,training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 297, in evaluate_with_logistic_regression
+    with open(file_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/saved_lr_model/classifier_v1.pkl'
+Question: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi? END Question
+Answer: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi?
+ of
+ 2. 111
+1 the
+ is 20 2. 12
+ 21 END Answer
+Evaluating with Logistic Regression
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca
+['final_gradients_dense.pkl', 'gradients_dense_epoch_2.pkl', 'gradients_dense_epoch_1.pkl', 'final_llama7b_lora_fine_tune_dense', 'gradients_dense_epoch_0.pkl', 'classifier_v1.pkl', 'combination_activations_orca_gsm8k.ipynb', 'dense_activations_lora_orca_A1.pkl', 'sparse_activations_lora_orca_A1.pkl', 'lama2_7b_training_llms_on_activations_orca.ipynb', 'sparse_activations_lora_gsm8k_B1.pkl', 'dense_activations_lora_gsm8k_B1.pkl', 'orca_gradients', 'llama7b_lora_fine_tune_dense', 'llama7b_lora_fine_tune_sparse', 'wandb', 'llama7b_lora_fine_tune_orca.py']
