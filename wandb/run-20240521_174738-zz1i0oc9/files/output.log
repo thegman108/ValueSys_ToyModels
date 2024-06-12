@@ -1,0 +1,51 @@
+
+Downloading readme: 100%|██████████████████████████████████████████████████| 65.0/65.0 [00:00<00:00, 28.6kB/s]
+Downloading data: 100%|██████████████████████████████████████████████████| 7.90M/7.90M [00:00<00:00, 10.3MB/s]
+
+
+
+
+
+Downloading data: 100%|████████████████████████████████████████████████████| 456M/456M [00:12<00:00, 37.4MB/s]
+Downloading data: 100%|████████████████████████████████████████████████████| 829k/829k [00:00<00:00, 4.42MB/s]
+Downloading data: 100%|██████████████████████████████████████████████████| 12.2M/12.2M [00:01<00:00, 10.5MB/s]
+Generating train split: 949 examples [00:00, 15561.12 examples/s]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/datasets/builder.py", line 2011, in _prepare_split_single
+    writer.write_table(table)
+  File "/usr/local/lib/python3.10/dist-packages/datasets/arrow_writer.py", line 585, in write_table
+    pa_table = table_cast(pa_table, self._schema)
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 2295, in table_cast
+    return cast_table_to_schema(table, schema)
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 2254, in cast_table_to_schema
+    arrays = [cast_array_to_feature(table[name], feature) for name, feature in features.items()]
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 2254, in <listcomp>
+    arrays = [cast_array_to_feature(table[name], feature) for name, feature in features.items()]
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 1802, in wrapper
+    return pa.chunked_array([func(chunk, *args, **kwargs) for chunk in array.chunks])
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 1802, in <listcomp>
+    return pa.chunked_array([func(chunk, *args, **kwargs) for chunk in array.chunks])
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 2109, in cast_array_to_feature
+    return array_cast(
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 1804, in wrapper
+    return func(array, *args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/datasets/table.py", line 1955, in array_cast
+    raise TypeError(f"Couldn't cast array of type {array.type} to {pa_type}")
+TypeError: Couldn't cast array of type int64 to null
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_prm800_finetune.py", line 70, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_prm800_finetune.py", line 27, in main
+    dataset = load_dataset("tasksource/PRM800K")
+  File "/usr/local/lib/python3.10/dist-packages/datasets/load.py", line 2609, in load_dataset
+    builder_instance.download_and_prepare(
+  File "/usr/local/lib/python3.10/dist-packages/datasets/builder.py", line 1027, in download_and_prepare
+    self._download_and_prepare(
+  File "/usr/local/lib/python3.10/dist-packages/datasets/builder.py", line 1122, in _download_and_prepare
+    self._prepare_split(split_generator, **prepare_split_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/datasets/builder.py", line 1882, in _prepare_split
+    for job_id, done, content in self._prepare_split_single(
+  File "/usr/local/lib/python3.10/dist-packages/datasets/builder.py", line 2038, in _prepare_split_single
+    raise DatasetGenerationError("An error occurred while generating the dataset") from e
+datasets.exceptions.DatasetGenerationError: An error occurred while generating the dataset
