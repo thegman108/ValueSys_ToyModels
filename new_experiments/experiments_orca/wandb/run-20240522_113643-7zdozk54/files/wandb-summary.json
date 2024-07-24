@@ -1,0 +1,1 @@
+{"step_average_loss": 12.719040966033935, "total_steps": 9, "_timestamp": 1716377835.8709874, "_runtime": 31.997621297836304, "_step": 1, "validation_loss": 12.5312340429851, "epoch": 0, "_wandb": {"runtime": 42}}

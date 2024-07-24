@@ -1,0 +1,1 @@
+{"step_average_loss": 12.610769510269165, "total_steps": 19, "_timestamp": 1716378589.939568, "_runtime": 128.9740970134735, "_step": 4, "validation_loss": 11.510176045554024, "epoch": 0, "logistic_regression_accuracy": 0.44765625, "logistic_regression_precision": 1.0, "logistic_regression_recall": 0.44765625, "_wandb": {"runtime": 209}}

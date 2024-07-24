@@ -1,0 +1,47 @@
+Map:   0%|                                                                                                                                                                                                                                                    | 0/150 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:00<00:00, 5591.26 examples/s]
+Question being sent From the 0.35 kilometer (km) point to the 0.37 kilometer (km) point of a certain road, it was decided to divide it into 4 equal sections and plant street trees from beginning to end. How many kilometers (km) is the location of the street tree planted at the fourth point using a decimal number?
+Question: From the 0.35 kilometer (km) point to the 0.37 kilometer (km) point of a certain road, it was decided to divide it into 4 equal sections and plant street trees from beginning to end. How many kilometers (km) is the location of the street tree planted at the fourth point using a decimal number? END Question
+Answer: From the 0.35 kilometer (km) point to the 0.37 kilometer (km) point of a certain road, it was decided to divide it into 4 equal sections and plant street trees from beginning to end. How many kilometers (km) is the location of the street tree planted at the fourth point using a decimal number?
+Let's say the distance between the 0.35 km point and the 0.37 km point is x km.
+Since the distance is divided into 4 equal sections, the distance between each section is 0.015 km (x/4).
+So, the distance between the 0.35 km point and the 0.37 km point is 0.015 km + 0.015 km + 0.015 km + 0.015 km = 0.065 km.
+Therefore, the location of the street tree planted at the fourth point is 0.065 km. END Answer
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py:413: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  activation_inut_ids = torch.tensor(activation_data['input_ids']).to(device)
+Question: You're trying to move 48 one-metric ton (m/t) objects. How many trips would it take to move 6 trucks that can load up to 4-metric ton (m/t) at a time? END Question
+Answer: You're trying to move 48 one-metric ton (m/t) objects. How many trips would it take to move 6 trucks that can load up to 4-metric ton (m/t) at a time?
+The formula to find out how many trips it would take to move a certain amount of weight is:
+Trips = Weight / Load Capacity
+In this case, the weight is 48 m/t and the load capacity of each truck is 4 m/t.
+Trips = 48 m/t / 4 m/t = 12 trips
+So, it would take 12 trips to move 48 one-metric ton objects using 6 trucks that can load up to 4-metric ton at a time. END Answer
+Question: 225 is the result of adding 20 to a number and multiplying it by 5 by mistake, when it was supposed to be adding 20 and dividing it by 5. How much is it if you calculate it correctly? END Question
+Answer: 225 is the result of adding 20 to a number and multiplying it by 5 by mistake, when it was supposed to be adding 20 and dividing it by 5. How much is it if you calculate it correctly? END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+Epoch 0, Step 10: Current Average Loss: 12.763337326049804
+Validation Loss after Epoch 0: 13.06660795211792
+Average Training Loss for Epoch 0: 12.596433583427878
+/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:611: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-664dd772-65f17f013ea6c1c76f7f5331;211c727b-3640-4931-b8d2-36c69510d0b1)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+Epoch 1, Step 10: Current Average Loss: 11.36745252609253
+Validation Loss after Epoch 1: 11.26290782292684
+Average Training Loss for Epoch 1: 11.004573765922995
+Checkpoint saved: dense_model_checkpoint_epoch_1.pth
+Epoch 2, Step 10: Current Average Loss: 9.452234363555908
+/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:611: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-664dd775-664794736598c3440e25d7c0;1f1037c0-ac57-4634-afb7-5b6a4850bb18)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+Validation Loss after Epoch 2: 9.038899898529053
+Average Training Loss for Epoch 2: 8.896955742555505
+Checkpoint saved: dense_model_checkpoint_epoch_2.pth

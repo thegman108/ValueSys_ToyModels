@@ -1,0 +1,64 @@
+
+Question being sent There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Question: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number. END Question
+Answer: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Hint: Think of a number that is divisible by 6 and 9, and then use the information provided to find the number.
+Answer:
+The two digit number is 36.
+Explanation:
+36 is divisible by 6 and 9, and when divided by 7, the remainder is 1. END Answer
+Question: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job? END Question
+Answer: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job?
+Gyuri works at a rate of 1/3 of the job in 5 days, so Gyuri's work rate is 1/3.
+Seungyeon works at a rate of 1/5 of the job in 2 days, so Seungyeon's work rate is 1/5.
+When Gyuri and Seungyeon work together, their combined work rate is the sum of their individual work rates:
+1/3 + 1/5 = 7/15
+So, it will take 7/15 of the time it would take Gyuri or Seungyeon working alone to finish the job. In this case, it will take 7/15 x 5 = 75/15 = 5 days to finish the job. END Answer
+Question: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards. END Question
+Answer: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards.
+Answer:
+The length of the rectangle is 15, and the width is 13.5.
+Explanation:
+The card with the value 15 has a length of 15, and the card with the value of 15 multiplied by 0.9 has a width of 13.5. Since the length and width are the same, the area of the rectangle is 15 x 13.5 = 192.5 square units. END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py:415: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  activation_inut_ids = torch.tensor(activation_data['input_ids']).to(device)
+Epoch 0, Step 10: Current Average Loss: 12.719040966033935
+Validation Loss after Epoch 0: 12.5312340429851
+Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: If you add 12 to a number and subtract 27, you get 24. Find the number. END Question
+Answer: If you add 12 to a number and subtract 27, you get 24. Find the number.
+What is the value of x in the equation:
+2x + 5 = 17
+If you multiply 4 by 3, you get 12. If you add 5 to 12, you get 17. Find the value of x in the equation:
+4x + 3 = 17
+If you subtract 5 from 17, you get 12. If you divide 12 by 3, you get 4. Find the value of x in the equation:
+12 - 5 = 4
+If you add 7 to 4, you get 11. If you multiply 11 by 2, you get 22. Find the value of x in the equation:
+4 + 7 = 22
+If you subtract 8 from 22, you get 14. If you divide 14 by 2, you get 7. Find the value of x in the equation:
+22 - 8 = 7
+If you add 9 to 7, you get 16. If you multiply 16 by 2, you get 32. Find the value of x in the equation: END Answer
+2nd Question being sent If you add 12 to a number and subtract 27, you get 24. Find the number.
+Question: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi? END Question
+Answer: You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, how many students are shorter than Yoongi?
+You are comparing the heights of 20 students. If there are 11 students taller than Yoongi, then there are 9 students who are shorter than Yoongi. END Answer
+Evaluating with Logistic Regression
+/workspace/ValueSys_ToyModels/new_experiments/experiments_orca
+['final_gradients_dense.pkl', 'gradients_dense_epoch_2.pkl', 'gradients_dense_epoch_1.pkl', 'final_llama7b_lora_fine_tune_dense', 'gradients_dense_epoch_0.pkl', 'classifier_v1.pkl', 'combination_activations_orca_gsm8k.ipynb', 'dense_activations_lora_orca_A1.pkl', 'sparse_activations_lora_orca_A1.pkl', 'lama2_7b_training_llms_on_activations_orca.ipynb', 'sparse_activations_lora_gsm8k_B1.pkl', 'dense_activations_lora_gsm8k_B1.pkl', 'orca_gradients', 'llama7b_lora_fine_tune_dense', 'llama7b_lora_fine_tune_sparse', 'wandb', 'llama7b_lora_fine_tune_orca.py']
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 442, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 437, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 424, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num,activation_inut_ids, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 387, in train_epoch
+    evaluate_with_logistic_regression(model,activation_input_ids,training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py", line 303, in evaluate_with_logistic_regression
+    activation_values = generate_activations(model, input_id_activations)
+TypeError: train.<locals>.generate_activations() missing 1 required positional argument: 'device'

@@ -1,0 +1,241 @@
+2024-05-22 11:30:28,446 INFO    StreamThr :92515 [internal.py:wandb_internal():85] W&B internal server running at pid: 92515, started at: 2024-05-22 11:30:28.444844
+2024-05-22 11:30:28,448 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status
+2024-05-22 11:30:28,463 INFO    WriterThread:92515 [datastore.py:open_for_write():87] open: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/run-gn6podyx.wandb
+2024-05-22 11:30:28,465 DEBUG   SenderThread:92515 [sender.py:send():378] send: header
+2024-05-22 11:30:28,490 DEBUG   SenderThread:92515 [sender.py:send():378] send: run
+2024-05-22 11:30:28,743 INFO    SenderThread:92515 [dir_watcher.py:__init__():211] watching files in: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files
+2024-05-22 11:30:28,743 INFO    SenderThread:92515 [sender.py:_start_run_threads():1123] run started: gn6podyx with start time 1716377428.445164
+2024-05-22 11:30:28,758 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: check_version
+2024-05-22 11:30:28,759 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: check_version
+2024-05-22 11:30:28,864 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: run_start
+2024-05-22 11:30:28,894 DEBUG   HandlerThread:92515 [system_info.py:__init__():26] System info init
+2024-05-22 11:30:28,894 DEBUG   HandlerThread:92515 [system_info.py:__init__():41] System info init done
+2024-05-22 11:30:28,895 INFO    HandlerThread:92515 [system_monitor.py:start():194] Starting system monitor
+2024-05-22 11:30:28,895 INFO    SystemMonitor:92515 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-05-22 11:30:28,895 INFO    HandlerThread:92515 [system_monitor.py:probe():214] Collecting system info
+2024-05-22 11:30:28,897 INFO    SystemMonitor:92515 [interfaces.py:start():188] Started cpu monitoring
+2024-05-22 11:30:28,899 INFO    SystemMonitor:92515 [interfaces.py:start():188] Started disk monitoring
+2024-05-22 11:30:28,900 INFO    SystemMonitor:92515 [interfaces.py:start():188] Started gpu monitoring
+2024-05-22 11:30:28,902 INFO    SystemMonitor:92515 [interfaces.py:start():188] Started memory monitoring
+2024-05-22 11:30:28,905 INFO    SystemMonitor:92515 [interfaces.py:start():188] Started network monitoring
+2024-05-22 11:30:28,973 DEBUG   HandlerThread:92515 [system_info.py:probe():150] Probing system
+2024-05-22 11:30:28,981 DEBUG   HandlerThread:92515 [system_info.py:_probe_git():135] Probing git
+2024-05-22 11:30:29,009 DEBUG   HandlerThread:92515 [system_info.py:_probe_git():143] Probing git done
+2024-05-22 11:30:29,009 DEBUG   HandlerThread:92515 [system_info.py:probe():198] Probing system done
+2024-05-22 11:30:29,010 DEBUG   HandlerThread:92515 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-91-generic-x86_64-with-glibc2.35', 'python': '3.10.12', 'heartbeatAt': '2024-05-22T11:30:28.973540', 'startedAt': '2024-05-22T11:30:28.418244', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py', 'codePathLocal': 'llama7b_lora_fine_tune_orca.py', 'codePath': 'new_experiments/experiments_orca/llama7b_lora_fine_tune_orca.py', 'git': {'remote': 'https://github.com/thegman108/ValueSys_ToyModels.git', 'commit': 'df7a7bd0353d1c9914bac28dfa4a9c8cbfc0b62a'}, 'email': 'jprivera44@gmail.com', 'root': '/workspace/ValueSys_ToyModels', 'host': '9f33840f1451', 'username': 'root', 'executable': '/usr/bin/python', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 1848.0466796875, 'min': 1500.0, 'max': 2600.0}, 'cpu_freq_per_core': [{'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2000.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2000.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2000.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 3667.872, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2000.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2028.078, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}, {'current': 2600.0, 'min': 1500.0, 'max': 2600.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2600.0}], 'disk': {'/': {'total': 20.0, 'used': 2.4318771362304688}}, 'gpu': 'NVIDIA A100-SXM4-80GB', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}], 'memory': {'total': 1007.7179908752441}}
+2024-05-22 11:30:29,011 INFO    HandlerThread:92515 [system_monitor.py:probe():224] Finished collecting system info
+2024-05-22 11:30:29,011 INFO    HandlerThread:92515 [system_monitor.py:probe():227] Publishing system info
+2024-05-22 11:30:29,015 INFO    HandlerThread:92515 [system_monitor.py:probe():229] Finished publishing system info
+2024-05-22 11:30:29,019 DEBUG   SenderThread:92515 [sender.py:send():378] send: files
+2024-05-22 11:30:29,019 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-metadata.json with policy now
+2024-05-22 11:30:29,165 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: python_packages
+2024-05-22 11:30:29,166 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-22 11:30:29,166 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: python_packages
+2024-05-22 11:30:29,171 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: stop_status
+2024-05-22 11:30:29,311 DEBUG   SenderThread:92515 [sender.py:send():378] send: telemetry
+2024-05-22 11:30:29,391 INFO    wandb-upload_0:92515 [upload_job.py:push():130] Uploaded file /tmp/tmpjl2qlxmjwandb/kgq5580e-wandb-metadata.json
+2024-05-22 11:30:29,749 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-metadata.json
+2024-05-22 11:30:29,750 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/requirements.txt
+2024-05-22 11:30:32,755 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:33,621 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status_report
+2024-05-22 11:30:34,764 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:36,773 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:38,666 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status_report
+2024-05-22 11:30:43,667 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status_report
+2024-05-22 11:30:44,167 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-22 11:30:44,168 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: stop_status
+2024-05-22 11:30:48,669 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status_report
+2024-05-22 11:30:48,837 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:52,856 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:53,082 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:30:53,084 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:30:53,085 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:30:53,089 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:30:53,597 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:30:53,599 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:30:53,600 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:30:53,605 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:30:53,861 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json
+2024-05-22 11:30:54,607 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status_report
+2024-05-22 11:30:54,715 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:30:54,717 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:30:54,718 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:30:54,721 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:30:54,865 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json
+2024-05-22 11:30:54,866 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:56,374 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:30:56,376 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:30:56,378 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:30:56,381 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:30:56,873 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json
+2024-05-22 11:30:56,875 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:56,887 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:30:56,889 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:30:56,890 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:30:56,893 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:30:58,003 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:30:58,005 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:30:58,006 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:30:58,011 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:30:58,883 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json
+2024-05-22 11:30:58,885 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:30:59,166 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-22 11:30:59,168 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: stop_status
+2024-05-22 11:30:59,875 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:30:59,885 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status_report
+2024-05-22 11:30:59,977 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:30:59,978 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:30:59,982 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:31:00,387 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:31:00,389 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:31:00,390 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:31:00,394 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:31:00,894 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/config.yaml
+2024-05-22 11:31:00,895 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json
+2024-05-22 11:31:00,898 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:31:01,503 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-22 11:31:01,505 DEBUG   SenderThread:92515 [sender.py:send():378] send: history
+2024-05-22 11:31:01,506 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: summary_record
+2024-05-22 11:31:01,511 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:31:01,702 DEBUG   SenderThread:92515 [sender.py:send():378] send: exit
+2024-05-22 11:31:01,703 INFO    SenderThread:92515 [sender.py:send_exit():585] handling exit code: 0
+2024-05-22 11:31:01,704 INFO    SenderThread:92515 [sender.py:send_exit():587] handling runtime: 32
+2024-05-22 11:31:01,707 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:31:01,708 INFO    SenderThread:92515 [sender.py:send_exit():593] send defer
+2024-05-22 11:31:01,709 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,709 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 0
+2024-05-22 11:31:01,710 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,710 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-05-22 11:31:01,711 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 1
+2024-05-22 11:31:01,711 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,712 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 1
+2024-05-22 11:31:01,712 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,713 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-05-22 11:31:01,713 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 2
+2024-05-22 11:31:01,713 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,714 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 2
+2024-05-22 11:31:01,714 INFO    HandlerThread:92515 [system_monitor.py:finish():203] Stopping system monitor
+2024-05-22 11:31:01,715 DEBUG   SystemMonitor:92515 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-05-22 11:31:01,717 INFO    HandlerThread:92515 [interfaces.py:finish():200] Joined cpu monitor
+2024-05-22 11:31:01,717 DEBUG   SystemMonitor:92515 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-05-22 11:31:01,717 INFO    HandlerThread:92515 [interfaces.py:finish():200] Joined disk monitor
+2024-05-22 11:31:01,718 DEBUG   SystemMonitor:92515 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-05-22 11:31:01,740 INFO    HandlerThread:92515 [interfaces.py:finish():200] Joined gpu monitor
+2024-05-22 11:31:01,741 INFO    HandlerThread:92515 [interfaces.py:finish():200] Joined memory monitor
+2024-05-22 11:31:01,742 INFO    HandlerThread:92515 [interfaces.py:finish():200] Joined network monitor
+2024-05-22 11:31:01,743 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,743 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-05-22 11:31:01,744 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 3
+2024-05-22 11:31:01,744 DEBUG   SenderThread:92515 [sender.py:send():378] send: stats
+2024-05-22 11:31:01,744 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,746 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 3
+2024-05-22 11:31:01,747 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,747 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-05-22 11:31:01,747 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 4
+2024-05-22 11:31:01,748 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,748 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 4
+2024-05-22 11:31:01,749 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,749 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-05-22 11:31:01,750 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 5
+2024-05-22 11:31:01,750 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,751 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 5
+2024-05-22 11:31:01,751 DEBUG   SenderThread:92515 [sender.py:send():378] send: summary
+2024-05-22 11:31:01,754 INFO    SenderThread:92515 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-22 11:31:01,755 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,755 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-05-22 11:31:01,756 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 6
+2024-05-22 11:31:01,756 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,756 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 6
+2024-05-22 11:31:01,757 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,757 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-05-22 11:31:01,757 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 7
+2024-05-22 11:31:01,758 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: status_report
+2024-05-22 11:31:01,758 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:01,758 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 7
+2024-05-22 11:31:01,759 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:01,759 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-05-22 11:31:01,898 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json
+2024-05-22 11:31:02,703 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-22 11:31:02,736 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 8
+2024-05-22 11:31:02,737 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: poll_exit
+2024-05-22 11:31:02,737 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:02,738 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 8
+2024-05-22 11:31:02,739 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:02,740 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-05-22 11:31:02,740 INFO    SenderThread:92515 [job_builder.py:build():432] Attempting to build job artifact
+2024-05-22 11:31:02,743 INFO    SenderThread:92515 [job_builder.py:_get_source_type():565] is repo sourced job
+2024-05-22 11:31:02,766 INFO    SenderThread:92515 [job_builder.py:build():541] adding wandb-job metadata file
+2024-05-22 11:31:02,774 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 9
+2024-05-22 11:31:02,775 DEBUG   SenderThread:92515 [sender.py:send():378] send: artifact
+2024-05-22 11:31:02,775 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:02,779 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 9
+2024-05-22 11:31:02,905 INFO    Thread-12 :92515 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:31:03,305 INFO    wandb-upload_1:92515 [upload_job.py:push():85] Skipped uploading /root/.local/share/wandb/artifacts/staging/tmpke8bgjqe
+2024-05-22 11:31:03,489 INFO    wandb-upload_0:92515 [upload_job.py:push():88] Uploaded file /tmp/tmpzvwlg2h7/wandb-job.json
+2024-05-22 11:31:03,703 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-22 11:31:04,136 INFO    SenderThread:92515 [sender.py:send_artifact():1467] sent artifact job-https___github.com_thegman108_ValueSys_ToyModels.git_new_experiments_experiments_orca_llama7b_lora_fine_tune_orca.py - {'id': 'QXJ0aWZhY3Q6ODQ2MDM5MTYz', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE3Nzg3NjE0Ng==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6ODQ2MDM3OTQw', 'versionIndex': 1}}}
+2024-05-22 11:31:04,137 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:04,138 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-05-22 11:31:04,138 INFO    SenderThread:92515 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-05-22 11:31:04,913 INFO    SenderThread:92515 [dir_watcher.py:finish():388] scan: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files
+2024-05-22 11:31:04,914 INFO    SenderThread:92515 [dir_watcher.py:finish():402] scan save: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json wandb-summary.json
+2024-05-22 11:31:04,915 INFO    SenderThread:92515 [dir_watcher.py:finish():402] scan save: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log output.log
+2024-05-22 11:31:04,922 INFO    SenderThread:92515 [dir_watcher.py:finish():402] scan save: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/requirements.txt requirements.txt
+2024-05-22 11:31:04,926 INFO    SenderThread:92515 [dir_watcher.py:finish():402] scan save: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-metadata.json wandb-metadata.json
+2024-05-22 11:31:04,926 INFO    SenderThread:92515 [dir_watcher.py:finish():402] scan save: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/config.yaml config.yaml
+2024-05-22 11:31:04,932 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 10
+2024-05-22 11:31:04,932 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: poll_exit
+2024-05-22 11:31:04,932 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:04,937 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 10
+2024-05-22 11:31:04,938 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:04,939 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-05-22 11:31:04,939 INFO    SenderThread:92515 [file_pusher.py:finish():169] shutting down file pusher
+2024-05-22 11:31:05,120 INFO    wandb-upload_1:92515 [upload_job.py:push():130] Uploaded file /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/wandb-summary.json
+2024-05-22 11:31:05,468 INFO    wandb-upload_0:92515 [upload_job.py:push():130] Uploaded file /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/output.log
+2024-05-22 11:31:05,628 INFO    wandb-upload_2:92515 [upload_job.py:push():130] Uploaded file /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/requirements.txt
+2024-05-22 11:31:05,705 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-22 11:31:05,706 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: poll_exit
+2024-05-22 11:31:05,722 INFO    wandb-upload_3:92515 [upload_job.py:push():130] Uploaded file /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/files/config.yaml
+2024-05-22 11:31:05,923 INFO    Thread-11 (_thread_body):92515 [sender.py:transition_state():613] send defer: 11
+2024-05-22 11:31:05,923 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:05,924 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 11
+2024-05-22 11:31:05,925 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:05,925 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-05-22 11:31:05,926 INFO    SenderThread:92515 [file_pusher.py:join():175] waiting for file pusher
+2024-05-22 11:31:05,926 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 12
+2024-05-22 11:31:05,927 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:05,927 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 12
+2024-05-22 11:31:05,928 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:05,928 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-05-22 11:31:05,929 INFO    SenderThread:92515 [file_stream.py:finish():601] file stream finish called
+2024-05-22 11:31:06,013 INFO    SenderThread:92515 [file_stream.py:finish():605] file stream finish is done
+2024-05-22 11:31:06,013 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 13
+2024-05-22 11:31:06,014 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:06,015 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 13
+2024-05-22 11:31:06,015 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:06,016 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-05-22 11:31:06,016 INFO    SenderThread:92515 [sender.py:transition_state():613] send defer: 14
+2024-05-22 11:31:06,017 DEBUG   SenderThread:92515 [sender.py:send():378] send: final
+2024-05-22 11:31:06,017 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: defer
+2024-05-22 11:31:06,018 DEBUG   SenderThread:92515 [sender.py:send():378] send: footer
+2024-05-22 11:31:06,018 INFO    HandlerThread:92515 [handler.py:handle_request_defer():184] handle defer: 14
+2024-05-22 11:31:06,019 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: defer
+2024-05-22 11:31:06,019 INFO    SenderThread:92515 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-05-22 11:31:06,021 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-22 11:31:06,021 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-22 11:31:06,022 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: poll_exit
+2024-05-22 11:31:06,022 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: server_info
+2024-05-22 11:31:06,023 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: poll_exit
+2024-05-22 11:31:06,023 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: get_summary
+2024-05-22 11:31:06,024 DEBUG   SenderThread:92515 [sender.py:send_request():405] send_request: server_info
+2024-05-22 11:31:06,025 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: sampled_history
+2024-05-22 11:31:06,030 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: internal_messages
+2024-05-22 11:31:06,094 INFO    MainThread:92515 [wandb_run.py:_footer_history_summary_info():3994] rendering history
+2024-05-22 11:31:06,095 INFO    MainThread:92515 [wandb_run.py:_footer_history_summary_info():4026] rendering summary
+2024-05-22 11:31:06,095 INFO    MainThread:92515 [wandb_run.py:_footer_sync_info():3953] logging synced files
+2024-05-22 11:31:06,097 DEBUG   HandlerThread:92515 [handler.py:handle_request():158] handle_request: shutdown
+2024-05-22 11:31:06,097 INFO    HandlerThread:92515 [handler.py:finish():882] shutting down handler
+2024-05-22 11:31:07,024 INFO    WriterThread:92515 [datastore.py:close():296] close: /workspace/ValueSys_ToyModels/new_experiments/experiments_orca/wandb/run-20240522_113028-gn6podyx/run-gn6podyx.wandb
+2024-05-22 11:31:07,094 INFO    SenderThread:92515 [sender.py:finish():1545] shutting down sender
+2024-05-22 11:31:07,095 INFO    SenderThread:92515 [file_pusher.py:finish():169] shutting down file pusher
+2024-05-22 11:31:07,097 INFO    SenderThread:92515 [file_pusher.py:join():175] waiting for file pusher

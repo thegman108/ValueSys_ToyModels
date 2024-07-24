@@ -1,0 +1,144 @@
+Map:   0%|                                                                                                                                                                             | 0/500 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 7763.09 examples/s]
+Question being sent There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Question: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number. END Question
+Answer: There is a two digit number. This number is divisible by 6 and 9, and when divided by 7, the remainder is 1. Find this two digit number.
+Hint: Think about the number line and how the digits relate to each other.
+Answer:
+The two digit number is 39.
+Explanation:
+When divided by 6, the number 39 leaves a remainder of 0, which means it is divisible by 6.
+When divided by 9, the number 39 leaves a remainder of 1, which means it is divisible by 9.
+When divided by 7, the number 39 leaves a remainder of 1, which means it satisfies the condition given in the problem. END Answer
+Question: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job? END Question
+Answer: Gyuri takes 5 days to do 1/3 of a job, and Seungyeon takes 2 days to do 1/5 of the same job. If Gyuri and Seungyeon work together, how many days will it take to finish the job?
+Gyuri works at a rate of 1/3 of the job in 5 days, so Gyuri's rate is 1/3.
+Seungyeon works at a rate of 1/5 of the job in 2 days, so Seungyeon's rate is 1/5.
+When Gyuri and Seungyeon work together, their combined rate is the sum of their individual rates:
+1/3 + 1/5 = 7/15
+So, it will take 7/15 of the time it would take one person to finish the job alone to finish the job with both Gyuri and Seungyeon working together. END Answer
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Question: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards. END Question
+Answer: There are 2 number cards. One has 15 written on it, and the other has the value of number on the first card multiplied by 0.9. Find the area of the rectangle whose length and width are the same numbers on these two cards.
+The two cards are:
+Card 1: 15
+Card 2: 15 x 0.9 = 13.5
+To find the area of the rectangle, we need to multiply the length by the width. Since the length and width are the same on both cards, we can simply multiply the numbers on the two cards:
+Area = 15 x 13.5 = 192.5 square units
+Therefore, the area of the rectangle is 192.5 square units. END Answer
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+Epoch 0, Step 10: Current Average Loss: 13.117642784118653
+Validation Loss after Epoch 0: 12.538842626980372
+Epoch 0, Step 20: Current Average Loss: 12.72099986076355
+Validation Loss after Epoch 0: 11.558449796267919
+Epoch 0, Step 30: Current Average Loss: 12.148045253753661
+Validation Loss after Epoch 0: 10.225737248148237
+Epoch 0, Step 40: Current Average Loss: 11.554645013809203
+Validation Loss after Epoch 0: 8.94666418007442
+Epoch 0, Step 50: Current Average Loss: 10.966213884353637
+Validation Loss after Epoch 0: 7.853400111198425
+Epoch 0, Step 60: Current Average Loss: 10.35645223458608
+Validation Loss after Epoch 0: 7.017064596925463
+Epoch 0, Step 70: Current Average Loss: 9.859343433380127
+Validation Loss after Epoch 0: 6.488912054470608
+Epoch 0, Step 80: Current Average Loss: 9.416732156276703
+Validation Loss after Epoch 0: 6.18530546767371
+Epoch 0, Step 90: Current Average Loss: 9.060857857598199
+Validation Loss after Epoch 0: 5.956218004226685
+Epoch 0, Step 100: Current Average Loss: 8.746652297973633
+Validation Loss after Epoch 0: 5.799542001315525
+Epoch 0, Step 110: Current Average Loss: 8.48020160848444
+Validation Loss after Epoch 0: 5.67950564622879
+Epoch 0, Step 120: Current Average Loss: 8.24533315896988
+Validation Loss after Epoch 0: 5.581071249076298
+Epoch 0, Step 130: Current Average Loss: 8.040495531375592
+Validation Loss after Epoch 0: 5.507489749363491
+Epoch 0, Step 140: Current Average Loss: 7.857696914672852
+Validation Loss after Epoch 0: 5.440900504589081
+Epoch 0, Step 150: Current Average Loss: 7.6914265346527095
+Validation Loss after Epoch 0: 5.375852916921888
+Epoch 0, Step 160: Current Average Loss: 7.537001946568489
+Validation Loss after Epoch 0: 5.329570625509534
+Average Training Loss for Epoch 0: 7.438711648929619
+Epoch 1, Step 10: Current Average Loss: 5.370791912078857
+Validation Loss after Epoch 1: 5.245870419910976
+Epoch 1, Step 20: Current Average Loss: 5.318780374526978
+Validation Loss after Epoch 1: 5.204387051718576
+Epoch 1, Step 30: Current Average Loss: 5.292078018188477
+Validation Loss after Epoch 1: 5.130149943487985
+Epoch 1, Step 40: Current Average Loss: 5.269499039649963
+Validation Loss after Epoch 1: 5.104260589395251
+Epoch 1, Step 50: Current Average Loss: 5.221601877212525
+Validation Loss after Epoch 1: 5.080605532441821
+Epoch 1, Step 60: Current Average Loss: 5.19246830145518
+Validation Loss after Epoch 1: 5.088290802070072
+Epoch 1, Step 70: Current Average Loss: 5.197506781986782
+Validation Loss after Epoch 1: 5.10874685219356
+Epoch 1, Step 80: Current Average Loss: 5.185521012544632
+Validation Loss after Epoch 1: 5.0356734820774625
+Epoch 1, Step 90: Current Average Loss: 5.168474112616645
+Validation Loss after Epoch 1: 5.0029212066105435
+Epoch 1, Step 100: Current Average Loss: 5.139354128837585
+Validation Loss after Epoch 1: 4.991138747760227
+Epoch 1, Step 110: Current Average Loss: 5.116444912823764
+Validation Loss after Epoch 1: 4.974115584577833
+Epoch 1, Step 120: Current Average Loss: 5.1054152290026344
+Validation Loss after Epoch 1: 4.9840856194496155
+Epoch 1, Step 130: Current Average Loss: 5.089824269368099
+Validation Loss after Epoch 1: 4.94665652513504
+Epoch 1, Step 140: Current Average Loss: 5.079277801513672
+Validation Loss after Epoch 1: 4.931560482297625
+Epoch 1, Step 150: Current Average Loss: 5.069261264801026
+Validation Loss after Epoch 1: 4.919497949736459
+Epoch 1, Step 160: Current Average Loss: 5.046859383583069
+Validation Loss after Epoch 1: 4.914840834481375
+Average Training Loss for Epoch 1: 5.044406868026642
+/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:611: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-664d9110-61cf55ae1f6405583890483d;3cfb5cb0-c966-42b5-85bb-6b9e730aa319)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+Checkpoint saved: dense_model_checkpoint_epoch_1.pth
+Epoch 2, Step 10: Current Average Loss: 4.798491811752319
+Validation Loss after Epoch 2: 4.942267520087106
+Epoch 2, Step 20: Current Average Loss: 4.853226518630981
+Validation Loss after Epoch 2: 4.878460926668985
+Epoch 2, Step 30: Current Average Loss: 4.856092103322347
+Validation Loss after Epoch 2: 4.87559164421899
+Epoch 2, Step 40: Current Average Loss: 4.850524389743805
+Validation Loss after Epoch 2: 4.871812352112362
+Epoch 2, Step 50: Current Average Loss: 4.850963592529297
+Validation Loss after Epoch 2: 4.847308857100351
+Epoch 2, Step 60: Current Average Loss: 4.853382380803426
+Validation Loss after Epoch 2: 4.852390033858163
+Epoch 2, Step 70: Current Average Loss: 4.8566900253295895
+Validation Loss after Epoch 2: 4.829420387744904
+Epoch 2, Step 80: Current Average Loss: 4.842087268829346
+Validation Loss after Epoch 2: 4.812777468136379
+Epoch 2, Step 90: Current Average Loss: 4.835053571065267
+Validation Loss after Epoch 2: 4.801821410655975
+Epoch 2, Step 100: Current Average Loss: 4.837509884834289
+Validation Loss after Epoch 2: 4.81308685030256
+Epoch 2, Step 110: Current Average Loss: 4.819702243804931
+Validation Loss after Epoch 2: 4.805281238896506
+Epoch 2, Step 120: Current Average Loss: 4.827284646034241
+Validation Loss after Epoch 2: 4.790628961154392
+Epoch 2, Step 130: Current Average Loss: 4.82886517231281
+Validation Loss after Epoch 2: 4.774505879197802
+Epoch 2, Step 140: Current Average Loss: 4.823923982892718
+Validation Loss after Epoch 2: 4.7694249749183655
+Epoch 2, Step 150: Current Average Loss: 4.82332929611206
+Validation Loss after Epoch 2: 4.77578775371824
+Epoch 2, Step 160: Current Average Loss: 4.820433095097542
+Validation Loss after Epoch 2: 4.773931562900543
+Average Training Loss for Epoch 2: 4.816003639540987
+Checkpoint saved: dense_model_checkpoint_epoch_2.pth
+/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:611: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-664d917a-6a492610381d62541ff4305e;c22fda71-7d3b-46f5-a3ab-ebdf1aaeb96a)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
