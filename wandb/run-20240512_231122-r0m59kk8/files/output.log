@@ -1,0 +1,18 @@
+
+Question being sent Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 257, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 252, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 108, in train
+    generate_answer(model, tokenizer, question, device)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 43, in generate_answer
+    outputs = model.generate(input_ids, attention_mask=attention_mask, max_length=64)
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/generation/utils.py", line 1499, in generate
+    self._validate_generated_length(generation_config, input_ids_length, has_default_max_length)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/generation/utils.py", line 1149, in _validate_generated_length
+    raise ValueError(
+ValueError: Input length of input_ids is 64, but `max_length` is set to 64. This can lead to unexpected behavior. You should consider increasing `max_length` or, better yet, setting `max_new_tokens`.

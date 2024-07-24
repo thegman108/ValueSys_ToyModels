@@ -1,0 +1,10 @@
+Map: 100%|███████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 8910.06 examples/s]
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 185, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 180, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 165, in train
+    for epoch_num in epochs:
+TypeError: 'int' object is not iterable
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199

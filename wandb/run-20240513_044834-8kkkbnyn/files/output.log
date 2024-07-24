@@ -1,0 +1,26 @@
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+model output tensor(13.9902, device='cuda:0', grad_fn=<NllLossBackward0>)
+labels tensor([    1,   450, 27593,   338, 29871, 29946, 29900, 29900,  6515,   322,
+          278, 23028, 29879,  8323,   395, 29900, 29889, 29900, 29945,   639,
+         1813,   363,   263,  3001,   310, 29871, 29946, 29900, 29900, 10521,
+        29900, 29945,   353,   395,  9314, 29946, 29900, 29900, 29930, 29900,
+        29889, 29900, 29945, 29922, 29906, 29900, 29889, 29900, 29900,  6778,
+        29906, 29900, 29889, 29900, 29900,   639, 27593,    13, 13468,  4225,
+        29871, 29896, 29900, 14591], device='cuda:0')
+decoded labels The manuscript is 400 pages and the printers charge $0.05 per page for a total of 400*.05 = $<<400*0.05=20.00>>20.00 per manuscript
+She needs 10 copies
+True Steps ['400*0.05=20.00']
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 321, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 316, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 305, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 265, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 195, in dense_loss
+    model_steps, model_final = extract_steps_and_final_answer(decoded_outputs)
+NameError: name 'decoded_outputs' is not defined

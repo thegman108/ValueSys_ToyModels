@@ -1,0 +1,10 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 190, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 185, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tunep2.py", line 132, in train
+    optimizer = bnb(model.parameters(), lr=5e-5, weight_decay=0.001)
+TypeError: 'module' object is not callable

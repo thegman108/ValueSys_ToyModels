@@ -1,0 +1,120 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 45%|█████████████████████████████████                                         | 50/112 [05:32<03:27,  3.35s/it]/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:581: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-663f1917-3f1fa73854b7746e3a1949cc;50f024a0-de1b-4887-bb08-d229ce91dea9)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 10.489, 'grad_norm': 0.019095737487077713, 'learning_rate': 2.0, 'epoch': 0.45}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 89%|█████████████████████████████████████████████████████████████████▏       | 100/112 [11:04<00:53,  4.49s/it]/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:581: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-663f1a63-6b123fd92070523b55e04fd4;c2eade29-bf10-4c50-800b-0473d1907406)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 8.3142, 'grad_norm': 0.0028186780400574207, 'learning_rate': 2.0, 'epoch': 0.89}
+
+
+
+
+
+
+
+
+
+ 99%|████████████████████████████████████████████████████████████████████████▎| 111/112 [11:48<00:05,  5.52s/it]
+
+100%|█████████████████████████████████████████████████████████████████████████| 112/112 [11:49<00:00,  6.33s/it]

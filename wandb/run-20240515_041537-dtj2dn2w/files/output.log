@@ -1,0 +1,38 @@
+
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:521: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+model output, loss tensor(13.6981, device='cuda:0', grad_fn=<NllLossBackward0>)
+model output, logits tensor([19838,   526,  1784, 29896, 29900, 29900,   297,   263,   770, 29889,
+          450, 29871, 29896, 29945, 29946, 29900,   310,  4629, 29892,   920,
+        29906, 29914, 29946,   526,   278,  9886,   526,   526,  2198,   526,
+        12544,   278,  4565, 29889, 29892,   322, 29871,  9886,   526,   297,
+          278, 12713,  9404, 29892,   920,  1784,  8041,   526,   297,   278,
+          508,  9404, 29973,    13,  1371,   278,   596,   596, 17203,   297,
+          278, 20476,  5099,   403], device='cuda:0')
+labels tensor([    1,  4451,   310,   278, 29871, 29946, 29900, 29892, 29871, 29946,
+        29900,   921, 29871, 29896, 29914, 29896, 29900,   353,  3532, 29946,
+        29900, 29930, 29896, 29914, 29896, 29900, 29922, 29946,  6778, 29946,
+         8041,   526, 29207, 29889,    13,  6295, 29892, 29871, 29946, 29900,
+          448, 29871, 29946,   353,  3532, 29946, 29900, 29899, 29946, 29922,
+        29941, 29953,  6778, 29941, 29953,  8041,   526,  2198,   297,  3762,
+        29889,    13,  3744,   310], device='cuda:0')
+True Steps ['40*1/10=4', '40-4=36']
+True Final Out of the 40, 40 x 1/10 = <<40*1/10=4>>4 students are absent.
+So, 40 - 4 = <<40-4=36>>36 students are present in school.
+Out of
+Model steps []
+model final Unterscheidung are many100 in a class. The 1540 of selected, how2/4 are the remaining are are present are boys the front., and  remaining are in the hallteen, how many students are in the canteen?
+ help the your your calculations in the brackets >>ate
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 326, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 321, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 310, in train
+    train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 270, in train_epoch
+    loss = dense_loss(tokenizer, outputs, labels)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 218, in dense_loss
+    stop
+NameError: name 'stop' is not defined

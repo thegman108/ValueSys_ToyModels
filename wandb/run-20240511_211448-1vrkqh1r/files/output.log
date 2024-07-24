@@ -1,0 +1,73 @@
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 8541.05 examples/s]
+/usr/local/lib/python3.10/dist-packages/trl/trainer/sft_trainer.py:246: UserWarning: You didn't pass a `max_seq_length` argument to the SFTTrainer, this will default to 1024
+  warnings.warn(
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.06220594176090199
+  0%|                                                                                                                                    | 0/84 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+
+
+
+
+
+ 12%|██████████████▋                                                                                                            | 10/84 [00:13<01:32,  1.25s/it]
+
+
+
+
+
+
+ 24%|█████████████████████████████▎                                                                                             | 20/84 [00:26<01:18,  1.23s/it]
+
+
+
+
+
+
+ 36%|███████████████████████████████████████████▉                                                                               | 30/84 [00:38<01:05,  1.21s/it]
+
+
+
+
+
+
+
+ 49%|████████████████████████████████████████████████████████████                                                               | 41/84 [00:51<00:53,  1.24s/it]
+
+
+
+
+
+ 60%|█████████████████████████████████████████████████████████████████████████▏                                                 | 50/84 [01:02<00:41,  1.23s/it]/usr/local/lib/python3.10/dist-packages/peft/utils/other.py:581: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-663fe01d-242637ff7aaff67926c4124d;33bda727-4686-4b44-9660-f241a71bfde0)
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted. You must be authenticated to access it. - silently ignoring the lookup for the file config.json in meta-llama/Llama-2-7b-chat-hf.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in meta-llama/Llama-2-7b-chat-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+{'loss': 6.6334, 'grad_norm': 0.005758106242865324, 'learning_rate': 2.0, 'epoch': 1.79}
+
+
+
+
+
+ 71%|███████████████████████████████████████████████████████████████████████████████████████▊                                   | 60/84 [01:15<00:29,  1.22s/it]
+
+
+
+
+
+
+ 83%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌                    | 70/84 [01:27<00:17,  1.23s/it]
+
+
+
+
+
+
+ 95%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏     | 80/84 [01:40<00:04,  1.24s/it]
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 84/84 [01:44<00:00,  1.25s/it]
+{'train_runtime': 104.8756, 'train_samples_per_second': 14.303, 'train_steps_per_second': 0.801, 'train_loss': 7.261049679347447, 'epoch': 3.0}

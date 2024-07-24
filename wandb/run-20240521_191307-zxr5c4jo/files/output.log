@@ -1,0 +1,36 @@
+Map:   0%|                                                                    | 0/7473 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|███████████████████████████████████████████████████████| 7473/7473 [00:00<00:00, 7970.57 examples/s]
+Map: 100%|███████████████████████████████████████████████████████| 1319/1319 [00:00<00:00, 7669.12 examples/s]
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:588: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Epoch 0, Step 10: Current Average Loss: 9.415228939056396
+Validation Loss after Epoch 0: 7.827946662902832
+Epoch 0, Step 20: Current Average Loss: 8.098071360588074
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 331, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 326, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 313, in train
+    gradients = train_epoch(model, train_loader,optimizer, device, epoch_num, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+  File "/workspace/ValueSys_ToyModels/new_experiments/GPT2_fine_tune.py", line 235, in train_epoch
+    outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 1302, in forward
+    transformer_outputs = self.transformer(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 1116, in forward
+    outputs = block(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/models/gpt2/modeling_gpt2.py", line 650, in forward
+    hidden_states = self.ln_2(hidden_states)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1494, in _call_impl
+    def _call_impl(self, *args, **kwargs):
+KeyboardInterrupt
+Validation Loss after Epoch 0: 5.562199589346542

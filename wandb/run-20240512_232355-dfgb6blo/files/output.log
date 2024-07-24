@@ -1,0 +1,20 @@
+question Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+answer Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Janet has 16 ducks that lay 16 eggs per day. She eats 3 eggs for breakfast every day, so that's 3 eggs per day. She bakes 4 muffins per day, so that's 4 muffins per day. She sells the remaining eggs at the farmers' market for $2 per egg.
+To find out how much Janet makes at the farmers' market every day, we need to calculate the number of eggs she sells:
+16 eggs per day - 3 eggs per day for breakfast = 13 eggs per day sold at the farmers' market
+So, Janet sells 13 eggs per day at the farmers' market, and each egg costs $2. Therefore, she makes:
+13 eggs per day x $2 per egg = $26 per day at the farmers' market
+Therefore, Janet makes $26 per day at the farmers' market.
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 266, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 261, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 118, in train
+    stop
+NameError: name 'stop' is not defined
+question A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?
+answer A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?
+Answer:
+The robe requires 2 bolts of blue fiber and half that amount, which is 1 bolt, of white fiber. Therefore, it takes a total of 3 bolts of fiber to make the robe (2 blue + 1 white).

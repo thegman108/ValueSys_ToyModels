@@ -1,0 +1,39 @@
+Map:   0%|                                                                                         | 0/7473 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3946: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|████████████████████████████████████████████████████████████████████████████| 7473/7473 [00:00<00:00, 8618.44 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████████████████| 1319/1319 [00:00<00:00, 9688.41 examples/s]
+Question being sent Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Question: Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market? END Question
+Answer: Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+Janet's ducks lay 16 eggs per day.
+Janet eats 3 eggs for breakfast every day, so 16 - 3 = 13 eggs remain for sale.
+Janet bakes muffins with 4 eggs, so 13 - 4 = 9 eggs remain for sale.
+Janet sells the eggs at the farmers' market for $2 per fresh duck egg, so 9 eggs x $2 = $18 per day.
+Therefore, Janet makes $18 per day at the farmers' market. END Answer
+Question: A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take? END Question
+Answer: A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?
+Answer:
+The robe requires 2 bolts of blue fiber and half that amount, or 1 bolt, of white fiber. Therefore, it takes a total of 3 bolts of fiber to make the robe (2 blue + 1 white). END Answer
+Question: Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make? END Question
+Answer: Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?
+Answer:
+Josh made a profit of $35,000 ($50,000 - $80,000).
+Explanation:
+To find the profit, we need to subtract the original cost of the house from the increased value of the house after the repairs. In this case, the original cost of the house was $80,000, and the increased value after the repairs was $130,000 ($80,000 x 150%). Therefore, the profit was $35,000 ($130,000 - $80,000). END Answer
+/usr/local/lib/python3.10/dist-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune_evaluate.py", line 357, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune_evaluate.py", line 352, in main
+    train(epochs=epoch_count,token=token,training_type=training_type)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune_evaluate.py", line 159, in train
+    state_dict = torch.load("../model_checkpoints/dense_model_checkpoint_epoch_12.pth")
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 791, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 271, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 252, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '../model_checkpoints/dense_model_checkpoint_epoch_12.pth'
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622

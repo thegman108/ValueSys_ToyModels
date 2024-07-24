@@ -1,0 +1,54 @@
+
+Downloading readme: 100%|█████████████████████████████████████████████████████| 7.94k/7.94k [00:00<00:00, 10.2MB/s]
+Downloading data: 100%|███████████████████████████████████████████████████████| 2.31M/2.31M [00:00<00:00, 14.4MB/s]
+Downloading data: 100%|█████████████████████████████████████████████████████████| 419k/419k [00:00<00:00, 4.28MB/s]
+Generating train split: 100%|███████████████████████████████████████| 7473/7473 [00:00<00:00, 125773.58 examples/s]
+Generating test split: 100%|████████████████████████████████████████| 1319/1319 [00:00<00:00, 279903.21 examples/s]
+Map:   0%|                                                                          | 0/500 [00:00<?, ? examples/s]/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py:3921: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|██████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 7830.16 examples/s]
+Map: 100%|██████████████████████████████████████████████████████████████| 500/500 [00:00<00:00, 7082.60 examples/s]
+Traceback (most recent call last):
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 258, in <module>
+    main()
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 253, in main
+    train(epochs=epoch_count,token=token)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 109, in train
+    generate_answer(model, tokenizer, question, device)
+  File "/workspace/ValueSys_ToyModels/new_experiments/llama7b_lora_fine_tune.py", line 37, in generate_answer
+    inputs = tokenizer(question, return_tensors="pt", padding=True, truncation=True, max_length=64)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py", line 2858, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py", line 2916, in _call_one
+    raise ValueError(
+ValueError: text input must be of type `str` (single example), `List[str]` (batch or single pretokenized example) or `List[List[str]]` (batch of pretokenized examples).
+data {'input_ids': tensor([    1, 26259,   423,  5239,  9335,   567,   304, 29871, 29946, 29947,
+          310,   902,  7875,   297,  3786, 29892,   322,   769,  1183,  5239,
+         4203,   408,  1784,  9335,   567,   297,  2610, 29889,  1128,  1784,
+         9335,   567,  1258, 26259,   423, 19417, 19148,   297,  3786,   322,
+         2610, 29973,     2,     2,     2,     2,     2,     2,     2,     2,
+            2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+            2,     2,     2,     2]), 'attention_mask': tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), 'labels': tensor([    1, 26259,   423,  5239, 29871, 29946, 29947, 29914, 29906,   353,
+         3532, 29946, 29947, 29914, 29906, 29922, 29906, 29946,  6778, 29906,
+        29946,  9335,   567,   297,  2610, 29889,    13, 29940,  2075,   423,
+         5239, 29871, 29946, 29947, 29974, 29906, 29946,   353,  3532, 29946,
+        29947, 29974, 29906, 29946, 29922, 29955, 29906,  6778, 29955, 29906,
+         9335,   567, 19148,   297,  3786,   322,  2610, 29889,    13,  4136,
+        29871, 29955, 29906,     2])}
+Question being sent {'input_ids': tensor([    1,  2627,   300, 30010, 29879,   868,  4684,  6568, 29871, 29896,
+        29953, 29808,   639,  2462, 29889,  2296,   321,  1446,  2211,   363,
+        26044,  1432,  7250,   322,   289,  6926,   286,  3096,  1144,   363,
+          902,  7875,  1432,  2462,   411,  3023, 29889,  2296,   269, 10071,
+          278, 21162,   472,   278,  2215, 13269, 29915,  9999, 14218,   363,
+          395, 29906,   639, 10849,   868,   384, 19710, 29889,  1128,  1568,
+          297, 17208,   947,  1183]), 'attention_mask': tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]), 'labels': tensor([    1,  2627,   300,   269, 10071, 29871, 29896, 29953,   448, 29871,
+        29941,   448, 29871, 29946,   353,  3532, 29896, 29953, 29899, 29941,
+        29899, 29946, 29922, 29929,  6778, 29929,   868,   384, 29808,   263,
+         2462, 29889,    13, 13468,  3732, 29871, 29929,   334, 29871, 29906,
+          353,   395,  9314, 29929, 29930, 29906, 29922, 29896, 29947,  6778,
+        29896, 29947,  1432,  2462,   472,   278,  2215,  1050, 30010, 29879,
+         9999, 29889,    13,  4136])}
