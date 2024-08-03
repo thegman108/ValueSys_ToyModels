@@ -7,7 +7,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from transformers import AutoTokenizer, AutoModelForCausalLM, AdamW,    TrainingArguments
 from datasets import load_dataset
 from torch.utils.data.distributed import DistributedSampler
-from torch.cuda.amp import GradScaler, autocast
+from torch.amp import GradScaler, autocast
 import torch.optim as optim
 import wandb
 from peft import LoraConfig
@@ -189,12 +189,14 @@ def train(epochs,token, log_interval=10,training_type=None):
 
     def extract_last_n_tokens(tensor, n):
         return tensor[:, -n:]
+    def extract_random_n_tokens(tensor, n):
+        return tensor[:, torch.randint(tensor.size(1), (n,))]
 
     def sparse_loss(model_output, labels, number_logits = 10):
         n = number_logits
         # Extract the last n logits and labels
-        logits = extract_last_n_tokens(model_output.logits, n)
-        labels = extract_last_n_tokens(labels, n)
+        logits = extract_random_n_tokens(model_output.logits, n)
+        labels = extract_random_n_tokens(labels, n)
         
         # Flatten the tensors for cross-entropy loss calculation
         logits = logits.view(-n, logits.size(-1))
@@ -224,7 +226,7 @@ def train(epochs,token, log_interval=10,training_type=None):
                 masks = batch['attention_mask'].to(device)
                 labels = batch['labels'].to(device)
                 
-                with autocast():
+                with autocast('cuda'):
                     outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
                     
                     if training_type == "sparse":
@@ -239,7 +241,7 @@ def train(epochs,token, log_interval=10,training_type=None):
         return avg_loss
 
 
-    scaler = GradScaler()
+    scaler = GradScaler('cuda')
     
     def get_lora_gradients(model):
         lora_grads = []
@@ -266,7 +268,7 @@ def train(epochs,token, log_interval=10,training_type=None):
             labels = batch['labels'].to(device)  # Ensure labels are part of the batch
 
             optimizer.zero_grad()
-            with autocast():  # Mixed precision
+            with autocast('cuda'):  # Mixed precision
                 
                 #the old  way in which I was generating the model outputs
                 outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
@@ -327,7 +329,7 @@ def train(epochs,token, log_interval=10,training_type=None):
         if epoch_num > 0:
             checkpoint_path = f'{training_type}_model_checkpoint_epoch_{epoch_num}.pth'
             
-            model.save_pretrained("./llama7b_lora_fine_tune_sparse/") 
+            model.save_pretrained("/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_sparse_random/") 
             #torch.save(model.state_dict(), checkpoint_path)
             print(f"Checkpoint saved: {checkpoint_path}")
             cleanup_checkpoints('./', keep=3)  # Keep the last 3 checkpoints, adjust 'keep' as necessary
@@ -357,9 +359,11 @@ def train(epochs,token, log_interval=10,training_type=None):
 def main():
     world_size = torch.cuda.device_count()
     epoch_count = 3
-    token = "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"
+    token = os.environ['LLAMA_HF_TOKEN']
+    if not token:
+        raise ValueError("No LLaMa Huggingface token found")
     log_interval = 10
-    training_type = "sparse"
+    training_type = "dense"
     
     train(epochs=epoch_count,token=token,training_type=training_type)
     

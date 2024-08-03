@@ -83,8 +83,16 @@ def preprocess_data(tokenizer, examples):
 
 
 
-def train(epochs,token, log_interval=10,training_type=None, dataset = "microsoft/orca-math-word-problems-200k"):
+def train(
+    epochs,
+    token, 
+    log_interval=10,
+    training_type=None, 
+    dataset = "microsoft/orca-math-word-problems-200k", 
+    trust_remote_code=True,
+    **kwargs):
     
+    # breakpoint()
     #i guess I should just force this to the cached local
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=token, )
     print('about to get model')
@@ -104,7 +112,7 @@ def train(epochs,token, log_interval=10,training_type=None, dataset = "microsoft
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     
     #activation dataset
-    activation_data = load_dataset("math_dataset",'algebra__linear_1d', split='train[:100]')
+    activation_data = load_dataset("math_dataset",'algebra__linear_1d', split='train[:100]', trust_remote_code = trust_remote_code)
     activation_data = activation_data.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     activation_data.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     
@@ -184,12 +192,26 @@ def train(epochs,token, log_interval=10,training_type=None, dataset = "microsoft
 
     def extract_last_n_tokens(tensor, n):
         return tensor[:, -n:]
+    def extract_random_n_tokens(tensor, n):
+        return tensor[:, torch.randint(tensor.size(1), (n,))]
+    def extract_first_n_tokens(tensor, n):
+        return tensor[:, :n]
 
-    def sparse_loss(model_output, labels, number_logits = 10):
+    def sparse_loss(model_output, labels, number_logits = 10, sample = "last", **kwargs):
+        if 'sample' in kwargs:
+            sample = kwargs['sample']
+        # breakpoint()
         n = number_logits
         # Extract the last n logits and labels
-        logits = extract_last_n_tokens(model_output.logits, n)
-        labels = extract_last_n_tokens(labels, n)
+        if sample == "last":
+            logits = extract_last_n_tokens(model_output.logits, n)
+            labels = extract_last_n_tokens(labels, n)
+        elif sample == "random":
+            logits = extract_random_n_tokens(model_output.logits, n)
+            labels = extract_random_n_tokens(labels, n)
+        elif sample == "first":
+            logits = extract_first_n_tokens(model_output.logits, n)
+            labels = extract_first_n_tokens(labels, n)
         
         # Flatten the tensors for cross-entropy loss calculation
         logits = logits.view(-n, logits.size(-1))
@@ -223,7 +245,7 @@ def train(epochs,token, log_interval=10,training_type=None, dataset = "microsoft
                     outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
                     
                     if training_type == "sparse":
-                        loss = sparse_loss(outputs, labels,number_logits=1)
+                        loss = sparse_loss(outputs, labels,number_logits=1, **kwargs)
                     if training_type == "dense":
                         loss = dense_loss(model_output=outputs, labels=labels)
                 
@@ -294,7 +316,7 @@ def train(epochs,token, log_interval=10,training_type=None, dataset = "microsoft
         print(os.listdir())
         
         
-        file_path = '/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/lr_model_updated_llama7b_gsm.pkl'
+        file_path = '/workspace/ValueSys_ToyModels/new_experiments/lr_model_updated_llama7b.pkl'
         #load in the logistic regression model from local pkl file
         with open(file_path, 'rb') as f:
             lr_model = pickle.load(f)
@@ -371,7 +393,7 @@ def train(epochs,token, log_interval=10,training_type=None, dataset = "microsoft
                 outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
                 
                 if training_type =="sparse":
-                    loss = sparse_loss(outputs,labels, number_logits = 1)
+                    loss = sparse_loss(outputs,labels, number_logits = 1, **kwargs)
                 
                 if training_type == "dense":
                     loss = dense_loss(outputs,labels)
@@ -459,9 +481,9 @@ def main():
     epoch_count = 3
     token = "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"
     log_interval = 10
-    training_type = "dense"
+    training_type = "sparse"
     
-    train(epochs=epoch_count,token=token,training_type=training_type)
+    train(epochs=epoch_count,token=token,training_type=training_type,sample = "first")
     
     
    
