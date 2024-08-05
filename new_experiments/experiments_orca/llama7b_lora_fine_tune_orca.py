@@ -90,6 +90,7 @@ def train(
     training_type=None, 
     dataset = "microsoft/orca-math-word-problems-200k", 
     trust_remote_code=True,
+    number_logits=10,
     **kwargs):
     
     # breakpoint()
@@ -105,7 +106,7 @@ def train(
     wandb.init(project="coherence", entity="jprivera44", config={
         "epochs": epochs,
         "batch_size": 9,
-        "learning_rate": 20e-1,
+        "learning_rate": 5e-5,
         "experiment_type":training_type
     })
     
@@ -125,7 +126,7 @@ def train(
     ##############TRAIN###############
     
     ##############VALIDATION###############
-    data_v_string = load_dataset(dataset, split='train[2000:2500]')
+    data_v_string = load_dataset(dataset, split=f'train[2000:2500]')
     data_v = data_v_string.map(lambda e: preprocess_data(tokenizer, e), batched=True)
     data_v.set_format(type='torch', columns=['input_ids', 'attention_mask','labels'])
     ##############VALIDATION###############
@@ -154,7 +155,7 @@ def train(
         logging_steps=10,
         eval_steps=10,
         evaluation_strategy="steps",
-        learning_rate=20e-1,
+        learning_rate=5e-5,
         weight_decay=0.001,
         fp16=False,
         bf16=False,
@@ -179,7 +180,7 @@ def train(
 
     #set up the optimizer
     
-    optimizer = AdamW(model.parameters(), lr=5e-5)
+    optimizer = AdamW(model.parameters(), lr=train_params.learning_rate)
     
     def log_step_metrics(current_loss, epoch_num, step, total_steps):
         print(f"Epoch {epoch_num}, Step {step}: Current Average Loss: {current_loss}")
@@ -214,8 +215,8 @@ def train(
             labels = extract_first_n_tokens(labels, n)
         
         # Flatten the tensors for cross-entropy loss calculation
-        logits = logits.view(-n, logits.size(-1))
-        labels = labels.view(-n)
+        logits = logits.view(-1, logits.size(-1))
+        labels = labels.view(-1)
         
         # Calculate the sparse loss using cross-entropy
         loss_fct = torch.nn.CrossEntropyLoss()
@@ -230,7 +231,7 @@ def train(
         return loss
     
     
-    def evaluate(model, eval_loader, device,training_type, number_logits = 1):
+    def evaluate(model, eval_loader, device,training_type, number_logits = 10):
         model.eval()  # Set the model to evaluation mode
         total_loss = 0
         total_steps = 0
@@ -245,7 +246,7 @@ def train(
                     outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
                     
                     if training_type == "sparse":
-                        loss = sparse_loss(outputs, labels,number_logits=1, **kwargs)
+                        loss = sparse_loss(outputs, labels,number_logits=number_logits, **kwargs)
                     if training_type == "dense":
                         loss = dense_loss(model_output=outputs, labels=labels)
                 
@@ -316,7 +317,7 @@ def train(
         print(os.listdir())
         
         
-        file_path = '/workspace/ValueSys_ToyModels/new_experiments/lr_model_updated_llama7b.pkl'
+        file_path = '/workspace/ValueSys_ToyModels/new_experiments/lr_model_updated_gsm8k_random_llama7b_v3.pkl'
         #load in the logistic regression model from local pkl file
         with open(file_path, 'rb') as f:
             lr_model = pickle.load(f)
@@ -375,7 +376,7 @@ def train(
         return predicted_labels
     
     
-    def train_epoch(model, data_loader, optimizer, device, epoch_num,activation_input_ids, log_interval=10,training_type=None, total_epochs=0):
+    def train_epoch(model, data_loader, optimizer, device, epoch_num,activation_input_ids, log_interval=10,training_type=None, total_epochs=0, number_logits=10):
         model.train()
         total_loss = 0
         steps = 0
@@ -393,7 +394,7 @@ def train(
                 outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
                 
                 if training_type =="sparse":
-                    loss = sparse_loss(outputs,labels, number_logits = 1, **kwargs)
+                    loss = sparse_loss(outputs,labels, number_logits = number_logits, **kwargs)
                 
                 if training_type == "dense":
                     loss = dense_loss(outputs,labels)
@@ -447,7 +448,7 @@ def train(
         if epoch_num > 0:
             checkpoint_path = f'{training_type}_model_checkpoint_epoch_{epoch_num}.pth'
             
-            model.save_pretrained("/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/final_llama7b_lora_fine_tune_dense/") 
+            model.save_pretrained("/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/final_llama7b_lora_fine_tune_sparse_random/") 
             #torch.save(model.state_dict(), checkpoint_path)
             print(f"Checkpoint saved: {checkpoint_path}")
             #Might have an issue with getting too many checkpoints
@@ -470,7 +471,7 @@ def train(
     for epoch_num in range(epochs):
         
         #call the training loop
-        gradients = train_epoch(model, train_loader,optimizer, device, epoch_num,activation_inut_ids, log_interval=log_interval,training_type=training_type, total_epochs=epochs)
+        gradients = train_epoch(model, train_loader,optimizer, device, epoch_num,activation_inut_ids, log_interval=log_interval,training_type=training_type, total_epochs=epochs, number_logits=number_logits)
     
     with open(f'/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/final_gradients_{training_type}.pkl', 'wb') as f:
             pickle.dump(gradients, f)
@@ -478,12 +479,16 @@ def train(
 
 def main():
     world_size = torch.cuda.device_count()
-    epoch_count = 3
+    epoch_count = 6
     token = "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"
     log_interval = 10
     training_type = "sparse"
+    sample = "random"
+    dataset = "microsoft/orca-math-word-problems-200k"
+    number_logits = 10
     
-    train(epochs=epoch_count,token=token,training_type=training_type,sample = "first")
+    train(epochs=epoch_count,token=token,training_type=training_type,sample = sample, dataset=dataset, number_logits=number_logits)
+    print(f"Args: {epoch_count}, {training_type}, {sample}, {dataset}, random-gsm8k-classifier, {number_logits} tokens")
     
     
    

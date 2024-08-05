@@ -108,7 +108,7 @@ def train(epochs,token, log_interval=10,training_type=None):
     wandb.init(project="coherence", entity="jprivera44", config={
         "epochs": epochs,
         "batch_size": 9,
-        "learning_rate": 20e-1,
+        "learning_rate": 5e-5,
         "experiment_type":training_type
     })
     
@@ -199,8 +199,9 @@ def train(epochs,token, log_interval=10,training_type=None):
         labels = extract_random_n_tokens(labels, n)
         
         # Flatten the tensors for cross-entropy loss calculation
-        logits = logits.view(-n, logits.size(-1))
-        labels = labels.view(-n)
+        # breakpoint()
+        logits = logits.view(-1, logits.size(-1))
+        labels = labels.view(-1)
         
         # Calculate the sparse loss using cross-entropy
         loss_fct = torch.nn.CrossEntropyLoss()
@@ -274,7 +275,7 @@ def train(epochs,token, log_interval=10,training_type=None):
                 outputs = model(input_ids=inputs, attention_mask=masks, labels=labels)
                 
                 if training_type =="sparse":
-                    loss = sparse_loss(outputs,labels, number_logits = 1)
+                    loss = sparse_loss(outputs,labels, number_logits = 10)
                 
                 if training_type == "dense":
                     loss = dense_loss(outputs,labels)
@@ -329,7 +330,7 @@ def train(epochs,token, log_interval=10,training_type=None):
         if epoch_num > 0:
             checkpoint_path = f'{training_type}_model_checkpoint_epoch_{epoch_num}.pth'
             
-            model.save_pretrained("/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_sparse_random/") 
+            model.save_pretrained("/workspace/ValueSys_ToyModels/new_experiments/experiments_orca/llama7b_lora_fine_tune_sparse_random_10tokens/") 
             #torch.save(model.state_dict(), checkpoint_path)
             print(f"Checkpoint saved: {checkpoint_path}")
             cleanup_checkpoints('./', keep=3)  # Keep the last 3 checkpoints, adjust 'keep' as necessary
@@ -363,9 +364,10 @@ def main():
     if not token:
         raise ValueError("No LLaMa Huggingface token found")
     log_interval = 10
-    training_type = "dense"
+    training_type = "sparse"
     
     train(epochs=epoch_count,token=token,training_type=training_type)
+    print("dense")
     
     
    
