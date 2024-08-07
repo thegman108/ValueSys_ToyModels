@@ -1,1 +1,5 @@
 other/
+wandb/
+dense_activations_*
+sparse_activations_*
+sparse_random_activations_*

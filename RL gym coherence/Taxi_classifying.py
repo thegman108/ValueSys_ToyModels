@@ -406,7 +406,7 @@ if __name__ == '__main__':
         os.makedirs('models')
     model_path = "models/Taxi_GCN_USS_URS_"
     num_node_features = 1 # 1 if policy, 6 if q-table
-    MAKE_NEW_MODELS = False
+    MAKE_NEW_MODELS = True
     # %%
     if os.path.exists(model_path + "0.pt") and not MAKE_NEW_MODELS: # if classifiers have already been trained
         i = 0
@@ -425,13 +425,13 @@ if __name__ == '__main__':
             return partial(deterministic_random, seed = seed, **kwargs)
         UPS_agents = [QTableAgent(get_state_size(env), env.action_space.n) for _ in range(NUM_TRAIN_R_FUNCS)]
         UPS_r_funcs = [lambda *args: 0 for _ in range(NUM_TRAIN_R_FUNCS)]
-        URS_rand = np.random.randint(10000, size = NUM_TRAIN_R_FUNCS)
+        URS_rand = np.random.randint(1000, size = NUM_TRAIN_R_FUNCS)
         URS_r_funcs = [seed_deterministic_random(str(seed)) for seed in URS_rand]
         URS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R, 
                                 reward_function = r_func) for r_func in tqdm(URS_r_funcs)]
         print("Halfway there!")
-        USS_rand = np.random.randint(10000, size = NUM_TRAIN_R_FUNCS)
-        USS_r_funcs = [seed_deterministic_random(str(seed), sparsity = 0.99) for seed in USS_rand]
+        USS_rand = np.random.randint(1000, size = NUM_TRAIN_R_FUNCS)
+        USS_r_funcs = [seed_deterministic_random(str(seed), sparsity = 0.9) for seed in USS_rand]
         USS_agents = [train_qtable(env_name = env_name, episodes=NUM_EPS_TRAIN_R,
                                     reward_function = r_func) for r_func in tqdm(USS_r_funcs)]
 
